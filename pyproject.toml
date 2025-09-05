@@ -18,7 +18,8 @@ authors = [
 keywords = [
   'Langevin equation', 
   'directed percolation', 
-  'operator splitting'
+  'operator splitting',
+  'stochastic differential equations'
 ]
 classifiers = [
   "Development Status :: 1 - Planning",
