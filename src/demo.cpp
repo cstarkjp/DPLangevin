@@ -9,10 +9,10 @@
 #include "declarations.hpp"
 #include "application.hpp"
 
-results_t demo(
+auto demo(
     double linear, double quadratic, double diffusion, double noise, 
     int n_cells, double t_max, double dx, double dt, int random_seed
-)
+) -> results_t
 {
     // Set up parameters, coefficients etc
     Coefficients f_coeffs (linear, quadratic, diffusion, noise);

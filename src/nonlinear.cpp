@@ -17,7 +17,8 @@ void Dornic::set_nonlinear_coefficients(const Coefficients &f_coefficients)
     D = f_coefficients.diffusion / (dx*dx);
 }
 
-double Dornic::nonlinear_rhs(const int i_node, const dbl_vector &field) const
+auto Dornic::nonlinear_rhs(const int i_node, const dbl_vector &field) 
+    const -> double
 {
     // Non-linear terms
     const double quadratic_term = -quadratic_coeff*field[i_node]*field[i_node];
