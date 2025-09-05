@@ -10,8 +10,7 @@
 #include "application.hpp"
 
 PYBIND11_MODULE(dplvn, m) {
-    m.doc() = "'Dornic' operator-splitting method of integrating DP-type \
-Langevin equations"; 
+    m.doc() = "'Dornic' operator-splitting method of integrating DP-type Langevin equations"; 
     m.def(
         "demo", 
         &demo,
@@ -23,7 +22,7 @@ Langevin equations";
         py::arg("t_max") = 100.0,
         py::arg("dx") = 0.5,
         py::arg("dt") = 0.01,
-        py::arg("random_seed") = 1, //45345456, 
+        py::arg("random_seed") = 1,
         "Demo application of the Dornic method"
     );
 }
