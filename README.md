@@ -6,7 +6,7 @@ Adapted heavily from code developed by Paula Villa Martín, Victor Buendía.
 
 The equation solved in the demo here is the DP Langevin: 
 
-$\partial_t \rho = a\rho - b\rho^2 + D \nabla^2 \rho + \gamma \sqrt{\rho}\,\eta$
+$\partial_t \rho = a\rho - b\rho^2 + D \nabla^2 \rho + \gamma \sqrt{\rho} \, \eta$
 
 where $\rho(\mathbf{x},t)$ is the order parameter field, $a$ and $b$ are rate constants, $D$ is the diffusion rate, $\eta(\mathbf{x},t)$ is Gaussian white noise (uncorrelated, zero mean, unit variance), and $\gamma$ is the "demographic" noise amplitude.
 
