@@ -27,7 +27,7 @@ cpp_sources = files(
     'src/utils.cpp', 
     'src/nonlinear.cpp', 
     'src/demo.cpp', 
-    'src/bind.cpp'
+    'src/wrapper.cpp'
 )
 module_name = 'dplvn'
 
