@@ -16,9 +16,9 @@ See
 
 ## Usage
 
-Details on how to build are provided in the [`src`](src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), and [pybind11](https://pybind11.readthedocs.io/en/stable/) is the C++ wrapper. 
+Info on how to build is provided in the [`src/`](src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), and [pybind11](https://pybind11.readthedocs.io/en/stable/) is the C++ wrapper. 
 
-Simple demos are provided in the [`test`](test/README.md) directory.
+Simple demos are provided in the [`test/`](test/README.md) directory.
 
 
 
