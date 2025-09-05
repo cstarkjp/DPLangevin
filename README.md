@@ -1,7 +1,7 @@
 # DPLangevin
 ## Operator-splitting method of integrating DP/APT Langevin equations
 
-Python interface to C++ code implementing the operator-splitting method of integrating directed percolation (DP), absorbing-phase transition (APT) Langevin equations originally developed by the Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
+Python interface to C++ code implementing the operator-splitting method of integrating directed percolation (DP), absorbing-phase transition (APT) Langevin equations originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
 Adapted heavily from code developed by Paula Villa Martín, Victor Buendía.
 
 The equation solved in the demo here is the DP Langevin: 
