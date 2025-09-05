@@ -5,6 +5,7 @@ Python interface to C++ code implementing the operator-splitting method of integ
 Adapted heavily from code developed by Paula Villa Martín, Victor Buendía.
 
 The equation solved in the demo here is the DP Langevin:
+
 $$
    \partial_t \rho
    =
@@ -16,6 +17,7 @@ $$
    +
    \gamma \sqrt{\rho}\,\eta
 $$
+
 where $\rho(\mathbf{x},t)$ is the order parameter field, $a$ and $b$ are rate constants, $D$ is the diffusion rate, $\eta(\mathbf{x},t)$ is Gaussian white noise (uncorrelated, zero mean, unit variance), and $\gamma$ is the "demographic" noise amplitude.
 
 The build system is [meson-python](https://mesonbuild.com/meson-python/), and [pybind11](https://pybind11.readthedocs.io/en/stable/) is the C++ wrapper.
@@ -35,6 +37,6 @@ The build system is [meson-python](https://mesonbuild.com/meson-python/), and [p
 
    - [Villa Martín et al, 2014: "Eluding catastrophic shifts"](https://doi.org/10.1073/pnas.1414708112)   [[shared PDF]](https://www.dropbox.com/scl/fi/jzu0hxbifu8g8njglwfh1/VillaMartin_2014_CatastrophicShiftsDPLangevinSimulation2D.pdf?rlkey=i9s6s1i19jtgk6pua7xwdaa1a&st=qpfzqyyw&dl=0) 
 
-   - [Villa Martín, 2019  (GitHub repo): "Dornic integration method for multipicative [sic] noise"](https://github.com/pvillamartin/Dornic_et_al_integration_class)   [[shared PDF]](https://www.dropbox.com/scl/fi/jzu0hxbifu8g8njglwfh1/VillaMartin_2014_CatastrophicShiftsDPLangevinSimulation2D.pdf?rlkey=i9s6s1i19jtgk6pua7xwdaa1a&st=qpfzqyyw&dl=0) 
+   - [Villa Martín, 2019  (GitHub repo): "Dornic integration method for multipicative [sic] noise"](https://github.com/pvillamartin/Dornic_et_al_integration_class)   [[shared PDF]](https://www.dropbox.com/scl/fi/sdeiwyxjpyx6a2tv5vibr/VillaMartin_2019_DornicMethod.pdf?rlkey=wykox7ifyu0ms4pd3hokp1d4u&st=xir9d3vt&dl=0) 
 
    - [Weissmann et al, 2018: "Simulation of spatial systems with demographic noise"](https://doi.org/10.1103/PhysRevE.98.022131)   [[shared PDF]]() 
