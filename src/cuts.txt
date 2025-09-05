@@ -1,0 +1,211 @@
+    // // Class constructor
+    // Dornic(
+    //     const double dt_in, 
+    //     const double dx_in, 
+    //     const double total_n_cells, 
+    //     const Coefficients &f_coeffs
+    // )
+    // {
+    //     // Initialization of integration increments
+    //     dt = dt_in;
+    //     dx = dx_in;
+
+    //     // Initialization of Runge-Kutta variables
+    //     dtm = 0.5*dt;
+    //     dts = dt/6.0;
+
+    //     // Initial number of cells, set no activity for the system
+    //     n_cells = total_n_cells;
+    //     cell_density = dbl_vector(n_cells, 0.0); 
+    //     aux_cell_new = dbl_vector(n_cells);
+    //     aux_cell_old = dbl_vector(n_cells);
+
+    //     #if CONSTANT_CELL_NUMBER
+    //     k1 = dbl_vector(n_cells, 0.0);
+    //     k2 = dbl_vector(n_cells, 0.0);
+    //     k3 = dbl_vector(n_cells, 0.0);
+    //     k4 = dbl_vector(n_cells, 0.0);
+    //     #endif
+
+    //     // Initialization of Dornic variables
+    //     set_coefficients(f_coeffs);
+    // }
+
+    // Overload with no parameters
+
+
+// meson.build:
+//
+// # Installing an editable package doesn't work at the moment:
+// #   $ pip install --editable .
+// # so do this instead:
+// #   $ pip install .
+
+
+// # py.install_sources(
+// #     'src/__init__.py',
+// #     'src/initialize.py',
+// #     'src/sim.py',
+// #     # subdir: 'src',
+// # )
+
+
+// # py.extension_module(
+// #     'example',
+// #     'src/example.cpp',
+// #     install: true,
+// #     dependencies : [pybind11_dep],
+// # )
+// # cpp_sources = files('src/demo.cpp')
+
+
+
+
+// # subdir('src')
+
+// # https://pybind11.readthedocs.io/en/stable/compiling.html
+// # Meson-python requires your project to be in git (or mercurial) 
+// # as it uses it for the SDist creation. 
+// # For projects you plan to upload to PyPI, be sure to fill out 
+// # the [project] table as well (see Writing pyproject.toml).
+
+// # rm -rf build; meson setup build; meson compile -C build
+
+
+
+
+    // double &operator[](const int index)
+    // {
+    //     return cell_density[index];
+    // }
+    // // The same as above, but this will be invoked when reading the value.
+    // const double &operator[](const int index) const 
+    // {
+    //     return cell_density[index];
+    // }
+    // // Declare as friend function
+    // friend std::ostream& operator<<(std::ostream& os, const Dornic &dornic);
+
+
+// // Ostream operator to write results to file
+// std::ostream& operator<<(std::ostream& outs, const Dornic &dornic)
+// {
+//     for (auto i=0; i<dornic.n_cells; i++)
+//     {
+//         outs << dornic[i] << " ";
+//     }
+//     outs << std::endl;
+//     return outs;
+// }
+
+// Report final simulation values
+// for (auto i=n_epochs-10; i<n_epochs; i++)
+// {
+//     std::cout << epochs[i] << ": " << densities[i] << std::endl;
+// }
+
+
+
+// class Results {
+//     public:
+//         size_t n_epochs;
+//         dbl_vector epochs;
+//         dbl_vector densities;
+
+//         Results(size_t a, dbl_vector b, dbl_vector c)
+//             : n_epochs(a), epochs(b), densities(c) {}
+//     };
+
+// Results create_my_class_instance(size_t a, dbl_vector b, dbl_vector c) {
+//     return Results(a,b,c);
+// }
+
+
+// // Assuming 'data' is a pointer to your C++ data (e.g., float*, double*)
+// // 'shape' is a vector representing the dimensions of the array (e.g., {rows, cols})
+// // 'strides' is optional, representing byte offsets for each dimension
+// py::array_t<double> create_double_array(double* data, size_t rows, size_t cols) {
+//     // Define shape and strides
+//     std::vector<size_t> shape = {rows, cols};
+//     std::vector<size_t> strides = {sizeof(double)*cols, sizeof(double)};
+
+//     // Create py::array_t with ownership transfer (using a capsule)
+//     // The lambda function acts as a deleter for the data when the array is deallocated
+//     return py::array_t<double>(
+//         shape,      // Shape of the array
+//         strides,    // Strides (optional, calculated automatically if not provided)
+//         data,       // Pointer to the data
+//         py::capsule(data, [](void *p) { delete[] static_cast<double*>(p); }) // Deleter for memory management
+//     );
+// }
+// class MyMatrix {
+// public:
+//     // ... constructor, data storage, etc. ...
+
+//     // Method to set data from a NumPy array
+//     void set_data_from_numpy(py::array_t<double> input_array) {
+//         // Access data using input_array.data() or unchecked()
+//         // ... copy or process data ...
+//     }
+
+//     // Method to return data as a NumPy array
+//     py::array_t<double> get_data_as_numpy() {
+//         // Create a py::array_t from internal data
+//         // ... construct and return ...
+//         return py::array_t<double>({2,3}); // Placeholder
+//     }
+// };
+
+
+
+
+
+
+
+    // py::class_<Results>(m, "results")
+    //     // .def(py::init<size_t, dbl_vector, dbl_vector>())
+    //     .def_property_readonly("epochs", [](const Results& self) {
+    //         // Return a py::array_t referencing the C++ data
+    //         return py::array_t<double>(
+    //             self.epochs.size(),
+    //             self.epochs.data(),
+    //             py::cast(self) // Keep the C++ object alive
+    //         );
+    //     })
+    //     .def_property_readonly("densities", [](const Results& self) {
+    //         return py::array_t<double>(
+    //             self.densities.size(),
+    //             self.densities.data(),
+    //             py::cast(self)
+    //         );
+    //     });
+
+    // py::class_<MyMatrix>(m, "MyMatrix")
+    //     .def(py::init<>())
+    //     .def("set_data", &MyMatrix::set_data_from_numpy)
+    //     .def("get_data", &MyMatrix::get_data_as_numpy);
+
+    // 
+    // m.def("t", []() {
+    //     // std::vector<int> t = {1, 2, 3, 4, 5, 6};
+    //     // 6 rows, 1 columns
+    //     return py::array_t<int>({6}, epoch.data()); 
+    // }, "Creates and returns a 2x3 NumPy array of integers.");
+    // m.def("modify_and_return_array", [](py::array_t<double> input_array) {
+    //     // Request buffer info to access array data
+    //     py::buffer_info buf_info = input_array.request();
+    //     double* ptr = static_cast<double*>(buf_info.ptr);
+
+    //     // Modify the array in-place
+    //     for (size_t i = 0; i < buf_info.size; ++i) {
+    //         ptr[i] *= 2.0;
+    //     }
+    //     return input_array; // Return the modified array
+    // }, "Modifies an input NumPy array in-place and returns it.");
+
+            // epochs.push_back(t);
+        // mean_densities.push_back(dornic.density());
+
+
+// # import os, sys
+// # sys.path.insert(0, os.path.abspath('build'))

@@ -1,0 +1,44 @@
+[build-system]
+build-backend = "mesonpy"
+requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
+
+[project]
+name = 'dplvn'
+version = '2025.09.02'
+# dynamic = ["version"]
+description = 'Operator-splitting method of integrating DP/APT Langevin equations'
+readme = 'README.md'
+requires-python = '>=3.12'
+# license = "GPL-3.0-or-later"
+# license-files = ["LICENSE.txt"]
+# urls = 'https://github.com/cstarkjp/DPLangevin'
+authors = [
+  {name = 'Colin P. Stark', email = 'cstarkjp@gmail.com'},
+]
+keywords = [
+  'Langevin equation', 
+  'directed percolation', 
+  'operator splitting'
+]
+classifiers = [
+  "Development Status :: 1 - Planning",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: C++",
+  "Programming Language :: Python :: 3",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+]
+
+[project.urls]
+homepage = "https://github.com/cstarkjp/DPLangevin"
+repository = "https://github.com/cstarkjp/DPLangevin"
+documentation = "https://github.com/cstarkjp/DPLangevin"
+# "Bug Tracker" = "https://github.com/cstarkjp/DPLangevin"
+
+
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+# https://github.com/scikit-fmm/scikit-fmm/blob/master/pyproject.toml
+# https://gist.github.com/nazrulworld/3800c84e28dc464b2b30cec8bc1287fc
