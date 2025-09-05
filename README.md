@@ -2,7 +2,7 @@
 ## Operator-splitting method of integrating DP/APT Langevin equations
 
 Python interface to C++ code implementing the operator-splitting method of integrating directed percolation (DP), absorbing-phase transition (APT) Langevin equations originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
-Adapted heavily from code developed by Paula Villa Martín, Victor Buendía.
+Adapted heavily from code developed by Paula Villa Martín, extended by Victor Buendía, and arising from earlier code written by Ivan Dornic and Juan Bonachela.
 
 The equation solved in the demo here is the DP Langevin: 
 
@@ -10,12 +10,20 @@ $\partial_t \rho = a\rho - b\rho^2 + D \nabla^2 \rho + \gamma \sqrt{\rho} \eta$
 
 where $\rho(\mathbf{x},t)$ is the order parameter field, $a$ and $b$ are rate constants, $D$ is the diffusion rate, $\eta(\mathbf{x},t)$ is Gaussian white noise (uncorrelated, zero mean, unit variance), and $\gamma$ is the "demographic" noise amplitude.
 
-The build system is [meson-python](https://mesonbuild.com/meson-python/), and [pybind11](https://pybind11.readthedocs.io/en/stable/) is the C++ wrapper.
+See 
+[Victor Buendía's fork of Paula Villa Martín's repo](https://github.com/VictorSeven/Dornic_et_al_integration_class/tree/victor-update)
+ for details on more general applications and on how the integration scheme is implemented.
+
+## Usage
+
+Details on how to build are provided in the [`src`](src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), and [pybind11](https://pybind11.readthedocs.io/en/stable/) is the C++ wrapper. 
+
+Simple demos are provided in the [`test`](test/README.md) directory.
 
 
 
 
-### References
+## References
 
    - [Buendía, 2019: "Dornic integration method for multipicative [sic] noise" (fork of GitHub repo by Villa Martín)](https://github.com/VictorSeven/Dornic_et_al_integration_class/tree/victor-update)   [[shared PDF]](https://www.dropbox.com/scl/fi/jzu0hxbifu8g8njglwfh1/VillaMartin_2014_CatastrophicShiftsDPLangevinSimulation2D.pdf?rlkey=i9s6s1i19jtgk6pua7xwdaa1a&st=qpfzqyyw&dl=0) 
 
