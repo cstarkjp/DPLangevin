@@ -19,7 +19,8 @@ keywords = [
   'Langevin equation', 
   'directed percolation', 
   'operator splitting',
-  'stochastic differential equations'
+  'stochastic differential equations',
+  'phase transition'
 ]
 classifiers = [
   "Development Status :: 1 - Planning",
