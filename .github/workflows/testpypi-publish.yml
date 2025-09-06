@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 jobs:
-  main-build:
+  build-main:
     runs-on: ubuntu-latest
 
     steps:
@@ -41,10 +41,10 @@ jobs:
       #     name: release-dists
       #     path: dist/
 
-  publish:
+  publish-to-testpypi:
     runs-on: ubuntu-latest
     needs:
-      - main-build
+      - build-main
     permissions:
       # IMPORTANT: this permission is mandatory for trusted publishing
       id-token: write
@@ -53,7 +53,7 @@ jobs:
     # For more information, see: https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules
     environment:
       name: testpypi
-      url: https://testpypi.org/project/dplvn
+      url: https://testpypi.org/p/dplvn
       #
       # ALTERNATIVE: if your GitHub Release name is the PyPI project version string
       # ALTERNATIVE: exactly, uncomment the following line instead:
@@ -71,5 +71,5 @@ jobs:
         with:
           packages-dir: dist/
           repository_url: https://test.pypi.org/legacy/
-          password: ${{ secrets.pypi-AgENdGVzdC5weXBpLm9yZwIkMzJmYjg2N2QtYzc0Ni00NjljLThmNGUtOWI0NzA3NWM4M2NkAAIqWzMsIjcxZTFhYmFkLTg3NTktNDdhOC05NDgwLTg3OTAyNzYyZGM2MiJdAAAGIG2Oy2iZTX0nWmdrsH1kfATaNHHWMAh-vyEUQF3sxwIm }}
+          password: ${{ pypi-AgENdGVzdC5weXBpLm9yZwIkMzJmYjg2N2QtYzc0Ni00NjljLThmNGUtOWI0NzA3NWM4M2NkAAIqWzMsIjcxZTFhYmFkLTg3NTktNDdhOC05NDgwLTg3OTAyNzYyZGM2MiJdAAAGIG2Oy2iZTX0nWmdrsH1kfATaNHHWMAh-vyEUQF3sxwIm }}
           skip_existing: true # Optional: prevents errors if package already exists
