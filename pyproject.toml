@@ -4,8 +4,8 @@ requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
 
 [project]
 name = 'dplvn'
-# version = '2025.09.06a2'
-dynamic = ["version"]
+version = '2025.09.3'
+# dynamic = ["version"]
 description = 'Operator-splitting method of integrating DP/APT Langevin equations'
 readme = 'README.md'
 requires-python = '>=3.12'
