@@ -27,9 +27,9 @@ jobs:
       - name: Build package
         run: |
           python -m build
-          mv dist dist_tmp
-          auditwheel repair dist_tmp/*.whl --wheel-dir dist
-          rm -f dist/*-linux_x86_64.whl
+          # mv dist dist_tmp
+          # auditwheel repair dist_tmp/*.whl --wheel-dir dist
+          # rm -f dist/*-linux_x86_64.whl
           
       - name: Upload distribution
         uses: actions/upload-artifact@v4
