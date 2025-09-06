@@ -35,7 +35,8 @@ jobs:
 
       - name: Publish package to TestPyPI
         run: |
-          twine upload --verbose --repository-url https://test.pypi.org/legacy/ dist/*
+          twine upload --verbose -r testpypi dist/*
+          # twine upload --verbose --repository-url https://test.pypi.org/legacy/ dist/*
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.TESTPYPI_API_TOKEN }}
