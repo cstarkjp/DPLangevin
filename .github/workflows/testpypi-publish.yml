@@ -33,6 +33,13 @@ jobs:
           name: main-dist
           path: dist/
 
+      # - name: Publish package to TestPyPI
+      #   run: |
+      #     twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+      #   env:
+      #     TWINE_USERNAME: __token__
+      #     TWINE_PASSWORD: ${{ secrets.TESTPYPI_API_TOKEN }}
+
   publish-to-testpypi:
     runs-on: ubuntu-latest
     needs:
@@ -57,5 +64,5 @@ jobs:
         with:
           packages-dir: dist/
           repository_url: https://test.pypi.org/legacy/
-          password: ${{ secrets.pypi-AgENdGVzdC5weXBpLm9yZwIkMzJmYjg2N2QtYzc0Ni00NjljLThmNGUtOWI0NzA3NWM4M2NkAAIqWzMsIjcxZTFhYmFkLTg3NTktNDdhOC05NDgwLTg3OTAyNzYyZGM2MiJdAAAGIG2Oy2iZTX0nWmdrsH1kfATaNHHWMAh-vyEUQF3sxwIm }}
+          password: ${{ secrets.TESTPYPI_API_TOKEN }}
           skip_existing: true # Optional: prevents errors if package already exists
