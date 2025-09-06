@@ -1,18 +1,18 @@
 # DPLangevin
 ## Operator-splitting method of integrating DP/APT Langevin equations
 
-![](https://github.com/cstarkjp/DPLangevin/blob/main/doc/meandensity_time.png "Results of demo DP integration")
+![alt](https://github.com/cstarkjp/DPLangevin/blob/main/doc/meandensity_time.png "Results of demo DP integration")
 
-![](doc/meandensity_time.png "Results of demo DP integration")
+![alt](test/meandensity_time.png "Results of demo DP integration")
 
 Python interface to C++ code implementing the operator-splitting method of integrating directed percolation (DP), absorbing-phase transition (APT) Langevin equations originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
 Adapted heavily from code developed by Paula Villa Martín, extended by Victor Buendía, and arising from earlier code written by Ivan Dornic and Juan Bonachela.
 
 The equation solved in the demo here is the DP Langevin for a 2D grid with initial values sampled from $\mathbb{U}[0,1]$: 
 
-![](https://github.com/cstarkjp/DPLangevin/blob/main/doc/DPLangevin.png "DP Langevin equation")
+![alt](https://github.com/cstarkjp/DPLangevin/blob/main/doc/dplangevin_equation.png "DP Langevin equation")
 
-![](doc/DPLangevin.png "DP Langevin equation")
+![alt](doc/dplangevin_equation.png "DP Langevin equation")
 
 <!-- $`\partial_t \rho = a\rho - b\rho^2 + D \nabla^2 \rho + \gamma \sqrt{\rho} \, \eta`$ -->
 
