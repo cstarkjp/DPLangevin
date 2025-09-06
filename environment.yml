@@ -10,6 +10,7 @@ dependencies:
   - meson
   - pybind11
   - ninja
+  - twine
   - numpy
   - jupyter
   - ipython
