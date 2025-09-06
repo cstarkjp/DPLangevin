@@ -46,7 +46,7 @@ jobs:
       url: https://testpypi.org/project/dplvn
 
     steps:
-      - name: Retrieve release distributions
+      - name: Retrieve main distribution
         uses: actions/download-artifact@v4
         with:
           name: main-dist
