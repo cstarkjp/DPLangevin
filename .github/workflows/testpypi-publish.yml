@@ -28,6 +28,7 @@ jobs:
           python -m build
           # auditwheel repair dplvn-2025.9.6-cp312-cp312-linux_x86_64.whl
           auditwheel repair dist/*.whl --wheel-dir dist
+          rm -f dist/*-linux_x86_64.whl
           
       - name: Upload distribution
         uses: actions/upload-artifact@v4
