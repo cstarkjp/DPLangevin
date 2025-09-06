@@ -27,13 +27,13 @@ jobs:
         run: |
           python -m build
           # auditwheel repair dplvn-2025.9.6-cp312-cp312-linux_x86_64.whl
-          auditwheel repair dist/*.whl #--wheel-dir dist/repaired_wheels
+          auditwheel repair dist/*.whl --wheel-dir dist
           
       - name: Upload distribution
         uses: actions/upload-artifact@v4
         with:
           name: main-dist
-          path: dist/
+          path: dist_repaired/
 
       - name: Publish package to TestPyPI
         run: |
