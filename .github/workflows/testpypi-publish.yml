@@ -78,7 +78,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Retrieve macos artifact
+      - name: Retrieve linux artifact
         uses: actions/download-artifact@v4
         with:
           name: linux-dist
@@ -101,31 +101,3 @@ jobs:
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.TESTPYPI_API_TOKEN }}
-
-    
-  # publish-to-testpypi:
-  #   runs-on: ubuntu-latest
-  #   needs:
-  #     - build-main
-  #   permissions:
-  #     # IMPORTANT: this permission is mandatory for trusted publishing
-  #     id-token: write
-
-  #   environment:
-  #     name: testpypi
-  #     url: https://testpypi.org/project/dplvn
-
-  #   steps:
-  #     - name: Retrieve main distribution
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: main-dist
-  #         path: dist/
-
-  #     - name: Publish release distributions to TestPyPI
-  #       uses: pypa/gh-action-pypi-publish@release/v1
-  #       with:
-  #         packages-dir: dist/
-  #         repository_url: https://test.pypi.org/legacy/
-  #         # password: ${{ secrets.TESTPYPI_API_TOKEN }}
-  #         skip_existing: true # Optional: prevents errors if package already exists
