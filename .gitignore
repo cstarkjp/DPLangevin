@@ -57,6 +57,7 @@ desktop.ini
 **/*.sw[abcdefghijklmnop]
 
 build/
+dist/
 *.pyc
 *~
 \#*
