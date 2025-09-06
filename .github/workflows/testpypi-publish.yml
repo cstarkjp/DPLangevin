@@ -43,7 +43,7 @@ jobs:
 
     environment:
       name: testpypi
-      url: https://testpypi.org/project/DPLangevin
+      url: https://testpypi.org/project/dplvn
 
     steps:
       - name: Retrieve release distributions
