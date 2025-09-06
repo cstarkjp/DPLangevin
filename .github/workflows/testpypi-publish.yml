@@ -26,7 +26,6 @@ jobs:
       - name: Build package
         run: |
           python -m build
-          # auditwheel repair dplvn-2025.9.6-cp312-cp312-linux_x86_64.whl
           auditwheel repair dist/*.whl --wheel-dir dist
           rm -f dist/*-linux_x86_64.whl
           
