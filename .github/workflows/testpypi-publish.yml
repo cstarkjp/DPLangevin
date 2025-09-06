@@ -9,8 +9,9 @@ permissions:
   contents: read
 
 jobs:
-  build-main:
-    runs-on: ubuntu-latest
+  build-macos:
+    runs-on: macos-latest
+    # runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -26,23 +27,43 @@ jobs:
       - name: Build package
         run: |
           python -m build
-          auditwheel repair dist/*.whl --wheel-dir dist
+          mv dist dist_tmp
+          auditwheel repair dist_tmp/*.whl --wheel-dir dist
           rm -f dist/*-linux_x86_64.whl
           
       - name: Upload distribution
         uses: actions/upload-artifact@v4
         with:
-          name: main-dist
-          path: dist_repaired/
+          name: macos-dist
+          path: dist/
+
+      # - name: Publish package to TestPyPI
+      #   run: |
+      #     twine upload --verbose -r testpypi dist/*
+      #   env:
+      #     TWINE_USERNAME: __token__
+      #     TWINE_PASSWORD: ${{ secrets.TESTPYPI_API_TOKEN }}
+
+
+
+  publish-to-testpypi:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Retrieve main distribution
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-dist
+          path: dist/
 
       - name: Publish package to TestPyPI
         run: |
           twine upload --verbose -r testpypi dist/*
-          # twine upload --verbose --repository-url https://test.pypi.org/legacy/ dist/*
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.TESTPYPI_API_TOKEN }}
 
+    
   # publish-to-testpypi:
   #   runs-on: ubuntu-latest
   #   needs:
