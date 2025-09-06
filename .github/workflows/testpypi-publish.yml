@@ -71,5 +71,5 @@ jobs:
         with:
           packages-dir: dist/
           repository_url: https://test.pypi.org/legacy/
-          password: ${{ pypi-AgENdGVzdC5weXBpLm9yZwIkMzJmYjg2N2QtYzc0Ni00NjljLThmNGUtOWI0NzA3NWM4M2NkAAIqWzMsIjcxZTFhYmFkLTg3NTktNDdhOC05NDgwLTg3OTAyNzYyZGM2MiJdAAAGIG2Oy2iZTX0nWmdrsH1kfATaNHHWMAh-vyEUQF3sxwIm }}
+          password: ${{ secrets.pypi-AgENdGVzdC5weXBpLm9yZwIkMzJmYjg2N2QtYzc0Ni00NjljLThmNGUtOWI0NzA3NWM4M2NkAAIqWzMsIjcxZTFhYmFkLTg3NTktNDdhOC05NDgwLTg3OTAyNzYyZGM2MiJdAAAGIG2Oy2iZTX0nWmdrsH1kfATaNHHWMAh-vyEUQF3sxwIm }}
           skip_existing: true # Optional: prevents errors if package already exists
