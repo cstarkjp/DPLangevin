@@ -74,6 +74,7 @@ jobs:
 
 
   publish-to-testpypi:
+    needs: [build-macos, build-linux]
     runs-on: ubuntu-latest
 
     steps:
