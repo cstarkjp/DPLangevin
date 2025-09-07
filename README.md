@@ -18,7 +18,7 @@ The equation solved in the demo here is the DP Langevin for a 2D grid with initi
 
 <!-- $`\partial_t \rho = a\rho - b\rho^2 + D \nabla^2 \rho + \gamma \sqrt{\rho} \, \eta`$ -->
 
-where ρ(x,t) is the order parameter field, a and b are rate constants, D is the diffusion rate, η(x,t) is Gaussian white noise (uncorrelated, zero mean, unit variance), and γ is the "demographic" noise amplitude.
+where *ρ(**x**,t)* is the order parameter field, *a* and *b* are rate constants, *D* is the diffusion rate over **_x_**, *η(**x**,t)* is Gaussian white noise (uncorrelated, zero mean, unit variance), and *γ* is the "demographic" noise amplitude.
 
 See 
 [Victor Buendía's fork of Paula Villa Martín's repo](https://github.com/VictorSeven/Dornic_et_al_integration_class/tree/victor-update)
