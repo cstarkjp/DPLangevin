@@ -1,7 +1,11 @@
 # DPLangevin
-## Operator-splitting method of integrating directed-percolation Langevin equations
+## Operator-splitting method of integrating directed percolation Langevin equations
 
-![](test/meandensity_time.png "Results of demo DP integration")
+<!-- ![](test/meandensity_time.png "Results of demo DP integration") -->
+
+![](https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/test/meandensity_time.png
+ "Results of demo DP integration")
+
 
 Python interface to C++ code implementing the operator-splitting method of integrating directed percolation (more generally, absorbing phase transition) Langevin equations originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
 Adapted heavily from code developed by Paula Villa Martín, extended by Victor Buendía, and arising from earlier code written by Ivan Dornic and Juan Bonachela.
