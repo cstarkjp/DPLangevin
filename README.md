@@ -1,5 +1,5 @@
-# DPLangevin
-## Operator-splitting method of integrating directed percolation Langevin equations
+# DP Langevin
+## Operator-splitting method of integrating directed percolation (DP) Langevin equations
 
 <!-- ![](test/meandensity_time.png "Results of demo DP integration") -->
 
