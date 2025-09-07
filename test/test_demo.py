@@ -2,9 +2,9 @@
 
 import numpy as np
 from numpy.typing import NDArray
-import dplvn # type: ignore
+import src # type: ignore
 
-result = dplvn.demo(
+result = src.demo(
     n_cells=64, #4096 
     linear=1.0, quadratic=2.0, diffusion=0.1, noise=1.0, 
     # t_max=100.0, dx=0.5, dt=0.01

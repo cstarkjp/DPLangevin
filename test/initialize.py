@@ -50,7 +50,6 @@ unavailable processing continues regardless.
 
 from IPython import get_ipython #type: ignore
 
-
 def check_is_ipython() -> bool:
     """Check if we are running an IPython kernel from Jupyter etc."""
     try:
@@ -72,7 +71,9 @@ if is_python:
             "config", 
             "InlineBackend.figure_format = 'retina'",
         )
+        # print("Retina backend enabled")
     except NameError:
+        # print("Retina backend not enabled")
         pass
 
     try:

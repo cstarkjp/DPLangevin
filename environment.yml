@@ -1,8 +1,8 @@
 # This file may be used to create a conda environment using:
-#   $ conda env create --prefix=${HOME}/miniconda3/envs/dplvn --file environment.yml
+#   $ conda env create --prefix=${HOME}/miniconda3/envs/dplvn3p12 --file environment.yml
 # Modding PYTHONPATH seem to break things (zstandard errors, invocation of wrong Python):
-#   $ conda env config vars set PYTHONPATH=${HOME}/miniconda3/envs/dplvn/lib/python3.12/site-packages
-name: dplvn
+#   $ conda env config vars set PYTHONPATH=${HOME}/miniconda3/envs/dplvn3p12/lib/python3.12/site-packages
+name: dplvn3p12
 channels:
   - conda-forge
 dependencies:
