@@ -12,8 +12,8 @@
 PYBIND11_MODULE(dplvn, m) {
     m.doc() = "'Dornic' operator-splitting method of integrating DP-type Langevin equations"; 
     m.def(
-        "demo", 
-        &demo,
+        "dp", 
+        &dp,
         py::arg("linear") = 1.0, 
         py::arg("quadratic") = 2.0, 
         py::arg("diffusion") = 0.1,

@@ -24,13 +24,22 @@ See
 [Victor Buendía's fork of Paula Villa Martín's repo](https://github.com/VictorSeven/Dornic_et_al_integration_class/tree/victor-update)
  for details on more general applications and on how the integration scheme is implemented.
 
-## Usage
+## Installation
 
-Info on how to build is provided in the [`src/`](https://github.com/cstarkjp/DPLangevin/tree/main/src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), and [pybind11](https://pybind11.readthedocs.io/en/stable/) is the C++ wrapper. 
+First, set up a Python environment using the `requirements.txt` file. 
+
+Then, since we're still in the testing phase, install the `dplvn` package from `TestPyPI` into this environment:
+
+    pip install -i https://test.pypi.org/simple/ dplvn
+
+## Usage
 
 Simple demos are provided in the [`test/`](https://github.com/cstarkjp/DPLangevin/tree/main/test/README.md) directory.
 
 
+## Building from source
+
+Build info is in [`src/`](https://github.com/cstarkjp/DPLangevin/tree/main/src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), and [pybind11](https://pybind11.readthedocs.io/en/stable/) is the C++ wrapper. 
 
 
 ## References

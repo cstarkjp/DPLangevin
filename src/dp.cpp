@@ -9,7 +9,7 @@
 #include "declarations.hpp"
 #include "application.hpp"
 
-auto demo(
+auto dp(
     double linear, double quadratic, double diffusion, double noise, 
     int n_cells, double t_max, double dx, double dt, int random_seed
 ) -> results_t

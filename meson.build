@@ -1,7 +1,7 @@
 project(
     'DPLangevin',
     'cpp',
-    version: '2025.09.8a9',
+    version: '2025.09.8a10',
     default_options: [
         'cpp_std=c++11',
     ],
@@ -36,7 +36,7 @@ cpp_sources = files(
     'src/eulermethod.cpp', 
     'src/utils.cpp', 
     'src/nonlinear.cpp', 
-    'src/demo.cpp', 
+    'src/dp.cpp', 
     'src/wrapper.cpp'
 )
 
