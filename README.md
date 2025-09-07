@@ -10,7 +10,7 @@
 Python interface to C++ code implementing the operator-splitting method of integrating directed percolation (more generally, absorbing phase transition) Langevin equations originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
 Adapted heavily from code developed by Paula Villa Martín, extended by Victor Buendía, and arising from earlier code written by Ivan Dornic and Juan Bonachela.
 
-The equation solved in the demo here is the DP Langevin for a 2D grid with initial values sampled from $\mathbb{U}[0,1]$: 
+The equation solved in the demo here is the DP Langevin for a 2D grid with initial values sampled from U[0,1]: 
 
 ![](https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/doc/dplangevin_equation.png
  "DP Langevin equation")
@@ -18,7 +18,7 @@ The equation solved in the demo here is the DP Langevin for a 2D grid with initi
 
 <!-- $`\partial_t \rho = a\rho - b\rho^2 + D \nabla^2 \rho + \gamma \sqrt{\rho} \, \eta`$ -->
 
-where $\rho(\mathbf{x},t)$ is the order parameter field, $a$ and $b$ are rate constants, $D$ is the diffusion rate, $\eta(\mathbf{x},t)$ is Gaussian white noise (uncorrelated, zero mean, unit variance), and $\gamma$ is the "demographic" noise amplitude.
+where ρ(x,t) is the order parameter field, a and b are rate constants, D is the diffusion rate, η(x,t) is Gaussian white noise (uncorrelated, zero mean, unit variance), and γ is the "demographic" noise amplitude.
 
 See 
 [Victor Buendía's fork of Paula Villa Martín's repo](https://github.com/VictorSeven/Dornic_et_al_integration_class/tree/victor-update)
