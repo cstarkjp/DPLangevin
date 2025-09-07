@@ -26,7 +26,7 @@ See
 
 ## Installation
 
-First, set up a Python environment using the `requirements.txt` file. 
+First, set up a Python environment using the `requirements.txt` or (using `conda`) the `environment.yml` file. 
 
 Then, since we're still in the testing phase, install the `dplvn` package from `TestPyPI` into this environment:
 
@@ -39,7 +39,7 @@ Simple demos are provided in the [`test/`](https://github.com/cstarkjp/DPLangevi
 
 ## Building from source
 
-Build info is in [`src/`](https://github.com/cstarkjp/DPLangevin/tree/main/src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), and [pybind11](https://pybind11.readthedocs.io/en/stable/) is the C++ wrapper. 
+Build info is in [`src/`](https://github.com/cstarkjp/DPLangevin/tree/main/src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), using [pybind11](https://pybind11.readthedocs.io/en/stable/) as the C++ wrapper. 
 
 
 ## References
