@@ -12,7 +12,10 @@ Adapted heavily from code developed by Paula Villa Martín, extended by Victor B
 
 The equation solved in the demo here is the DP Langevin for a 2D grid with initial values sampled from $\mathbb{U}[0,1]$: 
 
-$`\partial_t \rho = a\rho - b\rho^2 + D \nabla^2 \rho + \gamma \sqrt{\rho} \, \eta`$
+![](https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/doc/dplangevin_equation.png
+
+
+<!-- $`\partial_t \rho = a\rho - b\rho^2 + D \nabla^2 \rho + \gamma \sqrt{\rho} \, \eta`$ -->
 
 where $\rho(\mathbf{x},t)$ is the order parameter field, $a$ and $b$ are rate constants, $D$ is the diffusion rate, $\eta(\mathbf{x},t)$ is Gaussian white noise (uncorrelated, zero mean, unit variance), and $\gamma$ is the "demographic" noise amplitude.
 
