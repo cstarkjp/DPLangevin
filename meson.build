@@ -1,7 +1,7 @@
 project(
     'DPLangevin',
     'cpp',
-    version: '2025.09.9a3',
+    version: '2025.09.9a4',
     default_options: [
         'cpp_std=c++11',
     ],
