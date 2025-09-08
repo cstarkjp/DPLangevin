@@ -17,7 +17,7 @@ protected:
     dbl_vector aux_cell_old, aux_cell_new;
     double dt, dx, dtm, dts;
 
-    // Dornic stochastic step variables
+    // Dornic stochastic-step variables
     double lambda, lambda_product;
     int_poisson_distbn poisson;
     dbl_gamma_distbn gamma;
@@ -80,7 +80,8 @@ public:
     void euler_and_stochastic(dbl_vector &aux, RNG &rng);
     // Defined by the application
     virtual void set_nonlinear_coefficients(const Coefficients &f_coeffs) {};
-    virtual double nonlinear_rhs(const int i_node, const dbl_vector &field) const {};
+    virtual auto nonlinear_rhs(const int i_node, const dbl_vector &field) 
+        const -> double{};
     //
     void construct_1D_grid(const bool periodic = false);
     void construct_2D_grid(const bool periodic = false);

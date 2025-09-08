@@ -24,8 +24,8 @@ public:
         D = f_coefficients.diffusion / (dx*dx);
     }
 
-    double nonlinear_rhs(const int i_node, const dbl_vector &field) 
-    const
+    auto nonlinear_rhs(const int i_node, const dbl_vector &field) 
+    const -> double
     override
     {
         // Non-linear terms

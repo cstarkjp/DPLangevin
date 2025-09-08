@@ -35,7 +35,6 @@ cpp_sources = files(
     'src/rungekutta.cpp', 
     'src/eulermethod.cpp', 
     'src/utils.cpp', 
-    # 'src/nonlinear.cpp', 
     'src/dp_application.cpp', 
     'src/pybind.cpp'
 )
