@@ -5,7 +5,7 @@
 // CPS 2025-09-02
 // 
 
-#include "declarations.hpp"
+#include "base.hpp"
 
 // Set cells to have uniformly random values between min_value and max_value
 void Dornic::random_intial_condition(

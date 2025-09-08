@@ -5,7 +5,7 @@
 // CPS 2025-09-02
 // 
 
-#include "declarations.hpp"
+#include "base.hpp"
 
 void Dornic::construct_1D_grid(const bool periodic)
 {

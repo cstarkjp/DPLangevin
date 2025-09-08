@@ -34,5 +34,5 @@ typedef std::gamma_distribution<double> dbl_gamma_distbn;
 typedef std::normal_distribution<double> dbl_normal_distbn;
 typedef std::uniform_real_distribution<double> dbl_uniform_distbn;
 
-#include "class.hpp"
 #include "struct.hpp"
+#include "dornic.hpp"

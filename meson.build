@@ -1,7 +1,7 @@
 project(
     'DPLangevin',
     'cpp',
-    version: '2025.09.8a11',
+    version: '2025.09.9a0',
     default_options: [
         'cpp_std=c++11',
     ],
@@ -26,18 +26,18 @@ pybind11_dep = dependency('pybind11')
 # )
 
 cpp_sources = files(
+    'src/dp_demo.cpp', 
+    'src/nonlinear.cpp', 
+    'src/ic.cpp', 
     'src/integration.cpp',
     'src/initialization.cpp', 
     'src/grid1d.cpp', 
     'src/grid2d.cpp', 
     'src/network.cpp', 
-    'src/ic.cpp', 
     'src/rungekutta.cpp', 
     'src/eulermethod.cpp', 
     'src/utils.cpp', 
-    'src/nonlinear.cpp', 
-    'src/dp.cpp', 
-    'src/wrapper.cpp'
+    'src/pybind.cpp'
 )
 
 # https://mesonbuild.com/meson-python/how-to-guides/shared-libraries.html

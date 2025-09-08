@@ -5,7 +5,7 @@
 // CPS 2025-09-02
 // 
 
-#include "declarations.hpp"
+#include "base.hpp"
 
 // Set all the parameters
 void Dornic::set_coefficients(const Coefficients &f_coeffs)
