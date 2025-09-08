@@ -29,7 +29,7 @@ jobs:
       - name: Upload distribution
         uses: actions/upload-artifact@v4
         with:
-          name: macos-dist
+          name: macos14-dist
           path: dist/
 
   build-macos:
@@ -114,21 +114,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Retrieve windows artifact
+      - name: Retrieve macos14 artifact
         uses: actions/download-artifact@v4
         with:
-          name: windows-dist
-          path: dist/
-      - name: Retrieve linux artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: linux-dist
+          name: macos14-dist
           path: dist/
       - name: Retrieve macos artifact
         uses: actions/download-artifact@v4
         with:
           name: macos-dist
           path: dist/
+      - name: Retrieve linux artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-dist
+          path: dist/
+      # - name: Retrieve windows artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: windows-dist
+      #     path: dist/
           
       - name: Install dependencies
         run: |
