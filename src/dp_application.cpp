@@ -9,24 +9,27 @@
 #include "base.hpp"
 #include "applications.hpp"
 
-double my_quadratic_coeff;
-double my_D;
 class Dornic_DP : public Dornic {
 
 public:
+    double quadratic_coeff;
+    double D;
+
     Dornic_DP(Parameters params) : Dornic(params) {}
 
     void set_nonlinear_coefficients(const Coefficients &f_coefficients)
+    override
     {
-        my_quadratic_coeff = f_coefficients.quadratic;
-        my_D = f_coefficients.diffusion / (dx*dx);
+        quadratic_coeff = f_coefficients.quadratic;
+        D = f_coefficients.diffusion / (dx*dx);
     }
 
-    auto nonlinear_rhs(const int i_node, const dbl_vector &field) 
-        const -> double
+    double nonlinear_rhs(const int i_node, const dbl_vector &field) 
+    const
+    override
     {
         // Non-linear terms
-        const double quadratic_term = -my_quadratic_coeff*field[i_node]*field[i_node];
+        const double quadratic_term = -quadratic_coeff*field[i_node]*field[i_node];
 
         // Integration of diffusion
         double diffusion_sum = 0.0;
@@ -36,8 +39,13 @@ public:
             auto i_neighbor = neighbors[i_node][i];
             diffusion_sum += field[i_neighbor];
         }
-        diffusion_sum = my_D*(diffusion_sum - n_neighbors*field[i_node]);
+        diffusion_sum = D*(diffusion_sum - n_neighbors*field[i_node]);
         return diffusion_sum + quadratic_term;
+    }
+
+    void check(void) const
+    {
+        std::cout << "In Dornic_DP class instance" << std::endl;
     }
 };
 
@@ -54,7 +62,8 @@ auto dp(
     parameters.print();
 
     // Initialize
-    Dornic dornic(parameters);
+    Dornic_DP dornic(parameters);
+    dornic.check();
     dornic.construct_2D_grid();
     dornic.set_coefficients(f_coeffs);
     dornic.random_intial_condition(rng);

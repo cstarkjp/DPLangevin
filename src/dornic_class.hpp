@@ -63,7 +63,6 @@ public:
     void set_coefficients(const Coefficients &f_coeffs);
     void set_essential_coefficients(const Coefficients &f_coeffs);
     void set_lambdas(void);
-    void set_nonlinear_coefficients(const Coefficients &f_coeffs);
     void f1(dbl_vector &aux_cell, dbl_vector &k1);
     void f2f3(
         const dbl_vector &aux_old, 
@@ -79,7 +78,10 @@ public:
         RNG &rng
     );
     void euler_and_stochastic(dbl_vector &aux, RNG &rng);
-    double nonlinear_rhs(const int i_node, const dbl_vector &field) const;
+    // Defined by the application
+    virtual void set_nonlinear_coefficients(const Coefficients &f_coeffs) {};
+    virtual double nonlinear_rhs(const int i_node, const dbl_vector &field) const {};
+    //
     void construct_1D_grid(const bool periodic = false);
     void construct_2D_grid(const bool periodic = false);
     void construct_custom_network(const std::vector<int_vector> &network);
