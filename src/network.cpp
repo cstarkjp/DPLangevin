@@ -5,9 +5,9 @@
 // CPS 2025-09-02
 // 
 
-#include "base.hpp"
+#include "core.hpp"
 
-void Dornic::construct_custom_network(const std::vector<int_vector> &network)
+void DornicBase::construct_custom_network(const std::vector<int_vector> &network)
 {
     neighbors = network;
 }

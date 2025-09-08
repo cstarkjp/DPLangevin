@@ -5,21 +5,21 @@
 // CPS 2025-09-02
 // 
 
-#include "base.hpp"
+#include "core.hpp"
 
-void Dornic::integration(RNG &rng)
+void DornicBase::integration(RNG &rng)
 {
-    Dornic::integrate(rng);
+    DornicBase::integrate(rng);
 }
 
 // Non-constant coefficient overload of function
-void Dornic::integration(RNG &rng, const Coefficients &f_coeffs)
+void DornicBase::integration(RNG &rng, const Coefficients &f_coeffs)
 {
     set_coefficients(f_coeffs);
-    Dornic::integrate(rng);
+    DornicBase::integrate(rng);
 }
 
-void Dornic::integrate(RNG &rng)
+void DornicBase::integrate(RNG &rng)
 {
     #if (USE_RUNGEKUTTA)
     // Runge-Kutta integration of the non-linear term and diffusion.

@@ -6,16 +6,16 @@
 // 
 
 #include <pybind11/numpy.h>
-#include "base.hpp"
+#include "core.hpp"
 #include "applications.hpp"
 
-class Dornic_DP : public Dornic {
+class Dornic_DP : public DornicBase {
 
 public:
     double quadratic_coeff;
     double D;
 
-    Dornic_DP(Parameters params) : Dornic(params) {}
+    Dornic_DP(Parameters params) : DornicBase(params) {}
 
     void set_nonlinear_coefficients(const Coefficients &f_coefficients)
     override

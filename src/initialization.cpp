@@ -5,10 +5,10 @@
 // CPS 2025-09-02
 // 
 
-#include "base.hpp"
+#include "core.hpp"
 
 // Set all the parameters
-void Dornic::set_coefficients(const Coefficients &f_coeffs)
+void DornicBase::set_coefficients(const Coefficients &f_coeffs)
 {
     set_essential_coefficients(f_coeffs);
     set_nonlinear_coefficients(f_coeffs);
@@ -16,13 +16,13 @@ void Dornic::set_coefficients(const Coefficients &f_coeffs)
 }
 
 // Coefficients needed to integrate linear + noise parts
-void Dornic::set_essential_coefficients(const Coefficients &f_coeffs)
+void DornicBase::set_essential_coefficients(const Coefficients &f_coeffs)
 {
     linear_coeff = f_coeffs.linear;
     noise_coeff = f_coeffs.noise;
 }
 
-void Dornic::set_lambdas(void)
+void DornicBase::set_lambdas(void)
 {
     double lambda_const = 2.0/(noise_coeff*noise_coeff);
     double lambda_exp = exp(-linear_coeff*dt);

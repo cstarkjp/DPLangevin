@@ -5,9 +5,9 @@
 // CPS 2025-09-02
 // 
 
-#include "base.hpp"
+#include "core.hpp"
 
-void Dornic::euler_and_stochastic(dbl_vector &aux, RNG &rng)
+void DornicBase::euler_and_stochastic(dbl_vector &aux, RNG &rng)
 {
     mean_density = 0.0;
     for (auto i=0; i<n_cells; i++)

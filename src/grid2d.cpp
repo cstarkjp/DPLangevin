@@ -5,9 +5,9 @@
 // CPS 2025-09-02
 // 
 
-#include "base.hpp"
+#include "core.hpp"
 
-void Dornic::construct_2D_grid(const bool periodic)
+void DornicBase::construct_2D_grid(const bool periodic)
 {
     // Only square grids are supported
     // TBD: implement rectangular grids

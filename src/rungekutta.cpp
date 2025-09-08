@@ -5,10 +5,10 @@
 // CPS 2025-09-02
 // 
 
-#include "base.hpp"
+#include "core.hpp"
 
 // RK first function
-void Dornic::f1(dbl_vector &aux_cell, dbl_vector &k1)
+void DornicBase::f1(dbl_vector &aux_cell, dbl_vector &k1)
 {
     for (auto i=0; i<n_cells; i++)
     {
@@ -18,7 +18,7 @@ void Dornic::f1(dbl_vector &aux_cell, dbl_vector &k1)
 }
 
 // RK second and third functions
-void Dornic::f2f3(
+void DornicBase::f2f3(
     const dbl_vector &aux_old, 
     dbl_vector &aux_new, 
     dbl_vector &k_out, 
@@ -33,7 +33,7 @@ void Dornic::f2f3(
 }
 
 // RK fourth function and stochastic step, all in the same loop
-void Dornic::f4_and_stochastic(
+void DornicBase::f4_and_stochastic(
     const dbl_vector &aux_old, 
     const dbl_vector &k1, 
     const dbl_vector &k2, 

@@ -5,9 +5,9 @@
 // CPS 2025-09-02
 // 
 
-#include "base.hpp"
+#include "core.hpp"
 
-void Dornic::construct_1D_grid(const bool periodic)
+void DornicBase::construct_1D_grid(const bool periodic)
 {
     neighbors = std::vector<int_vector>(n_cells, int_vector(2));
 

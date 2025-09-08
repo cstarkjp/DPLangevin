@@ -5,16 +5,16 @@
 // CPS 2025-09-02
 // 
 
-#include "base.hpp"
+#include "core.hpp"
 
 // Make the density visible
-double Dornic::density() 
+double DornicBase::density() 
 {
     return mean_density;
 }
 
 // Check the mean of the Poisson distribution
-double Dornic::avg_poisson_mean()
+double DornicBase::avg_poisson_mean()
 {
     return lambda_product * mean_density;
 }
