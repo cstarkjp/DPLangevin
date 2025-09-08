@@ -4,19 +4,19 @@ requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
 
 [project]
 name = 'dplvn'
-version = '2025.09.9a9'
+version = '2025.09.9a10'
 # dynamic = ["version"]
 description = 'Operator-splitting method of integrating directed percolation/absorbing phase transition Langevin equations'
 readme = 'README.md'
 
 requires-python = '>=3.12'
-dependencies = [
-    "pybind11",
-    "numpy",
-    "jupyter",
-    "ipython",
-    "matplotlib",
-]
+# dependencies = [
+#     "pybind11",
+#     "numpy",
+#     "jupyter",
+#     "ipython",
+#     "matplotlib",
+# ]
 
 authors = [
   {name = 'Colin P. Stark', email = 'cstarkjp@gmail.com'},
