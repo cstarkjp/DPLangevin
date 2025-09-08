@@ -4,14 +4,20 @@ requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
 
 [project]
 name = 'dplvn'
-version = '2025.09.9a5'
+version = '2025.09.9a6'
 # dynamic = ["version"]
 description = 'Operator-splitting method of integrating directed percolation/absorbing phase transition Langevin equations'
 readme = 'README.md'
+
 requires-python = '>=3.12'
-# license = "GPL-3.0-or-later"
-# license-files = ["LICENSE.txt"]
-# urls = 'https://github.com/cstarkjp/DPLangevin'
+dependencies = [
+    "numpy",
+    "jupyter",
+    "ipython",
+    "matplotlib",
+    "pybind11"
+]
+
 authors = [
   {name = 'Colin P. Stark', email = 'cstarkjp@gmail.com'},
 ]
@@ -39,8 +45,3 @@ homepage = "https://github.com/cstarkjp/DPLangevin"
 repository = "https://github.com/cstarkjp/DPLangevin"
 documentation = "https://github.com/cstarkjp/DPLangevin"
 # "Bug Tracker" = "https://github.com/cstarkjp/DPLangevin"
-
-
-# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
-# https://github.com/scikit-fmm/scikit-fmm/blob/master/pyproject.toml
-# https://gist.github.com/nazrulworld/3800c84e28dc464b2b30cec8bc1287fc
