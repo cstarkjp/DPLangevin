@@ -5,6 +5,9 @@
 // CPS 2025-09-02
 // 
 
+#ifndef BASE_HPP
+#define BASE_HPP
+
 #include <iostream>
 #include <vector>
 #include <random>
@@ -36,3 +39,5 @@ typedef std::uniform_real_distribution<double> dbl_uniform_distbn;
 
 #include "struct.hpp"
 #include "dornic.hpp"
+
+#endif

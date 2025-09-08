@@ -9,7 +9,39 @@
 #include "base.hpp"
 #include "applications.hpp"
 
-auto dp_demo(
+double my_quadratic_coeff;
+double my_D;
+class Dornic_DP : public Dornic {
+
+public:
+    Dornic_DP(Parameters params) : Dornic(params) {}
+
+    void set_nonlinear_coefficients(const Coefficients &f_coefficients)
+    {
+        my_quadratic_coeff = f_coefficients.quadratic;
+        my_D = f_coefficients.diffusion / (dx*dx);
+    }
+
+    auto nonlinear_rhs(const int i_node, const dbl_vector &field) 
+        const -> double
+    {
+        // Non-linear terms
+        const double quadratic_term = -my_quadratic_coeff*field[i_node]*field[i_node];
+
+        // Integration of diffusion
+        double diffusion_sum = 0.0;
+        int n_neighbors = neighbors[i_node].size();
+        for (auto i=0; i<n_neighbors; i++)
+        {
+            auto i_neighbor = neighbors[i_node][i];
+            diffusion_sum += field[i_neighbor];
+        }
+        diffusion_sum = my_D*(diffusion_sum - n_neighbors*field[i_node]);
+        return diffusion_sum + quadratic_term;
+    }
+};
+
+auto dp(
     double linear, double quadratic, double diffusion, double noise, 
     int n_cells, double t_max, double dx, double dt, int random_seed
 ) -> results_t

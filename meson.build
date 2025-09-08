@@ -26,8 +26,6 @@ pybind11_dep = dependency('pybind11')
 # )
 
 cpp_sources = files(
-    'src/dp_demo.cpp', 
-    'src/nonlinear.cpp', 
     'src/ic.cpp', 
     'src/integration.cpp',
     'src/initialization.cpp', 
@@ -37,6 +35,8 @@ cpp_sources = files(
     'src/rungekutta.cpp', 
     'src/eulermethod.cpp', 
     'src/utils.cpp', 
+    'src/nonlinear.cpp', 
+    'src/dp_application.cpp', 
     'src/pybind.cpp'
 )
 

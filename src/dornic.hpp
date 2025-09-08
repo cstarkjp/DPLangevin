@@ -5,14 +5,13 @@
 // CPS 2025-09-02
 // 
 
-#ifndef CLASS_HPP
-#define CLASS_HPP
+#ifndef DORNIC_HPP
+#define DORNIC_HPP
 
 #include "struct.hpp"
 class Dornic
 {
-
-private:
+protected:
     // Runge-Kutta variables
     dbl_vector k1, k2, k3, k4;
     dbl_vector aux_cell_old, aux_cell_new;
