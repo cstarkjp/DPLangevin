@@ -26,7 +26,7 @@ See
 
 ## Installation
 
-First, set up a Python environment using the `requirements.txt` or (using `conda`) the `environment.yml` file. 
+First, set up a Python environment using either `conda` and the `environment.yml` file, or `pip` and the `requirements.txt`. At minimum, you will need to have `pybind11` in your Python environment to install `dplvn`; to run the demos you will also need `numpy`, `matplotlib`, `jupyter`, and `ipython`.
 
 Then, since we're still in the testing phase, install the `dplvn` package from `TestPyPI` into this environment:
 
