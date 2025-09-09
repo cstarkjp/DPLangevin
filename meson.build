@@ -1,3 +1,5 @@
+# rm -rf build; meson setup build; meson compile -C build
+
 project(
     'DPLangevin',
     'cpp',
@@ -35,8 +37,8 @@ cpp_sources = files(
     'src/rungekutta.cpp', 
     'src/eulermethod.cpp', 
     'src/utils.cpp', 
-    'src/dp_application.cpp', 
-    'src/pybind.cpp'
+    'src/application_dp.cpp', 
+    'src/applications_pybind.cpp'
 )
 
 # https://mesonbuild.com/meson-python/how-to-guides/shared-libraries.html

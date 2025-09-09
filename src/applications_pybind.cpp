@@ -7,7 +7,7 @@
 
 #include <pybind11/numpy.h>
 #include "core.hpp"
-#include "applications.hpp"
+#include "application_dp.hpp"
 
 PYBIND11_MODULE(dplvn, m) 
 {

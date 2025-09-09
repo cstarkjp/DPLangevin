@@ -6,8 +6,9 @@
 // 
 
 #include <pybind11/numpy.h>
+#include <string>
 #include "core.hpp"
-#include "applications.hpp"
+#include "application_dp.hpp"
 
 class Dornic_DP : public DornicBase 
 {
@@ -49,6 +50,51 @@ public:
     }
 };
 
+// Work in progress
+// class BoundaryConditions
+// {
+// public:
+//     void processStringsByValue(std::vector<std::string> strings) {
+//         // Modify 'strings' here, original vector remains unchanged
+//         strings.push_back("New String");
+//         for (const auto& s : strings) {
+//             std::cout << s << " ";
+//         }
+//         std::cout << std::endl;
+//     }
+// // private:
+// //     BoundaryCondition x_l, x_r;
+// //     BoundaryCondition y_l, y_r;
+
+// // public:
+// //     BoundaryConditions(std::vector<std::string> bc_specs)
+// //     {
+// //         std::cout << "Number of b.c. specs: " << bc_specs.size();
+// //         // for (const std::string& s : bc_specs) {
+// //         // }
+// //     }
+// }
+
+class BoundaryConditions 
+{
+public:
+    BoundaryConditions(const std::vector<std::string>& bc_specs) {
+        std::cout << "Setting b.c.'s" << std::endl;
+        for (const std::string& bc_spec : bc_specs) {
+            std::cout << "bc specs: " << bc_spec << std::endl;
+        }
+    }
+
+    void print(const std::vector<std::string>& strings) {
+        // Cannot modify 'strings' here
+        for (const auto& s : strings) {
+            std::cout << s << " ";
+        }
+        std::cout << std::endl;
+    }
+};
+
+
 auto dp(
     double linear, double quadratic, double diffusion, double noise, 
     int n_cells, double t_max, double dx, double dt, int random_seed
@@ -60,6 +106,29 @@ auto dp(
     RNG rng(random_seed); 
     f_coeffs.print();
     parameters.print();
+
+    // Work in progress
+    BoundaryCondition bc = PERIODIC;
+    switch (bc) 
+    {
+        case PERIODIC:
+            std::cout << "Periodic b.c.'s" << std::endl;
+            break;
+        case FIXED_VALUE:
+            std::cout << "Fixed value b.c.'s" << std::endl;
+            break;
+        case FIXED_FLUX:
+            std::cout << "Fixed flux b.c.'s" << std::endl;
+            break;
+    };
+
+    std::vector<std::string> bc_specs = 
+    {
+        "periodic", "periodic", 
+        "fixed_flux", "fixed_value"
+    };
+    BoundaryConditions boundaryCondition(bc_specs);
+    // boundaryCondition.print();
 
     // Initialize
     Dornic_DP dornic(parameters);
