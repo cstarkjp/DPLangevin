@@ -78,10 +78,10 @@ public:
         RNG &rng
     );
     void euler_and_stochastic(dbl_vector &aux, RNG &rng);
-    // Defined by the application
+    // Defined by the application — these are placeholders
     virtual void set_nonlinear_coefficients(const Coefficients &f_coeffs) {};
     virtual auto nonlinear_rhs(const int i_node, const dbl_vector &field) 
-        const -> double{};
+        const -> double{ return 0; };
     //
     void construct_1D_grid(const bool periodic = false);
     void construct_2D_grid(const bool periodic = false);

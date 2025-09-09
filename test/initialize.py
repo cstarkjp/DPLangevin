@@ -39,7 +39,7 @@ unavailable processing continues regardless.
 # import matplotlib as mpl
 
 # Jupyter `%magic` commands `%load_ext`, `%aimport`, and `%autoreload`
-#  are needed here to force the notebook to reload the `streamline` module,
+#  are needed here to force the notebook to reload the package,
 #  and its constituent modules, as changes are made to it.
 # Force module to reload
 
@@ -66,7 +66,6 @@ is_python: bool = check_is_ipython()
 
 if is_python:
     try:
-        # get_ipython().magic("config InlineBackend.figure_format = 'retina'")
         get_ipython().run_line_magic(
             "config", 
             "InlineBackend.figure_format = 'retina'",
@@ -77,18 +76,14 @@ if is_python:
         pass
 
     try:
-        # get_ipython().magic("matplotlib inline")
         get_ipython().run_line_magic("matplotlib", "inline",)
     except NameError:
         pass
 
 
     try:
-        # get_ipython().magic("load_ext autoreload")
-        # get_ipython().magic("autoreload 2")
         get_ipython().run_line_magic("load_ext", "autoreload",)
         get_ipython().run_line_magic("autoreload", "2",)
-        # get_ipython().magic('aimport '+package_name)
     except NameError as error:
         print(
             "Error trying to invoke get_ipython(), "
