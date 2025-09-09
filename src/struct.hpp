@@ -9,7 +9,8 @@
 #define STRUCT_HPP
 
 // Container for Langevin equation "coefficients"
-struct Coefficients {
+struct Coefficients 
+{
 public:
     double linear;
     double quadratic;
@@ -30,7 +31,8 @@ public:
 };
 
 // Container for model simulation parameters
-struct Parameters {
+struct Parameters 
+{
 public:
     int n_cells;
     double t_max;

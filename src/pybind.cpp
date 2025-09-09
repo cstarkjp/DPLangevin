@@ -9,8 +9,10 @@
 #include "core.hpp"
 #include "applications.hpp"
 
-PYBIND11_MODULE(dplvn, m) {
-    m.doc() = "'Dornic' operator-splitting method of integrating DP-type Langevin equations"; 
+PYBIND11_MODULE(dplvn, m) 
+{
+    m.doc() = 
+        "'Dornic' operator-splitting method of integrating DP-type Langevin equations"; 
     m.def(
         "dp", 
         &dp,

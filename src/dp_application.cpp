@@ -9,8 +9,8 @@
 #include "core.hpp"
 #include "applications.hpp"
 
-class Dornic_DP : public DornicBase {
-
+class Dornic_DP : public DornicBase 
+{
 public:
     double quadratic_coeff;
     double D;
