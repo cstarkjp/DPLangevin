@@ -10,9 +10,8 @@ in a `Jupyter notebook`_ or `Jupyter QtConsole`_.
    at a 'retina' resolution -- if this
    is not available, a benign error report (currently disabled)
    is made and progress continues
- - enables automatic reloading of :py:mod:`salt`
-   (in case the code has been modded) when
-   a notebook is re-run in-situ
+ - enables automatic reloading (in case the code has been modded) 
+   when a notebook is re-run in-situ
 
 ---------------------------------------------------------------------
 
@@ -34,9 +33,6 @@ unavailable processing continues regardless.
 .. _Jupyter notebook: https://jupyter-notebook.readthedocs.io/en/stable/
 .. _Jupyter QtConsole: https://qtconsole.readthedocs.io/en/stable/
 """
-
-# import logging
-# import matplotlib as mpl
 
 # Jupyter `%magic` commands `%load_ext`, `%aimport`, and `%autoreload`
 #  are needed here to force the notebook to reload the package,
@@ -61,10 +57,7 @@ def check_is_ipython() -> bool:
         return False
     return True
 
-
-is_python: bool = check_is_ipython()
-
-if is_python:
+if check_is_ipython():
     try:
         get_ipython().run_line_magic(
             "config", 
