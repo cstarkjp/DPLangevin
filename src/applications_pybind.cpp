@@ -4,15 +4,31 @@
 //
 // CPS 2025-09-02
 // 
-
+// 
 #include <pybind11/numpy.h>
 #include "core.hpp"
 #include "application_dp.hpp"
 
-PYBIND11_MODULE(dplvn, m) 
+PYBIND11_MODULE(dplvn, m)
 {
     m.doc() = 
         "'Dornic' operator-splitting method of integrating DP-type Langevin equations"; 
+    py::enum_<GridDimension>(m, "GridDimension")
+        .value("D1", GridDimension::D1)
+        .value("D2", GridDimension::D2)
+        .value("D3", GridDimension::D3)
+        .export_values();
+    py::enum_<InitialCondition>(m, "InitialCondition")
+        .value("RANDOM_UNIFORM", InitialCondition::RANDOM_UNIFORM)
+        .value("RANDOM_GAUSSIAN", InitialCondition::RANDOM_GAUSSIAN)
+        .value("CONSTANT_VALUE", InitialCondition::CONSTANT_VALUE)
+        .value("SINGLE_SEED", InitialCondition::SINGLE_SEED)
+        .export_values();
+    py::enum_<BoundaryCondition>(m, "BoundaryCondition")
+        .value("PERIODIC", BoundaryCondition::PERIODIC)
+        .value("FIXED_VALUE", BoundaryCondition::FIXED_VALUE)
+        .value("FIXED_FLUX", BoundaryCondition::FIXED_FLUX)
+        .export_values();
     m.def(
         "dp", 
         &dp,
@@ -25,6 +41,9 @@ PYBIND11_MODULE(dplvn, m)
         py::arg("dx") = 0.5,
         py::arg("dt") = 0.01,
         py::arg("random_seed") = 1,
+        py::arg("grid_dimension") = GridDimension::D2,
+        py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
+        py::arg("boundary_condition") = BoundaryCondition::PERIODIC,
         "Demo application of the Dornic method"
     );
 }
