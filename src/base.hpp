@@ -8,6 +8,7 @@
 #ifndef DORNIC_HPP
 #define DORNIC_HPP
 
+#include <functional>
 #include "struct.hpp"
 class DornicBase
 {
@@ -59,7 +60,14 @@ public:
     // Declarations
     void integration(RNG &rng);
     void integration(RNG &rng, const Coefficients &f_coeffs);
+    using integrate_func_t = std::function<void(RNG &rng)>;
+    integrate_func_t integrate_func;
+    void choose_integrate_func(integrate_func_t func) {
+        integrate_func = func;
+    }
     void integrate(RNG &rng);
+    void integrate_rungekutta(RNG &rng);
+    void integrate_euler(RNG &rng);
     void set_coefficients(const Coefficients &f_coeffs);
     void set_essential_coefficients(const Coefficients &f_coeffs);
     void set_lambdas(void);
