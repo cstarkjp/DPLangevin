@@ -8,7 +8,10 @@ print()
 result: NDArray = dplvn.dp(
     n_cells=64, #4096 
     linear=1.0, quadratic=2.0, diffusion=0.1, noise=1.0, 
-    # t_max=100.0, dx=0.5, dt=0.01
+    # t_max=100.0, dx=0.5, dt=0.01,
+    # grid_dimension=dplvn.D2,
+    # initial_condition=dplvn.RANDOM_UNIFORM,
+    # boundary_condition=dplvn.PERIODIC,
 )
 print()
 print( type(result) )

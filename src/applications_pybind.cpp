@@ -13,22 +13,26 @@ PYBIND11_MODULE(dplvn, module)
 {
     module.doc() = 
         "'Dornic' operator-splitting method of integrating DP-type Langevin equations"; 
+
     py::enum_<GridDimension>(module, "GridDimension")
         .value("D1", GridDimension::D1)
         .value("D2", GridDimension::D2)
         .value("D3", GridDimension::D3)
         .export_values();
+
     py::enum_<InitialCondition>(module, "InitialCondition")
         .value("RANDOM_UNIFORM", InitialCondition::RANDOM_UNIFORM)
         .value("RANDOM_GAUSSIAN", InitialCondition::RANDOM_GAUSSIAN)
         .value("CONSTANT_VALUE", InitialCondition::CONSTANT_VALUE)
         .value("SINGLE_SEED", InitialCondition::SINGLE_SEED)
         .export_values();
+
     py::enum_<BoundaryCondition>(module, "BoundaryCondition")
         .value("PERIODIC", BoundaryCondition::PERIODIC)
         .value("FIXED_VALUE", BoundaryCondition::FIXED_VALUE)
         .value("FIXED_FLUX", BoundaryCondition::FIXED_FLUX)
         .export_values();
+        
     module.def(
         "dp", 
         &dp,
