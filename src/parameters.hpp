@@ -20,15 +20,18 @@ public:
     GridDimension grid_dimension;
     InitialCondition initial_condition;
     BoundaryCondition boundary_condition;
+    IntegrationMethod integration_method;
 
     Parameters(
         int a, double b, double c, double d, int e, 
         GridDimension f, 
         InitialCondition g,
-        BoundaryCondition h
+        BoundaryCondition h,
+        IntegrationMethod i
     ) : 
     n_cells(a), t_max(b), dx(c), dt(d), random_seed(e),
-    grid_dimension(f), initial_condition(g), boundary_condition(h)
+    grid_dimension(f), initial_condition(g), boundary_condition(h),
+    integration_method(i)
     {}
 
     std::string gdstr(GridDimension gd) {
@@ -59,6 +62,14 @@ public:
         }
     }
 
+    std::string icstr(IntegrationMethod ic) {
+        switch (ic) {
+            case IntegrationMethod::EULER: return "Euler";
+            case IntegrationMethod::RUNGE_KUTTA: return "Runge-Kutta";
+            default: return "Unknown";
+        }
+    }
+
     void print() {
         std::cout<< "n_cells: " << n_cells << std::endl;
         std::cout<< "t_max: " << t_max << std::endl;
@@ -71,6 +82,8 @@ public:
             << icstr(initial_condition) << std::endl;
         std::cout<< "boundary_condition: " 
             << bcstr(boundary_condition) << std::endl;
+        std::cout<< "integration_method: " 
+            << icstr(integration_method) << std::endl;
     }
 
     ~Parameters() {}

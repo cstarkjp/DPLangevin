@@ -32,6 +32,11 @@ PYBIND11_MODULE(dplvn, module)
         .value("FIXED_VALUE", BoundaryCondition::FIXED_VALUE)
         .value("FIXED_FLUX", BoundaryCondition::FIXED_FLUX)
         .export_values();
+
+    py::enum_<IntegrationMethod>(module, "IntegrationMethod")
+        .value("EULER", IntegrationMethod::EULER)
+        .value("RUNGE_KUTTA", IntegrationMethod::RUNGE_KUTTA)
+        .export_values();
         
     module.def(
         "dp", 
@@ -48,6 +53,7 @@ PYBIND11_MODULE(dplvn, module)
         py::arg("grid_dimension") = GridDimension::D2,
         py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
         py::arg("boundary_condition") = BoundaryCondition::PERIODIC,
+        py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA,
         "Demo application of the Dornic method"
     );
 }

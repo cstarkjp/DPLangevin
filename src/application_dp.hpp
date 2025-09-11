@@ -16,7 +16,8 @@ auto dp(
     int n_cells, double t_max, double dx, double dt, int random_seed,
     GridDimension grid_dimension, 
     InitialCondition initial_condition,
-    BoundaryCondition boundary_condition
+    BoundaryCondition boundary_condition,
+    IntegrationMethod integration_method
 ) -> results_t;
 
 #endif

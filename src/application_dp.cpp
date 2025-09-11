@@ -56,14 +56,16 @@ auto dp(
     int n_cells, double t_max, double dx, double dt, int random_seed,
     GridDimension grid_dimension, 
     InitialCondition initial_condition,
-    BoundaryCondition boundary_condition
+    BoundaryCondition boundary_condition,
+    IntegrationMethod integration_method
 ) -> results_t
 {
     // Set up parameters, coefficients etc
     Coefficients f_coeffs (linear, quadratic, diffusion, noise);
     Parameters parameters (
         n_cells, t_max, dx, dt, random_seed,
-        grid_dimension, initial_condition, boundary_condition
+        grid_dimension, initial_condition, boundary_condition,
+        integration_method
     );
     RNG rng(random_seed); 
     f_coeffs.print();

@@ -31,4 +31,10 @@ enum BoundaryCondition
     FIXED_FLUX = 3
 };
 
+enum class IntegrationMethod
+{
+    EULER = 1,
+    RUNGE_KUTTA = 2
+};
+
 #endif
