@@ -78,14 +78,6 @@ auto dp(
     dornic.set_coefficients(f_coeffs);
     dornic.random_intial_condition(rng);
 
-    std::unique_ptr<Dornic_DP::IntegrateObject> object;
-    switch (1) {
-        case 1: object = make_unique<Dornic_DP::Euler>();
-        default: object = make_unique<Dornic_DP::RungeKutta>();
-    }
-    // object->integrate(rng);
-    // Dornic_DP::choose_integrate_func(Dornic_DP::integrate_rungekutta);
-
     // Integrate
     int n_epochs, i;
     double t; 
@@ -94,13 +86,9 @@ auto dp(
     std::cout << "Total number of epochs: " << n_epochs << std::endl;
     dbl_vector epochs(n_epochs, 0.0);
     dbl_vector mean_densities(n_epochs, 0.0);
-    // using integrate_func_t = std::function<void(RNG &rng)>;
-    // integrate_func_t integrate_func;
-    // void (*integrate_func)(RNG &rng) const;
-    // integrate_func = &dornic.integrate_euler;
     for (i=0, t=0; i<n_epochs; t+=dt, i++)
     {
-        dornic.integrate_euler(rng);
+        dornic.integrate_rungekutta(rng);
         epochs[i] = t;
         mean_densities[i] = dornic.density();
     }
