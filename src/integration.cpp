@@ -6,19 +6,6 @@
 // 
 
 #include "core.hpp"
-#include <functional>
-
-void DornicBase::integration(RNG &rng)
-{
-    DornicBase::integrate(rng);
-}
-
-// // Non-constant coefficient overload of function
-// void DornicBase::integration(RNG &rng, const Coefficients &f_coeffs)
-// {
-//     set_coefficients(f_coeffs);
-//     DornicBase::integrate(rng);
-// }
 
 void DornicBase::integrate(RNG &rng)
 {

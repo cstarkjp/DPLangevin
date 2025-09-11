@@ -9,6 +9,8 @@
 #include <string>
 #include "core.hpp"
 #include "application_dp.hpp"
+#include <functional>
+
 
 class Dornic_DP : public DornicBase 
 {
@@ -51,12 +53,6 @@ public:
     }
 };
 
-template<class T, class... Args>
-std::unique_ptr<T> make_unique(Args&&... args)
-{
-    return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
-}
-
 auto dp(
     double linear, double quadratic, double diffusion, double noise, 
     int n_cells, double t_max, double dx, double dt, int random_seed,
@@ -87,7 +83,8 @@ auto dp(
         case 1: object = make_unique<Dornic_DP::Euler>();
         default: object = make_unique<Dornic_DP::RungeKutta>();
     }
-    object->integrate(rng);
+    // object->integrate(rng);
+    // Dornic_DP::choose_integrate_func(Dornic_DP::integrate_rungekutta);
 
     // Integrate
     int n_epochs, i;
@@ -97,9 +94,13 @@ auto dp(
     std::cout << "Total number of epochs: " << n_epochs << std::endl;
     dbl_vector epochs(n_epochs, 0.0);
     dbl_vector mean_densities(n_epochs, 0.0);
+    // using integrate_func_t = std::function<void(RNG &rng)>;
+    // integrate_func_t integrate_func;
+    // void (*integrate_func)(RNG &rng) const;
+    // integrate_func = &dornic.integrate_euler;
     for (i=0, t=0; i<n_epochs; t+=dt, i++)
     {
-        dornic.integration(rng);
+        dornic.integrate_euler(rng);
         epochs[i] = t;
         mean_densities[i] = dornic.density();
     }

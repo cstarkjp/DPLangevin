@@ -58,16 +58,34 @@ public:
     }
 
     // Declarations
-    void integration(RNG &rng);
-    // void integration(RNG &rng, const Coefficients &f_coeffs);
-    using integrate_func_t = std::function<void(RNG &rng)>;
-    integrate_func_t integrate_func;
-    void choose_integrate_func(integrate_func_t func) {
-        integrate_func = func;
-    }
+    // using integrate_func_t = std::function<void(RNG &rng)>;
+    // integrate_func_t integrate_func;
+    // void choose_integrate_func(integrate_func_t func) {
+    //     integrate_func = func;
+    // }
     void integrate(RNG &rng);
     void integrate_rungekutta(RNG &rng);
     void integrate_euler(RNG &rng);
+    struct IntegrateObject 
+    {
+        virtual void integrate(RNG &rng) = 0;
+        virtual ~IntegrateObject() = default;
+    };
+    struct RungeKutta : IntegrateObject 
+    {
+        void integrate(RNG &rng) override 
+        {
+            // std::cout << "RungeKutta integrate" << std::endl;
+        }
+    };
+    struct Euler : IntegrateObject 
+    {
+        void integrate(RNG &rng) override 
+        {
+            // std::cout << "Euler integrate" << std::endl;
+        }
+    };
+
     void set_coefficients(const Coefficients &f_coeffs);
     void set_essential_coefficients(const Coefficients &f_coeffs);
     void set_lambdas(void);
@@ -102,22 +120,13 @@ public:
     double density();
     double avg_poisson_mean();
 
-    struct IntegrateObject {
-        virtual ~IntegrateObject() = default;
-        virtual void integrate(RNG &rng) = 0;
-    };
-
-    struct RungeKutta : IntegrateObject {
-        void integrate(RNG &rng) override {
-            // std::cout << "RungeKutta integrate" << std::endl;
-        }
-    };
-
-    struct Euler : IntegrateObject {
-        void integrate(RNG &rng) override {
-            // std::cout << "Euler integrate" << std::endl;
-        }
-    };
 };
+
+// https://stackoverflow.com/questions/64054795/how-can-i-use-make-unique-with-c11
+template<class T, class... Args>
+std::unique_ptr<T> make_unique(Args&&... args)
+{
+    return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
+}
 
 #endif
