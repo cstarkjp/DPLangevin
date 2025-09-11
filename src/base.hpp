@@ -59,7 +59,7 @@ public:
 
     // Declarations
     void integration(RNG &rng);
-    void integration(RNG &rng, const Coefficients &f_coeffs);
+    // void integration(RNG &rng, const Coefficients &f_coeffs);
     using integrate_func_t = std::function<void(RNG &rng)>;
     integrate_func_t integrate_func;
     void choose_integrate_func(integrate_func_t func) {
@@ -101,6 +101,23 @@ public:
     void single_seed(const int i_node, const double value);
     double density();
     double avg_poisson_mean();
+
+    struct IntegrateObject {
+        virtual ~IntegrateObject() = default;
+        virtual void integrate(RNG &rng) = 0;
+    };
+
+    struct RungeKutta : IntegrateObject {
+        void integrate(RNG &rng) override {
+            // std::cout << "RungeKutta integrate" << std::endl;
+        }
+    };
+
+    struct Euler : IntegrateObject {
+        void integrate(RNG &rng) override {
+            // std::cout << "Euler integrate" << std::endl;
+        }
+    };
 };
 
 #endif

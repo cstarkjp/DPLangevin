@@ -51,6 +51,12 @@ public:
     }
 };
 
+template<class T, class... Args>
+std::unique_ptr<T> make_unique(Args&&... args)
+{
+    return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
+}
+
 auto dp(
     double linear, double quadratic, double diffusion, double noise, 
     int n_cells, double t_max, double dx, double dt, int random_seed,
@@ -75,6 +81,13 @@ auto dp(
     dornic.construct_2D_grid();
     dornic.set_coefficients(f_coeffs);
     dornic.random_intial_condition(rng);
+
+    std::unique_ptr<Dornic_DP::IntegrateObject> object;
+    switch (1) {
+        case 1: object = make_unique<Dornic_DP::Euler>();
+        default: object = make_unique<Dornic_DP::RungeKutta>();
+    }
+    object->integrate(rng);
 
     // Integrate
     int n_epochs, i;
