@@ -9,8 +9,6 @@
 #include <string>
 #include "core.hpp"
 #include "application_dp.hpp"
-#include <functional>
-
 
 class Dornic_DP : public DornicBase 
 {

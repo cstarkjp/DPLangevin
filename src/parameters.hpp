@@ -5,57 +5,8 @@
 // CPS 2025-09-02
 // 
 
-#ifndef STRUCT_HPP
-#define STRUCT_HPP
-// #include <string>
-
-// Container for Langevin equation "coefficients"
-struct Coefficients 
-{
-public:
-    double linear;
-    double quadratic;
-    double diffusion;
-    double noise;
-    
-    Coefficients(
-        double a, double b, double c, double d
-    ) : 
-    linear(a), quadratic(b), diffusion(c), noise(d)
-    {}
-
-    void print() {
-        std::cout<< "linear: " << linear << std::endl;
-        std::cout<< "quadratic: " << quadratic << std::endl;
-        std::cout<< "diffusion: " << diffusion << std::endl;
-        std::cout<< "noise: " << noise << std::endl;
-    }
-
-    ~Coefficients() {}
-};
-
-enum class GridDimension
-{
-    D1 = 1,
-    D2 = 2,
-    D3 = 3,
-    D4 = 4
-};
-
-enum InitialCondition
-{
-    RANDOM_UNIFORM = 1,
-    RANDOM_GAUSSIAN = 2,
-    CONSTANT_VALUE = 3,
-    SINGLE_SEED = 4
-};
-
-enum BoundaryCondition
-{
-    PERIODIC = 1,
-    FIXED_VALUE = 2,
-    FIXED_FLUX = 3
-};
+#ifndef PARAMS_HPP
+#define PARAMS_HPP
 
 // Container for model simulation parameters
 struct Parameters 

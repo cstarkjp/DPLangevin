@@ -8,7 +8,9 @@
 #ifndef DORNIC_HPP
 #define DORNIC_HPP
 
-#include "struct.hpp"
+#include "coefficients.hpp"
+#include "parameters.hpp"
+
 class DornicBase
 {
 protected:
