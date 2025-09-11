@@ -8,7 +8,6 @@
 #ifndef COEFFS_HPP
 #define COEFFS_HPP
 
-// Container for Langevin equation "coefficients"
 struct Coefficients 
 {
 public:

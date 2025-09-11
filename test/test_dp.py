@@ -12,7 +12,7 @@ result: NDArray = dplvn.dp(
     # grid_dimension=dplvn.D2,
     # initial_condition=dplvn.RANDOM_UNIFORM,
     # boundary_condition=dplvn.PERIODIC,
-    integration_method=dplvn.EULER
+    # integration_method=dplvn.RUNGE_KUTTA
 )
 print()
 print( type(result) )

@@ -7,8 +7,6 @@
 
 #ifndef PARAMS_HPP
 #define PARAMS_HPP
-
-// Container for model simulation parameters
 struct Parameters 
 {
 public:
