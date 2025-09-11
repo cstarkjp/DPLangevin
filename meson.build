@@ -28,14 +28,13 @@ pybind11_dep = dependency('pybind11')
 # )
 
 cpp_sources = files(
-    'src/ic.cpp', 
-    'src/integration.cpp',
-    'src/initialization.cpp', 
+    'src/integration_rungekutta.cpp', 
+    'src/integration_euler.cpp', 
     'src/grid1d.cpp', 
     'src/grid2d.cpp', 
     'src/network.cpp', 
-    'src/rungekutta.cpp', 
-    'src/eulermethod.cpp', 
+    'src/ic.cpp', 
+    'src/initialization.cpp', 
     'src/utils.cpp', 
     'src/application_dp.cpp', 
     'src/applications_pybind.cpp'

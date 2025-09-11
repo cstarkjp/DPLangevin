@@ -65,14 +65,14 @@ public:
     void set_coefficients(const Coefficients &f_coeffs);
     void set_essential_coefficients(const Coefficients &f_coeffs);
     void set_lambdas(void);
-    void f1(dbl_vector &aux_cell, dbl_vector &k1);
-    void f2f3(
+    void rk_f1(dbl_vector &aux_cell, dbl_vector &k1);
+    void rk_f2f3(
         const dbl_vector &aux_old, 
         dbl_vector &aux_new, 
         dbl_vector &k_out, 
         const double dt_in
     );
-    void f4_and_stochastic(
+    void rk_f4_and_stochastic(
         const dbl_vector &aux_old, 
         const dbl_vector &k1, 
         const dbl_vector &k2, 

@@ -7,8 +7,22 @@
 
 #include "core.hpp"
 
+void DornicBase::integrate_rungekutta(RNG &rng)
+{
+    // Runge-Kutta integration of the non-linear term and diffusion.
+    // Update of cells is done in the same loop as last RK step 
+    // for efficiency
+    rk_f1(aux_cell_old, k1);
+    rk_f2f3(aux_cell_old, aux_cell_new, k2, dtm);
+    // Swap contents is O(1), better than old = fast
+    aux_cell_old.swap(aux_cell_new);            
+    rk_f2f3(aux_cell_old, aux_cell_new, k3, dt);
+    aux_cell_old.swap(aux_cell_new);
+    rk_f4_and_stochastic(aux_cell_old, k1, k2, k3, rng);
+}
+
 // RK first function
-void DornicBase::f1(dbl_vector &aux_cell, dbl_vector &k1)
+void DornicBase::rk_f1(dbl_vector &aux_cell, dbl_vector &k1)
 {
     for (auto i=0; i<n_cells; i++)
     {
@@ -18,7 +32,7 @@ void DornicBase::f1(dbl_vector &aux_cell, dbl_vector &k1)
 }
 
 // RK second and third functions
-void DornicBase::f2f3(
+void DornicBase::rk_f2f3(
     const dbl_vector &aux_old, 
     dbl_vector &aux_new, 
     dbl_vector &k_out, 
@@ -33,7 +47,7 @@ void DornicBase::f2f3(
 }
 
 // RK fourth function and stochastic step, all in the same loop
-void DornicBase::f4_and_stochastic(
+void DornicBase::rk_f4_and_stochastic(
     const dbl_vector &aux_old, 
     const dbl_vector &k1, 
     const dbl_vector &k2, 
