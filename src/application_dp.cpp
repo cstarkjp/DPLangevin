@@ -86,11 +86,22 @@ auto dp(
     std::cout << "Total number of epochs: " << n_epochs << std::endl;
     dbl_vector epochs(n_epochs, 0.0);
     dbl_vector mean_densities(n_epochs, 0.0);
-    for (i=0, t=0; i<n_epochs; t+=dt, i++)
+    switch (parameters.integration_method)
     {
-        dornic.integrate_rungekutta(rng);
-        epochs[i] = t;
-        mean_densities[i] = dornic.density();
+        case (IntegrationMethod::EULER):
+            for (i=0, t=0; i<n_epochs; t+=dt, i++)
+            {
+                dornic.integrate_euler(rng);
+                epochs[i] = t;
+                mean_densities[i] = dornic.density();
+            };      
+        default:
+            for (i=0, t=0; i<n_epochs; t+=dt, i++)
+            {
+                dornic.integrate_rungekutta(rng);
+                epochs[i] = t;
+                mean_densities[i] = dornic.density();
+            };      
     }
     
     // Prepare return array
