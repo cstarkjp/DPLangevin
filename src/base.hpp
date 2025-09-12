@@ -38,15 +38,15 @@ public:
     DornicBase(Parameters params)
     {
         // Initialization of integration increments
-        dt = params.dt; //dt_in;
-        dx = params.dx; //dx_in;
+        dt = params.dt;
+        dx = params.dx;
 
         // Initialization of Runge-Kutta variables
         dtm = 0.5*dt;
         dts = dt/6.0;
 
-        // Initial number of cells, set no activity for the system
-        n_cells = params.n_cells; //total_n_cells;
+        // Initial number of cells, zero activity
+        n_cells = params.n_cells;
         cell_density = dbl_vector(n_cells, 0.0); 
         aux_cell_new = dbl_vector(n_cells);
         aux_cell_old = dbl_vector(n_cells);
