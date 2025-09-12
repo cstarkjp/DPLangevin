@@ -68,10 +68,10 @@ void initialize_grid(Dornic_DP& dornic, const Parameters parameters, RNG &rng)
             dornic.ic_random_uniform(rng);
             break;
         case (InitialCondition::CONSTANT_VALUE):
-            dornic.ic_constant_value();
+            dornic.ic_constant_value(1.0);
             break;
         case (InitialCondition::SINGLE_SEED):
-            dornic.ic_single_seed(32);
+            dornic.ic_single_seed(parameters.n_cells/2, 1.0);
             break;
         case (InitialCondition::RANDOM_UNIFORM):
         default:

@@ -91,8 +91,8 @@ public:
     void ic_random_uniform(
         RNG &rng, const double min_value = 0.0, const double max_value = 1.0
     );
-    void ic_constant_value(const double density_value=0.5);
-    void ic_single_seed(const int i_node, const double value=0.5);
+    void ic_constant_value(const double density_value=1.0);
+    void ic_single_seed(const int i_node, const double value=1.0);
     double density();
     double avg_poisson_mean();
 
