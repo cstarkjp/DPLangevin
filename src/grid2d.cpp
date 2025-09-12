@@ -26,9 +26,9 @@ void DornicBase::construct_2D_grid(const Parameters parameters)
             {
                 auto i = x + y*n_x;
                 top_row      = (y < n_y-1) ? x + (y+1)*n_x : x;
-                bottom_row   = (y > 0) ? x + (y-1)*n_x : x + (n_y-1)*n_x;
-                right_column = (x < n_x-1) ? x+1 + y*n_x : y*n_x;
-                left_column  = (x > 0) ? x-1 + y*n_x : n_x-1 + y*n_x;
+                bottom_row   = (y > 0)     ? x + (y-1)*n_x : x + (n_y-1)*n_x;
+                right_column = (x < n_x-1) ? x+1 + y*n_x : 0 + y*n_x;
+                left_column  = (x > 0)     ? x-1 + y*n_x : n_x-1 + y*n_x;
 
                 neighbors[i][0] = top_row;    // Up
                 neighbors[i][1] = bottom_row;  // Down
@@ -56,8 +56,8 @@ void DornicBase::construct_2D_grid(const Parameters parameters)
         // Top and bottom rows
         for (auto i=1; i<n_x-1; i++)
         {
-            bottom_row = i;             // Bottom row
-            top_row    = i + (n_y-1)*n_x;   // Top row
+            bottom_row = i;
+            top_row    = i + (n_y-1)*n_x;
 
             // Each one of these have three neighbors, redefine
             neighbors[bottom_row] = int_vector(3);
@@ -74,8 +74,8 @@ void DornicBase::construct_2D_grid(const Parameters parameters)
         // Left and right columns
         for (auto i=1; i<n_y-1; i++)
         {
-            left_column  = i*n_x;           // Left column
-            right_column = (n_x-1) + i*n_x; // Right column
+            left_column  = i*n_x;
+            right_column = (n_x-1) + i*n_x;
 
             // Each one of these have three neighbors, redefine
             neighbors[left_column]  = int_vector(3);
