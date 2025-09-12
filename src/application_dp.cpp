@@ -95,7 +95,7 @@ int count_epochs(const Parameters parameters)
 
 void integrate(
     Dornic_DP& dornic, const Parameters parameters, RNG& rng,
-    int n_epochs, dbl_vector& epochs, dbl_vector& mean_densities
+    const int n_epochs, dbl_vector& epochs, dbl_vector& mean_densities
 )
 {
     int i;
@@ -124,7 +124,7 @@ void integrate(
 }
 
 results_t prepare_return_array(
-    int n_epochs, dbl_vector& epochs, dbl_vector& mean_densities
+    const int n_epochs, const dbl_vector& epochs, const dbl_vector& mean_densities
 )
 {
     results_t results({n_epochs, 2});
@@ -138,12 +138,12 @@ results_t prepare_return_array(
 }
 
 results_t dp(
-    double linear, double quadratic, double diffusion, double noise, 
-    int n_cells, double t_max, double dx, double dt, int random_seed,
-    GridDimension grid_dimension, 
-    InitialCondition initial_condition,
-    BoundaryCondition boundary_condition,
-    IntegrationMethod integration_method
+    const double linear, const double quadratic, const double diffusion, const double noise, 
+    const int n_cells, const double t_max, const double dx, const double dt, const int random_seed,
+    const GridDimension grid_dimension, 
+    const InitialCondition initial_condition,
+    const BoundaryCondition boundary_condition,
+    const IntegrationMethod integration_method
 )
 {
     // Set up parameters, coefficients etc

@@ -12,12 +12,12 @@ namespace py = pybind11;
 typedef py::array_t<double, py::array::c_style> results_t;
 
 results_t dp(
-    double linear, double quadratic, double diffusion, double noise, 
-    int n_cells, double t_max, double dx, double dt, int random_seed,
-    GridDimension grid_dimension, 
-    InitialCondition initial_condition,
-    BoundaryCondition boundary_condition,
-    IntegrationMethod integration_method
+    const double linear, const double quadratic, const double diffusion, const double noise, 
+    const int n_cells, const double t_max, const double dx, const double dt, const int random_seed,
+    const GridDimension grid_dimension, 
+    const InitialCondition initial_condition,
+    const BoundaryCondition boundary_condition,
+    const IntegrationMethod integration_method
 );
 
 #endif
