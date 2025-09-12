@@ -57,11 +57,18 @@ public:
         k4 = dbl_vector(n_cells, 0.0);
     }
 
-    void integrate_rungekutta(RNG &rng);
-    void integrate_euler(RNG &rng);
+    void construct_1D_grid(const Parameters parameters);
+    void construct_2D_grid(const Parameters parameters);
+    void ic_random_uniform(
+        RNG &rng, const double min_value = 0.0, const double max_value = 1.0
+    );
+    void ic_constant_value(const double density_value=1.0);
+    void ic_single_seed(const int i_node, const double value=1.0);
     void set_coefficients(const Coefficients &f_coeffs);
     void set_essential_coefficients(const Coefficients &f_coeffs);
     void set_lambdas(void);
+    void integrate_rungekutta(RNG &rng);
+    void integrate_euler(RNG &rng);
     void rk_f1(dbl_vector &aux_cell, dbl_vector &k1);
     void rk_f2f3(
         const dbl_vector &aux_old, 
@@ -77,13 +84,6 @@ public:
         RNG &rng
     );
     void euler_and_stochastic(dbl_vector &aux, RNG &rng);
-    void construct_1D_grid(const Parameters parameters);
-    void construct_2D_grid(const Parameters parameters);
-    void ic_random_uniform(
-        RNG &rng, const double min_value = 0.0, const double max_value = 1.0
-    );
-    void ic_constant_value(const double density_value=1.0);
-    void ic_single_seed(const int i_node, const double value=1.0);
     double density();
     double avg_poisson_mean();
 
