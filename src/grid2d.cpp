@@ -33,8 +33,8 @@ void DornicBase::construct_2D_grid(const Parameters parameters)
 
                 neighbors[i][0] = up;    // Up
                 neighbors[i][1] = down;  // Down
-                neighbors[i][2] = right; // Left (CPS: huh??)
-                neighbors[i][3] = left;  // Right (CPS: huh??)
+                neighbors[i][2] = right; // Right   (VMB: left)
+                neighbors[i][3] = left;  // Left    (VMB: right)
             }
         }
     }
@@ -50,8 +50,8 @@ void DornicBase::construct_2D_grid(const Parameters parameters)
                 // Each cell has 4 neighbors[i] indexes
                 neighbors[i][0] = i + n_x;  // Up:   i + n_x // x + (y+1)*n_x;
                 neighbors[i][1] = i - n_x;  // Down: i - n_x // x + (y-1)*n_x;
-                neighbors[i][2] = i + 1;  // Right: i+1   (VMB: left)  // (x+1) + y*n_x;
-                neighbors[i][3] = i - 1;  // Left:  i-1   (VMB: right) // (x-1) + y*n_x;
+                neighbors[i][2] = i + 1;    // Right: i+1   (VMB: left)  // (x+1) + y*n_x;
+                neighbors[i][3] = i - 1;    // Left:  i-1   (VMB: right) // (x-1) + y*n_x;
             }
         }
         // Top and bottom rows
