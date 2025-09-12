@@ -60,7 +60,6 @@ PYBIND11_MODULE(dplvn, module)
         py::arg("random_seed") = 1,
         py::arg("grid_dimension") = GridDimension::D2,
         py::arg("grid_size") = py::none(),
-        py::arg("n_cells") = 4096, 
         py::arg("grid_topology") = GridTopology::BOUNDED,
         py::arg("boundary_condition") = BoundaryCondition::FLOATING,
         py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,

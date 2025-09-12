@@ -9,14 +9,14 @@
 
 void DornicBase::construct_2D_grid(const Parameters parameters)
 {
-    int i_cell, up, down, right, left;
+    int i_cell, up_cell, down_cell, right_cell, left_cell;
     int top_row, bottom_row, right_column, left_column;
     const int n_x = parameters.grid_size.at(0);
     const int n_y = parameters.grid_size.at(1);
     std::cout << "n_x: " << n_x << std::endl;
     std::cout << "n_y: " << n_y << std::endl;
 
-    neighbors = std::vector<int_vector>(n_cells, int_vector(4));
+    neighbors = std::vector<int_vector>(n_x*n_y, int_vector(4));
 
     if (parameters.grid_topology==GridTopology::PERIODIC)
     {
@@ -26,15 +26,15 @@ void DornicBase::construct_2D_grid(const Parameters parameters)
             for (auto x=0; x<n_x; x++)
             {
                 i_cell = x + y*n_x;
-                up    = (y < n_y-1) ? x + (y+1)*n_x : x;
-                down  = (y > 0)     ? x + (y-1)*n_x : x + (n_y-1)*n_x;
-                right = (x < n_x-1) ? x+1 + y*n_x : 0 + y*n_x;
-                left  = (x > 0)     ? x-1 + y*n_x : n_x-1 + y*n_x;
+                up_cell    = (y < n_y-1) ? x + (y+1)*n_x : x;
+                down_cell  = (y > 0)     ? x + (y-1)*n_x : x + (n_y-1)*n_x;
+                right_cell = (x < n_x-1) ? x+1 + y*n_x : 0 + y*n_x;
+                left_cell  = (x > 0)     ? x-1 + y*n_x : n_x-1 + y*n_x;
 
-                neighbors[i_cell][0] = up;    // Up
-                neighbors[i_cell][1] = down;  // Down
-                neighbors[i_cell][2] = right; // Right   (VMB: left)
-                neighbors[i_cell][3] = left;  // Left    (VMB: right)
+                neighbors[i_cell][0] = up_cell;    // Up
+                neighbors[i_cell][1] = down_cell;  // Down
+                neighbors[i_cell][2] = right_cell; // Right   (VMB: left)
+                neighbors[i_cell][3] = left_cell;  // Left    (VMB: right)
             }
         }
     }

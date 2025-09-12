@@ -16,9 +16,9 @@ public:
     const int random_seed;
     const GridDimension grid_dimension;
     const int_vector& grid_size;
-    const int n_cells;
-    // int n_x;
-    // int n_y;
+    int n_cells;
+    int n_x;
+    int n_y;
     const GridTopology grid_topology;
     const BoundaryCondition boundary_condition;
     const InitialCondition initial_condition;
@@ -28,7 +28,7 @@ public:
         const double b, const double c, const double d, const int e, 
         const GridDimension f, 
         const int_vector& k,
-        const int a, 
+        // const int a, 
         const GridTopology g,
         const BoundaryCondition h,
         const InitialCondition i,
@@ -37,14 +37,15 @@ public:
     t_max(b), dx(c), dt(d), random_seed(e),
     grid_dimension(f), 
     grid_size(k),
-    n_cells(a), 
+    // n_cells(a), 
     grid_topology(g),
     boundary_condition(h),
     initial_condition(i), 
     integration_method(j)
     {
-        // n_x = k.at(0);
-        // n_y = k.at(1);
+        n_x = k.at(0);
+        n_y = k.at(1);
+        n_cells = n_x * n_y;
     }
 
     std::string gdstr(GridDimension gd) {

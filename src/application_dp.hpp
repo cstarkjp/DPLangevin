@@ -17,7 +17,6 @@ results_t dp(
     const double t_max, const double dx, const double dt, const int random_seed,
     const GridDimension grid_dimension, 
     const int_vector& grid_size,
-    const int n_cells, 
     const GridTopology grid_topology,
     const BoundaryCondition boundary_condition,
     const InitialCondition initial_condition,

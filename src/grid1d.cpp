@@ -32,7 +32,7 @@ void DornicBase::construct_1D_grid(const Parameters parameters)
     else
     {
         // Link each end cell to its adjacent cell only
-        neighbors[0] = int_vector(0, 1);
-        neighbors[n_x-1] = int_vector(n_x-2, n_x-1); // VMB: (1, n_x-2)
+        neighbors[0] = int_vector(1, 1);
+        neighbors[n_x-1] = int_vector(1, n_x-2);
     }
 }
