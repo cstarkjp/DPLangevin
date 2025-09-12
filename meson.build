@@ -3,7 +3,7 @@
 project(
     'DPLangevin',
     'cpp',
-    version: '2025.09.12a2',
+    version: '2025.09.12a3',
     default_options: [
         'cpp_std=c++11',
     ],
@@ -31,7 +31,6 @@ cpp_sources = files(
     'src/integration_euler.cpp', 
     'src/grid1d.cpp', 
     'src/grid2d.cpp', 
-    'src/network.cpp', 
     'src/ic.cpp', 
     'src/initialization.cpp', 
     'src/utils.cpp', 

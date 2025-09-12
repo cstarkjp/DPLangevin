@@ -25,23 +25,23 @@ public:
         D = f_coefficients.diffusion / (dx*dx);
     }
 
-    auto nonlinear_rhs(const int i_node, const dbl_vector &field) 
+    auto nonlinear_rhs(const int i_cell, const dbl_vector &field) 
     const -> double
     override
     {
         // Non-linear terms
         const double quadratic_term 
-            = -quadratic_coeff*field[i_node]*field[i_node];
+            = -quadratic_coeff*field[i_cell]*field[i_cell];
 
         // Integration of diffusion
         double diffusion_sum = 0.0;
-        int n_neighbors = neighbors[i_node].size();
+        int n_neighbors = neighbors[i_cell].size();
         for (auto i=0; i<n_neighbors; i++)
         {
-            auto i_neighbor = neighbors[i_node][i];
+            auto i_neighbor = neighbors[i_cell][i];
             diffusion_sum += field[i_neighbor];
         }
-        diffusion_sum = D*(diffusion_sum - n_neighbors*field[i_node]);
+        diffusion_sum = D*(diffusion_sum - n_neighbors*field[i_cell]);
         return diffusion_sum + quadratic_term;
     }
 };
@@ -142,19 +142,24 @@ results_t prepare_return_array(
 results_t dp(
     const double linear, const double quadratic, 
     const double diffusion, const double noise, 
-    const int n_cells, const double t_max, const double dx, 
-    const double dt, const int random_seed,
+    const double t_max, const double dx, const double dt, const int random_seed,
     const GridDimension grid_dimension, 
-    const InitialCondition initial_condition,
+    const int_vector& grid_size,
+    const GridTopology grid_topology,
     const BoundaryCondition boundary_condition,
+    const InitialCondition initial_condition,
     const IntegrationMethod integration_method
 )
 {
     Coefficients f_coeffs (linear, quadratic, diffusion, noise);
     Parameters parameters (
-        n_cells, t_max, dx, dt, random_seed,
-        grid_dimension, initial_condition, 
-        boundary_condition, integration_method
+        t_max, dx, dt, random_seed,
+        grid_dimension, 
+        grid_size, 
+        grid_topology, 
+        boundary_condition, 
+        initial_condition, 
+        integration_method
     );
     RNG rng(parameters.random_seed); 
     f_coeffs.print();
