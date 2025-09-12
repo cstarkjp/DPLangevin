@@ -15,8 +15,7 @@ class DornicBase
 {
 protected:
     // Runge-Kutta variables
-    dbl_vector k1, k2, k3, k4;
-    dbl_vector aux_cell_old, aux_cell_new;
+    dbl_vector k1, k2, k3, k4, aux_cell_old, aux_cell_new;
     double dt, dx, dtm, dts;
 
     // Dornic stochastic-step variables
@@ -26,10 +25,10 @@ protected:
     dbl_normal_distbn normal;
 
     // Grid/network variables
-    dbl_vector cell_density;
-    double mean_density;
     int n_cells;
+    dbl_vector cell_density;
     std::vector< int_vector > neighbors;
+    double mean_density;
 
     // Dornic method coefficients
     double linear_coeff, noise_coeff;
@@ -58,7 +57,6 @@ public:
         k4 = dbl_vector(n_cells, 0.0);
     }
 
-    // Declarations
     void integrate_rungekutta(RNG &rng);
     void integrate_euler(RNG &rng);
     void set_coefficients(const Coefficients &f_coeffs);
@@ -79,11 +77,6 @@ public:
         RNG &rng
     );
     void euler_and_stochastic(dbl_vector &aux, RNG &rng);
-    // Defined by the application — these are placeholders
-    virtual void set_nonlinear_coefficients(const Coefficients &f_coeffs) {};
-    virtual auto nonlinear_rhs(const int i_node, const dbl_vector &field) 
-        const -> double{ return 0; };
-    //
     void construct_1D_grid(const Parameters parameters);
     void construct_2D_grid(const Parameters parameters);
     void construct_custom_network(const std::vector<int_vector> &network);
@@ -95,6 +88,10 @@ public:
     double density();
     double avg_poisson_mean();
 
+    // Defined by the application — these are placeholders
+    virtual void set_nonlinear_coefficients(const Coefficients &f_coeffs) {};
+    virtual auto nonlinear_rhs(const int i_node, const dbl_vector &field) 
+        const -> double{ return 0; };
 };
 
 #endif
