@@ -59,7 +59,6 @@ public:
     }
 
     // Declarations
-    void integrate(RNG &rng);
     void integrate_rungekutta(RNG &rng);
     void integrate_euler(RNG &rng);
     void set_coefficients(const Coefficients &f_coeffs);
