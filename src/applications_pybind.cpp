@@ -28,6 +28,7 @@ PYBIND11_MODULE(dplvn, module)
         .export_values();
 
     py::enum_<BoundaryCondition>(module, "BoundaryCondition")
+        .value("FLOATING", BoundaryCondition::FLOATING)
         .value("PERIODIC", BoundaryCondition::PERIODIC)
         .value("FIXED_VALUE", BoundaryCondition::FIXED_VALUE)
         .value("FIXED_FLUX", BoundaryCondition::FIXED_FLUX)

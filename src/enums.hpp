@@ -26,9 +26,10 @@ enum InitialCondition
 
 enum BoundaryCondition
 {
-    PERIODIC = 1,
-    FIXED_VALUE = 2,
-    FIXED_FLUX = 3
+    FLOATING = 1,
+    PERIODIC = 2,
+    FIXED_VALUE = 3,
+    FIXED_FLUX = 4
 };
 
 enum class IntegrationMethod

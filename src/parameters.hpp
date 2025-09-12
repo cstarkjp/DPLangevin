@@ -53,6 +53,7 @@ public:
 
     std::string bcstr(BoundaryCondition bc) {
         switch (bc) {
+            case BoundaryCondition::FLOATING: return "floating";
             case BoundaryCondition::PERIODIC: return "periodic";
             case BoundaryCondition::FIXED_VALUE: return "fixed value";
             case BoundaryCondition::FIXED_FLUX: return "fixed flux";

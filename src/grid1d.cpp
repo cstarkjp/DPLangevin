@@ -7,7 +7,7 @@
 
 #include "core.hpp"
 
-void DornicBase::construct_1D_grid(const bool periodic)
+void DornicBase::construct_1D_grid(const Parameters parameters)
 {
     neighbors = std::vector<int_vector>(n_cells, int_vector(2));
 
@@ -19,7 +19,7 @@ void DornicBase::construct_1D_grid(const bool periodic)
     }
 
     // Grid ends
-    if (periodic)
+    if (parameters.boundary_condition==BoundaryCondition::PERIODIC)
     {
         neighbors[0][0] = n_cells-1;
         neighbors[0][1] = 1;

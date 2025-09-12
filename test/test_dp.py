@@ -11,7 +11,7 @@ result: NDArray = dplvn.dp(
     # t_max=100.0, dx=0.5, dt=0.01,
     # grid_dimension=dplvn.D2,
     # initial_condition=dplvn.RANDOM_UNIFORM,
-    # boundary_condition=dplvn.PERIODIC,
+    boundary_condition=dplvn.FLOATING,
     # integration_method=dplvn.RUNGE_KUTTA
 )
 print()

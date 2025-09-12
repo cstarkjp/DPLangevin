@@ -7,7 +7,7 @@
 
 #include "core.hpp"
 
-void DornicBase::construct_2D_grid(const bool periodic)
+void DornicBase::construct_2D_grid(const Parameters parameters)
 {
     // Only square grids are supported
     // TBD: implement rectangular grids
@@ -16,7 +16,7 @@ void DornicBase::construct_2D_grid(const bool periodic)
 
     neighbors = std::vector<int_vector>(n_cells, int_vector(4));
 
-    if (periodic)
+    if (parameters.boundary_condition==BoundaryCondition::PERIODIC)
     {
         for (auto y=0; y<L; y++)
         {

@@ -85,14 +85,14 @@ public:
     virtual auto nonlinear_rhs(const int i_node, const dbl_vector &field) 
         const -> double{ return 0; };
     //
-    void construct_1D_grid(const bool periodic = false);
-    void construct_2D_grid(const bool periodic = false);
+    void construct_1D_grid(const Parameters parameters);
+    void construct_2D_grid(const Parameters parameters);
     void construct_custom_network(const std::vector<int_vector> &network);
-    void random_intial_condition(
+    void ic_random_uniform(
         RNG &rng, const double min_value = 0.0, const double max_value = 1.0
     );
-    void homogeneous_initial_condition(const double density_value);
-    void single_seed(const int i_node, const double value);
+    void ic_constant_value(const double density_value=0.5);
+    void ic_single_seed(const int i_node, const double value=0.5);
     double density();
     double avg_poisson_mean();
 
