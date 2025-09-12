@@ -142,9 +142,10 @@ results_t prepare_return_array(
 results_t dp(
     const double linear, const double quadratic, 
     const double diffusion, const double noise, 
-    const int n_cells, const double t_max, const double dx, 
-    const double dt, const int random_seed,
+    const double t_max, const double dx, const double dt, const int random_seed,
     const GridDimension grid_dimension, 
+    const int_vector& grid_size,
+    const int n_cells, 
     const GridTopology grid_topology,
     const BoundaryCondition boundary_condition,
     const InitialCondition initial_condition,
@@ -153,8 +154,10 @@ results_t dp(
 {
     Coefficients f_coeffs (linear, quadratic, diffusion, noise);
     Parameters parameters (
-        n_cells, t_max, dx, dt, random_seed,
+        t_max, dx, dt, random_seed,
         grid_dimension, 
+        grid_size, 
+        n_cells, 
         grid_topology, 
         boundary_condition, 
         initial_condition, 

@@ -10,32 +10,42 @@
 struct Parameters 
 {
 public:
-    int n_cells;
-    double t_max;
-    double dx;
-    double dt;
-    int random_seed;
-    GridDimension grid_dimension;
-    GridTopology grid_topology;
-    BoundaryCondition boundary_condition;
-    InitialCondition initial_condition;
-    IntegrationMethod integration_method;
+    const double t_max;
+    const double dx;
+    const double dt;
+    const int random_seed;
+    const GridDimension grid_dimension;
+    const int_vector& grid_size;
+    const int n_cells;
+    // int n_x;
+    // int n_y;
+    const GridTopology grid_topology;
+    const BoundaryCondition boundary_condition;
+    const InitialCondition initial_condition;
+    const IntegrationMethod integration_method;
 
     Parameters(
-        int a, double b, double c, double d, int e, 
-        GridDimension f, 
-        GridTopology g,
-        BoundaryCondition h,
-        InitialCondition i,
-        IntegrationMethod j
+        const double b, const double c, const double d, const int e, 
+        const GridDimension f, 
+        const int_vector& k,
+        const int a, 
+        const GridTopology g,
+        const BoundaryCondition h,
+        const InitialCondition i,
+        const IntegrationMethod j
     ) : 
-    n_cells(a), t_max(b), dx(c), dt(d), random_seed(e),
+    t_max(b), dx(c), dt(d), random_seed(e),
     grid_dimension(f), 
+    grid_size(k),
+    n_cells(a), 
     grid_topology(g),
     boundary_condition(h),
     initial_condition(i), 
     integration_method(j)
-    {}
+    {
+        // n_x = k.at(0);
+        // n_y = k.at(1);
+    }
 
     std::string gdstr(GridDimension gd) {
         switch (gd) {
@@ -82,13 +92,18 @@ public:
     }
 
     void print() {
-        std::cout<< "n_cells: " << n_cells << std::endl;
         std::cout<< "t_max: " << t_max << std::endl;
         std::cout<< "dx: " << dx << std::endl;
         std::cout<< "dt: " << dt << std::endl;
         std::cout<< "random_seed: " << random_seed << std::endl;
         std::cout<< "grid_dimension: " 
             << gdstr(grid_dimension) << std::endl;
+        std::cout<< "n_cells: " << n_cells << std::endl;
+        std::cout<< "grid_size: ";
+        for (const auto& element : grid_size) {
+            std::cout << element << " ";
+        }
+        std::cout<< std::endl;        
         std::cout<< "grid_topology: " 
             << gtstr(grid_topology) << std::endl;
         std::cout<< "boundary_condition: " 

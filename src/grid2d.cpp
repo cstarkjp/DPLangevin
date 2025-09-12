@@ -9,25 +9,34 @@
 
 void DornicBase::construct_2D_grid(const Parameters parameters)
 {
-    // Only square grids are supported
-    // TBD: implement rectangular grids
-    const int L = sqrt(cell_density.size());
     int up, down, right, left;
+    // const int L = sqrt(cell_density.size());
+    const int n_x = parameters.grid_size.at(0);
+    const int n_y = parameters.grid_size.at(1);
+    const int L = n_x;
+    std::cout << "n_x: " << n_x << std::endl;
+    std::cout << "n_y: " << n_y << std::endl;
 
     neighbors = std::vector<int_vector>(n_cells, int_vector(4));
 
     if (parameters.grid_topology==GridTopology::PERIODIC)
     {
-        for (auto y=0; y<L; y++)
+        // Periodic grid topology in both x and y
+        for (auto y=0; y<n_y; y++)
         {
-            for (auto x=0; x<L; x++)
+            for (auto x=0; x<n_x; x++)
             {
                 up = (y < L-1) ? x + (y+1)*L : x;
                 down = (y > 0) ? x + (y-1)*L : x + (L-1)*L;
                 right = (x < L-1) ? x+1 + y*L : y*L;
                 left = (x > 0) ? x-1 + y*L : L-1 + y*L;
 
-                auto i = x + y*L;
+                // up = (y < n_y-1) ? x + (y+1)*n_x : x;
+                // down = (y > 0) ? x + (y-1)*n_x : x + (L-1)*n_x;
+                // right = (x < L-1) ? x+1 + y*n_x : y*n_x;
+                // left = (x > 0) ? x-1 + y*n_x : n_x-1 + y*n_x;
+
+                auto i = x + y*n_x;
                 neighbors[i][0] = up;    // Up
                 neighbors[i][1] = down;  // Down
                 neighbors[i][2] = right; // Left (CPS:??)
@@ -37,15 +46,18 @@ void DornicBase::construct_2D_grid(const Parameters parameters)
     }
     else
     {
-        for (auto y=1; y<L-1; y++)
+        // Bounded grid topology in both x and y
+        for (auto y=1; y<n_y-1; y++)
         {
-            for (auto x=1; x<L-1; x++)
+            for (auto x=1; x<n_x-1; x++)
             {
-                auto i = x + y*L;
-                neighbors[i][0] = x + (y+1)*L;  // Up
-                neighbors[i][1] = x + (y-1)*L;  // Down
-                neighbors[i][2] = (x+1) + y*L;  // Left (CPS:??)
-                neighbors[i][3] = (x-1) + y*L;  // Right (CPS:??)
+                // i is the index of the flattened grid
+                auto i = x + y*n_x;
+                // Each cell has 4 neighbors[i] indexes
+                neighbors[i][0] = x + (y+1)*n_x;  // Up:   i + n_x
+                neighbors[i][1] = x + (y-1)*n_x;  // Down: i - n_x
+                neighbors[i][2] = (x+1) + y*n_x;  // Right: i+1   (VMB: left)
+                neighbors[i][3] = (x-1) + y*n_x;  // Left:  i-1   (VMB: right)
             }
         }
         for (auto i=1; i<L-1; i++)

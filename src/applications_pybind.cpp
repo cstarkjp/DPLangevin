@@ -8,6 +8,8 @@
 #include <pybind11/numpy.h>
 #include "core.hpp"
 #include "application_dp.hpp"
+// Essential for STL container conversions
+#include <pybind11/stl.h> 
 
 PYBIND11_MODULE(dplvn, module)
 {
@@ -52,12 +54,13 @@ PYBIND11_MODULE(dplvn, module)
         py::arg("quadratic") = 2.0, 
         py::arg("diffusion") = 0.1,
         py::arg("noise") = 1.0,
-        py::arg("n_cells") = 4096, 
         py::arg("t_max") = 100.0,
         py::arg("dx") = 0.5,
         py::arg("dt") = 0.01,
         py::arg("random_seed") = 1,
         py::arg("grid_dimension") = GridDimension::D2,
+        py::arg("grid_size") = py::none(),
+        py::arg("n_cells") = 4096, 
         py::arg("grid_topology") = GridTopology::BOUNDED,
         py::arg("boundary_condition") = BoundaryCondition::FLOATING,
         py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
