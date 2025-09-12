@@ -14,7 +14,7 @@ void LangevinBase::construct_2D_grid(const Parameters parameters)
     std::cout << "n_x: " << n_x << std::endl;
     std::cout << "n_y: " << n_y << std::endl;
     int i_cell, up_cell, down_cell, right_cell, left_cell;
-    int top_row, bottom_row, right_column, left_column;
+    int top_row_cell, bottom_row_cell, right_column_cell, left_column_cell;
 
     neighbors = std::vector<int_vector>(n_x*n_y, int_vector(4));
 
@@ -26,10 +26,10 @@ void LangevinBase::construct_2D_grid(const Parameters parameters)
             for (auto x=0; x<n_x; x++)
             {
                 i_cell = x + y*n_x;
-                up_cell    = (y < n_y-1) ? x + (y+1)*n_x : x;
-                down_cell  = (y > 0)     ? x + (y-1)*n_x : x + (n_y-1)*n_x;
-                right_cell = (x < n_x-1) ? x+1 + y*n_x : 0 + y*n_x;
-                left_cell  = (x > 0)     ? x-1 + y*n_x : n_x-1 + y*n_x;
+                up_cell    = (y < n_y-1) ? i_cell + n_x : x;
+                down_cell  = (y > 0)     ? i_cell - n_x : x + (n_y-1)*n_x;
+                right_cell = (x < n_x-1) ? i_cell + 1 : 0 + y*n_x;
+                left_cell  = (x > 0)     ? i_cell - 1 : n_x-1 + y*n_x;
 
                 neighbors[i_cell][0] = up_cell;    // Up
                 neighbors[i_cell][1] = down_cell;  // Down
@@ -55,38 +55,38 @@ void LangevinBase::construct_2D_grid(const Parameters parameters)
             }
         }
         // Top and bottom rows
-        for (i_cell=1; i_cell<n_x-1; i_cell++)
+        for (auto x=1; x<n_x-1; x++)
         {
-            bottom_row = i_cell;
-            top_row    = i_cell + (n_y-1)*n_x;
+            bottom_row_cell = x;
+            top_row_cell    = x + (n_y-1)*n_x;
 
             // Each boundary cell has only 3 neighbors
-            neighbors[bottom_row] = int_vector(3);
-            neighbors[top_row]    = int_vector(3);
+            neighbors[bottom_row_cell] = int_vector(3);
+            neighbors[top_row_cell]    = int_vector(3);
 
-            neighbors[bottom_row][0] = bottom_row + n_x;
-            neighbors[bottom_row][1] = bottom_row - 1; 
-            neighbors[bottom_row][2] = bottom_row + 1; 
-            neighbors[top_row][0] = top_row - n_x;
-            neighbors[top_row][1] = top_row - 1; 
-            neighbors[top_row][2] = top_row + 1;
+            neighbors[bottom_row_cell][0] = bottom_row_cell + n_x;
+            neighbors[bottom_row_cell][1] = bottom_row_cell - 1; 
+            neighbors[bottom_row_cell][2] = bottom_row_cell + 1; 
+            neighbors[top_row_cell][0] = top_row_cell - n_x;
+            neighbors[top_row_cell][1] = top_row_cell - 1; 
+            neighbors[top_row_cell][2] = top_row_cell + 1;
         }
         // Left and right columns
-        for (i_cell=1; i_cell<n_y-1; i_cell++)
+        for (auto y=1; y<n_y-1; y++)
         {
-            left_column  = i_cell*n_x;
-            right_column = (n_x-1) + i_cell*n_x;
+            left_column_cell  = y*n_x;
+            right_column_cell = (n_x-1) + y*n_x;
 
             // Each boundary cell has only 3 neighbors
-            neighbors[left_column]  = int_vector(3);
-            neighbors[right_column] = int_vector(3);
+            neighbors[left_column_cell]  = int_vector(3);
+            neighbors[right_column_cell] = int_vector(3);
 
-            neighbors[left_column][0] = left_column + n_x;
-            neighbors[left_column][1] = left_column - n_x; 
-            neighbors[left_column][2] = left_column + 1;
-            neighbors[right_column][0] = right_column + n_x;
-            neighbors[right_column][1] = right_column - n_x; 
-            neighbors[right_column][2] = right_column - 1;
+            neighbors[left_column_cell][0] = left_column_cell + n_x;
+            neighbors[left_column_cell][1] = left_column_cell - n_x; 
+            neighbors[left_column_cell][2] = left_column_cell + 1;
+            neighbors[right_column_cell][0] = right_column_cell + n_x;
+            neighbors[right_column_cell][1] = right_column_cell - n_x; 
+            neighbors[right_column_cell][2] = right_column_cell - 1;
         }
 
         // Each corner cell has only 2 neighbors
