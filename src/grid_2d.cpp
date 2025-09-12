@@ -93,22 +93,22 @@ void LangevinBase::construct_2D_grid(const Parameters parameters)
         // Bottom-left corner
         i_cell = 0;
         neighbors[i_cell] = int_vector(2);
-        neighbors[i_cell][0] = 0 + 1; 
-        neighbors[i_cell][1] = 0 + n_x;
+        neighbors[i_cell][0] = i_cell + 1; 
+        neighbors[i_cell][1] = i_cell + n_x;
         // Bottom-right corner
         i_cell = n_x-1;
         neighbors[i_cell] = int_vector(2);
-        neighbors[i_cell][0] = (n_x-1) - 1;
-        neighbors[i_cell][1] = (n_x-1) + n_x;
+        neighbors[i_cell][0] = i_cell - 1;
+        neighbors[i_cell][1] = i_cell + n_x;
         // Top-left corner
         i_cell = (n_y-1)*n_x;
         neighbors[i_cell] = int_vector(2);
-        neighbors[i_cell][0] = (n_y-1)*n_x + 1; 
-        neighbors[i_cell][1] = (n_y-2)*n_x;
+        neighbors[i_cell][0] = i_cell + 1; 
+        neighbors[i_cell][1] = i_cell - n_x;
         // Top-right corner
         i_cell = (n_x-1)+(n_y-1)*n_x;
         neighbors[i_cell] = int_vector(2);
-        neighbors[i_cell][0] = (n_x-2)+(n_y-1)*n_x; 
-        neighbors[i_cell][1] = (n_x-1)+(n_y-2)*n_x;
+        neighbors[i_cell][0] = i_cell - 1; 
+        neighbors[i_cell][1] = i_cell - n_x;
     }
 }
