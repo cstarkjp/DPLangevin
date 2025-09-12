@@ -19,6 +19,18 @@ PYBIND11_MODULE(dplvn, module)
         .value("D1", GridDimension::D1)
         .value("D2", GridDimension::D2)
         .value("D3", GridDimension::D3)
+        .value("D4", GridDimension::D4)
+        .export_values();
+
+    py::enum_<GridTopology>(module, "GridTopology")
+        .value("BOUNDED", GridTopology::BOUNDED)
+        .value("PERIODIC", GridTopology::PERIODIC)
+        .export_values();
+
+    py::enum_<BoundaryCondition>(module, "BoundaryCondition")
+        .value("FLOATING", BoundaryCondition::FLOATING)
+        .value("FIXED_VALUE", BoundaryCondition::FIXED_VALUE)
+        .value("FIXED_FLUX", BoundaryCondition::FIXED_FLUX)
         .export_values();
 
     py::enum_<InitialCondition>(module, "InitialCondition")
@@ -26,13 +38,6 @@ PYBIND11_MODULE(dplvn, module)
         .value("RANDOM_GAUSSIAN", InitialCondition::RANDOM_GAUSSIAN)
         .value("CONSTANT_VALUE", InitialCondition::CONSTANT_VALUE)
         .value("SINGLE_SEED", InitialCondition::SINGLE_SEED)
-        .export_values();
-
-    py::enum_<BoundaryCondition>(module, "BoundaryCondition")
-        .value("FLOATING", BoundaryCondition::FLOATING)
-        .value("PERIODIC", BoundaryCondition::PERIODIC)
-        .value("FIXED_VALUE", BoundaryCondition::FIXED_VALUE)
-        .value("FIXED_FLUX", BoundaryCondition::FIXED_FLUX)
         .export_values();
 
     py::enum_<IntegrationMethod>(module, "IntegrationMethod")
@@ -53,8 +58,9 @@ PYBIND11_MODULE(dplvn, module)
         py::arg("dt") = 0.01,
         py::arg("random_seed") = 1,
         py::arg("grid_dimension") = GridDimension::D2,
+        py::arg("grid_topology") = GridTopology::BOUNDED,
+        py::arg("boundary_condition") = BoundaryCondition::FLOATING,
         py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
-        py::arg("boundary_condition") = BoundaryCondition::PERIODIC,
         py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA,
         "Demo application of the Dornic method"
     );

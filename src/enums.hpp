@@ -16,20 +16,25 @@ enum class GridDimension
     D4 = 4
 };
 
+enum GridTopology
+{
+    BOUNDED = 1,
+    PERIODIC = 2
+};
+
+enum BoundaryCondition
+{
+    FLOATING = 1,
+    FIXED_VALUE = 2,
+    FIXED_FLUX = 3
+};
+
 enum InitialCondition
 {
     RANDOM_UNIFORM = 1,
     RANDOM_GAUSSIAN = 2,
     CONSTANT_VALUE = 3,
     SINGLE_SEED = 4
-};
-
-enum BoundaryCondition
-{
-    FLOATING = 1,
-    PERIODIC = 2,
-    FIXED_VALUE = 3,
-    FIXED_FLUX = 4
 };
 
 enum class IntegrationMethod

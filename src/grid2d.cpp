@@ -16,7 +16,7 @@ void DornicBase::construct_2D_grid(const Parameters parameters)
 
     neighbors = std::vector<int_vector>(n_cells, int_vector(4));
 
-    if (parameters.boundary_condition==BoundaryCondition::PERIODIC)
+    if (parameters.grid_topology==GridTopology::PERIODIC)
     {
         for (auto y=0; y<L; y++)
         {

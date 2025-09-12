@@ -145,16 +145,20 @@ results_t dp(
     const int n_cells, const double t_max, const double dx, 
     const double dt, const int random_seed,
     const GridDimension grid_dimension, 
-    const InitialCondition initial_condition,
+    const GridTopology grid_topology,
     const BoundaryCondition boundary_condition,
+    const InitialCondition initial_condition,
     const IntegrationMethod integration_method
 )
 {
     Coefficients f_coeffs (linear, quadratic, diffusion, noise);
     Parameters parameters (
         n_cells, t_max, dx, dt, random_seed,
-        grid_dimension, initial_condition, 
-        boundary_condition, integration_method
+        grid_dimension, 
+        grid_topology, 
+        boundary_condition, 
+        initial_condition, 
+        integration_method
     );
     RNG rng(parameters.random_seed); 
     f_coeffs.print();

@@ -19,7 +19,7 @@ void DornicBase::construct_1D_grid(const Parameters parameters)
     }
 
     // Grid ends
-    if (parameters.boundary_condition==BoundaryCondition::PERIODIC)
+    if (parameters.grid_topology==GridTopology::PERIODIC)
     {
         neighbors[0][0] = n_cells-1;
         neighbors[0][1] = 1;

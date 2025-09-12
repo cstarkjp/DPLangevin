@@ -16,20 +16,25 @@ public:
     double dt;
     int random_seed;
     GridDimension grid_dimension;
-    InitialCondition initial_condition;
+    GridTopology grid_topology;
     BoundaryCondition boundary_condition;
+    InitialCondition initial_condition;
     IntegrationMethod integration_method;
 
     Parameters(
         int a, double b, double c, double d, int e, 
         GridDimension f, 
-        InitialCondition g,
+        GridTopology g,
         BoundaryCondition h,
-        IntegrationMethod i
+        InitialCondition i,
+        IntegrationMethod j
     ) : 
     n_cells(a), t_max(b), dx(c), dt(d), random_seed(e),
-    grid_dimension(f), initial_condition(g), boundary_condition(h),
-    integration_method(i)
+    grid_dimension(f), 
+    grid_topology(g),
+    boundary_condition(h),
+    initial_condition(i), 
+    integration_method(j)
     {}
 
     std::string gdstr(GridDimension gd) {
@@ -41,12 +46,10 @@ public:
         }
     }
 
-    std::string icstr(InitialCondition ic) {
-        switch (ic) {
-            case InitialCondition::RANDOM_UNIFORM: return "random uniform values";
-            case InitialCondition::RANDOM_GAUSSIAN: return "random Gaussian values";
-            case InitialCondition::CONSTANT_VALUE: return "constand value";
-            case InitialCondition::SINGLE_SEED: return "single seed";
+    std::string gtstr(GridTopology gt) {
+        switch (gt) {
+            case GridTopology::BOUNDED: return "bounded";
+            case GridTopology::PERIODIC: return "periodic";
             default: return "Unknown";
         }
     }
@@ -54,9 +57,18 @@ public:
     std::string bcstr(BoundaryCondition bc) {
         switch (bc) {
             case BoundaryCondition::FLOATING: return "floating";
-            case BoundaryCondition::PERIODIC: return "periodic";
             case BoundaryCondition::FIXED_VALUE: return "fixed value";
             case BoundaryCondition::FIXED_FLUX: return "fixed flux";
+            default: return "Unknown";
+        }
+    }
+
+    std::string icstr(InitialCondition ic) {
+        switch (ic) {
+            case InitialCondition::RANDOM_UNIFORM: return "random uniform values";
+            case InitialCondition::RANDOM_GAUSSIAN: return "random Gaussian values";
+            case InitialCondition::CONSTANT_VALUE: return "constand value";
+            case InitialCondition::SINGLE_SEED: return "single seed";
             default: return "Unknown";
         }
     }
@@ -77,10 +89,12 @@ public:
         std::cout<< "random_seed: " << random_seed << std::endl;
         std::cout<< "grid_dimension: " 
             << gdstr(grid_dimension) << std::endl;
-        std::cout<< "initial_condition: " 
-            << icstr(initial_condition) << std::endl;
+        std::cout<< "grid_topology: " 
+            << gtstr(grid_topology) << std::endl;
         std::cout<< "boundary_condition: " 
             << bcstr(boundary_condition) << std::endl;
+        std::cout<< "initial_condition: " 
+            << icstr(initial_condition) << std::endl;
         std::cout<< "integration_method: " 
             << icstr(integration_method) << std::endl;
     }
