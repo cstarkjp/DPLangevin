@@ -9,12 +9,12 @@
 
 void DornicBase::construct_2D_grid(const Parameters parameters)
 {
-    int i_cell, up_cell, down_cell, right_cell, left_cell;
-    int top_row, bottom_row, right_column, left_column;
-    const int n_x = parameters.grid_size.at(0);
-    const int n_y = parameters.grid_size.at(1);
+    const int n_x = parameters.n_x;
+    const int n_y = parameters.n_y;
     std::cout << "n_x: " << n_x << std::endl;
     std::cout << "n_y: " << n_y << std::endl;
+    int i_cell, up_cell, down_cell, right_cell, left_cell;
+    int top_row, bottom_row, right_column, left_column;
 
     neighbors = std::vector<int_vector>(n_x*n_y, int_vector(4));
 

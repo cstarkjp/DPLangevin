@@ -19,6 +19,7 @@ public:
     int n_cells;
     int n_x;
     int n_y;
+    int n_z;  // but 3d, 4d grids not implemented yet (or ever)
     const GridTopology grid_topology;
     const BoundaryCondition boundary_condition;
     const InitialCondition initial_condition;
@@ -28,24 +29,23 @@ public:
         const double b, const double c, const double d, const int e, 
         const GridDimension f, 
         const int_vector& k,
-        // const int a, 
         const GridTopology g,
         const BoundaryCondition h,
         const InitialCondition i,
         const IntegrationMethod j
     ) : 
-    t_max(b), dx(c), dt(d), random_seed(e),
-    grid_dimension(f), 
-    grid_size(k),
-    // n_cells(a), 
-    grid_topology(g),
-    boundary_condition(h),
-    initial_condition(i), 
-    integration_method(j)
+        t_max(b), dx(c), dt(d), random_seed(e),
+        grid_dimension(f), 
+        grid_size(k),
+        grid_topology(g),
+        boundary_condition(h),
+        initial_condition(i), 
+        integration_method(j)
     {
         n_x = k.at(0);
-        n_y = k.at(1);
-        n_cells = n_x * n_y;
+        n_y = (k.size()>1) ? k.at(1) : 1;
+        n_z = (k.size()>2) ? k.at(2) : 1;
+        n_cells = n_x * n_y * n_z;
     }
 
     std::string gdstr(GridDimension gd) {
