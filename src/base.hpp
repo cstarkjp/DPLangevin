@@ -82,7 +82,7 @@ public:
 
     // Defined by the application — these are placeholders
     virtual void set_nonlinear_coefficients(const Coefficients &f_coeffs) {};
-    virtual auto nonlinear_rhs(const int i_node, const dbl_vector &field) 
+    virtual auto nonlinear_rhs(const int i_cell, const dbl_vector &field) 
         const -> double{ return 0; };
 };
 

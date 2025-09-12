@@ -9,7 +9,7 @@
 
 void DornicBase::construct_2D_grid(const Parameters parameters)
 {
-    int i, up, down, right, left;
+    int i_cell, up, down, right, left;
     int top_row, bottom_row, right_column, left_column;
     const int n_x = parameters.grid_size.at(0);
     const int n_y = parameters.grid_size.at(1);
@@ -25,16 +25,16 @@ void DornicBase::construct_2D_grid(const Parameters parameters)
         {
             for (auto x=0; x<n_x; x++)
             {
-                i = x + y*n_x;
+                i_cell = x + y*n_x;
                 up    = (y < n_y-1) ? x + (y+1)*n_x : x;
                 down  = (y > 0)     ? x + (y-1)*n_x : x + (n_y-1)*n_x;
                 right = (x < n_x-1) ? x+1 + y*n_x : 0 + y*n_x;
                 left  = (x > 0)     ? x-1 + y*n_x : n_x-1 + y*n_x;
 
-                neighbors[i][0] = up;    // Up
-                neighbors[i][1] = down;  // Down
-                neighbors[i][2] = right; // Right   (VMB: left)
-                neighbors[i][3] = left;  // Left    (VMB: right)
+                neighbors[i_cell][0] = up;    // Up
+                neighbors[i_cell][1] = down;  // Down
+                neighbors[i_cell][2] = right; // Right   (VMB: left)
+                neighbors[i_cell][3] = left;  // Left    (VMB: right)
             }
         }
     }
@@ -45,20 +45,20 @@ void DornicBase::construct_2D_grid(const Parameters parameters)
         {
             for (auto x=1; x<n_x-1; x++)
             {
-                // i is the index of the flattened grid
-                i = x + y*n_x;
-                // Each cell has 4 neighbors[i] indexes
-                neighbors[i][0] = i + n_x;  // Up:   i + n_x // x + (y+1)*n_x;
-                neighbors[i][1] = i - n_x;  // Down: i - n_x // x + (y-1)*n_x;
-                neighbors[i][2] = i + 1;    // Right: i+1   (VMB: left)  // (x+1) + y*n_x;
-                neighbors[i][3] = i - 1;    // Left:  i-1   (VMB: right) // (x-1) + y*n_x;
+                // i_cell is the index of the flattened grid
+                i_cell = x + y*n_x;
+                // Each cell has 4 neighbors[i_cell] indexes
+                neighbors[i_cell][0] = i_cell + n_x;  // Up:   i_cell + n_x // x + (y+1)*n_x;
+                neighbors[i_cell][1] = i_cell - n_x;  // Down: i_cell - n_x // x + (y-1)*n_x;
+                neighbors[i_cell][2] = i_cell + 1;    // Right: i_cell+1   (VMB: left)  // (x+1) + y*n_x;
+                neighbors[i_cell][3] = i_cell - 1;    // Left:  i_cell-1   (VMB: right) // (x-1) + y*n_x;
             }
         }
         // Top and bottom rows
-        for (i=1; i<n_x-1; i++)
+        for (i_cell=1; i_cell<n_x-1; i_cell++)
         {
-            bottom_row = i;
-            top_row    = i + (n_y-1)*n_x;
+            bottom_row = i_cell;
+            top_row    = i_cell + (n_y-1)*n_x;
 
             // Each boundary cell has only 3 neighbors
             neighbors[bottom_row] = int_vector(3);
@@ -72,10 +72,10 @@ void DornicBase::construct_2D_grid(const Parameters parameters)
             neighbors[top_row][2] = top_row + 1;
         }
         // Left and right columns
-        for (i=1; i<n_y-1; i++)
+        for (i_cell=1; i_cell<n_y-1; i_cell++)
         {
-            left_column  = i*n_x;
-            right_column = (n_x-1) + i*n_x;
+            left_column  = i_cell*n_x;
+            right_column = (n_x-1) + i_cell*n_x;
 
             // Each boundary cell has only 3 neighbors
             neighbors[left_column]  = int_vector(3);
@@ -91,24 +91,24 @@ void DornicBase::construct_2D_grid(const Parameters parameters)
 
         // Each corner cell has only 2 neighbors
         // Bottom-left corner
-        i = 0;
-        neighbors[i] = int_vector(2);
-        neighbors[i][0] = 0 + 1; 
-        neighbors[i][1] = 0 + n_x;
+        i_cell = 0;
+        neighbors[i_cell] = int_vector(2);
+        neighbors[i_cell][0] = 0 + 1; 
+        neighbors[i_cell][1] = 0 + n_x;
         // Bottom-right corner
-        i = n_x-1;
-        neighbors[i] = int_vector(2);
-        neighbors[i][0] = (n_x-1) - 1;
-        neighbors[i][1] = (n_x-1) + n_x;
+        i_cell = n_x-1;
+        neighbors[i_cell] = int_vector(2);
+        neighbors[i_cell][0] = (n_x-1) - 1;
+        neighbors[i_cell][1] = (n_x-1) + n_x;
         // Top-left corner
-        i = (n_y-1)*n_x;
-        neighbors[i] = int_vector(2);
-        neighbors[i][0] = (n_y-1)*n_x + 1; 
-        neighbors[i][1] = (n_y-2)*n_x;
+        i_cell = (n_y-1)*n_x;
+        neighbors[i_cell] = int_vector(2);
+        neighbors[i_cell][0] = (n_y-1)*n_x + 1; 
+        neighbors[i_cell][1] = (n_y-2)*n_x;
         // Top-right corner
-        i = (n_x-1)+(n_y-1)*n_x;
-        neighbors[i] = int_vector(2);
-        neighbors[i][0] = (n_x-2)+(n_y-1)*n_x; 
-        neighbors[i][1] = (n_x-1)+(n_y-2)*n_x;
+        i_cell = (n_x-1)+(n_y-1)*n_x;
+        neighbors[i_cell] = int_vector(2);
+        neighbors[i_cell][0] = (n_x-2)+(n_y-1)*n_x; 
+        neighbors[i_cell][1] = (n_x-1)+(n_y-2)*n_x;
     }
 }
