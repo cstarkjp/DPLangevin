@@ -78,7 +78,7 @@ public:
         switch (ic) {
             case InitialCondition::RANDOM_UNIFORM: return "random uniform values";
             case InitialCondition::RANDOM_GAUSSIAN: return "random Gaussian values";
-            case InitialCondition::CONSTANT_VALUE: return "constand value";
+            case InitialCondition::CONSTANT_VALUE: return "constant value";
             case InitialCondition::SINGLE_SEED: return "single seed";
             default: return "Unknown";
         }

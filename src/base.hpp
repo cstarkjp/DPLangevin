@@ -5,20 +5,20 @@
 // CPS 2025-09-02
 // 
 
-#ifndef DORNIC_HPP
-#define DORNIC_HPP
+#ifndef BASE_HPP
+#define BASE_HPP
 
 #include "coefficients.hpp"
 #include "parameters.hpp"
 
-class DornicBase
+class LangevinBase
 {
 protected:
     // Runge-Kutta variables
     dbl_vector k1, k2, k3, k4, aux_cell_old, aux_cell_new;
     double dt, dx, dtm, dts;
 
-    // Dornic stochastic-step variables
+    // Dornic method stochastic-step variables
     double lambda, lambda_product;
     int_poisson_distbn poisson;
     dbl_gamma_distbn gamma;
@@ -34,7 +34,7 @@ protected:
     double linear_coeff, noise_coeff;
 
 public:
-    DornicBase(Parameters params)
+    LangevinBase(Parameters params)
     {
         dt = params.dt;
         dx = params.dx;
