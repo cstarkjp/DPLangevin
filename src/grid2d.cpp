@@ -9,6 +9,7 @@
 
 void DornicBase::construct_2D_grid(const Parameters parameters)
 {
+    int up, down, right, left;
     int top_row, bottom_row, right_column, left_column;
     const int n_x = parameters.grid_size.at(0);
     const int n_y = parameters.grid_size.at(1);
@@ -25,15 +26,15 @@ void DornicBase::construct_2D_grid(const Parameters parameters)
             for (auto x=0; x<n_x; x++)
             {
                 auto i = x + y*n_x;
-                top_row      = (y < n_y-1) ? x + (y+1)*n_x : x;
-                bottom_row   = (y > 0)     ? x + (y-1)*n_x : x + (n_y-1)*n_x;
-                right_column = (x < n_x-1) ? x+1 + y*n_x : 0 + y*n_x;
-                left_column  = (x > 0)     ? x-1 + y*n_x : n_x-1 + y*n_x;
+                up    = (y < n_y-1) ? x + (y+1)*n_x : x;
+                down  = (y > 0)     ? x + (y-1)*n_x : x + (n_y-1)*n_x;
+                right = (x < n_x-1) ? x+1 + y*n_x : 0 + y*n_x;
+                left  = (x > 0)     ? x-1 + y*n_x : n_x-1 + y*n_x;
 
-                neighbors[i][0] = top_row;    // Up
-                neighbors[i][1] = bottom_row;  // Down
-                neighbors[i][2] = right_column; // Left (CPS: huh??)
-                neighbors[i][3] = left_column;  // Right (CPS: huh??)
+                neighbors[i][0] = up;    // Up
+                neighbors[i][1] = down;  // Down
+                neighbors[i][2] = right; // Left (CPS: huh??)
+                neighbors[i][3] = left;  // Right (CPS: huh??)
             }
         }
     }
