@@ -9,13 +9,13 @@ print(f"dplvn version:  {dplvn.__version__}")
 print()
 result: NDArray = dplvn.dp(
     linear=1.0, quadratic=2.0, diffusion=0.1, noise=1.0, 
-    t_max=10.0, #dx=0.5, dt=0.01
-    grid_dimension=dplvn.D1,
-    grid_size=(4096,),
-    n_cells=4096,
-    # grid_dimension=dplvn.D2,
-    # grid_size=(8,8,),
-    # n_cells=64,  
+    t_max=100.0, #dx=0.5, dt=0.01
+    # grid_dimension=dplvn.D1,
+    # grid_size=(4096,),
+    # n_cells=4096,
+    grid_dimension=dplvn.D2,
+    grid_size=(8,8,),
+    n_cells=64,  
     boundary_condition=dplvn.FLOATING,
     integration_method=dplvn.RUNGE_KUTTA
 )
