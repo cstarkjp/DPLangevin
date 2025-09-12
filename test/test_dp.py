@@ -5,6 +5,8 @@ from numpy.typing import NDArray
 import dplvn # type: ignore
 
 print()
+print(f"dplvn version:  {dplvn.__version__}")
+print()
 result: NDArray = dplvn.dp(
     n_cells=64, #4096 
     linear=1.0, quadratic=2.0, diffusion=0.1, noise=1.0, 

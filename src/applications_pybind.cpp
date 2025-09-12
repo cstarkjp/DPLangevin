@@ -11,7 +11,7 @@
 
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__VERSION__") = "2025.09.12a1";
+    module.attr("__version__") = "2025.09.12a2";
     module.doc() = 
         "'Dornic' operator-splitting method of integrating DP-type Langevin equations"; 
 
