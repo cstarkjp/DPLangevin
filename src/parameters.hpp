@@ -99,12 +99,12 @@ public:
         std::cout<< "random_seed: " << random_seed << std::endl;
         std::cout<< "grid_dimension: " 
             << gdstr(grid_dimension) << std::endl;
-        std::cout<< "n_cells: " << n_cells << std::endl;
         std::cout<< "grid_size: ";
         for (const auto& element : grid_size) {
             std::cout << element << " ";
         }
         std::cout<< std::endl;        
+        std::cout<< "n_cells: " << n_cells << std::endl;
         std::cout<< "grid_topology: " 
             << gtstr(grid_topology) << std::endl;
         std::cout<< "boundary_condition: " 

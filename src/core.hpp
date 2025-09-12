@@ -41,6 +41,6 @@ typedef std::uniform_real_distribution<double> dbl_uniform_distbn;
 #include "enums.hpp"
 #include "coefficients.hpp"
 #include "parameters.hpp"
-#include "base.hpp"
+#include "langevin_base.hpp"
 
 #endif
