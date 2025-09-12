@@ -7,13 +7,13 @@
 
 #include "core.hpp"
 
-void DornicBase::integrate_euler(RNG &rng)
+void LangevinBase::integrate_euler(RNG &rng)
 {
     euler_and_stochastic(aux_cell_old, rng);
     cell_density.swap(aux_cell_old); 
 }
 
-void DornicBase::euler_and_stochastic(dbl_vector &aux, RNG &rng)
+void LangevinBase::euler_and_stochastic(dbl_vector &aux, RNG &rng)
 {
     mean_density = 0.0;
     for (auto i=0; i<n_cells; i++)

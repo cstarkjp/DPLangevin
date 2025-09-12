@@ -7,7 +7,7 @@
 
 #include "core.hpp"
 
-void DornicBase::construct_1D_grid(const Parameters parameters)
+void LangevinBase::construct_1D_grid(const Parameters parameters)
 {
     const int n_x = parameters.n_x;
     neighbors = std::vector<int_vector>(n_x, int_vector(2));

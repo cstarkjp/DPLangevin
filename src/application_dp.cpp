@@ -10,13 +10,13 @@
 #include "core.hpp"
 #include "application_dp.hpp"
 
-class Dornic_DP : public DornicBase 
+class DPLangevin : public LangevinBase 
 {
 public:
     double quadratic_coeff;
     double D;
 
-    Dornic_DP(Parameters params) : DornicBase(params) {}
+    DPLangevin(Parameters params) : LangevinBase(params) {}
 
     void set_nonlinear_coefficients(const Coefficients &f_coefficients)
     override
@@ -46,36 +46,36 @@ public:
     }
 };
 
-void construct_grid(Dornic_DP& dornic, const Parameters parameters)
+void construct_grid(DPLangevin& dpLangevin, const Parameters parameters)
 {
     switch (parameters.grid_dimension)
     {
         case (GridDimension::D1):
-            dornic.construct_1D_grid(parameters);
+            dpLangevin.construct_1D_grid(parameters);
             break;
         case (GridDimension::D2):
         default:
-            dornic.construct_2D_grid(parameters);
+            dpLangevin.construct_2D_grid(parameters);
             break;
     }    
 }
 
-void initialize_grid(Dornic_DP& dornic, const Parameters parameters, RNG &rng)
+void initialize_grid(DPLangevin& dpLangevin, const Parameters parameters, RNG &rng)
 {
     switch (parameters.initial_condition)
     {
         case (InitialCondition::RANDOM_GAUSSIAN):
-            dornic.ic_random_uniform(rng);
+            dpLangevin.ic_random_uniform(rng);
             break;
         case (InitialCondition::CONSTANT_VALUE):
-            dornic.ic_constant_value(1.0);
+            dpLangevin.ic_constant_value(1.0);
             break;
         case (InitialCondition::SINGLE_SEED):
-            dornic.ic_single_seed(parameters.n_cells/2, 1.0);
+            dpLangevin.ic_single_seed(parameters.n_cells/2, 1.0);
             break;
         case (InitialCondition::RANDOM_UNIFORM):
         default:
-            dornic.ic_random_uniform(rng);
+            dpLangevin.ic_random_uniform(rng);
             break;
     }  
 }
@@ -94,7 +94,7 @@ int count_epochs(const Parameters parameters)
 }
 
 void integrate(
-    Dornic_DP& dornic, const Parameters parameters, RNG& rng,
+    DPLangevin& dpLangevin, const Parameters parameters, RNG& rng,
     const int n_epochs, dbl_vector& epochs, dbl_vector& mean_densities
 )
 {
@@ -106,18 +106,18 @@ void integrate(
         case (IntegrationMethod::EULER):
             for (i=0, t=0; i<n_epochs; t+=parameters.dt, i++)
             {
-                dornic.integrate_euler(rng);
+                dpLangevin.integrate_euler(rng);
                 epochs[i] = t;
-                mean_densities[i] = dornic.density();
+                mean_densities[i] = dpLangevin.density();
             };
             break;
         case (IntegrationMethod::RUNGE_KUTTA):
         default:
             for (i=0, t=0; i<n_epochs; t+=parameters.dt, i++)
             {
-                dornic.integrate_rungekutta(rng);
+                dpLangevin.integrate_rungekutta(rng);
                 epochs[i] = t;
-                mean_densities[i] = dornic.density();
+                mean_densities[i] = dpLangevin.density();
             };
             break;
     }
@@ -165,14 +165,14 @@ results_t dp(
     f_coeffs.print();
     parameters.print();
 
-    Dornic_DP dornic(parameters);
-    construct_grid(dornic, parameters);
-    initialize_grid(dornic, parameters, rng);
-    dornic.set_coefficients(f_coeffs);
+    DPLangevin dpLangevin(parameters);
+    construct_grid(dpLangevin, parameters);
+    initialize_grid(dpLangevin, parameters, rng);
+    dpLangevin.set_coefficients(f_coeffs);
     int n_epochs = count_epochs(parameters);
     dbl_vector epochs(n_epochs, 0.0), mean_densities(n_epochs, 0.0);
     integrate(
-        dornic, parameters, rng, n_epochs, epochs, mean_densities
+        dpLangevin, parameters, rng, n_epochs, epochs, mean_densities
     );
     
     return prepare_return_array(n_epochs, epochs, mean_densities);

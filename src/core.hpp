@@ -5,8 +5,8 @@
 // CPS 2025-09-02
 // 
 
-#ifndef BASE_HPP
-#define BASE_HPP
+#ifndef CORE_HPP
+#define CORE_HPP
 
 #include <iostream>
 #include <vector>

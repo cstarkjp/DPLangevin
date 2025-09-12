@@ -8,13 +8,13 @@
 #include "core.hpp"
 
 // Make the density visible
-double DornicBase::density() 
+double LangevinBase::density() 
 {
     return mean_density;
 }
 
 // Check the mean of the Poisson distribution
-double DornicBase::avg_poisson_mean()
+double LangevinBase::avg_poisson_mean()
 {
     return lambda_product * mean_density;
 }

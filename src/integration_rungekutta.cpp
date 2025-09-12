@@ -7,7 +7,7 @@
 
 #include "core.hpp"
 
-void DornicBase::integrate_rungekutta(RNG &rng)
+void LangevinBase::integrate_rungekutta(RNG &rng)
 {
     // Runge-Kutta integration of the non-linear term and diffusion.
     // Update of cells is done in the same loop as last RK step 
@@ -22,7 +22,7 @@ void DornicBase::integrate_rungekutta(RNG &rng)
 }
 
 // RK first function
-void DornicBase::rk_f1(dbl_vector &aux_cell, dbl_vector &k1)
+void LangevinBase::rk_f1(dbl_vector &aux_cell, dbl_vector &k1)
 {
     for (auto i=0; i<n_cells; i++)
     {
@@ -32,7 +32,7 @@ void DornicBase::rk_f1(dbl_vector &aux_cell, dbl_vector &k1)
 }
 
 // RK second and third functions
-void DornicBase::rk_f2f3(
+void LangevinBase::rk_f2f3(
     const dbl_vector &aux_old, 
     dbl_vector &aux_new, 
     dbl_vector &k_out, 
@@ -47,7 +47,7 @@ void DornicBase::rk_f2f3(
 }
 
 // RK fourth function and stochastic step, all in the same loop
-void DornicBase::rk_f4_and_stochastic(
+void LangevinBase::rk_f4_and_stochastic(
     const dbl_vector &aux_old, 
     const dbl_vector &k1, 
     const dbl_vector &k2, 
