@@ -11,7 +11,7 @@ void DornicBase::construct_2D_grid(const Parameters parameters)
 {
     // Only square grids are supported
     // TBD: implement rectangular grids
-    int L = sqrt(cell_density.size());
+    const int L = sqrt(cell_density.size());
     int up, down, right, left;
 
     neighbors = std::vector<int_vector>(n_cells, int_vector(4));
