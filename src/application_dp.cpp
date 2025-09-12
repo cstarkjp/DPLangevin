@@ -156,7 +156,7 @@ results_t dp(
         grid_dimension, initial_condition, 
         boundary_condition, integration_method
     );
-    RNG rng(random_seed); 
+    RNG rng(parameters.random_seed); 
     f_coeffs.print();
     parameters.print();
 
@@ -164,10 +164,8 @@ results_t dp(
     construct_grid(dornic, parameters);
     initialize_grid(dornic, parameters, rng);
     dornic.set_coefficients(f_coeffs);
-
     int n_epochs = count_epochs(parameters);
-    dbl_vector epochs(n_epochs, 0.0);
-    dbl_vector mean_densities(n_epochs, 0.0);
+    dbl_vector epochs(n_epochs, 0.0), mean_densities(n_epochs, 0.0);
     integrate(
         dornic, parameters, rng, n_epochs, epochs, mean_densities
     );
