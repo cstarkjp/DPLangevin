@@ -13,7 +13,6 @@ project(
 add_project_arguments('-Ofast', '-g3', language : 'cpp')
 # endif
 
-
 py = import('python').find_installation(pure: false)
 pybind11_dep = dependency('pybind11')
 # ninja_dep = dependency('ninja')
