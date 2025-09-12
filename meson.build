@@ -31,7 +31,6 @@ cpp_sources = files(
     'src/integration_euler.cpp', 
     'src/grid1d.cpp', 
     'src/grid2d.cpp', 
-    'src/network.cpp', 
     'src/ic.cpp', 
     'src/initialization.cpp', 
     'src/utils.cpp', 

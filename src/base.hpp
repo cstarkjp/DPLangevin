@@ -24,7 +24,7 @@ protected:
     dbl_gamma_distbn gamma;
     dbl_normal_distbn normal;
 
-    // Grid/network variables
+    // Grid variables
     int n_cells;
     dbl_vector cell_density;
     std::vector< int_vector > neighbors;
@@ -79,7 +79,6 @@ public:
     void euler_and_stochastic(dbl_vector &aux, RNG &rng);
     void construct_1D_grid(const Parameters parameters);
     void construct_2D_grid(const Parameters parameters);
-    void construct_custom_network(const std::vector<int_vector> &network);
     void ic_random_uniform(
         RNG &rng, const double min_value = 0.0, const double max_value = 1.0
     );
