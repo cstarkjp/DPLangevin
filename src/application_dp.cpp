@@ -137,6 +137,7 @@ results_t prepare_return_array(
     return results;
 }
 
+
 results_t dp(
     const double linear, const double quadratic, 
     const double diffusion, const double noise, 
@@ -166,6 +167,9 @@ results_t dp(
     auto n_epochs = count_epochs(parameters);
     dbl_vec_t epochs(n_epochs, 0.0);
     dbl_vec_t mean_densities(n_epochs, 0.0);
+    dbl_vec_t test(10, 0.0);
+    // std::array<double, n_epochs> epochs;
+    // std::array<double, n_epochs> mean_densities;
     integrate(
         dpLangevin, parameters, rng, epochs, mean_densities
     );

@@ -66,4 +66,32 @@ PYBIND11_MODULE(dplvn, module)
         py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA,
         "Demo application of the Dornic method"
     );
+
+    py::class_<StringTest>(module, "StringTest")
+        .def(py::init<const std::string&>(), "name")
+        .def("getName", &StringTest::getName)
+        .def("setName", &StringTest::setName, "name");
+
+    module.def(
+        "create_string", [](const std::string& name) {
+            return StringTest(name);
+        }, 
+        "name", 
+        "Creates and returns a StringTest instance."
+    );
+
+    py::class_<Results>(module, "Results")
+        .def(py::init<const std::string&>(), "name")
+        .def("getName", &Results::getName)
+        .def("setName", &Results::setName, "name");
+
+    module.def(
+        "assign_results", [](const std::string& name) {
+            return Results(name);
+        }, 
+        "name", 
+        "Creates and returns a Results instance."
+    );
+
+
 }

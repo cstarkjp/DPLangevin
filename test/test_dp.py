@@ -30,3 +30,8 @@ mean_densities: NDArray = result[:, 1]
 print()
 print( epochs[-10:] ) 
 print( mean_densities[-10:] )
+
+arrays = dplvn.assign_results("none")
+print(arrays.getName())
+arrays.setName("my test")
+print(arrays.getName())
