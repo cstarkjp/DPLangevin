@@ -25,7 +25,7 @@ public:
         D = f_coefficients.diffusion / (dx*dx);
     }
 
-    auto nonlinear_rhs(const int i_cell, const dbl_vector &field) 
+    auto nonlinear_rhs(const int i_cell, const dbl_vec_t &field) 
     const -> double
     override
     {
@@ -95,7 +95,7 @@ int count_epochs(const Parameters parameters)
 
 void integrate(
     DPLangevin& dpLangevin, const Parameters parameters, RNG& rng,
-    dbl_vector& epochs, dbl_vector& mean_densities
+    dbl_vec_t& epochs, dbl_vec_t& mean_densities
 )
 {
     int i;
@@ -124,7 +124,7 @@ void integrate(
 }
 
 results_t prepare_return_array(
-    const dbl_vector& epochs, const dbl_vector& mean_densities
+    const dbl_vec_t& epochs, const dbl_vec_t& mean_densities
 )
 {
     results_t results({static_cast<int>(epochs.size()), 2});
@@ -142,7 +142,7 @@ results_t dp(
     const double diffusion, const double noise, 
     const double t_max, const double dx, const double dt, const int random_seed,
     const GridDimension grid_dimension, 
-    const int_vector& grid_size,
+    const int_vec_t& grid_size,
     const GridTopology grid_topology,
     const BoundaryCondition boundary_condition,
     const InitialCondition initial_condition,
@@ -164,8 +164,8 @@ results_t dp(
     initialize_grid(dpLangevin, parameters, rng);
     dpLangevin.set_coefficients(f_coeffs);
     auto n_epochs = count_epochs(parameters);
-    dbl_vector epochs(n_epochs, 0.0);
-    dbl_vector mean_densities(n_epochs, 0.0);
+    dbl_vec_t epochs(n_epochs, 0.0);
+    dbl_vec_t mean_densities(n_epochs, 0.0);
     integrate(
         dpLangevin, parameters, rng, epochs, mean_densities
     );

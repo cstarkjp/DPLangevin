@@ -30,9 +30,9 @@
 #define RNG std::mt19937
 #endif
 
-typedef std::vector<double> dbl_vector;
-typedef std::vector<int> int_vector;
-typedef const std::vector<int> const_int_vector;
+typedef std::vector<double> dbl_vec_t;
+typedef std::vector<int> int_vec_t;
+typedef const std::vector<int> const_int_vec_t;
 typedef std::poisson_distribution<int> int_poisson_distbn;
 typedef std::gamma_distribution<double> dbl_gamma_distbn;
 typedef std::normal_distribution<double> dbl_normal_distbn;

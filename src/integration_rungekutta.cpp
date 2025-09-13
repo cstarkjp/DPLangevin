@@ -22,7 +22,7 @@ void LangevinBase::integrate_rungekutta(RNG &rng)
 }
 
 // RK first function
-void LangevinBase::rk_f1(dbl_vector &aux_cell, dbl_vector &k1)
+void LangevinBase::rk_f1(dbl_vec_t &aux_cell, dbl_vec_t &k1)
 {
     for (auto i=0; i<n_cells; i++)
     {
@@ -33,9 +33,9 @@ void LangevinBase::rk_f1(dbl_vector &aux_cell, dbl_vector &k1)
 
 // RK second and third functions
 void LangevinBase::rk_f2f3(
-    const dbl_vector &aux_old, 
-    dbl_vector &aux_new, 
-    dbl_vector &k_out, 
+    const dbl_vec_t &aux_old, 
+    dbl_vec_t &aux_new, 
+    dbl_vec_t &k_out, 
     const double dt_in
 )
 {
@@ -48,10 +48,10 @@ void LangevinBase::rk_f2f3(
 
 // RK fourth function and stochastic step, all in the same loop
 void LangevinBase::rk_f4_and_stochastic(
-    const dbl_vector &aux_old, 
-    const dbl_vector &k1, 
-    const dbl_vector &k2, 
-    const dbl_vector &k3, 
+    const dbl_vec_t &aux_old, 
+    const dbl_vec_t &k1, 
+    const dbl_vec_t &k2, 
+    const dbl_vec_t &k3, 
     RNG &rng
 )
 {

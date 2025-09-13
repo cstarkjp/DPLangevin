@@ -27,7 +27,7 @@ void LangevinBase::ic_random_uniform(
 // Set all the cells to have same value
 void LangevinBase::ic_constant_value(const double density_value)
 {
-    cell_density = dbl_vector(n_cells, density_value);
+    cell_density = dbl_vec_t(n_cells, density_value);
     mean_density = density_value;
 }
 

@@ -15,7 +15,7 @@ public:
     const double dt;
     const int random_seed;
     const GridDimension grid_dimension;
-    const int_vector& grid_size;
+    const int_vec_t& grid_size;
     int n_cells;
     int n_x;
     int n_y;
@@ -28,7 +28,7 @@ public:
     Parameters(
         const double b, const double c, const double d, const int e, 
         const GridDimension f, 
-        const int_vector& k,
+        const int_vec_t& k,
         const GridTopology g,
         const BoundaryCondition h,
         const InitialCondition i,

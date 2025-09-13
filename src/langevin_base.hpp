@@ -15,7 +15,7 @@ class LangevinBase
 {
 protected:
     // Runge-Kutta variables
-    dbl_vector k1, k2, k3, k4, aux_cell_old, aux_cell_new;
+    dbl_vec_t k1, k2, k3, k4, aux_cell_old, aux_cell_new;
     double dt, dx, dtm, dts;
 
     // Dornic method stochastic-step variables
@@ -26,8 +26,8 @@ protected:
 
     // Grid variables
     int n_cells;
-    dbl_vector cell_density;
-    std::vector< int_vector > neighbors;
+    dbl_vec_t cell_density;
+    std::vector< int_vec_t > neighbors;
     double mean_density;
 
     // Dornic method coefficients
@@ -41,13 +41,13 @@ public:
         dtm = 0.5*dt;
         dts = dt/6.0;
         n_cells = params.n_cells;
-        cell_density = dbl_vector(n_cells, 0.0); 
-        aux_cell_new = dbl_vector(n_cells);
-        aux_cell_old = dbl_vector(n_cells);
-        k1 = dbl_vector(n_cells, 0.0);
-        k2 = dbl_vector(n_cells, 0.0);
-        k3 = dbl_vector(n_cells, 0.0);
-        k4 = dbl_vector(n_cells, 0.0);
+        cell_density = dbl_vec_t(n_cells, 0.0); 
+        aux_cell_new = dbl_vec_t(n_cells);
+        aux_cell_old = dbl_vec_t(n_cells);
+        k1 = dbl_vec_t(n_cells, 0.0);
+        k2 = dbl_vec_t(n_cells, 0.0);
+        k3 = dbl_vec_t(n_cells, 0.0);
+        k4 = dbl_vec_t(n_cells, 0.0);
     }
 
     void construct_1D_grid(const Parameters parameters);
@@ -62,27 +62,27 @@ public:
     void set_lambdas(void);
     void integrate_rungekutta(RNG &rng);
     void integrate_euler(RNG &rng);
-    void rk_f1(dbl_vector &aux_cell, dbl_vector &k1);
+    void rk_f1(dbl_vec_t &aux_cell, dbl_vec_t &k1);
     void rk_f2f3(
-        const dbl_vector &aux_old, 
-        dbl_vector &aux_new, 
-        dbl_vector &k_out, 
+        const dbl_vec_t &aux_old, 
+        dbl_vec_t &aux_new, 
+        dbl_vec_t &k_out, 
         const double dt_in
     );
     void rk_f4_and_stochastic(
-        const dbl_vector &aux_old, 
-        const dbl_vector &k1, 
-        const dbl_vector &k2, 
-        const dbl_vector &k3, 
+        const dbl_vec_t &aux_old, 
+        const dbl_vec_t &k1, 
+        const dbl_vec_t &k2, 
+        const dbl_vec_t &k3, 
         RNG &rng
     );
-    void euler_and_stochastic(dbl_vector &aux, RNG &rng);
+    void euler_and_stochastic(dbl_vec_t &aux, RNG &rng);
     double density(void);
     double avg_poisson_mean(void);
 
     // Defined by the application — these are placeholders
     virtual void set_nonlinear_coefficients(const Coefficients &f_coeffs) {};
-    virtual auto nonlinear_rhs(const int i_cell, const dbl_vector &field) 
+    virtual auto nonlinear_rhs(const int i_cell, const dbl_vec_t &field) 
         const -> double{ return 0; };
 };
 

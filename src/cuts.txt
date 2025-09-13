@@ -16,15 +16,15 @@
 
     //     // Initial number of cells, set no activity for the system
     //     n_cells = total_n_cells;
-    //     cell_density = dbl_vector(n_cells, 0.0); 
-    //     aux_cell_new = dbl_vector(n_cells);
-    //     aux_cell_old = dbl_vector(n_cells);
+    //     cell_density = dbl_vec_t(n_cells, 0.0); 
+    //     aux_cell_new = dbl_vec_t(n_cells);
+    //     aux_cell_old = dbl_vec_t(n_cells);
 
     //     #if CONSTANT_CELL_NUMBER
-    //     k1 = dbl_vector(n_cells, 0.0);
-    //     k2 = dbl_vector(n_cells, 0.0);
-    //     k3 = dbl_vector(n_cells, 0.0);
-    //     k4 = dbl_vector(n_cells, 0.0);
+    //     k1 = dbl_vec_t(n_cells, 0.0);
+    //     k2 = dbl_vec_t(n_cells, 0.0);
+    //     k3 = dbl_vec_t(n_cells, 0.0);
+    //     k4 = dbl_vec_t(n_cells, 0.0);
     //     #endif
 
     //     // Initialization of Dornic variables
@@ -109,14 +109,14 @@
 // class Results {
 //     public:
 //         size_t n_epochs;
-//         dbl_vector epochs;
-//         dbl_vector densities;
+//         dbl_vec_t epochs;
+//         dbl_vec_t densities;
 
-//         Results(size_t a, dbl_vector b, dbl_vector c)
+//         Results(size_t a, dbl_vec_t b, dbl_vec_t c)
 //             : n_epochs(a), epochs(b), densities(c) {}
 //     };
 
-// Results create_my_class_instance(size_t a, dbl_vector b, dbl_vector c) {
+// Results create_my_class_instance(size_t a, dbl_vec_t b, dbl_vec_t c) {
 //     return Results(a,b,c);
 // }
 
@@ -163,7 +163,7 @@
 
 
     // py::class_<Results>(m, "results")
-    //     // .def(py::init<size_t, dbl_vector, dbl_vector>())
+    //     // .def(py::init<size_t, dbl_vec_t, dbl_vec_t>())
     //     .def_property_readonly("epochs", [](const Results& self) {
     //         // Return a py::array_t referencing the C++ data
     //         return py::array_t<double>(

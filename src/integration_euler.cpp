@@ -13,7 +13,7 @@ void LangevinBase::integrate_euler(RNG &rng)
     cell_density.swap(aux_cell_old); 
 }
 
-void LangevinBase::euler_and_stochastic(dbl_vector &aux, RNG &rng)
+void LangevinBase::euler_and_stochastic(dbl_vec_t &aux, RNG &rng)
 {
     mean_density = 0.0;
     for (auto i=0; i<n_cells; i++)

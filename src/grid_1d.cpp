@@ -10,7 +10,7 @@
 void LangevinBase::construct_1D_grid(const Parameters parameters)
 {
     const int n_x = parameters.n_x;
-    neighbors = std::vector<int_vector>(n_x, int_vector(2));
+    neighbors = std::vector<int_vec_t>(n_x, int_vec_t(2));
 
     // Everywhere except the grid ends
     for (auto i=1; i<n_x-1; i++)
@@ -32,7 +32,7 @@ void LangevinBase::construct_1D_grid(const Parameters parameters)
     else
     {
         // Link each end cell to its adjacent cell only
-        neighbors[0] = int_vector(1, 1);
-        neighbors[n_x-1] = int_vector(1, n_x-2);
+        neighbors[0] = int_vec_t(1, 1);
+        neighbors[n_x-1] = int_vec_t(1, n_x-2);
     }
 }
