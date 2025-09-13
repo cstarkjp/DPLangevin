@@ -68,9 +68,7 @@ PYBIND11_MODULE(dplvn, module)
     );
 
     py::class_<Results>(module, "Results")
-        .def(py::init<const std::string&>(), "name")
-        .def("getName", &Results::getName)
-        .def("setName", &Results::setName, "name");
+        .def("get", &Results::get);
 
     module.def(
         "assign_results", [](const std::string& name) {

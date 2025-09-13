@@ -108,7 +108,7 @@ void integrate(
             {
                 dpLangevin.integrate_euler(rng);
                 epochs[i] = t;
-                mean_densities[i] = dpLangevin.density();
+                mean_densities[i] = dpLangevin.get_mean_density();
             };
             break;
         case (IntegrationMethod::RUNGE_KUTTA):
@@ -117,13 +117,14 @@ void integrate(
             {
                 dpLangevin.integrate_rungekutta(rng);
                 epochs[i] = t;
-                mean_densities[i] = dpLangevin.density();
+                mean_densities[i] = dpLangevin.get_mean_density();
             };
             break;
     }
 }
 
 results_t prepare_return_array(
+    const dbl_vec_t& cell_density,
     const dbl_vec_t& epochs, const dbl_vec_t& mean_densities
 )
 {
@@ -138,7 +139,7 @@ results_t prepare_return_array(
 }
 
 
-results_t dp(
+auto dp(
     const double linear, const double quadratic, 
     const double diffusion, const double noise, 
     const double t_max, const double dx, const double dt, const int random_seed,
@@ -148,7 +149,7 @@ results_t dp(
     const BoundaryCondition boundary_condition,
     const InitialCondition initial_condition,
     const IntegrationMethod integration_method
-)
+) -> Results
 {
     Coefficients f_coeffs (linear, quadratic, diffusion, noise);
     Parameters parameters (
@@ -167,12 +168,19 @@ results_t dp(
     auto n_epochs = count_epochs(parameters);
     dbl_vec_t epochs(n_epochs, 0.0);
     dbl_vec_t mean_densities(n_epochs, 0.0);
-    dbl_vec_t test(10, 0.0);
     // std::array<double, n_epochs> epochs;
     // std::array<double, n_epochs> mean_densities;
     integrate(
         dpLangevin, parameters, rng, epochs, mean_densities
     );
     
-    return prepare_return_array(epochs, mean_densities);
+    // return prepare_return_array(
+    //     dpLangevin.get_density(), epochs, mean_densities
+    // );
+    Results results("test");
+    results.prepare_return_array(
+        // dpLangevin.get_density(), 
+        epochs, mean_densities
+    );
+    return results;
 } 

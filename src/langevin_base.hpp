@@ -77,8 +77,9 @@ public:
         RNG &rng
     );
     void euler_and_stochastic(dbl_vec_t &aux, RNG &rng);
-    double density(void);
-    double avg_poisson_mean(void);
+    dbl_vec_t get_density(void);
+    double get_mean_density(void);
+    double get_poisson_mean(void);
 
     // Defined by the application — these are placeholders
     virtual void set_nonlinear_coefficients(const Coefficients &f_coeffs) {};

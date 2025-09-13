@@ -7,7 +7,7 @@ import dplvn # type: ignore
 print()
 print(f"dplvn version:  {dplvn.__version__}")
 print()
-result: NDArray = dplvn.dp(
+result = dplvn.dp(
     linear=1.0, quadratic=2.0, diffusion=0.1, noise=1.0, 
     t_max=100.0, 
     # dx=0.5, dt=0.01
@@ -19,19 +19,23 @@ result: NDArray = dplvn.dp(
     boundary_condition=dplvn.FLOATING,
     integration_method=dplvn.RUNGE_KUTTA
 )
-print()
-print( type(result) )
-print( result.shape )
-print( result[-10:] )
-print()
+print(dir(result))
 
-epochs: NDArray = result[:, 0]
-mean_densities: NDArray = result[:, 1]
-print()
-print( epochs[-10:] ) 
-print( mean_densities[-10:] )
+print(result.get())
 
-arrays = dplvn.assign_results("none")
-print(arrays.getName())
-arrays.setName("my test")
-print(arrays.getName())
+# print()
+# print( type(result) )
+# print( result.shape )
+# print( result[-10:] )
+# print()
+
+# epochs: NDArray = result[:, 0]
+# mean_densities: NDArray = result[:, 1]
+# print()
+# print( epochs[-10:] ) 
+# print( mean_densities[-10:] )
+
+# arrays = dplvn.assign_results()
+# print(arrays.get())
+# arrays.setName()
+# print(arrays.getName())

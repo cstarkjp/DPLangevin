@@ -11,7 +11,48 @@
 namespace py = pybind11;
 typedef py::array_t<double, py::array::c_style> results_t;
 
-results_t dp(
+
+class Results {
+private:
+    std::string m_name;
+    dbl_vec_t epochs;
+    dbl_vec_t mean_densities;
+    results_t results;
+public:
+    Results(
+        const std::string& name
+    )
+    {
+        m_name = name;
+        epochs = {0.0, 1, 2, 3};
+        mean_densities = {10,20,30,40.0};
+    }
+    results_t get() const { return results; }
+
+    void set_arrays() 
+    {
+        epochs = {0.0, 1, 2, 3};
+        mean_densities = {10,20,30,40.0};
+    }
+
+    void prepare_return_array(
+        // const dbl_vec_t& cell_density,
+        const dbl_vec_t& epochs, const dbl_vec_t& mean_densities
+    )
+    {
+        results_t results_array({static_cast<int>(epochs.size()), 2});
+        auto array_proxy = results_array.mutable_unchecked();
+        for (auto i=0; i<epochs.size(); i++)
+        {
+            array_proxy(i, 0) = epochs[i];
+            array_proxy(i, 1) = mean_densities[i];
+        };
+        results = results_array;
+    }
+};
+
+// results_t
+auto dp(
     const double linear, const double quadratic, 
     const double diffusion, const double noise, 
     const double t_max, const double dx, const double dt, const int random_seed,
@@ -21,23 +62,6 @@ results_t dp(
     const BoundaryCondition boundary_condition,
     const InitialCondition initial_condition,
     const IntegrationMethod integration_method
-);
-
-class Results {
-private:
-    std::string m_name;
-    dbl_vec_t test;
-    // dbl_vec_t mean_densities(10, 0.0);
-public:
-    Results(
-        const std::string& name)
-    {
-        m_name = name;
-        test = {1, 2, 3};
-    }
-    std::string getName() const { return m_name; }
-    void setName(const std::string& name) { m_name = name; }
-};
-
+) -> Results;
 
 #endif
