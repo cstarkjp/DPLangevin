@@ -67,19 +67,6 @@ PYBIND11_MODULE(dplvn, module)
         "Demo application of the Dornic method"
     );
 
-    py::class_<StringTest>(module, "StringTest")
-        .def(py::init<const std::string&>(), "name")
-        .def("getName", &StringTest::getName)
-        .def("setName", &StringTest::setName, "name");
-
-    module.def(
-        "create_string", [](const std::string& name) {
-            return StringTest(name);
-        }, 
-        "name", 
-        "Creates and returns a StringTest instance."
-    );
-
     py::class_<Results>(module, "Results")
         .def(py::init<const std::string&>(), "name")
         .def("getName", &Results::getName)
@@ -92,6 +79,4 @@ PYBIND11_MODULE(dplvn, module)
         "name", 
         "Creates and returns a Results instance."
     );
-
-
 }

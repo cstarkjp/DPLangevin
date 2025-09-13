@@ -26,13 +26,14 @@ results_t dp(
 class Results {
 private:
     std::string m_name;
-    // dbl_vec_t test(10, 0.0);
+    dbl_vec_t test;
     // dbl_vec_t mean_densities(10, 0.0);
 public:
     Results(
         const std::string& name)
     {
         m_name = name;
+        test = {1, 2, 3};
     }
     std::string getName() const { return m_name; }
     void setName(const std::string& name) { m_name = name; }
