@@ -61,19 +61,19 @@ void LangevinBase::rk_f4_and_stochastic(
         auto k4 = nonlinear_rhs(i, aux_old);
         cell_density[i] += dts*(k1[i] + 2*(k2[i] + k3[i]) + k4);
         #if !APPROXIMATE_POISSON_DISTBN
-        poisson = int_poisson_distbn(lambda_product*cell_density[i]);
-        gamma = dbl_gamma_distbn(poisson(rng), 1.0);
+        poisson = int_poisson_dist_t(lambda_product*cell_density[i]);
+        gamma = dbl_gamma_dist_t(poisson(rng), 1.0);
         #else
         double mu = lambda_product * cell_density[i];
         if (mu > MU_THRESHOLD)
         {
-            normal = dbl_normal_distbn(mu, sqrt(mu));
-            gamma = dbl_gamma_distbn(normal(rng), 1.0);
+            normal = dbl_normal_dist_t(mu, sqrt(mu));
+            gamma = dbl_gamma_dist_t(normal(rng), 1.0);
         }
         else
         {
-            poisson = int_poisson_distbn(lambda_product*cell_density[i]);
-            gamma = dbl_gamma_distbn(poisson(rng), 1.0);
+            poisson = int_poisson_dist_t(lambda_product*cell_density[i]);
+            gamma = dbl_gamma_dist_t(poisson(rng), 1.0);
         }
         #endif
         cell_density[i] = gamma(rng)/lambda;

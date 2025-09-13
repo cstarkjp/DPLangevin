@@ -20,9 +20,9 @@ protected:
 
     // Dornic method stochastic-step variables
     double lambda, lambda_product;
-    int_poisson_distbn poisson;
-    dbl_gamma_distbn gamma;
-    dbl_normal_distbn normal;
+    int_poisson_dist_t poisson;
+    dbl_gamma_dist_t gamma;
+    dbl_normal_dist_t normal;
 
     // Grid variables
     int n_cells;

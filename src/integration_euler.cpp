@@ -22,19 +22,19 @@ void LangevinBase::euler_and_stochastic(dbl_vec_t &aux, RNG &rng)
         aux[i] = cell_density[i] + dt*f;
 
         #if !APPROXIMATE_POISSON_DISTBN
-        poisson = int_poisson_distbn(lambda_product * aux[i]);
-        gamma = dbl_gamma_distbn(poisson(rng), 1.0);
+        poisson = int_poisson_dist_t(lambda_product * aux[i]);
+        gamma = dbl_gamma_dist_t(poisson(rng), 1.0);
         #else
         double mu = lambda_product * aux[i];
         if (mu > MU_THRESHOLD)
         {
-            normal = dbl_normal_distbn(mu, sqrt(mu));
-            gamma = dbl_gamma_distbn(normal(rng), 1.0);
+            normal = dbl_normal_dist_t(mu, sqrt(mu));
+            gamma = dbl_gamma_dist_t(normal(rng), 1.0);
         }
         else
         {
-            poisson = int_poisson_distbn(lambda_product * aux[i]);
-            gamma = dbl_gamma_distbn(poisson(rng), 1.0);
+            poisson = int_poisson_dist_t(lambda_product * aux[i]);
+            gamma = dbl_gamma_dist_t(poisson(rng), 1.0);
         }
         #endif
         aux[i]= gamma(rng)/lambda;

@@ -32,11 +32,10 @@
 
 typedef std::vector<double> dbl_vec_t;
 typedef std::vector<int> int_vec_t;
-typedef const std::vector<int> const_int_vec_t;
-typedef std::poisson_distribution<int> int_poisson_distbn;
-typedef std::gamma_distribution<double> dbl_gamma_distbn;
-typedef std::normal_distribution<double> dbl_normal_distbn;
-typedef std::uniform_real_distribution<double> dbl_uniform_distbn;
+typedef std::poisson_distribution<int> int_poisson_dist_t;
+typedef std::gamma_distribution<double> dbl_gamma_dist_t;
+typedef std::normal_distribution<double> dbl_normal_dist_t;
+typedef std::uniform_real_distribution<double> dbl_uniform_dist_t;
 
 #include "enums.hpp"
 #include "coefficients.hpp"
