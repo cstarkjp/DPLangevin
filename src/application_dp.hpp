@@ -9,9 +9,7 @@
 #define APPLICATION_DP_HPP
 
 namespace py = pybind11;
-typedef py::array_t<double, py::array::c_style> results_t;
 typedef py::array_t<double, py::array::c_style> py_array_t;
-
 
 class Results 
 {
@@ -64,7 +62,6 @@ public:
     py_array_t get() const { return density; }
 };
 
-// results_t
 auto dp(
     const double linear, const double quadratic, 
     const double diffusion, const double noise, 

@@ -123,22 +123,6 @@ void integrate(
     }
 }
 
-results_t prepare_return_array(
-    const dbl_vec_t& cell_density,
-    const dbl_vec_t& epochs, const dbl_vec_t& mean_densities
-)
-{
-    results_t results({static_cast<int>(epochs.size()), 2});
-    auto array_proxy = results.mutable_unchecked();
-    for (auto i=0; i<epochs.size(); i++)
-    {
-        array_proxy(i, 0) = epochs[i];
-        array_proxy(i, 1) = mean_densities[i];
-    };
-    return results;
-}
-
-
 auto dp(
     const double linear, const double quadratic, 
     const double diffusion, const double noise, 
@@ -160,7 +144,7 @@ auto dp(
     RNG rng(p.random_seed); 
     DPLangevin dpLangevin(p);
     f_coeffs.print();
-    parameters.print();
+    p.print();
 
     construct_grid(dpLangevin, p);
     initialize_grid(dpLangevin, p, rng);
