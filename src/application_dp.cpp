@@ -152,30 +152,24 @@ auto dp(
 ) -> Results
 {
     Coefficients f_coeffs (linear, quadratic, diffusion, noise);
-    Parameters parameters (
+    Parameters p (
         t_max, dx, dt, random_seed,
         grid_dimension, grid_size, grid_topology, 
         boundary_condition, initial_condition, integration_method
     );
-    RNG rng(parameters.random_seed); 
-    DPLangevin dpLangevin(parameters);
+    RNG rng(p.random_seed); 
+    DPLangevin dpLangevin(p);
     f_coeffs.print();
     parameters.print();
 
-    construct_grid(dpLangevin, parameters);
-    initialize_grid(dpLangevin, parameters, rng);
+    construct_grid(dpLangevin, p);
+    initialize_grid(dpLangevin, p, rng);
     dpLangevin.set_coefficients(f_coeffs);
-    auto n_epochs = count_epochs(parameters);
+    auto n_epochs = count_epochs(p);
     dbl_vec_t epochs(n_epochs, 0.0);
     dbl_vec_t mean_densities(n_epochs, 0.0);
-    integrate(
-        dpLangevin, parameters, rng, epochs, mean_densities
-    );
-    Results results(
-        n_epochs, 
-        parameters.n_cells, 
-        parameters.n_x, parameters.n_y, parameters.n_z
-    );
+    integrate(dpLangevin, p, rng, epochs, mean_densities);
+    Results results(n_epochs, p.n_cells, p.n_x, p.n_y, p.n_z);
     results.prep_epochs(epochs);
     results.prep_mean_densities(mean_densities);
     results.prep_density(dpLangevin.get_density());

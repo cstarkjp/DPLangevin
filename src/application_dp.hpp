@@ -13,10 +13,12 @@ typedef py::array_t<double, py::array::c_style> results_t;
 typedef py::array_t<double, py::array::c_style> py_array_t;
 
 
-class Results {
+class Results 
+{
 private:
     const int n_epochs, n_cells, n_x, n_y, n_z;
     py_array_t return_epochs, return_mean_densities, density;
+
 public:
     Results(
         const int n_epochs, const int n_cells, 
