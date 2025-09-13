@@ -168,15 +168,9 @@ auto dp(
     auto n_epochs = count_epochs(parameters);
     dbl_vec_t epochs(n_epochs, 0.0);
     dbl_vec_t mean_densities(n_epochs, 0.0);
-    // std::array<double, n_epochs> epochs;
-    // std::array<double, n_epochs> mean_densities;
     integrate(
         dpLangevin, parameters, rng, epochs, mean_densities
     );
-    
-    // return prepare_return_array(
-    //     dpLangevin.get_density(), epochs, mean_densities
-    // );
     Results results(
         n_epochs, 
         parameters.n_cells, 
