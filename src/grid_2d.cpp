@@ -73,7 +73,7 @@ void LangevinBase::construct_2D_grid(const Parameters parameters)
         }
         // Left and right columns
         for (auto y=1; y<n_y-1; y++)
-        {
+     {
             i_left_column  = y*n_x;
             i_right_column = (n_x-1) + y*n_x;
 

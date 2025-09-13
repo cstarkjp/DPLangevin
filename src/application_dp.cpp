@@ -95,7 +95,7 @@ int count_epochs(const Parameters parameters)
 
 void integrate(
     DPLangevin& dpLangevin, const Parameters parameters, RNG& rng,
-    const int n_epochs, dbl_vector& epochs, dbl_vector& mean_densities
+    dbl_vector& epochs, dbl_vector& mean_densities
 )
 {
     int i;
@@ -104,7 +104,7 @@ void integrate(
     switch (parameters.integration_method)
     {
         case (IntegrationMethod::EULER):
-            for (i=0, t=0; i<n_epochs; t+=parameters.dt, i++)
+            for (i=0, t=0; i<epochs.size(); t+=parameters.dt, i++)
             {
                 dpLangevin.integrate_euler(rng);
                 epochs[i] = t;
@@ -113,7 +113,7 @@ void integrate(
             break;
         case (IntegrationMethod::RUNGE_KUTTA):
         default:
-            for (i=0, t=0; i<n_epochs; t+=parameters.dt, i++)
+            for (i=0, t=0; i<epochs.size(); t+=parameters.dt, i++)
             {
                 dpLangevin.integrate_rungekutta(rng);
                 epochs[i] = t;
@@ -124,17 +124,15 @@ void integrate(
 }
 
 results_t prepare_return_array(
-    const int n_epochs, 
-    const dbl_vector& epochs, 
-    const dbl_vector& mean_densities
+    const dbl_vector& epochs, const dbl_vector& mean_densities
 )
 {
-    results_t results({n_epochs, 2});
-    auto ra = results.mutable_unchecked();
-    for (auto i=0; i<n_epochs; i++)
+    results_t results({static_cast<int>(epochs.size()), 2});
+    auto array_proxy = results.mutable_unchecked();
+    for (auto i=0; i<epochs.size(); i++)
     {
-        ra(i, 0) = epochs[i];
-        ra(i, 1) = mean_densities[i];
+        array_proxy(i, 0) = epochs[i];
+        array_proxy(i, 1) = mean_densities[i];
     };
     return results;
 }
@@ -154,26 +152,23 @@ results_t dp(
     Coefficients f_coeffs (linear, quadratic, diffusion, noise);
     Parameters parameters (
         t_max, dx, dt, random_seed,
-        grid_dimension, 
-        grid_size, 
-        grid_topology, 
-        boundary_condition, 
-        initial_condition, 
-        integration_method
+        grid_dimension, grid_size, grid_topology, 
+        boundary_condition, initial_condition, integration_method
     );
     RNG rng(parameters.random_seed); 
+    DPLangevin dpLangevin(parameters);
     f_coeffs.print();
     parameters.print();
 
-    DPLangevin dpLangevin(parameters);
     construct_grid(dpLangevin, parameters);
     initialize_grid(dpLangevin, parameters, rng);
     dpLangevin.set_coefficients(f_coeffs);
-    int n_epochs = count_epochs(parameters);
-    dbl_vector epochs(n_epochs, 0.0), mean_densities(n_epochs, 0.0);
+    auto n_epochs = count_epochs(parameters);
+    dbl_vector epochs(n_epochs, 0.0);
+    dbl_vector mean_densities(n_epochs, 0.0);
     integrate(
-        dpLangevin, parameters, rng, n_epochs, epochs, mean_densities
+        dpLangevin, parameters, rng, epochs, mean_densities
     );
     
-    return prepare_return_array(n_epochs, epochs, mean_densities);
+    return prepare_return_array(epochs, mean_densities);
 } 
