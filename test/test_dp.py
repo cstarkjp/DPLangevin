@@ -7,7 +7,7 @@ import dplvn # type: ignore
 print()
 print(f"dplvn version:  {dplvn.__version__}")
 print()
-result = dplvn.dp(
+sim = dplvn.dp(
     linear=1.0, quadratic=2.0, diffusion=0.1, noise=1.0, 
     t_max=100.0, 
     # dx=0.5, dt=0.01
@@ -19,9 +19,14 @@ result = dplvn.dp(
     boundary_condition=dplvn.FLOATING,
     integration_method=dplvn.RUNGE_KUTTA
 )
-print(dir(result))
+print()
+print()
 
-print(result.get())
+# print(sim.get())
+print(sim.get_epochs())
+print()
+print(sim.get_mean_densities())
+print()
 
 # print()
 # print( type(result) )

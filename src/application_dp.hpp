@@ -10,45 +10,60 @@
 
 namespace py = pybind11;
 typedef py::array_t<double, py::array::c_style> results_t;
+typedef py::array_t<double, py::array::c_style> py_array_t;
 
 
 class Results {
 private:
     std::string m_name;
-    dbl_vec_t epochs;
-    dbl_vec_t mean_densities;
-    results_t results;
+    py_array_t results;
+    py_array_t return_epochs;
+    py_array_t return_mean_densities;
+    int n_epochs;
 public:
     Results(
         const std::string& name
     )
     {
         m_name = name;
-        epochs = {0.0, 1, 2, 3};
-        mean_densities = {10,20,30,40.0};
-    }
-    results_t get() const { return results; }
-
-    void set_arrays() 
-    {
-        epochs = {0.0, 1, 2, 3};
-        mean_densities = {10,20,30,40.0};
     }
 
-    void prepare_return_array(
+    void prepare_return_arrays(
         // const dbl_vec_t& cell_density,
         const dbl_vec_t& epochs, const dbl_vec_t& mean_densities
     )
     {
-        results_t results_array({static_cast<int>(epochs.size()), 2});
+        n_epochs = static_cast<int>(epochs.size());
+
+        py_array_t results_array({n_epochs, 2});
         auto array_proxy = results_array.mutable_unchecked();
-        for (auto i=0; i<epochs.size(); i++)
+        for (auto i=0; i<n_epochs; i++)
         {
             array_proxy(i, 0) = epochs[i];
             array_proxy(i, 1) = mean_densities[i];
         };
         results = results_array;
+
+        py_array_t epochs_array(n_epochs);
+        auto epochs_proxy = epochs_array.mutable_unchecked();
+        for (auto i=0; i<n_epochs; i++)
+        {
+            epochs_proxy(i) = epochs[i];
+        };
+        return_epochs = epochs_array;
+
+        py_array_t mean_densities_array(n_epochs);
+        auto mean_densities_proxy = mean_densities_array.mutable_unchecked();
+        for (auto i=0; i<n_epochs; i++)
+        {
+            mean_densities_proxy(i) = mean_densities[i];
+        };
+        return_mean_densities = mean_densities_array;
     }
+
+    py_array_t get() const { return results; }
+    py_array_t get_epochs() const { return return_epochs; }
+    py_array_t get_mean_densities() const { return return_mean_densities; }
 };
 
 // results_t

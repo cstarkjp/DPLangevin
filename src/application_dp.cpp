@@ -178,7 +178,7 @@ auto dp(
     //     dpLangevin.get_density(), epochs, mean_densities
     // );
     Results results("test");
-    results.prepare_return_array(
+    results.prepare_return_arrays(
         // dpLangevin.get_density(), 
         epochs, mean_densities
     );

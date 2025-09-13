@@ -68,13 +68,15 @@ PYBIND11_MODULE(dplvn, module)
     );
 
     py::class_<Results>(module, "Results")
-        .def("get", &Results::get);
+        // .def("get", &Results::get)
+        .def("get_epochs", &Results::get_epochs)
+        .def("get_mean_densities", &Results::get_mean_densities);
 
     module.def(
         "assign_results", [](const std::string& name) {
             return Results(name);
         }, 
-        "name", 
+        // "name", 
         "Creates and returns a Results instance."
     );
 }
