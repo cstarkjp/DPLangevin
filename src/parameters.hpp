@@ -26,25 +26,29 @@ public:
     const IntegrationMethod integration_method;
 
     Parameters(
-        const double b, const double c, const double d, const int e, 
-        const GridDimension f, 
-        const int_vec_t& k,
-        const GridTopology g,
-        const BoundaryCondition h,
-        const InitialCondition i,
-        const IntegrationMethod j
+        const double t_max, 
+        const double dx, const double dt, 
+        const int rs, 
+        const GridDimension gd, 
+        const int_vec_t& gs,
+        const GridTopology gt,
+        const BoundaryCondition bc,
+        const InitialCondition ic,
+        const IntegrationMethod im
     ) : 
-        t_max(b), dx(c), dt(d), random_seed(e),
-        grid_dimension(f), 
-        grid_size(k),
-        grid_topology(g),
-        boundary_condition(h),
-        initial_condition(i), 
-        integration_method(j)
+        t_max(t_max), 
+        dx(dx), dt(dt), 
+        random_seed(rs),
+        grid_dimension(gd), 
+        grid_size(gs),
+        grid_topology(gt),
+        boundary_condition(bc),
+        initial_condition(ic), 
+        integration_method(im)
     {
-        n_x = k.at(0);
-        n_y = (k.size()>1) ? k.at(1) : 1;
-        n_z = (k.size()>2) ? k.at(2) : 1;
+        n_x = gs.at(0);
+        n_y = (gs.size()>1) ? gs.at(1) : 1;
+        n_z = (gs.size()>2) ? gs.at(2) : 1;
         n_cells = n_x * n_y * n_z;
     }
 

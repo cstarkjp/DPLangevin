@@ -72,11 +72,17 @@ PYBIND11_MODULE(dplvn, module)
         .def("get_epochs", &Results::get_epochs)
         .def("get_mean_densities", &Results::get_mean_densities);
 
-    module.def(
-        "assign_results", [](const std::string& name) {
-            return Results(name);
-        }, 
-        // "name", 
-        "Creates and returns a Results instance."
-    );
+    // module.def(
+    //     "assign_results", [] (
+    //         const int n_epochs,
+    //         const int n_cells, 
+    //         const int n_x, const int n_y, const int n_z
+    //     ) {
+    //         return Results(
+    //             n_epochs, n_cells, n_x, n_y, n_z
+    //         );
+    //     }, 
+    //     // "name", 
+    //     "Creates and returns a Results instance."
+    // );
 }

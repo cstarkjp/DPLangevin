@@ -177,10 +177,13 @@ auto dp(
     // return prepare_return_array(
     //     dpLangevin.get_density(), epochs, mean_densities
     // );
-    Results results("test");
-    results.prepare_return_arrays(
-        // dpLangevin.get_density(), 
-        epochs, mean_densities
+    Results results(
+        n_epochs, 
+        parameters.n_cells, 
+        parameters.n_x, parameters.n_y, parameters.n_z
     );
+    results.prep_epochs(epochs);
+    results.prep_mean_densities(mean_densities);
+    results.prep_density(dpLangevin.get_density());
     return results;
 } 

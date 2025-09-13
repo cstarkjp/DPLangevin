@@ -15,35 +15,16 @@ typedef py::array_t<double, py::array::c_style> py_array_t;
 
 class Results {
 private:
-    std::string m_name;
-    py_array_t results;
-    py_array_t return_epochs;
-    py_array_t return_mean_densities;
-    int n_epochs;
+    const int n_epochs, n_cells, n_x, n_y, n_z;
+    py_array_t return_epochs, return_mean_densities, results;
 public:
     Results(
-        const std::string& name
-    )
+        const int n_epochs, const int n_cells, 
+        const int n_x, const int n_y, const int n_z
+    ) : n_epochs(n_epochs), n_cells(n_cells), n_x(n_x), n_y(n_y), n_z(n_z) {}
+
+    void prep_epochs(const dbl_vec_t& epochs)
     {
-        m_name = name;
-    }
-
-    void prepare_return_arrays(
-        // const dbl_vec_t& cell_density,
-        const dbl_vec_t& epochs, const dbl_vec_t& mean_densities
-    )
-    {
-        n_epochs = static_cast<int>(epochs.size());
-
-        py_array_t results_array({n_epochs, 2});
-        auto array_proxy = results_array.mutable_unchecked();
-        for (auto i=0; i<n_epochs; i++)
-        {
-            array_proxy(i, 0) = epochs[i];
-            array_proxy(i, 1) = mean_densities[i];
-        };
-        results = results_array;
-
         py_array_t epochs_array(n_epochs);
         auto epochs_proxy = epochs_array.mutable_unchecked();
         for (auto i=0; i<n_epochs; i++)
@@ -51,7 +32,11 @@ public:
             epochs_proxy(i) = epochs[i];
         };
         return_epochs = epochs_array;
+    }
+    py_array_t get_epochs() const { return return_epochs; }
 
+    void prep_mean_densities(const dbl_vec_t& mean_densities)
+    {
         py_array_t mean_densities_array(n_epochs);
         auto mean_densities_proxy = mean_densities_array.mutable_unchecked();
         for (auto i=0; i<n_epochs; i++)
@@ -60,10 +45,20 @@ public:
         };
         return_mean_densities = mean_densities_array;
     }
-
-    py_array_t get() const { return results; }
-    py_array_t get_epochs() const { return return_epochs; }
     py_array_t get_mean_densities() const { return return_mean_densities; }
+
+    void prep_density(const dbl_vec_t& cell_density)
+    {
+        py_array_t results_array({n_epochs, 2});
+        auto array_proxy = results_array.mutable_unchecked();
+        for (auto i=0; i<n_epochs; i++)
+        {
+            // array_proxy(i, 0) = epochs[i];
+            // array_proxy(i, 1) = mean_densities[i];
+        };
+        results = results_array;
+    }
+    py_array_t get() const { return results; }
 };
 
 // results_t
