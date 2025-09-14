@@ -35,7 +35,8 @@ cpp_sources = files(
     'src/initialization.cpp', 
     'src/langevin_utils.cpp', 
     'src/application_dplangevin.cpp', 
-    'src/application_dpsim.cpp', 
+    'src/application_dpsim_public.cpp', 
+    'src/application_dpsim_private.cpp', 
     'src/applications_pybind.cpp'
 )
 
