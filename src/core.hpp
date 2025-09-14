@@ -13,14 +13,6 @@
 #include <random>
 #include <pybind11/numpy.h>
 
-// Option to approximate Poisson distribution using Gaussian for large means
-#ifndef APPROXIMATE_POISSON_DISTBN
-#define APPROXIMATE_POISSON_DISTBN false
-#ifndef MU_THRESHOLD
-#define MU_THRESHOLD 100.0
-#endif
-#endif
-
 // Use Mersenne Twister random number generator
 typedef std::mt19937 rng_t;
 typedef std::vector<double> dbl_vec_t;
@@ -37,5 +29,13 @@ typedef std::uniform_real_distribution<double> dbl_uniform_dist_t;
 
 namespace py = pybind11;
 typedef py::array_t<double, py::array::c_style> py_array_t;
+
+// Option to approximate Poisson distribution using Gaussian for large means
+#ifndef APPROXIMATE_POISSON_DISTBN
+#define APPROXIMATE_POISSON_DISTBN false
+#ifndef MU_THRESHOLD
+#define MU_THRESHOLD 100.0
+#endif
+#endif
 
 #endif
