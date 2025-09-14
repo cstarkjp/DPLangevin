@@ -3,7 +3,7 @@
 project(
     'DPLangevin',
     'cpp',
-    version: '2025.09.12a4',
+    version: '2025.09.14a1',
     default_options: [
         'cpp_std=c++11',
     ],
@@ -29,12 +29,13 @@ pybind11_dep = dependency('pybind11')
 cpp_sources = files(
     'src/integration_rungekutta.cpp', 
     'src/integration_euler.cpp', 
-    'src/grid1d.cpp', 
-    'src/grid2d.cpp', 
-    'src/ic.cpp', 
+    'src/grid_1d.cpp', 
+    'src/grid_2d.cpp', 
+    'src/initial_condition.cpp', 
     'src/initialization.cpp', 
     'src/utils.cpp', 
-    'src/application_dp.cpp', 
+    'src/application_dplangevin.cpp', 
+    'src/application_dpsim.cpp', 
     'src/applications_pybind.cpp'
 )
 

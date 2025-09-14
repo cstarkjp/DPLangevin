@@ -14,7 +14,7 @@ void LangevinBase::ic_random_uniform(
     const double max_value
 )
 {
-    dbl_uniform_distbn uniform(min_value, max_value);
+    dbl_uniform_dist_t uniform(min_value, max_value);
     mean_density = 0.0;
     for (auto i=0; i<cell_density.size(); i++)
     {
@@ -27,7 +27,7 @@ void LangevinBase::ic_random_uniform(
 // Set all the cells to have same value
 void LangevinBase::ic_constant_value(const double density_value)
 {
-    cell_density = dbl_vector(n_cells, density_value);
+    cell_density = dbl_vec_t(n_cells, density_value);
     mean_density = density_value;
 }
 

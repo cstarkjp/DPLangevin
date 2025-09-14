@@ -10,41 +10,47 @@
 struct Parameters 
 {
 public:
-    const double t_max;
-    const double dx;
-    const double dt;
-    const int random_seed;
-    const GridDimension grid_dimension;
-    const int_vector& grid_size;
-    int n_cells;
-    int n_x;
-    int n_y;
-    int n_z;  // but 3d, 4d grids not implemented yet (or ever)
-    const GridTopology grid_topology;
-    const BoundaryCondition boundary_condition;
-    const InitialCondition initial_condition;
-    const IntegrationMethod integration_method;
+    const double t_max=0;
+    const double dx=0;
+    const double dt=0;
+    const int random_seed=0;
+    const GridDimension grid_dimension=GridDimension::D1;
+    const int_vec_t& grid_size; // without initialization, cannot have default 
+    int n_cells=0;
+    int n_x=0;
+    int n_y=0;
+    int n_z=0;  // but 3d, 4d grids not implemented yet (or ever)
+    const GridTopology grid_topology=GridTopology::BOUNDED;
+    const BoundaryCondition boundary_condition=BoundaryCondition::FLOATING;
+    const InitialCondition initial_condition=InitialCondition::RANDOM_UNIFORM;
+    const IntegrationMethod integration_method=IntegrationMethod::RUNGE_KUTTA;
+
+    // Parameters() = default;
 
     Parameters(
-        const double b, const double c, const double d, const int e, 
-        const GridDimension f, 
-        const int_vector& k,
-        const GridTopology g,
-        const BoundaryCondition h,
-        const InitialCondition i,
-        const IntegrationMethod j
+        const double t_max, 
+        const double dx, const double dt, 
+        const int rs, 
+        const GridDimension gd, 
+        const int_vec_t& gs,
+        const GridTopology gt,
+        const BoundaryCondition bc,
+        const InitialCondition ic,
+        const IntegrationMethod im
     ) : 
-        t_max(b), dx(c), dt(d), random_seed(e),
-        grid_dimension(f), 
-        grid_size(k),
-        grid_topology(g),
-        boundary_condition(h),
-        initial_condition(i), 
-        integration_method(j)
+        t_max(t_max), 
+        dx(dx), dt(dt), 
+        random_seed(rs),
+        grid_dimension(gd), 
+        grid_size(gs),
+        grid_topology(gt),
+        boundary_condition(bc),
+        initial_condition(ic), 
+        integration_method(im)
     {
-        n_x = k.at(0);
-        n_y = (k.size()>1) ? k.at(1) : 1;
-        n_z = (k.size()>2) ? k.at(2) : 1;
+        n_x = gs.at(0);
+        n_y = (gs.size()>1) ? gs.at(1) : 1;
+        n_z = (gs.size()>2) ? gs.at(2) : 1;
         n_cells = n_x * n_y * n_z;
     }
 
@@ -99,12 +105,12 @@ public:
         std::cout<< "random_seed: " << random_seed << std::endl;
         std::cout<< "grid_dimension: " 
             << gdstr(grid_dimension) << std::endl;
-        std::cout<< "n_cells: " << n_cells << std::endl;
         std::cout<< "grid_size: ";
         for (const auto& element : grid_size) {
             std::cout << element << " ";
         }
         std::cout<< std::endl;        
+        std::cout<< "n_cells: " << n_cells << std::endl;
         std::cout<< "grid_topology: " 
             << gtstr(grid_topology) << std::endl;
         std::cout<< "boundary_condition: " 

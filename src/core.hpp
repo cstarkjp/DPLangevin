@@ -30,17 +30,20 @@
 #define RNG std::mt19937
 #endif
 
-typedef std::vector<double> dbl_vector;
-typedef std::vector<int> int_vector;
-typedef const std::vector<int> const_int_vector;
-typedef std::poisson_distribution<int> int_poisson_distbn;
-typedef std::gamma_distribution<double> dbl_gamma_distbn;
-typedef std::normal_distribution<double> dbl_normal_distbn;
-typedef std::uniform_real_distribution<double> dbl_uniform_distbn;
+typedef std::vector<double> dbl_vec_t;
+typedef std::vector<int> int_vec_t;
+typedef std::poisson_distribution<int> int_poisson_dist_t;
+typedef std::gamma_distribution<double> dbl_gamma_dist_t;
+typedef std::normal_distribution<double> dbl_normal_dist_t;
+typedef std::uniform_real_distribution<double> dbl_uniform_dist_t;
 
 #include "enums.hpp"
 #include "coefficients.hpp"
 #include "parameters.hpp"
-#include "base.hpp"
+#include "langevin_base.hpp"
+
+#include <pybind11/numpy.h>
+namespace py = pybind11;
+typedef py::array_t<double, py::array::c_style> py_array_t;
 
 #endif

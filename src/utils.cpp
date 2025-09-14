@@ -8,13 +8,19 @@
 #include "core.hpp"
 
 // Make the density visible
-double LangevinBase::density() 
+dbl_vec_t LangevinBase::get_density() 
+{
+    return cell_density;
+}
+
+// Make the density visible
+double LangevinBase::get_mean_density() 
 {
     return mean_density;
 }
 
 // Check the mean of the Poisson distribution
-double LangevinBase::avg_poisson_mean()
+double LangevinBase::get_poisson_mean()
 {
     return lambda_product * mean_density;
 }

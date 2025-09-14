@@ -22,7 +22,7 @@ void LangevinBase::integrate_rungekutta(RNG &rng)
 }
 
 // RK first function
-void LangevinBase::rk_f1(dbl_vector &aux_cell, dbl_vector &k1)
+void LangevinBase::rk_f1(dbl_vec_t &aux_cell, dbl_vec_t &k1)
 {
     for (auto i=0; i<n_cells; i++)
     {
@@ -33,9 +33,9 @@ void LangevinBase::rk_f1(dbl_vector &aux_cell, dbl_vector &k1)
 
 // RK second and third functions
 void LangevinBase::rk_f2f3(
-    const dbl_vector &aux_old, 
-    dbl_vector &aux_new, 
-    dbl_vector &k_out, 
+    const dbl_vec_t &aux_old, 
+    dbl_vec_t &aux_new, 
+    dbl_vec_t &k_out, 
     const double dt_in
 )
 {
@@ -48,10 +48,10 @@ void LangevinBase::rk_f2f3(
 
 // RK fourth function and stochastic step, all in the same loop
 void LangevinBase::rk_f4_and_stochastic(
-    const dbl_vector &aux_old, 
-    const dbl_vector &k1, 
-    const dbl_vector &k2, 
-    const dbl_vector &k3, 
+    const dbl_vec_t &aux_old, 
+    const dbl_vec_t &k1, 
+    const dbl_vec_t &k2, 
+    const dbl_vec_t &k3, 
     RNG &rng
 )
 {
@@ -61,19 +61,19 @@ void LangevinBase::rk_f4_and_stochastic(
         auto k4 = nonlinear_rhs(i, aux_old);
         cell_density[i] += dts*(k1[i] + 2*(k2[i] + k3[i]) + k4);
         #if !APPROXIMATE_POISSON_DISTBN
-        poisson = int_poisson_distbn(lambda_product*cell_density[i]);
-        gamma = dbl_gamma_distbn(poisson(rng), 1.0);
+        poisson = int_poisson_dist_t(lambda_product*cell_density[i]);
+        gamma = dbl_gamma_dist_t(poisson(rng), 1.0);
         #else
         double mu = lambda_product * cell_density[i];
         if (mu > MU_THRESHOLD)
         {
-            normal = dbl_normal_distbn(mu, sqrt(mu));
-            gamma = dbl_gamma_distbn(normal(rng), 1.0);
+            normal = dbl_normal_dist_t(mu, sqrt(mu));
+            gamma = dbl_gamma_dist_t(normal(rng), 1.0);
         }
         else
         {
-            poisson = int_poisson_distbn(lambda_product*cell_density[i]);
-            gamma = dbl_gamma_distbn(poisson(rng), 1.0);
+            poisson = int_poisson_dist_t(lambda_product*cell_density[i]);
+            gamma = dbl_gamma_dist_t(poisson(rng), 1.0);
         }
         #endif
         cell_density[i] = gamma(rng)/lambda;
