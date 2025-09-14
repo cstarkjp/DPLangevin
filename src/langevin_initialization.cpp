@@ -8,18 +8,18 @@
 #include "general_core.hpp"
 
 // Set all the parameters
-void Langevin::set_coefficients(const Coefficients &f_coeffs)
+void Langevin::set_coefficients(const Coefficients &coefficients)
 {
-    set_essential_coefficients(f_coeffs);
-    set_nonlinear_coefficients(f_coeffs);
+    set_essential_coefficients(coefficients);
+    set_nonlinear_coefficients(coefficients);
     set_lambdas();
 }
 
 // Coefficients needed to integrate linear + noise parts
-void Langevin::set_essential_coefficients(const Coefficients &f_coeffs)
+void Langevin::set_essential_coefficients(const Coefficients &coefficients)
 {
-    linear_coeff = f_coeffs.linear;
-    noise_coeff = f_coeffs.noise;
+    linear_coeff = coefficients.linear;
+    noise_coeff = coefficients.noise;
 }
 
 void Langevin::set_lambdas(void)
