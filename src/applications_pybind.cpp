@@ -14,7 +14,7 @@
 
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__version__") = "2025.09.13a1";
+    module.attr("__version__") = "2025.09.14a1";
     module.doc() = 
         "'Dornic' operator-splitting method of integrating DP-type Langevin equations"; 
 
@@ -75,7 +75,8 @@ PYBIND11_MODULE(dplvn, module)
             py::arg("grid_topology") = GridTopology::BOUNDED,
             py::arg("boundary_condition") = BoundaryCondition::FLOATING,
             py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
-            py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA
+            py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA,
+            "Simulation of DP Langevin equation"
         )
         .def("initialize", &SimDP::initialize)
         .def("run", &SimDP::run)
