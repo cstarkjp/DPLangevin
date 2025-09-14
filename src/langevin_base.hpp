@@ -42,8 +42,8 @@ public:
     );
     void ic_constant_value(const double density_value=1.0);
     void ic_single_seed(const int i_node, const double value=1.0);
-    void set_coefficients(const Coefficients &f_coeffs);
-    void set_essential_coefficients(const Coefficients &f_coeffs);
+    void set_coefficients(const Coefficients &coefficients);
+    void set_essential_coefficients(const Coefficients &coefficients);
     void set_lambdas(void);
     void integrate_rungekutta(rng_t &rng);
     void integrate_euler(rng_t &rng);
@@ -67,7 +67,7 @@ public:
     double get_poisson_mean(void);
 
     // Defined by the application — these are placeholders
-    virtual void set_nonlinear_coefficients(const Coefficients &f_coeffs) {};
+    virtual void set_nonlinear_coefficients(const Coefficients &coefficients) {};
     virtual double nonlinear_rhs(const int i_cell, const dbl_vec_t &field) 
         const { return 0; };
 };

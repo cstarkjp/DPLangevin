@@ -13,7 +13,7 @@
 class SimDP 
 {
 private:
-    Coefficients f_coeffs;
+    Coefficients coefficients;
     Parameters p;
     rng_t *rng; 
     DPLangevin *dpLangevin;

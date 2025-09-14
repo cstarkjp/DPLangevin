@@ -19,14 +19,14 @@ SimDP::SimDP(
     const BoundaryCondition boundary_condition,
     const InitialCondition initial_condition,
     const IntegrationMethod integration_method
-) : f_coeffs(linear, quadratic, diffusion, noise),
+) : coefficients(linear, quadratic, diffusion, noise),
     p( t_max, dx, dt, random_seed,
        grid_dimension, grid_size, grid_topology, 
        boundary_condition, initial_condition, integration_method )
 {
     rng = new rng_t(p.random_seed); 
     dpLangevin = new DPLangevin(p);
-    f_coeffs.print();
+    coefficients.print();
     p.print();
 }
 
@@ -34,7 +34,7 @@ bool SimDP::initialize()
 {
     if (not construct_grid()) { return false;}
     if (not initialize_grid()) { return false;}
-    dpLangevin->set_coefficients(f_coeffs);
+    dpLangevin->set_coefficients(coefficients);
     is_initialized = true;
     return is_initialized;
 }
