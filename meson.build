@@ -21,7 +21,7 @@ cpp_sources = files(
     'src/grid_2d.cpp', 
     'src/initial_condition.cpp', 
     'src/initialization.cpp', 
-    'src/langevin_utils.cpp', 
+    'src/utils.cpp', 
     'src/application_dplangevin.cpp', 
     'src/application_dpsim_public.cpp', 
     'src/application_dpsim_private.cpp', 

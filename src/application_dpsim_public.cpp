@@ -32,12 +32,11 @@ SimDP::SimDP(
 
 bool SimDP::initialize()
 {
-    construct_grid();
-    initialize_grid();
-    dpLangevin->check();
+    if (not construct_grid()) { return false;}
+    if (not initialize_grid()) { return false;}
     dpLangevin->set_coefficients(f_coeffs);
     is_initialized = true;
-    return true;
+    return is_initialized;
 }
 
 bool SimDP::run(void)
