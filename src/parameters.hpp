@@ -54,7 +54,8 @@ public:
         n_cells = n_x * n_y * n_z;
     }
 
-    std::string gdstr(GridDimension gd) {
+    std::string gdstr(GridDimension gd) 
+    {
         switch (gd) {
             case GridDimension::D1: return "1d";
             case GridDimension::D2: return "2d";
@@ -63,7 +64,8 @@ public:
         }
     }
 
-    std::string gtstr(GridTopology gt) {
+    std::string gtstr(GridTopology gt) 
+    {
         switch (gt) {
             case GridTopology::BOUNDED: return "bounded";
             case GridTopology::PERIODIC: return "periodic";
@@ -71,7 +73,8 @@ public:
         }
     }
 
-    std::string bcstr(BoundaryCondition bc) {
+    std::string bcstr(BoundaryCondition bc) 
+    {
         switch (bc) {
             case BoundaryCondition::FLOATING: return "floating";
             case BoundaryCondition::FIXED_VALUE: return "fixed value";
@@ -80,7 +83,8 @@ public:
         }
     }
 
-    std::string icstr(InitialCondition ic) {
+    std::string icstr(InitialCondition ic) 
+    {
         switch (ic) {
             case InitialCondition::RANDOM_UNIFORM: return "random uniform values";
             case InitialCondition::RANDOM_GAUSSIAN: return "random Gaussian values";
@@ -90,7 +94,8 @@ public:
         }
     }
 
-    std::string icstr(IntegrationMethod ic) {
+    std::string icstr(IntegrationMethod ic) 
+    {
         switch (ic) {
             case IntegrationMethod::EULER: return "Euler";
             case IntegrationMethod::RUNGE_KUTTA: return "Runge-Kutta";
@@ -98,7 +103,8 @@ public:
         }
     }
 
-    void print() {
+    void print() 
+    {
         std::cout<< "t_max: " << t_max << std::endl;
         std::cout<< "dx: " << dx << std::endl;
         std::cout<< "dt: " << dt << std::endl;
