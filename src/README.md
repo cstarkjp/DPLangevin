@@ -1,6 +1,6 @@
 # Build notes
 
-Full deployment to PyPI is in progress. For now, if you want use this
+Full deployment to PyPI is in progress. For now, if you want to use this
 package, first set up the Python environment (see `environment.yml` for 
 a `conda` install), then do a build using `meson-python`. 
 

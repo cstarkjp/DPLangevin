@@ -5,24 +5,24 @@
 // CPS 2025-09-02
 // 
 
-#include "core.hpp"
+#include "general_core.hpp"
 
 // Set all the parameters
-void LangevinBase::set_coefficients(const Coefficients &f_coeffs)
+void Langevin::set_coefficients(const Coefficients &coefficients)
 {
-    set_essential_coefficients(f_coeffs);
-    set_nonlinear_coefficients(f_coeffs);
+    set_essential_coefficients(coefficients);
+    set_nonlinear_coefficients(coefficients);
     set_lambdas();
 }
 
 // Coefficients needed to integrate linear + noise parts
-void LangevinBase::set_essential_coefficients(const Coefficients &f_coeffs)
+void Langevin::set_essential_coefficients(const Coefficients &coefficients)
 {
-    linear_coeff = f_coeffs.linear;
-    noise_coeff = f_coeffs.noise;
+    linear_coeff = coefficients.linear;
+    noise_coeff = coefficients.noise;
 }
 
-void LangevinBase::set_lambdas(void)
+void Langevin::set_lambdas(void)
 {
     double lambda_const = 2.0/(noise_coeff*noise_coeff);
     double lambda_exp = exp(-linear_coeff*dt);

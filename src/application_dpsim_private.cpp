@@ -5,105 +5,52 @@
 // CPS 2025-09-02
 // 
 
-#include "core.hpp"
+#include "general_core.hpp"
 #include "application_dpsim.hpp"
 
-SimDP::SimDP(
-    const double linear, const double quadratic,
-    const double diffusion, const double noise, 
-    const double t_max, const double dx, const double dt, 
-    const int random_seed,
-    const GridDimension grid_dimension,
-    const int_vec_t& grid_size,
-    const GridTopology grid_topology,
-    const BoundaryCondition boundary_condition,
-    const InitialCondition initial_condition,
-    const IntegrationMethod integration_method
-) : f_coeffs(linear, quadratic, diffusion, noise),
-    p( t_max, dx, dt, random_seed,
-        grid_dimension, grid_size, grid_topology, 
-        boundary_condition, initial_condition, integration_method )
-{
-    rng = new RNG(p.random_seed); 
-    dpLangevin = new DPLangevin(p);
-    f_coeffs.print();
-    p.print();
-}
-
-bool SimDP::initialize()
-{
-    construct_grid();
-    initialize_grid();
-    dpLangevin->check();
-    dpLangevin->set_coefficients(f_coeffs);
-    is_initialized = true;
-    return true;
-}
-
-bool SimDP::run(void)
-{
-    if (not is_initialized) 
-    { 
-        std::cout << "Failure: must initialize first" << std::endl;
-        return false; 
-    }
-    n_epochs = count_epochs();
-    epochs = dbl_vec_t(n_epochs, 0.0);
-    mean_densities = dbl_vec_t(n_epochs, 0.0);
-    bool did_integrate = integrate(epochs, mean_densities);
-    bool did_finalize = (
-        did_integrate and
-        prep_epochs() and prep_mean_densities() and prep_density()
-    ); 
-    return did_finalize;
-}
-
-void SimDP::construct_grid()
+bool SimDP::construct_grid()
 {
     std::cout << "construct_grid::  dpLangevin = " << dpLangevin << std::endl;
     switch (p.grid_dimension)
     {
         case (GridDimension::D1):
             dpLangevin->construct_1D_grid(p);
-            break;
+            return true;
         case (GridDimension::D2):
-        default:
             dpLangevin->construct_2D_grid(p);
-            break;
+            return true;
+        default:
+            return false;
     }    
 }
 
-void SimDP::initialize_grid()
+bool SimDP::initialize_grid()
     {
         switch (p.initial_condition)
         {
             case (InitialCondition::RANDOM_GAUSSIAN):
                 dpLangevin->ic_random_uniform(*rng);
-                break;
+                return true;
             case (InitialCondition::CONSTANT_VALUE):
                 dpLangevin->ic_constant_value(1.0);
-                break;
+                return true;
             case (InitialCondition::SINGLE_SEED):
                 dpLangevin->ic_single_seed(p.n_cells/2, 1.0);
-                break;
+                return true;
             case (InitialCondition::RANDOM_UNIFORM):
-            default:
                 dpLangevin->ic_random_uniform(*rng);
-                break;
+                return true;
+            default:
+                return false;
         }  
     }
 
 int SimDP::count_epochs()
 {
-    // Count total number of time steps, 
-    //    just in case rounding causes problems
+    // Count total number of time steps, just in case rounding causes problems
     int n_epochs;
     double t; 
-    for (
-        n_epochs=0, t=0; 
-        t<=p.t_max+p.dt; 
-        t+=p.dt, n_epochs++
-    ) {}
+    for (n_epochs=0, t=0; t<=p.t_max+p.dt; t+=p.dt, n_epochs++) {}
     return n_epochs;
 }
 
@@ -126,9 +73,8 @@ bool SimDP::integrate(dbl_vec_t& epochs, dbl_vec_t& mean_densities)
                 epochs[i] = t;
                 mean_densities[i] = dpLangevin->get_mean_density();
             };
-            break;
+            return true;
         case (IntegrationMethod::RUNGE_KUTTA):
-        default:
             std::cout << "integrate::  Runge-Kutta "<< std::endl;
             std::cout << "integrate::  dpLangevin = " << dpLangevin << std::endl;
             for (i=0, t=0; i<epochs.size(); t+=p.dt, i++)
@@ -137,9 +83,10 @@ bool SimDP::integrate(dbl_vec_t& epochs, dbl_vec_t& mean_densities)
                 epochs[i] = t;
                 mean_densities[i] = dpLangevin->get_mean_density();
             };
-            break;
+            return true;
+        default:
+            return false;
     }
-    return true;
 }
 
 bool SimDP::prep_epochs()
@@ -183,11 +130,6 @@ bool SimDP::prep_density()
         // density_proxy(i, 0) = epochs[i];
         // density_proxy(i, 1) = mean_densities[i];
     };
-    density = density_array;
+    return_density = density_array;
     return true;
 }
-
-py_array_t SimDP::get_epochs() const { return return_epochs; }
-py_array_t SimDP::get_mean_densities() const { return return_mean_densities; }
-py_array_t SimDP::get_density() const { return density; }
-

@@ -16,20 +16,20 @@ enum class GridDimension
     D4 = 4
 };
 
-enum GridTopology
+enum class GridTopology
 {
     BOUNDED = 1,
     PERIODIC = 2
 };
 
-enum BoundaryCondition
+enum class BoundaryCondition
 {
     FLOATING = 1,
     FIXED_VALUE = 2,
     FIXED_FLUX = 3
 };
 
-enum InitialCondition
+enum class InitialCondition
 {
     RANDOM_UNIFORM = 1,
     RANDOM_GAUSSIAN = 2,

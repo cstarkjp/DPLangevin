@@ -5,9 +5,9 @@
 // CPS 2025-09-02
 // 
 
-#include "core.hpp"
+#include "general_core.hpp"
 
-void LangevinBase::integrate_rungekutta(RNG &rng)
+void Langevin::integrate_rungekutta(rng_t &rng)
 {
     // Runge-Kutta integration of the non-linear term and diffusion.
     // Update of cells is done in the same loop as last RK step 
@@ -22,7 +22,7 @@ void LangevinBase::integrate_rungekutta(RNG &rng)
 }
 
 // RK first function
-void LangevinBase::rk_f1(dbl_vec_t &aux_cell, dbl_vec_t &k1)
+void Langevin::rk_f1(dbl_vec_t &aux_cell, dbl_vec_t &k1)
 {
     for (auto i=0; i<n_cells; i++)
     {
@@ -32,7 +32,7 @@ void LangevinBase::rk_f1(dbl_vec_t &aux_cell, dbl_vec_t &k1)
 }
 
 // RK second and third functions
-void LangevinBase::rk_f2f3(
+void Langevin::rk_f2f3(
     const dbl_vec_t &aux_old, 
     dbl_vec_t &aux_new, 
     dbl_vec_t &k_out, 
@@ -47,12 +47,12 @@ void LangevinBase::rk_f2f3(
 }
 
 // RK fourth function and stochastic step, all in the same loop
-void LangevinBase::rk_f4_and_stochastic(
+void Langevin::rk_f4_and_stochastic(
     const dbl_vec_t &aux_old, 
     const dbl_vec_t &k1, 
     const dbl_vec_t &k2, 
     const dbl_vec_t &k3, 
-    RNG &rng
+    rng_t &rng
 )
 {
     mean_density = 0.0;

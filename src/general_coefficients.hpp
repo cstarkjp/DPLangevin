@@ -5,8 +5,8 @@
 // CPS 2025-09-02
 // 
 
-#ifndef COEFFS_HPP
-#define COEFFS_HPP
+#ifndef COEFFICIENTS_HPP
+#define COEFFICIENTS_HPP
 
 struct Coefficients 
 {

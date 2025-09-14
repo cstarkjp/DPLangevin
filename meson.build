@@ -1,57 +1,33 @@
-# rm -rf build; meson setup build; meson compile -C build
-
 project(
     'DPLangevin',
     'cpp',
-    version: '2025.09.14a1',
+    version: '2025.09.14a2',
     default_options: [
         'cpp_std=c++11',
     ],
 )
 
-# if get_option('buildtype') == 'custom'
 add_project_arguments('-Ofast', '-g3', language : 'cpp')
-# endif
-
 py = import('python').find_installation(pure: false)
 pybind11_dep = dependency('pybind11')
-# ninja_dep = dependency('ninja')
-
-# py_sources = files(
-#     'src/__init__.py',
-#     'src/initialize.py'
-# )
-# py.install_sources(
-#     py_sources,
-#     subdir: 'dplvn'
-# )
 
 cpp_sources = files(
-    'src/integration_rungekutta.cpp', 
-    'src/integration_euler.cpp', 
-    'src/grid_1d.cpp', 
-    'src/grid_2d.cpp', 
-    'src/initial_condition.cpp', 
-    'src/initialization.cpp', 
-    'src/utils.cpp', 
+    'src/langevin_grid_1d.cpp', 
+    'src/langevin_grid_2d.cpp', 
+    'src/langevin_initial_condition.cpp', 
+    'src/langevin_initialization.cpp', 
+    'src/langevin_integration_rungekutta.cpp', 
+    'src/langevin_integration_euler.cpp', 
+    'src/langevin_utils.cpp', 
     'src/application_dplangevin.cpp', 
-    'src/application_dpsim.cpp', 
-    'src/applications_pybind.cpp'
+    'src/application_dpsim_public.cpp', 
+    'src/application_dpsim_private.cpp', 
+    'src/application_pybind.cpp'
 )
-
-# https://mesonbuild.com/meson-python/how-to-guides/shared-libraries.html
-# example_lib = shared_library(
-#     'dplvn',
-#     cpp_sources,
-#     install: true,
-#     install_dir: py.get_install_dir() / 'mypkg/subdir',
-# )
 
 py.extension_module(
     'dplvn',
     cpp_sources,
     install: true,
-    # subdir: 'dplvn',
-    # install_dir: py.get_install_dir(),
     dependencies : [pybind11_dep]
 )

@@ -6,7 +6,7 @@
 // 
 // 
 #include <pybind11/numpy.h>
-#include "core.hpp"
+#include "general_core.hpp"
 #include "application_dplangevin.hpp"
 #include "application_dpsim.hpp"
 // Essential for STL container conversions
@@ -14,7 +14,7 @@
 
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__version__") = "2025.09.14a1";
+    module.attr("__version__") = "2025.09.14a2";
     module.doc() = 
         "'Dornic' operator-splitting method of integrating DP-type Langevin equations"; 
 

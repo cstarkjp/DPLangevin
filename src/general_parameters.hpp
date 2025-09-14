@@ -5,8 +5,8 @@
 // CPS 2025-09-02
 // 
 
-#ifndef PARAMS_HPP
-#define PARAMS_HPP
+#ifndef PARAMETERS_HPP
+#define PARAMETERS_HPP
 struct Parameters 
 {
 public:
@@ -15,7 +15,7 @@ public:
     const double dt=0;
     const int random_seed=0;
     const GridDimension grid_dimension=GridDimension::D1;
-    const int_vec_t& grid_size; // without initialization, cannot have default 
+    const int_vec_t& grid_size = {0};
     int n_cells=0;
     int n_x=0;
     int n_y=0;
@@ -25,7 +25,7 @@ public:
     const InitialCondition initial_condition=InitialCondition::RANDOM_UNIFORM;
     const IntegrationMethod integration_method=IntegrationMethod::RUNGE_KUTTA;
 
-    // Parameters() = default;
+    Parameters() = default;
 
     Parameters(
         const double t_max, 
@@ -54,7 +54,8 @@ public:
         n_cells = n_x * n_y * n_z;
     }
 
-    std::string gdstr(GridDimension gd) {
+    std::string gdstr(GridDimension gd) 
+    {
         switch (gd) {
             case GridDimension::D1: return "1d";
             case GridDimension::D2: return "2d";
@@ -63,7 +64,8 @@ public:
         }
     }
 
-    std::string gtstr(GridTopology gt) {
+    std::string gtstr(GridTopology gt) 
+    {
         switch (gt) {
             case GridTopology::BOUNDED: return "bounded";
             case GridTopology::PERIODIC: return "periodic";
@@ -71,7 +73,8 @@ public:
         }
     }
 
-    std::string bcstr(BoundaryCondition bc) {
+    std::string bcstr(BoundaryCondition bc) 
+    {
         switch (bc) {
             case BoundaryCondition::FLOATING: return "floating";
             case BoundaryCondition::FIXED_VALUE: return "fixed value";
@@ -80,7 +83,8 @@ public:
         }
     }
 
-    std::string icstr(InitialCondition ic) {
+    std::string icstr(InitialCondition ic) 
+    {
         switch (ic) {
             case InitialCondition::RANDOM_UNIFORM: return "random uniform values";
             case InitialCondition::RANDOM_GAUSSIAN: return "random Gaussian values";
@@ -90,7 +94,8 @@ public:
         }
     }
 
-    std::string icstr(IntegrationMethod ic) {
+    std::string icstr(IntegrationMethod ic) 
+    {
         switch (ic) {
             case IntegrationMethod::EULER: return "Euler";
             case IntegrationMethod::RUNGE_KUTTA: return "Runge-Kutta";
@@ -98,27 +103,21 @@ public:
         }
     }
 
-    void print() {
+    void print() 
+    {
         std::cout<< "t_max: " << t_max << std::endl;
         std::cout<< "dx: " << dx << std::endl;
         std::cout<< "dt: " << dt << std::endl;
         std::cout<< "random_seed: " << random_seed << std::endl;
-        std::cout<< "grid_dimension: " 
-            << gdstr(grid_dimension) << std::endl;
+        std::cout<< "grid_dimension: " << gdstr(grid_dimension) << std::endl;
         std::cout<< "grid_size: ";
-        for (const auto& element : grid_size) {
-            std::cout << element << " ";
-        }
+        for (const auto& element : grid_size) {std::cout << element << " ";}
         std::cout<< std::endl;        
         std::cout<< "n_cells: " << n_cells << std::endl;
-        std::cout<< "grid_topology: " 
-            << gtstr(grid_topology) << std::endl;
-        std::cout<< "boundary_condition: " 
-            << bcstr(boundary_condition) << std::endl;
-        std::cout<< "initial_condition: " 
-            << icstr(initial_condition) << std::endl;
-        std::cout<< "integration_method: " 
-            << icstr(integration_method) << std::endl;
+        std::cout<< "grid_topology: " << gtstr(grid_topology) << std::endl;
+        std::cout<< "boundary_condition: " << bcstr(boundary_condition) << std::endl;
+        std::cout<< "initial_condition: " << icstr(initial_condition) << std::endl;
+        std::cout<< "integration_method: "  << icstr(integration_method) << std::endl;
     }
 
     ~Parameters() {}

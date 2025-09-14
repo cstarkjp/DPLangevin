@@ -1,4 +1,9 @@
-    // // Class constructor
+    # rm -rf build; meson setup build; meson compile -C build
+
+
+
+
+// // Class constructor
     // Dornic(
     //     const double dt_in, 
     //     const double dx_in, 
@@ -239,3 +244,53 @@
   #         repository_url: https://test.pypi.org/legacy/
   #         # password: ${{ secrets.TESTPYPI_API_TOKEN }}
   #         skip_existing: true # Optional: prevents errors if package already exists
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+From meson.build:
+
+# if get_option('buildtype') == 'custom'
+# endif
+
+
+# ninja_dep = dependency('ninja')
+
+# py_sources = files(
+#     'src/__init__.py',
+#     'src/initialize.py'
+# )
+# py.install_sources(
+#     py_sources,
+#     subdir: 'dplvn'
+# )
+
+
+# https://mesonbuild.com/meson-python/how-to-guides/shared-libraries.html
+# example_lib = shared_library(
+#     'dplvn',
+#     cpp_sources,
+#     install: true,
+#     install_dir: py.get_install_dir() / 'mypkg/subdir',
+# )
+
+
+
+py.extension_module(
+    'dplvn',
+    cpp_sources,
+    install: true,
+    # subdir: 'dplvn',
+    # install_dir: py.get_install_dir(),
+    dependencies : [pybind11_dep]
+)

@@ -5,13 +5,13 @@
 // CPS 2025-09-02
 // 
 
-#ifndef LANGEVIN_BASE_HPP
-#define LANGEVIN_BASE_HPP
+#ifndef BASE_HPP
+#define BASE_HPP
 
-#include "coefficients.hpp"
-#include "parameters.hpp"
+#include "general_coefficients.hpp"
+#include "general_parameters.hpp"
 
-class LangevinBase
+class Langevin
 {
 protected:
     // Runge-Kutta variables
@@ -34,19 +34,19 @@ protected:
     double linear_coeff, noise_coeff;
 
 public:
-    LangevinBase() = default;
+    Langevin() = default;
     void construct_1D_grid(const Parameters parameters);
     void construct_2D_grid(const Parameters parameters);
     void ic_random_uniform(
-        RNG &rng, const double min_value = 0.0, const double max_value = 1.0
+        rng_t &rng, const double min_value = 0.0, const double max_value = 1.0
     );
     void ic_constant_value(const double density_value=1.0);
     void ic_single_seed(const int i_node, const double value=1.0);
-    void set_coefficients(const Coefficients &f_coeffs);
-    void set_essential_coefficients(const Coefficients &f_coeffs);
+    void set_coefficients(const Coefficients &coefficients);
+    void set_essential_coefficients(const Coefficients &coefficients);
     void set_lambdas(void);
-    void integrate_rungekutta(RNG &rng);
-    void integrate_euler(RNG &rng);
+    void integrate_rungekutta(rng_t &rng);
+    void integrate_euler(rng_t &rng);
     void rk_f1(dbl_vec_t &aux_cell, dbl_vec_t &k1);
     void rk_f2f3(
         const dbl_vec_t &aux_old, 
@@ -59,17 +59,17 @@ public:
         const dbl_vec_t &k1, 
         const dbl_vec_t &k2, 
         const dbl_vec_t &k3, 
-        RNG &rng
+        rng_t &rng
     );
-    void euler_and_stochastic(dbl_vec_t &aux, RNG &rng);
+    void euler_and_stochastic(dbl_vec_t &aux, rng_t &rng);
     dbl_vec_t get_density(void);
     double get_mean_density(void);
     double get_poisson_mean(void);
 
     // Defined by the application — these are placeholders
-    virtual void set_nonlinear_coefficients(const Coefficients &f_coeffs) {};
-    virtual auto nonlinear_rhs(const int i_cell, const dbl_vec_t &field) 
-        const -> double{ return 0; };
+    virtual void set_nonlinear_coefficients(const Coefficients &coefficients) {};
+    virtual double nonlinear_rhs(const int i_cell, const dbl_vec_t &field) 
+        const { return 0; };
 };
 
 #endif

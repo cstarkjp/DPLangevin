@@ -5,9 +5,9 @@
 // CPS 2025-09-02
 // 
 
-#include "core.hpp"
+#include "general_core.hpp"
 
-void LangevinBase::construct_1D_grid(const Parameters parameters)
+void Langevin::construct_1D_grid(const Parameters parameters)
 {
     const int n_x = parameters.n_x;
     neighbors = std::vector<int_vec_t>(n_x, int_vec_t(2));

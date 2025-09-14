@@ -5,25 +5,25 @@
 // CPS 2025-09-02
 // 
 
-#ifndef APPLICATION_DPSIM_HPP
-#define APPLICATION_DPSIM_HPP
+#ifndef DPSIM_HPP
+#define DPSIM_HPP
 
 #include "application_dplangevin.hpp"
 
 class SimDP 
 {
 private:
-    Coefficients f_coeffs;
+    Coefficients coefficients;
     Parameters p;
-    RNG *rng; 
+    rng_t *rng; 
     DPLangevin *dpLangevin;
     int n_epochs;
-    py_array_t return_epochs, return_mean_densities, density;
+    py_array_t return_epochs, return_mean_densities, return_density;
     dbl_vec_t epochs;
     dbl_vec_t mean_densities;
     bool is_initialized = false;
-    void construct_grid();
-    void initialize_grid();
+    bool construct_grid();
+    bool initialize_grid();
     int count_epochs();
     bool integrate(dbl_vec_t& epochs, dbl_vec_t& mean_densities);
     bool prep_epochs();
