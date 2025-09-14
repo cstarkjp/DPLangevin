@@ -5,7 +5,7 @@
 // CPS 2025-09-02
 // 
 
-#include "core.hpp"
+#include "general_core.hpp"
 
 void Langevin::construct_1D_grid(const Parameters parameters)
 {

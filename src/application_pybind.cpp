@@ -6,7 +6,7 @@
 // 
 // 
 #include <pybind11/numpy.h>
-#include "core.hpp"
+#include "general_core.hpp"
 #include "application_dplangevin.hpp"
 #include "application_dpsim.hpp"
 // Essential for STL container conversions

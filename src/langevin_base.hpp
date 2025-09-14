@@ -8,8 +8,8 @@
 #ifndef LANGEVIN_BASE_HPP
 #define LANGEVIN_BASE_HPP
 
-#include "coefficients.hpp"
-#include "parameters.hpp"
+#include "general_coefficients.hpp"
+#include "general_parameters.hpp"
 
 class Langevin
 {

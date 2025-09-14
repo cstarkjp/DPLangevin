@@ -5,7 +5,7 @@
 // CPS 2025-09-02
 // 
 
-#include "core.hpp"
+#include "general_core.hpp"
 
 // Set cells to have uniformly random values between min_value and max_value
 void Langevin::ic_random_uniform(

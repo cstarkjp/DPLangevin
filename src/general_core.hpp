@@ -22,9 +22,9 @@ typedef std::gamma_distribution<double> dbl_gamma_dist_t;
 typedef std::normal_distribution<double> dbl_normal_dist_t;
 typedef std::uniform_real_distribution<double> dbl_uniform_dist_t;
 
-#include "enums.hpp"
-#include "coefficients.hpp"
-#include "parameters.hpp"
+#include "general_enums.hpp"
+#include "general_coefficients.hpp"
+#include "general_parameters.hpp"
 #include "langevin_base.hpp"
 
 namespace py = pybind11;

@@ -5,7 +5,7 @@
 // CPS 2025-09-02
 // 
 
-#include "core.hpp"
+#include "general_core.hpp"
 
 // Set all the parameters
 void Langevin::set_coefficients(const Coefficients &f_coeffs)

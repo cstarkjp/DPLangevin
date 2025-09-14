@@ -5,7 +5,7 @@
 // CPS 2025-09-02
 // 
 
-#include "core.hpp"
+#include "general_core.hpp"
 #include "application_dpsim.hpp"
 
 SimDP::SimDP(

@@ -5,7 +5,7 @@
 // CPS 2025-09-02
 // 
 
-#include "core.hpp"
+#include "general_core.hpp"
 
 // Make the density visible
 dbl_vec_t Langevin::get_density() 

@@ -7,7 +7,7 @@
 
 #include <pybind11/numpy.h>
 #include <string>
-#include "core.hpp"
+#include "general_core.hpp"
 #include "application_dplangevin.hpp"
 
 DPLangevin::DPLangevin(Parameters params)
