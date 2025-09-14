@@ -59,13 +59,14 @@ public:
         };
         density = density_array;
     }
-    py_array_t get() const { return density; }
+    py_array_t get_density() const { return density; }
 };
 
 auto dp(
     const double linear, const double quadratic, 
     const double diffusion, const double noise, 
-    const double t_max, const double dx, const double dt, const int random_seed,
+    const double t_max, const double dx, const double dt, 
+    const int random_seed,
     const GridDimension grid_dimension, 
     const int_vec_t& grid_size,
     const GridTopology grid_topology,
@@ -73,5 +74,28 @@ auto dp(
     const InitialCondition initial_condition,
     const IntegrationMethod integration_method
 ) -> Results;
+
+
+
+class SimDP 
+{
+// private:
+
+public:
+    SimDP(
+        const double linear, const double quadratic,
+        const double diffusion, const double noise, 
+        const double t_max, const double dx, const double dt, 
+        const int random_seed,
+        const GridDimension grid_dimension,
+        const int_vec_t& grid_size,
+        const GridTopology grid_topology,
+        const BoundaryCondition boundary_condition,
+        const InitialCondition initial_condition,
+        const IntegrationMethod integration_method
+    ) {
+    }
+};
+
 
 #endif
