@@ -10,116 +10,116 @@
 #include "core.hpp"
 #include "application_dp.hpp"
 
-void construct_grid(DPLangevin& dpLangevin, const Parameters parameters)
-{
-    switch (parameters.grid_dimension)
-    {
-        case (GridDimension::D1):
-            dpLangevin.construct_1D_grid(parameters);
-            break;
-        case (GridDimension::D2):
-        default:
-            dpLangevin.construct_2D_grid(parameters);
-            break;
-    }    
-}
+// void construct_grid(DPLangevin& dpLangevin, const Parameters parameters)
+// {
+//     switch (parameters.grid_dimension)
+//     {
+//         case (GridDimension::D1):
+//             dpLangevin.construct_1D_grid(parameters);
+//             break;
+//         case (GridDimension::D2):
+//         default:
+//             dpLangevin.construct_2D_grid(parameters);
+//             break;
+//     }    
+// }
 
-void initialize_grid(DPLangevin& dpLangevin, const Parameters parameters, RNG &rng)
-{
-    switch (parameters.initial_condition)
-    {
-        case (InitialCondition::RANDOM_GAUSSIAN):
-            dpLangevin.ic_random_uniform(rng);
-            break;
-        case (InitialCondition::CONSTANT_VALUE):
-            dpLangevin.ic_constant_value(1.0);
-            break;
-        case (InitialCondition::SINGLE_SEED):
-            dpLangevin.ic_single_seed(parameters.n_cells/2, 1.0);
-            break;
-        case (InitialCondition::RANDOM_UNIFORM):
-        default:
-            dpLangevin.ic_random_uniform(rng);
-            break;
-    }  
-}
+// void initialize_grid(DPLangevin& dpLangevin, const Parameters parameters, RNG &rng)
+// {
+//     switch (parameters.initial_condition)
+//     {
+//         case (InitialCondition::RANDOM_GAUSSIAN):
+//             dpLangevin.ic_random_uniform(rng);
+//             break;
+//         case (InitialCondition::CONSTANT_VALUE):
+//             dpLangevin.ic_constant_value(1.0);
+//             break;
+//         case (InitialCondition::SINGLE_SEED):
+//             dpLangevin.ic_single_seed(parameters.n_cells/2, 1.0);
+//             break;
+//         case (InitialCondition::RANDOM_UNIFORM):
+//         default:
+//             dpLangevin.ic_random_uniform(rng);
+//             break;
+//     }  
+// }
 
-int count_epochs(const Parameters parameters)
-{
-    int n_epochs;
-    double t; 
-    // Count total number of time steps, just in case rounding causes problems
-    for (
-        n_epochs=0, t=0; 
-        t<=parameters.t_max+parameters.dt; 
-        t+=parameters.dt, n_epochs++
-    ) {}
-    return n_epochs;
-}
+// int count_epochs(const Parameters parameters)
+// {
+//     int n_epochs;
+//     double t; 
+//     // Count total number of time steps, just in case rounding causes problems
+//     for (
+//         n_epochs=0, t=0; 
+//         t<=parameters.t_max+parameters.dt; 
+//         t+=parameters.dt, n_epochs++
+//     ) {}
+//     return n_epochs;
+// }
 
-void integrate(
-    DPLangevin& dpLangevin, const Parameters parameters, RNG& rng,
-    dbl_vec_t& epochs, dbl_vec_t& mean_densities
-)
-{
-    int i;
-    double t; 
+// void integrate(
+//     DPLangevin& dpLangevin, const Parameters parameters, RNG& rng,
+//     dbl_vec_t& epochs, dbl_vec_t& mean_densities
+// )
+// {
+//     int i;
+//     double t; 
 
-    switch (parameters.integration_method)
-    {
-        case (IntegrationMethod::EULER):
-            for (i=0, t=0; i<epochs.size(); t+=parameters.dt, i++)
-            {
-                dpLangevin.integrate_euler(rng);
-                epochs[i] = t;
-                mean_densities[i] = dpLangevin.get_mean_density();
-            };
-            break;
-        case (IntegrationMethod::RUNGE_KUTTA):
-        default:
-            for (i=0, t=0; i<epochs.size(); t+=parameters.dt, i++)
-            {
-                dpLangevin.integrate_rungekutta(rng);
-                epochs[i] = t;
-                mean_densities[i] = dpLangevin.get_mean_density();
-            };
-            break;
-    }
-}
+//     switch (parameters.integration_method)
+//     {
+//         case (IntegrationMethod::EULER):
+//             for (i=0, t=0; i<epochs.size(); t+=parameters.dt, i++)
+//             {
+//                 dpLangevin.integrate_euler(rng);
+//                 epochs[i] = t;
+//                 mean_densities[i] = dpLangevin.get_mean_density();
+//             };
+//             break;
+//         case (IntegrationMethod::RUNGE_KUTTA):
+//         default:
+//             for (i=0, t=0; i<epochs.size(); t+=parameters.dt, i++)
+//             {
+//                 dpLangevin.integrate_rungekutta(rng);
+//                 epochs[i] = t;
+//                 mean_densities[i] = dpLangevin.get_mean_density();
+//             };
+//             break;
+//     }
+// }
 
-auto dp(
-    const double linear, const double quadratic, 
-    const double diffusion, const double noise, 
-    const double t_max, const double dx, const double dt, const int random_seed,
-    const GridDimension grid_dimension, 
-    const int_vec_t& grid_size,
-    const GridTopology grid_topology,
-    const BoundaryCondition boundary_condition,
-    const InitialCondition initial_condition,
-    const IntegrationMethod integration_method
-) -> Results
-{
-    Coefficients f_coeffs (linear, quadratic, diffusion, noise);
-    Parameters p (
-        t_max, dx, dt, random_seed,
-        grid_dimension, grid_size, grid_topology, 
-        boundary_condition, initial_condition, integration_method
-    );
-    RNG rng(p.random_seed); 
-    DPLangevin dpLangevin(p);
-    f_coeffs.print();
-    p.print();
+// auto dp(
+//     const double linear, const double quadratic, 
+//     const double diffusion, const double noise, 
+//     const double t_max, const double dx, const double dt, const int random_seed,
+//     const GridDimension grid_dimension, 
+//     const int_vec_t& grid_size,
+//     const GridTopology grid_topology,
+//     const BoundaryCondition boundary_condition,
+//     const InitialCondition initial_condition,
+//     const IntegrationMethod integration_method
+// ) -> Results
+// {
+//     Coefficients f_coeffs (linear, quadratic, diffusion, noise);
+//     Parameters p (
+//         t_max, dx, dt, random_seed,
+//         grid_dimension, grid_size, grid_topology, 
+//         boundary_condition, initial_condition, integration_method
+//     );
+//     RNG rng(p.random_seed); 
+//     DPLangevin dpLangevin(p);
+//     f_coeffs.print();
+//     p.print();
 
-    construct_grid(dpLangevin, p);
-    initialize_grid(dpLangevin, p, rng);
-    dpLangevin.set_coefficients(f_coeffs);
-    auto n_epochs = count_epochs(p);
-    dbl_vec_t epochs(n_epochs, 0.0);
-    dbl_vec_t mean_densities(n_epochs, 0.0);
-    integrate(dpLangevin, p, rng, epochs, mean_densities);
-    Results results(n_epochs, p.n_cells, p.n_x, p.n_y, p.n_z);
-    results.prep_epochs(epochs);
-    results.prep_mean_densities(mean_densities);
-    results.prep_density(dpLangevin.get_density());
-    return results;
-} 
+//     construct_grid(dpLangevin, p);
+//     initialize_grid(dpLangevin, p, rng);
+//     dpLangevin.set_coefficients(f_coeffs);
+//     auto n_epochs = count_epochs(p);
+//     dbl_vec_t epochs(n_epochs, 0.0);
+//     dbl_vec_t mean_densities(n_epochs, 0.0);
+//     integrate(dpLangevin, p, rng, epochs, mean_densities);
+//     Results results(n_epochs, p.n_cells, p.n_x, p.n_y, p.n_z);
+//     results.prep_epochs(epochs);
+//     results.prep_mean_densities(mean_densities);
+//     results.prep_density(dpLangevin.get_density());
+//     return results;
+// } 

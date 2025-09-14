@@ -7,26 +7,27 @@ import dplvn # type: ignore
 print()
 print(f"dplvn version:  {dplvn.__version__}")
 print()
-sim = dplvn.dp(
-    linear=1.0, quadratic=2.0, diffusion=0.1, noise=1.0, 
-    t_max=100.0, 
-    # dx=0.5, dt=0.01
-    # grid_dimension=dplvn.D1,
-    # grid_size=(4096,),
-    grid_dimension=dplvn.D2,
-    grid_size=(8,8,),
-    grid_topology= dplvn.PERIODIC,
-    boundary_condition=dplvn.FLOATING,
-    integration_method=dplvn.RUNGE_KUTTA
-)
-print()
-print()
+
+# sim = dplvn.dp(
+#     linear=1.0, quadratic=2.0, diffusion=0.1, noise=1.0, 
+#     t_max=100.0, 
+#     # dx=0.5, dt=0.01
+#     # grid_dimension=dplvn.D1,
+#     # grid_size=(4096,),
+#     grid_dimension=dplvn.D2,
+#     grid_size=(8,8,),
+#     grid_topology= dplvn.PERIODIC,
+#     boundary_condition=dplvn.FLOATING,
+#     integration_method=dplvn.RUNGE_KUTTA
+# )
+# print()
+# print()
 
 # print(sim.get())
-print(sim.get_epochs())
-print()
-print(sim.get_mean_densities())
-print()
+# print(sim.get_epochs())
+# print()
+# print(sim.get_mean_densities())
+# print()
 
 # print()
 # print( type(result) )
@@ -45,8 +46,8 @@ print()
 # arrays.setName()
 # print(arrays.getName())
 
-r = dplvn.Results(1,1,1,1,1)
-print(dir(r))
+# r = dplvn.Results(1,1,1,1,1)
+# print(dir(r))
 
 sim_dp = dplvn.SimDP(
     linear=1.0, quadratic=2.0, 

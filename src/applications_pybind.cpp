@@ -47,38 +47,38 @@ PYBIND11_MODULE(dplvn, module)
         .value("RUNGE_KUTTA", IntegrationMethod::RUNGE_KUTTA)
         .export_values();
         
-    module.def(
-        "dp", 
-        &dp,
-        py::arg("linear") = 1.0, 
-        py::arg("quadratic") = 2.0, 
-        py::arg("diffusion") = 0.1,
-        py::arg("noise") = 1.0,
-        py::arg("t_max") = 100.0,
-        py::arg("dx") = 0.5,
-        py::arg("dt") = 0.01,
-        py::arg("random_seed") = 1,
-        py::arg("grid_dimension") = GridDimension::D2,
-        py::arg("grid_size") = py::none(),
-        py::arg("grid_topology") = GridTopology::BOUNDED,
-        py::arg("boundary_condition") = BoundaryCondition::FLOATING,
-        py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
-        py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA,
-        "Demo application of the Dornic method"
-    );
+    // module.def(
+    //     "dp", 
+    //     &dp,
+    //     py::arg("linear") = 1.0, 
+    //     py::arg("quadratic") = 2.0, 
+    //     py::arg("diffusion") = 0.1,
+    //     py::arg("noise") = 1.0,
+    //     py::arg("t_max") = 100.0,
+    //     py::arg("dx") = 0.5,
+    //     py::arg("dt") = 0.01,
+    //     py::arg("random_seed") = 1,
+    //     py::arg("grid_dimension") = GridDimension::D2,
+    //     py::arg("grid_size") = py::none(),
+    //     py::arg("grid_topology") = GridTopology::BOUNDED,
+    //     py::arg("boundary_condition") = BoundaryCondition::FLOATING,
+    //     py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
+    //     py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA,
+    //     "Demo application of the Dornic method"
+    // );
 
-    py::class_<Results>(module, "Results")
-        .def(
-            py::init<int, int, int, int, int>(),
-            py::arg("n_epochs"),
-            py::arg("n_cells"),
-            py::arg("n_x"),
-            py::arg("n_y"),
-            py::arg("n_z")
-        )
-        .def("get_epochs", &Results::get_epochs)
-        .def("get_mean_densities", &Results::get_mean_densities)
-        .def("get_density", &Results::get_density);
+    // py::class_<Results>(module, "Results")
+    //     .def(
+    //         py::init<int, int, int, int, int>(),
+    //         py::arg("n_epochs"),
+    //         py::arg("n_cells"),
+    //         py::arg("n_x"),
+    //         py::arg("n_y"),
+    //         py::arg("n_z")
+    //     )
+    //     .def("get_epochs", &Results::get_epochs)
+    //     .def("get_mean_densities", &Results::get_mean_densities)
+    //     .def("get_density", &Results::get_density);
 
     py::class_<SimDP>(module, "SimDP")
         .def(
