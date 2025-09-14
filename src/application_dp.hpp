@@ -98,8 +98,6 @@ public:
         k4 = dbl_vec_t(n_cells, 0.0);
     }
 
-
-
     void set_nonlinear_coefficients(const Coefficients &f_coefficients)
     override
     {
@@ -144,38 +142,7 @@ private:
     py_array_t return_epochs, return_mean_densities, density;
     dbl_vec_t epochs;
     dbl_vec_t mean_densities;
-
-public:
-    SimDP(
-        const double linear, const double quadratic,
-        const double diffusion, const double noise, 
-        const double t_max, const double dx, const double dt, 
-        const int random_seed,
-        const GridDimension grid_dimension,
-        const int_vec_t& grid_size,
-        const GridTopology grid_topology,
-        const BoundaryCondition boundary_condition,
-        const InitialCondition initial_condition,
-        const IntegrationMethod integration_method
-    ) : f_coeffs(linear, quadratic, diffusion, noise),
-        p(
-            t_max, dx, dt, random_seed,
-            grid_dimension, grid_size, grid_topology, 
-            boundary_condition, initial_condition, integration_method
-        )
-    {
-        RNG rng(p.random_seed); 
-        // std::cout << "SimDP::  rng = " << rng << std::endl;
-        dpLangevin = new DPLangevin(p);
-        std::cout << "SimDP::  dpLangevin = " << dpLangevin << std::endl;
-        f_coeffs.print();
-        p.print();
-        construct_grid();
-        initialize_grid();
-        dpLangevin->check();
-        dpLangevin->set_coefficients(f_coeffs);
-        std::cout << "SimDP::  dpLangevin = " << dpLangevin << std::endl;
-    }
+    bool is_initialized = false;
 
     void construct_grid()
     {
@@ -226,7 +193,7 @@ public:
         return n_epochs;
     }
 
-    void integrate(dbl_vec_t& epochs, dbl_vec_t& mean_densities)
+    bool integrate(dbl_vec_t& epochs, dbl_vec_t& mean_densities)
     {
         int i;
         double t; 
@@ -259,9 +226,10 @@ public:
                 };
                 break;
         }
+        return true;
     }
 
-    void prep_epochs()
+    bool prep_epochs()
     {
         py_array_t epochs_array(n_epochs);
         auto epochs_proxy = epochs_array.mutable_unchecked();
@@ -270,10 +238,10 @@ public:
             epochs_proxy(i) = epochs[i];
         };
         return_epochs = epochs_array;
+        return true;
     }
-    py_array_t get_epochs() const { return return_epochs; }
 
-    void prep_mean_densities()
+    bool prep_mean_densities()
     {
         py_array_t mean_densities_array(n_epochs);
         auto mean_densities_proxy = mean_densities_array.mutable_unchecked();
@@ -282,34 +250,91 @@ public:
             mean_densities_proxy(i) = mean_densities[i];
         };
         return_mean_densities = mean_densities_array;
+        return true;
     }
-    py_array_t get_mean_densities() const { return return_mean_densities; }
 
-    void prep_density()
+    bool prep_density()
     {
         py_array_t density_array({p.n_x, p.n_y});
         auto density_proxy = density_array.mutable_unchecked();
-        // ASSERT: n_cells = n_x * n_y * n_z
+        // std::cout << "prep_density: p.n_cells = " << p.n_cells << std::endl;
+        // std::cout << "prep_density: p.n_x = " << p.n_x << std::endl;
+        // std::cout << "prep_density: p.n_y = " << p.n_y << std::endl;
+        // std::cout << "prep_density: p.n_z = " << p.n_z << std::endl;
+        if (not (p.n_cells == p.n_x * p.n_y * p.n_z)) { 
+            std::cout << "prep_density: failed" << std::endl;
+            return false; 
+        }
         for (auto i=0; i<p.n_cells; i++)
         {
             // density_proxy(i, 0) = epochs[i];
             // density_proxy(i, 1) = mean_densities[i];
         };
         density = density_array;
+        return true;
     }
-    py_array_t get_density() const { return density; }
 
-    void run(void)
+
+public:
+    // SimDP() = default;
+    SimDP(
+        const double linear, const double quadratic,
+        const double diffusion, const double noise, 
+        const double t_max, const double dx, const double dt, 
+        const int random_seed,
+        const GridDimension grid_dimension,
+        const int_vec_t& grid_size,
+        const GridTopology grid_topology,
+        const BoundaryCondition boundary_condition,
+        const InitialCondition initial_condition,
+        const IntegrationMethod integration_method
+    ) : f_coeffs(linear, quadratic, diffusion, noise),
+        p(
+            t_max, dx, dt, random_seed,
+            grid_dimension, grid_size, grid_topology, 
+            boundary_condition, initial_condition, integration_method
+        )
     {
+        RNG rng(p.random_seed); 
+        dpLangevin = new DPLangevin(p);
+        f_coeffs.print();
+        p.print();
+    }
+
+    bool initialize()
+    {
+        construct_grid();
+        initialize_grid();
+        dpLangevin->check();
+        dpLangevin->set_coefficients(f_coeffs);
+        is_initialized = true;
+        return true;
+    }
+
+    bool run(void)
+    {
+        if (not is_initialized) 
+        { 
+            std::cout << "Failure: must initialize first" << std::endl;
+            return false; 
+        }
         n_epochs = count_epochs();
         epochs = dbl_vec_t(n_epochs, 0.0);
         mean_densities = dbl_vec_t(n_epochs, 0.0);
-        integrate(epochs, mean_densities);
-        prep_epochs();
-        prep_mean_densities();
-        prep_density();
+        bool did_integrate = integrate(epochs, mean_densities);
+        std::cout << "run:: did_integrate = " << did_integrate << std::endl;
+        bool did_finalize = (
+            did_integrate and
+            prep_epochs() and prep_mean_densities() //and prep_density()
+        ); 
+        bool did_prep_density = prep_density();
+        std::cout << "run:: did_prep_density = " << did_prep_density << std::endl;
+        return did_finalize;
     }
 
+    py_array_t get_epochs() const { return return_epochs; }
+    py_array_t get_mean_densities() const { return return_mean_densities; }
+    py_array_t get_density() const { return density; }
 };
 
 

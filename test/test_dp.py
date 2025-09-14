@@ -63,7 +63,10 @@ sim_dp = dplvn.SimDP(
     integration_method=dplvn.RUNGE_KUTTA
 )
 print(dir(sim_dp))
-sim_dp.run()
+if not sim_dp.initialize():
+    raise Exception("Failed to initialize sim")
+if not sim_dp.run():
+    raise Exception("Failed to run sim")
 print(sim_dp.get_epochs())
 print(sim_dp.get_mean_densities())
 print(sim_dp.get_density())
