@@ -16,7 +16,7 @@ public:
     DPLangevin() = default;
     DPLangevin(Parameters params);
     void set_nonlinear_coefficients(const Coefficients &f_coefficients);
-    auto nonlinear_rhs(const int i_cell, const dbl_vec_t &field) const ->double;
+    double nonlinear_rhs(const int i_cell, const dbl_vec_t &field) const;
     void check(){std::cout << "DPLangevin::  check"  << std::endl;}
 };
 

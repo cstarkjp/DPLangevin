@@ -32,8 +32,8 @@ void DPLangevin::set_nonlinear_coefficients(const Coefficients &f_coefficients)
     D = f_coefficients.diffusion / (dx*dx);
 }
 
-auto  DPLangevin::nonlinear_rhs(const int i_cell, const dbl_vec_t &field) 
-const -> double
+double DPLangevin::nonlinear_rhs(const int i_cell, const dbl_vec_t &field) 
+const
 {
     // Non-linear terms
     const double quadratic_term 
