@@ -8,7 +8,7 @@
 #ifndef ENUMS_HPP
 #define ENUMS_HPP
 
-enum class GridDimension
+enum GridDimension
 {
     D1 = 1,
     D2 = 2,
@@ -37,7 +37,7 @@ enum InitialCondition
     SINGLE_SEED = 4
 };
 
-enum class IntegrationMethod
+enum IntegrationMethod
 {
     EULER = 1,
     RUNGE_KUTTA = 2
