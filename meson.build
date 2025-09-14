@@ -33,7 +33,7 @@ cpp_sources = files(
     'src/grid_2d.cpp', 
     'src/initial_condition.cpp', 
     'src/initialization.cpp', 
-    'src/utils.cpp', 
+    'src/langevin_utils.cpp', 
     'src/application_dplangevin.cpp', 
     'src/application_dpsim.cpp', 
     'src/applications_pybind.cpp'
