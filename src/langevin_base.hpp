@@ -5,8 +5,8 @@
 // CPS 2025-09-02
 // 
 
-#ifndef LANGEVIN_BASE_HPP
-#define LANGEVIN_BASE_HPP
+#ifndef BASE_HPP
+#define BASE_HPP
 
 #include "general_coefficients.hpp"
 #include "general_parameters.hpp"

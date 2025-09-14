@@ -5,8 +5,8 @@
 // CPS 2025-09-02
 // 
 
-#ifndef APPLICATION_DPSIM_HPP
-#define APPLICATION_DPSIM_HPP
+#ifndef DPSIM_HPP
+#define DPSIM_HPP
 
 #include "application_dplangevin.hpp"
 

@@ -5,8 +5,8 @@
 // CPS 2025-09-02
 // 
 
-#ifndef APPLICATION_DPLANGEVIN_HPP
-#define APPLICATION_DPLANGEVIN_HPP
+#ifndef DPLANGEVIN_HPP
+#define DPLANGEVIN_HPP
 
 class DPLangevin : public Langevin 
 {

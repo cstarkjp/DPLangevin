@@ -5,8 +5,8 @@
 // CPS 2025-09-02
 // 
 
-#ifndef PARAMS_HPP
-#define PARAMS_HPP
+#ifndef PARAMETERS_HPP
+#define PARAMETERS_HPP
 struct Parameters 
 {
 public:
