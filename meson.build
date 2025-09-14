@@ -15,13 +15,13 @@ py = import('python').find_installation(pure: false)
 pybind11_dep = dependency('pybind11')
 
 cpp_sources = files(
-    'src/integration_rungekutta.cpp', 
-    'src/integration_euler.cpp', 
-    'src/grid_1d.cpp', 
-    'src/grid_2d.cpp', 
-    'src/initial_condition.cpp', 
-    'src/initialization.cpp', 
-    'src/utils.cpp', 
+    'src/langevin_grid_1d.cpp', 
+    'src/langevin_grid_2d.cpp', 
+    'src/langevin_initial_condition.cpp', 
+    'src/langevin_initialization.cpp', 
+    'src/langevin_integration_rungekutta.cpp', 
+    'src/langevin_integration_euler.cpp', 
+    'src/langevin_utils.cpp', 
     'src/application_dplangevin.cpp', 
     'src/application_dpsim_public.cpp', 
     'src/application_dpsim_private.cpp', 
