@@ -18,7 +18,7 @@ void Langevin::ic_random_uniform(
     mean_density = 0.0;
     for (auto i=0; i<cell_density.size(); i++)
     {
-        cell_density[i] += uniform(rng);
+        cell_density[i] = uniform(rng);
         mean_density += cell_density[i];
     }
     mean_density /= static_cast<double>(n_cells);
