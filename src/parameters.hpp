@@ -15,7 +15,7 @@ public:
     const double dt=0;
     const int random_seed=0;
     const GridDimension grid_dimension=GridDimension::D1;
-    const int_vec_t& grid_size; // without initialization, cannot have default 
+    const int_vec_t& grid_size = {0};
     int n_cells=0;
     int n_x=0;
     int n_y=0;
@@ -25,7 +25,7 @@ public:
     const InitialCondition initial_condition=InitialCondition::RANDOM_UNIFORM;
     const IntegrationMethod integration_method=IntegrationMethod::RUNGE_KUTTA;
 
-    // Parameters() = default;
+    Parameters() = default;
 
     Parameters(
         const double t_max, 

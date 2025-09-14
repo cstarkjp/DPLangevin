@@ -18,7 +18,7 @@ private:
     RNG *rng; 
     DPLangevin *dpLangevin;
     int n_epochs;
-    py_array_t return_epochs, return_mean_densities, density;
+    py_array_t return_epochs, return_mean_densities, return_density;
     dbl_vec_t epochs;
     dbl_vec_t mean_densities;
     bool is_initialized = false;

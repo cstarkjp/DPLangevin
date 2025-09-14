@@ -183,11 +183,11 @@ bool SimDP::prep_density()
         // density_proxy(i, 0) = epochs[i];
         // density_proxy(i, 1) = mean_densities[i];
     };
-    density = density_array;
+    return_density = density_array;
     return true;
 }
 
 py_array_t SimDP::get_epochs() const { return return_epochs; }
 py_array_t SimDP::get_mean_densities() const { return return_mean_densities; }
-py_array_t SimDP::get_density() const { return density; }
+py_array_t SimDP::get_density() const { return return_density; }
 
