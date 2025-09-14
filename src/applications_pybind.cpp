@@ -109,10 +109,9 @@ PYBIND11_MODULE(dplvn, module)
             py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
             py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA
         )
-        // "sim_dp"
-        // .def("get_epochs", &Results::get_epochs)
-        // .def("get_mean_densities", &Results::get_mean_densities)
-        // .def("get_density", &Results::get_density)
-        ;
+        .def("run", &SimDP::run)
+        .def("get_epochs", &SimDP::get_epochs)
+        .def("get_mean_densities", &SimDP::get_mean_densities)
+        .def("get_density", &SimDP::get_density);
 
 }

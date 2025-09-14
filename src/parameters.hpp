@@ -10,20 +10,22 @@
 struct Parameters 
 {
 public:
-    const double t_max;
-    const double dx;
-    const double dt;
-    const int random_seed;
-    const GridDimension grid_dimension;
+    const double t_max=0;
+    const double dx=0;
+    const double dt=0;
+    const int random_seed=0;
+    const GridDimension grid_dimension=GridDimension::D1;
     const int_vec_t& grid_size;
-    int n_cells;
-    int n_x;
-    int n_y;
-    int n_z;  // but 3d, 4d grids not implemented yet (or ever)
-    const GridTopology grid_topology;
-    const BoundaryCondition boundary_condition;
-    const InitialCondition initial_condition;
-    const IntegrationMethod integration_method;
+    int n_cells=0;
+    int n_x=0;
+    int n_y=0;
+    int n_z=0;  // but 3d, 4d grids not implemented yet (or ever)
+    const GridTopology grid_topology=GridTopology::BOUNDED;
+    const BoundaryCondition boundary_condition=BoundaryCondition::FLOATING;
+    const InitialCondition initial_condition=InitialCondition::RANDOM_UNIFORM;
+    const IntegrationMethod integration_method=IntegrationMethod::RUNGE_KUTTA;
+
+    // Parameters() = default;
 
     Parameters(
         const double t_max, 

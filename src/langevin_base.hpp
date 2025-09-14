@@ -34,6 +34,7 @@ protected:
     double linear_coeff, noise_coeff;
 
 public:
+    LangevinBase() = default;
     LangevinBase(Parameters params)
     {
         dt = params.dt;

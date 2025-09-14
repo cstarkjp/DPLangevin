@@ -10,42 +10,6 @@
 #include "core.hpp"
 #include "application_dp.hpp"
 
-class DPLangevin : public LangevinBase 
-{
-public:
-    double quadratic_coeff;
-    double D;
-
-    DPLangevin(Parameters params) : LangevinBase(params) {}
-
-    void set_nonlinear_coefficients(const Coefficients &f_coefficients)
-    override
-    {
-        quadratic_coeff = f_coefficients.quadratic;
-        D = f_coefficients.diffusion / (dx*dx);
-    }
-
-    auto nonlinear_rhs(const int i_cell, const dbl_vec_t &field) 
-    const -> double
-    override
-    {
-        // Non-linear terms
-        const double quadratic_term 
-            = -quadratic_coeff*field[i_cell]*field[i_cell];
-
-        // Integration of diffusion
-        double diffusion_sum = 0.0;
-        int n_neighbors = neighbors[i_cell].size();
-        for (auto i=0; i<n_neighbors; i++)
-        {
-            auto i_neighbor = neighbors[i_cell][i];
-            diffusion_sum += field[i_neighbor];
-        }
-        diffusion_sum = D*(diffusion_sum - n_neighbors*field[i_cell]);
-        return diffusion_sum + quadratic_term;
-    }
-};
-
 void construct_grid(DPLangevin& dpLangevin, const Parameters parameters)
 {
     switch (parameters.grid_dimension)
