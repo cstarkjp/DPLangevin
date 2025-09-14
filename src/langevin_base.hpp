@@ -11,7 +11,7 @@
 #include "coefficients.hpp"
 #include "parameters.hpp"
 
-class LangevinBase
+class Langevin
 {
 protected:
     // Runge-Kutta variables
@@ -34,7 +34,7 @@ protected:
     double linear_coeff, noise_coeff;
 
 public:
-    LangevinBase() = default;
+    Langevin() = default;
     void construct_1D_grid(const Parameters parameters);
     void construct_2D_grid(const Parameters parameters);
     void ic_random_uniform(

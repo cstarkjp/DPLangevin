@@ -8,7 +8,7 @@
 #ifndef APPLICATION_DPLANGEVIN_HPP
 #define APPLICATION_DPLANGEVIN_HPP
 
-class DPLangevin : public LangevinBase 
+class DPLangevin : public Langevin 
 {
 public:
     double quadratic_coeff;

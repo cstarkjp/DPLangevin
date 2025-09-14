@@ -7,7 +7,7 @@
 
 #include "core.hpp"
 
-void LangevinBase::construct_2D_grid(const Parameters parameters)
+void Langevin::construct_2D_grid(const Parameters parameters)
 {
     const int n_x = parameters.n_x;
     const int n_y = parameters.n_y;
