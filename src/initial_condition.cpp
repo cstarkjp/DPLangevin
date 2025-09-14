@@ -9,7 +9,7 @@
 
 // Set cells to have uniformly random values between min_value and max_value
 void LangevinBase::ic_random_uniform(
-    RNG &rng, 
+    rng_t &rng, 
     const double min_value, 
     const double max_value
 )

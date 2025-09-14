@@ -7,7 +7,7 @@
 
 #include "core.hpp"
 
-void LangevinBase::integrate_rungekutta(RNG &rng)
+void LangevinBase::integrate_rungekutta(rng_t &rng)
 {
     // Runge-Kutta integration of the non-linear term and diffusion.
     // Update of cells is done in the same loop as last RK step 
@@ -52,7 +52,7 @@ void LangevinBase::rk_f4_and_stochastic(
     const dbl_vec_t &k1, 
     const dbl_vec_t &k2, 
     const dbl_vec_t &k3, 
-    RNG &rng
+    rng_t &rng
 )
 {
     mean_density = 0.0;

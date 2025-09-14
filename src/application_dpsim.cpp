@@ -21,10 +21,10 @@ SimDP::SimDP(
     const IntegrationMethod integration_method
 ) : f_coeffs(linear, quadratic, diffusion, noise),
     p( t_max, dx, dt, random_seed,
-        grid_dimension, grid_size, grid_topology, 
-        boundary_condition, initial_condition, integration_method )
+       grid_dimension, grid_size, grid_topology, 
+       boundary_condition, initial_condition, integration_method )
 {
-    rng = new RNG(p.random_seed); 
+    rng = new rng_t(p.random_seed); 
     dpLangevin = new DPLangevin(p);
     f_coeffs.print();
     p.print();

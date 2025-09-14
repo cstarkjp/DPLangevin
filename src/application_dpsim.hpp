@@ -15,7 +15,7 @@ class SimDP
 private:
     Coefficients f_coeffs;
     Parameters p;
-    RNG *rng; 
+    rng_t *rng; 
     DPLangevin *dpLangevin;
     int n_epochs;
     py_array_t return_epochs, return_mean_densities, return_density;

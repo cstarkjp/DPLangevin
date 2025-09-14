@@ -11,11 +11,7 @@
 #include <iostream>
 #include <vector>
 #include <random>
-
-// Use Runge-Kutta integration method rather than Euler
-#ifndef USE_RUNGEKUTTA
-#define USE_RUNGEKUTTA true
-#endif
+#include <pybind11/numpy.h>
 
 // Option to approximate Poisson distribution using Gaussian for large means
 #ifndef APPROXIMATE_POISSON_DISTBN
@@ -26,10 +22,7 @@
 #endif
 
 // Use Mersenne Twister random number generator
-#ifndef RNG
-#define RNG std::mt19937
-#endif
-
+typedef std::mt19937 rng_t;
 typedef std::vector<double> dbl_vec_t;
 typedef std::vector<int> int_vec_t;
 typedef std::poisson_distribution<int> int_poisson_dist_t;
@@ -42,7 +35,6 @@ typedef std::uniform_real_distribution<double> dbl_uniform_dist_t;
 #include "parameters.hpp"
 #include "langevin_base.hpp"
 
-#include <pybind11/numpy.h>
 namespace py = pybind11;
 typedef py::array_t<double, py::array::c_style> py_array_t;
 
