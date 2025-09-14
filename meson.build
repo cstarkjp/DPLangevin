@@ -1,5 +1,3 @@
-# rm -rf build; meson setup build; meson compile -C build
-
 project(
     'DPLangevin',
     'cpp',
@@ -10,7 +8,6 @@ project(
 )
 
 add_project_arguments('-Ofast', '-g3', language : 'cpp')
-
 py = import('python').find_installation(pure: false)
 pybind11_dep = dependency('pybind11')
 

@@ -1,4 +1,9 @@
-    // // Class constructor
+    # rm -rf build; meson setup build; meson compile -C build
+
+
+
+
+// // Class constructor
     // Dornic(
     //     const double dt_in, 
     //     const double dx_in, 
