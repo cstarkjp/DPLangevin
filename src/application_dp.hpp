@@ -322,13 +322,10 @@ public:
         epochs = dbl_vec_t(n_epochs, 0.0);
         mean_densities = dbl_vec_t(n_epochs, 0.0);
         bool did_integrate = integrate(epochs, mean_densities);
-        std::cout << "run:: did_integrate = " << did_integrate << std::endl;
         bool did_finalize = (
             did_integrate and
-            prep_epochs() and prep_mean_densities() //and prep_density()
+            prep_epochs() and prep_mean_densities() and prep_density()
         ); 
-        bool did_prep_density = prep_density();
-        std::cout << "run:: did_prep_density = " << did_prep_density << std::endl;
         return did_finalize;
     }
 
