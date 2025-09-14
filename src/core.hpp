@@ -42,4 +42,8 @@ typedef std::uniform_real_distribution<double> dbl_uniform_dist_t;
 #include "parameters.hpp"
 #include "langevin_base.hpp"
 
+#include <pybind11/numpy.h>
+namespace py = pybind11;
+typedef py::array_t<double, py::array::c_style> py_array_t;
+
 #endif

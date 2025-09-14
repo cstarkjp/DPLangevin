@@ -34,7 +34,8 @@ cpp_sources = files(
     'src/initial_condition.cpp', 
     'src/initialization.cpp', 
     'src/utils.cpp', 
-    'src/application_dp.cpp', 
+    'src/application_dplangevin.cpp', 
+    'src/application_dpsim.cpp', 
     'src/applications_pybind.cpp'
 )
 
