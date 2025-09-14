@@ -15,7 +15,7 @@ public:
     const double dt=0;
     const int random_seed=0;
     const GridDimension grid_dimension=GridDimension::D1;
-    const int_vec_t& grid_size;
+    const int_vec_t& grid_size; // without initialization, cannot have default 
     int n_cells=0;
     int n_x=0;
     int n_y=0;
