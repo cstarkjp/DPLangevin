@@ -24,7 +24,7 @@ SimDP::SimDP(
         grid_dimension, grid_size, grid_topology, 
         boundary_condition, initial_condition, integration_method )
 {
-    RNG rng(p.random_seed); 
+    rng = new RNG(p.random_seed); 
     dpLangevin = new DPLangevin(p);
     f_coeffs.print();
     p.print();
@@ -78,7 +78,7 @@ void SimDP::initialize_grid()
         switch (p.initial_condition)
         {
             case (InitialCondition::RANDOM_GAUSSIAN):
-                dpLangevin->ic_random_uniform(rng);
+                dpLangevin->ic_random_uniform(*rng);
                 break;
             case (InitialCondition::CONSTANT_VALUE):
                 dpLangevin->ic_constant_value(1.0);
@@ -88,7 +88,7 @@ void SimDP::initialize_grid()
                 break;
             case (InitialCondition::RANDOM_UNIFORM):
             default:
-                dpLangevin->ic_random_uniform(rng);
+                dpLangevin->ic_random_uniform(*rng);
                 break;
         }  
     }
@@ -122,7 +122,7 @@ bool SimDP::integrate(dbl_vec_t& epochs, dbl_vec_t& mean_densities)
             std::cout << "integrate::  Euler "<< std::endl;
             for (i=0, t=0; i<epochs.size(); t+=p.dt, i++)
             {
-                dpLangevin->integrate_euler(rng);
+                dpLangevin->integrate_euler(*rng);
                 epochs[i] = t;
                 mean_densities[i] = dpLangevin->get_mean_density();
             };
@@ -133,7 +133,7 @@ bool SimDP::integrate(dbl_vec_t& epochs, dbl_vec_t& mean_densities)
             std::cout << "integrate::  dpLangevin = " << dpLangevin << std::endl;
             for (i=0, t=0; i<epochs.size(); t+=p.dt, i++)
             {
-                dpLangevin->integrate_rungekutta(rng);
+                dpLangevin->integrate_rungekutta(*rng);
                 epochs[i] = t;
                 mean_densities[i] = dpLangevin->get_mean_density();
             };
