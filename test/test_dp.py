@@ -15,7 +15,8 @@ sim_dp = dplvn.SimDP(
     linear=1.0, quadratic=2.0, 
     diffusion=0.1, noise=1.0, 
     t_max=50.0-1e-10, 
-    # dx=0.5, dt=0.01
+    # dx=0.5, dt=0.01,
+    random_seed=1,
     # grid_dimension=dplvn.D1,
     # grid_size=(4096,),
     grid_dimension=dplvn.D2,
