@@ -44,7 +44,7 @@ public:
     void ic_single_seed(const int i_node, const double value=1.0);
     void set_coefficients(const Coefficients &coefficients);
     void set_essential_coefficients(const Coefficients &coefficients);
-    void set_lambdas(void);
+    void set_lambdas();
     void integrate_rungekutta(rng_t &rng);
     void integrate_euler(rng_t &rng);
     void rk_f1(dbl_vec_t &aux_cell, dbl_vec_t &k1);
@@ -63,8 +63,8 @@ public:
     );
     void euler_and_stochastic(dbl_vec_t &aux, rng_t &rng);
     double get_cell_density(const int);
-    double get_mean_density(void);
-    double get_poisson_mean(void);
+    double get_mean_density();
+    double get_poisson_mean();
 
     // Defined by the application — these are placeholders
     virtual void set_nonlinear_coefficients(const Coefficients &coefficients) {};

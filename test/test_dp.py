@@ -14,7 +14,7 @@ print()
 sim_dp = dplvn.SimDP(
     linear=1.0, quadratic=2.0, 
     diffusion=0.1, noise=1.0, 
-    t_max=50.0-1e-10, 
+    t_final=50.0-1e-10, 
     # dx=0.5, dt=0.01,
     random_seed=1,
     # grid_dimension=dplvn.D1,
@@ -38,4 +38,5 @@ print(f"mean_densities:  {sim_dp.get_mean_densities()}")
 print()
 print("cell density grid (at final t):")
 print(np.round(sim_dp.get_density().T, 2))
+print()
 
