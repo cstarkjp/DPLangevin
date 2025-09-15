@@ -34,7 +34,7 @@ public:
     SimDP(
         const double linear, const double quadratic,
         const double diffusion, const double noise, 
-        const double t_max, const double dx, const double dt, 
+        const double t_final, const double dx, const double dt, 
         const int random_seed,
         const GridDimension grid_dimension,
         const int_vec_t& grid_size,
@@ -44,7 +44,7 @@ public:
         const IntegrationMethod integration_method
     );
     bool initialize();
-    bool run(void);
+    bool run();
     py_array_t get_epochs() const;
     py_array_t get_mean_densities() const;
     py_array_t get_density() const;

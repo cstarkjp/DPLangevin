@@ -51,7 +51,7 @@ int SimDP::count_epochs()
     // Count total number of time steps, just in case rounding causes problems
     int n_epochs;
     double t; 
-    for (n_epochs=0, t=0; t<=p.t_max+p.dt; t+=p.dt, n_epochs++) {}
+    for (n_epochs=0, t=0; t<=p.t_final+p.dt; t+=p.dt, n_epochs++) {}
     return n_epochs;
 }
 
@@ -115,13 +115,13 @@ bool SimDP::prep_mean_densities()
 
 bool SimDP::prep_density()
 {
+    if (not (p.n_cells == p.n_x * p.n_y * p.n_z)) { 
+        std::cout << "prep_density: grid size problem" << std::endl;
+        return false; 
+    }
     // Assume we're working with a 2d grid for now
     py_array_t density_array({p.n_x, p.n_y});
     auto density_proxy = density_array.mutable_unchecked();
-    if (not (p.n_cells == p.n_x * p.n_y * p.n_z)) { 
-        std::cout << "prep_density: failed" << std::endl;
-        return false; 
-    }
     int i_x, i_y;
     for (auto i=0; i<p.n_cells; i++)
     {

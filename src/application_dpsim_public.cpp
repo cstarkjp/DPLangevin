@@ -11,7 +11,7 @@
 SimDP::SimDP(
     const double linear, const double quadratic,
     const double diffusion, const double noise, 
-    const double t_max, const double dx, const double dt, 
+    const double t_final, const double dx, const double dt, 
     const int random_seed,
     const GridDimension grid_dimension,
     const int_vec_t& grid_size,
@@ -20,7 +20,7 @@ SimDP::SimDP(
     const InitialCondition initial_condition,
     const IntegrationMethod integration_method
 ) : coefficients(linear, quadratic, diffusion, noise),
-    p( t_max, dx, dt, random_seed,
+    p( t_final, dx, dt, random_seed,
        grid_dimension, grid_size, grid_topology, 
        boundary_condition, initial_condition, integration_method )
 {
@@ -39,7 +39,7 @@ bool SimDP::initialize()
     return is_initialized;
 }
 
-bool SimDP::run(void)
+bool SimDP::run()
 {
     if (not is_initialized) 
     { 

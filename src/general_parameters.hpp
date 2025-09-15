@@ -10,7 +10,7 @@
 struct Parameters 
 {
 public:
-    const double t_max=0;
+    const double t_final=0;
     const double dx=0;
     const double dt=0;
     const int random_seed=0;
@@ -28,7 +28,7 @@ public:
     Parameters() = default;
 
     Parameters(
-        const double t_max, 
+        const double t_final, 
         const double dx, const double dt, 
         const int rs, 
         const GridDimension gd, 
@@ -38,7 +38,7 @@ public:
         const InitialCondition ic,
         const IntegrationMethod im
     ) : 
-        t_max(t_max), 
+        t_final(t_final), 
         dx(dx), dt(dt), 
         random_seed(rs),
         grid_dimension(gd), 
@@ -105,7 +105,7 @@ public:
 
     void print() 
     {
-        std::cout<< "t_max: " << t_max << std::endl;
+        std::cout<< "t_final: " << t_final << std::endl;
         std::cout<< "dx: " << dx << std::endl;
         std::cout<< "dt: " << dt << std::endl;
         std::cout<< "random_seed: " << random_seed << std::endl;

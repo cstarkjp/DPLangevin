@@ -14,7 +14,7 @@
 
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__version__") = "2025.09.15a3";
+    module.attr("__version__") = "2025.09.15a4";
     module.doc() = 
         "Operator-splitting method of integrating DP-type Langevin equations"; 
 
@@ -67,7 +67,7 @@ PYBIND11_MODULE(dplvn, module)
             py::arg("quadratic") = 2.0, 
             py::arg("diffusion") = 0.1,
             py::arg("noise") = 1.0,
-            py::arg("t_max") = 100.0,
+            py::arg("t_final") = 100.0,
             py::arg("dx") = 0.5,
             py::arg("dt") = 0.01,
             py::arg("random_seed") = 1,
