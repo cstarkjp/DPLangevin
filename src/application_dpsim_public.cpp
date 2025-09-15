@@ -35,6 +35,7 @@ bool SimDP::initialize()
     if (not construct_grid()) { return false;}
     if (not initialize_grid()) { return false;}
     dpLangevin->set_coefficients(coefficients);
+    n_epochs = count_epochs();
     is_initialized = true;
     return is_initialized;
 }
@@ -46,7 +47,6 @@ bool SimDP::run()
         std::cout << "Failure: must initialize first" << std::endl;
         return false; 
     }
-    n_epochs = count_epochs();
     epochs = dbl_vec_t(n_epochs, 0.0);
     mean_densities = dbl_vec_t(n_epochs, 0.0);
     bool did_integrate = integrate(epochs, mean_densities);
