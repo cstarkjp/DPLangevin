@@ -44,12 +44,13 @@ if (n_segment_epochs*n_segments+1)!=n_epochs:
 
 print(bold(f"Integrating:  {n_epochs} epochs in {n_segments} segment(s)"))
 print()
+# Clean this repetition up!
 i_segment = 0
 if not sim_dp.process():
     raise Exception("Failed to process sim results")
 i_epoch = sim_dp.get_i_epoch()
 t_epoch = sim_dp.get_t_epoch()
-print(bold(f"segment={i_segment+1}/{n_segments}  i={i_epoch-1}"))
+print(bold(f"segment={i_segment}/{n_segments}  i={i_epoch-1}"))
 print(f"t epochs:  {sim_dp.get_t_epochs()}")
 print(f"mean densities:  {sim_dp.get_mean_densities()}")
 print("cell density grid:")
