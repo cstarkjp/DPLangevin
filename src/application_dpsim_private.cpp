@@ -14,11 +14,9 @@ bool SimDP::construct_grid()
     switch (p.grid_dimension)
     {
         case (GridDimension::D1):
-            dpLangevin->construct_1D_grid(p);
-            return true;
+            return dpLangevin->construct_1D_grid(p);
         case (GridDimension::D2):
-            dpLangevin->construct_2D_grid(p);
-            return true;
+            return dpLangevin->construct_2D_grid(p);
         default:
             return false;
     }    

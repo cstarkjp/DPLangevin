@@ -7,7 +7,7 @@
 
 #include "general_core.hpp"
 
-void Langevin::construct_1D_grid(const Parameters parameters)
+bool Langevin::construct_1D_grid(const Parameters parameters)
 {
     const int n_x = parameters.n_x;
     neighbors = std::vector<int_vec_t>(n_x, int_vec_t(2));
@@ -21,18 +21,21 @@ void Langevin::construct_1D_grid(const Parameters parameters)
     }
 
     // Grid ends
-    if (parameters.grid_topology==GridTopology::PERIODIC)
+    switch (parameters.grid_topology)
     {
-        // Each end cell neighbor is the other end cell, so wrap the indexes
-        neighbors[0][0] = n_x-1;      // left-end left
-        neighbors[0][1] = 1;          // left-end right
-        neighbors[n_x-1][0] = n_x-2;  // right-end left VMB: [n_x-1][0] = n_x-2;
-        neighbors[n_x-1][1] = 0;      // right-end right  
-    }
-    else
-    {
-        // Link each end cell to its adjacent cell only
-        neighbors[0] = int_vec_t(1, 1);
-        neighbors[n_x-1] = int_vec_t(1, n_x-2);
+        case GridTopology::PERIODIC:
+            // Each end cell neighbor is the other end cell, so wrap the indexes
+            neighbors[0][0] = n_x-1;      // left-end left
+            neighbors[0][1] = 1;          // left-end right
+            neighbors[n_x-1][0] = n_x-2;  // right-end left VMB: [n_x-1][0] = n_x-2;
+            neighbors[n_x-1][1] = 0;      // right-end right  
+            
+        case GridTopology::BOUNDED:
+            // Link each end cell to its adjacent cell only
+            neighbors[0] = int_vec_t(1, 1);
+            neighbors[n_x-1] = int_vec_t(1, n_x-2);
+
+        default:
+            return false;
     }
 }

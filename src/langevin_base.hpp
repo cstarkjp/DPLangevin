@@ -35,8 +35,8 @@ protected:
 
 public:
     Langevin() = default;
-    void construct_1D_grid(const Parameters parameters);
-    void construct_2D_grid(const Parameters parameters);
+    bool construct_1D_grid(const Parameters parameters);
+    bool construct_2D_grid(const Parameters parameters);
     void ic_random_uniform(
         rng_t &rng, const double min_value = 0.0, const double max_value = 1.0
     );
