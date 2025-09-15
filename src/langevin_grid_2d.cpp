@@ -11,8 +11,8 @@ void Langevin::construct_2D_grid(const Parameters parameters)
 {
     const int n_x = parameters.n_x;
     const int n_y = parameters.n_y;
-    std::cout << "n_x: " << n_x << std::endl;
-    std::cout << "n_y: " << n_y << std::endl;
+    // std::cout << "n_x: " << n_x << std::endl;
+    // std::cout << "n_y: " << n_y << std::endl;
     int i_cell, i_up, i_down, i_right, i_left;
     int i_top_row, i_bottom_row, i_right_column, i_left_column;
 
