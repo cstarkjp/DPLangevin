@@ -57,15 +57,13 @@ int SimDP::count_epochs() const
 
 bool SimDP::integrate(const int n_next_epochs)
 {
-    int i;
-    double t; 
-    void (DPLangevin::*ptr_to_integrate_fn)(rng_t&);
     if (epochs.size() < i_epoch+n_next_epochs)
     {
         std::cout << "Too many epochs: " 
             << epochs.size() << " < " << i_epoch+n_next_epochs << std::endl;
         return false;
     }
+    void (DPLangevin::*ptr_to_integrate_fn)(rng_t&);
     switch (p.integration_method)
     {
         case (IntegrationMethod::RUNGE_KUTTA):
@@ -77,6 +75,8 @@ bool SimDP::integrate(const int n_next_epochs)
         default:
             return false;
     }
+    int i;
+    double t; 
     for (i=i_epoch, t=t_epoch; i<i_epoch+n_next_epochs; t+=p.dt, i++)
     {
         (dpLangevin->*ptr_to_integrate_fn)(*rng);

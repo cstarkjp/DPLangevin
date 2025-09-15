@@ -32,8 +32,8 @@ SimDP::SimDP(
 
 bool SimDP::initialize()
 {
-    if (not construct_grid()) { return false;}
-    if (not initialize_grid()) { return false;}
+    if (not construct_grid()) { return false; }
+    if (not initialize_grid()) { return false; }
     dpLangevin->set_coefficients(coefficients);
     n_epochs = count_epochs();
     epochs = dbl_vec_t(n_epochs, 0.0);
