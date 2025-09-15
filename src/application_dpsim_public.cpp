@@ -20,9 +20,8 @@ SimDP::SimDP(
     const InitialCondition initial_condition,
     const IntegrationMethod integration_method
 ) : coefficients(linear, quadratic, diffusion, noise),
-    p( t_final, dx, dt, random_seed,
-       grid_dimension, grid_size, grid_topology, 
-       boundary_condition, initial_condition, integration_method )
+    p(t_final, dx, dt, random_seed, grid_dimension, grid_size, grid_topology,
+      boundary_condition, initial_condition, integration_method)
 {
     rng = new rng_t(p.random_seed); 
     dpLangevin = new DPLangevin(p);
@@ -38,7 +37,8 @@ bool SimDP::initialize()
     n_epochs = count_epochs();
     epochs = dbl_vec_t(n_epochs, 0.0);
     mean_densities = dbl_vec_t(n_epochs, 0.0);
-    // Treat the zeroth epoch as the initial grid state
+    // Treat epoch#0 as the initial grid state
+    // So after initialization, we are nominally at epoch#1
     i_epoch = 1;
     t_epoch = p.dt;
     is_initialized = true;
