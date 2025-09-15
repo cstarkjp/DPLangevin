@@ -115,20 +115,20 @@ bool SimDP::prep_mean_densities()
 
 bool SimDP::prep_density()
 {
+    // Assume we're working with a 2d grid for now
     py_array_t density_array({p.n_x, p.n_y});
-    // auto density_proxy = density_array.mutable_unchecked();
-    // std::cout << "prep_density: p.n_cells = " << p.n_cells << std::endl;
-    // std::cout << "prep_density: p.n_x = " << p.n_x << std::endl;
-    // std::cout << "prep_density: p.n_y = " << p.n_y << std::endl;
-    // std::cout << "prep_density: p.n_z = " << p.n_z << std::endl;
+    auto density_proxy = density_array.mutable_unchecked();
     if (not (p.n_cells == p.n_x * p.n_y * p.n_z)) { 
         std::cout << "prep_density: failed" << std::endl;
         return false; 
     }
+    int i_x, i_y;
     for (auto i=0; i<p.n_cells; i++)
     {
-        // density_proxy(i, 0) = epochs[i];
-        // density_proxy(i, 1) = mean_densities[i];
+        i_x = i % p.n_x;
+        i_y = i / p.n_x;
+        // std::cout << i << " " << i_x << " " << i_y << " " << std::endl;
+        density_proxy(i_x, i_y) = dpLangevin->get_cell_density(i);
     };
     return_density = density_array;
     return true;

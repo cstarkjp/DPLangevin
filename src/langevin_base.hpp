@@ -62,7 +62,7 @@ public:
         rng_t &rng
     );
     void euler_and_stochastic(dbl_vec_t &aux, rng_t &rng);
-    dbl_vec_t get_density(void);
+    double get_cell_density(const int);
     double get_mean_density(void);
     double get_poisson_mean(void);
 
