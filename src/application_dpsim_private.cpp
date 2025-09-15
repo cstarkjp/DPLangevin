@@ -57,14 +57,6 @@ int SimDP::count_epochs() const
 
 bool SimDP::integrate(const int n_next_epochs)
 {
-    if (epochs.size() < i_epoch+n_next_epochs)
-    {
-        std::cout << "Too many epochs: " 
-            << epochs.size()
-            << " < " 
-            << i_epoch+n_next_epochs
-            << std::endl;
-    }
     int i;
     double t; 
     // AAAARGHHH I don't yet know how to use a pointer to one
@@ -86,6 +78,11 @@ bool SimDP::integrate(const int n_next_epochs)
     //         return false;
     // }
 
+    if (epochs.size() < i_epoch+n_next_epochs)
+    {
+        std::cout << "Too many epochs: " 
+            << epochs.size() << " < " << i_epoch+n_next_epochs << std::endl;
+    }
     for (i=i_epoch, t=t_epoch; i<i_epoch+n_next_epochs; t+=p.dt, i++)
     {
         switch (p.integration_method)
