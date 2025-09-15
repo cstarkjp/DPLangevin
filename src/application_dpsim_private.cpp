@@ -33,7 +33,9 @@ bool SimDP::initialize_grid()
                 dpLangevin->ic_constant_value(1.0);
                 return true;
             case (InitialCondition::SINGLE_SEED):
-                dpLangevin->ic_single_seed(p.n_cells/2, 1.0);
+                dpLangevin->ic_single_seed(
+                    static_cast<double>(p.n_cells)/2.0, 1.0
+                );
                 return true;
             case (InitialCondition::RANDOM_UNIFORM):
                 dpLangevin->ic_random_uniform(*rng);
