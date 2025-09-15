@@ -23,12 +23,14 @@ sim_dp = dplvn.SimDP(
     initial_condition=dplvn.RANDOM_UNIFORM,
     integration_method=dplvn.RUNGE_KUTTA
 )
+print()
 # print(dir(sim_dp))
 if not sim_dp.initialize():
     raise Exception("Failed to initialize sim")
 if not sim_dp.run():
     raise Exception("Failed to run sim")
-print(sim_dp.get_epochs())
-print(sim_dp.get_mean_densities())
+print(f"epochs:  {sim_dp.get_epochs()}")
+print(f"mean_densities:  {sim_dp.get_mean_densities()}")
+print()
 print(sim_dp.get_density())
 
