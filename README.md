@@ -3,12 +3,14 @@
 
 <!-- ![](test/meandensity_time.png "Results of demo DP integration") -->
 
-![](https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/test/meandensity_time.png
- "Results of demo DP integration")
-
+![](https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/test/density_grid.png
+ "Density grid")
 
 Python interface to C++ code implementing the operator-splitting method of integrating Langevin equations that represent directed percolation (more generally, absorbing phase transitions), originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
 Adapted heavily from code developed by [Paula Villa Martín](https://github.com/pvillamartin), extended by [Victor Buendía](https://github.com/VictorSeven), and arising from earlier code written by Ivan Dornic and Juan Bonachela.
+
+![](https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/test/meandensity_time.png
+ "Mean density over time")
 
 The equation solved in the demo here is the DP Langevin for a 2D grid with initial values sampled from U[0,1]: 
 
