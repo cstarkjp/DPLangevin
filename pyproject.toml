@@ -4,7 +4,7 @@ requires = ["meson-python", "wheel", "pybind11", "ninja", "numpy"]
 
 [project]
 name = 'dplvn'
-version = '2025.09.15a4'
+version = '2025.09.15a5'
 # dynamic = ["version"]
 description = 'Operator-splitting method of integrating directed percolation/absorbing phase transition Langevin equations'
 readme = 'README.md'
@@ -31,7 +31,8 @@ keywords = [
 classifiers = [
   "Development Status :: 1 - Planning",
   "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-  "Topic :: Scientific/Engineering",
+  "Topic :: Scientific/Engineering :: Physics",
+  "Topic :: Scientific/Engineering :: Geoscience",
   "Intended Audience :: Science/Research",
   "Programming Language :: C++",
   "Programming Language :: Python :: 3",
