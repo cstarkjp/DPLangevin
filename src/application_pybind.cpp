@@ -80,6 +80,8 @@ PYBIND11_MODULE(dplvn, module)
         )
         .def("initialize", &SimDP::initialize)
         .def("run", &SimDP::run)
+        .def("finalize", &SimDP::finalize)
+        .def("get_n_epochs", &SimDP::get_n_epochs)
         .def("get_epochs", &SimDP::get_epochs)
         .def("get_mean_densities", &SimDP::get_mean_densities)
         .def("get_density", &SimDP::get_density);

@@ -55,38 +55,56 @@ int SimDP::count_epochs() const
     return n_epochs;
 }
 
-bool SimDP::integrate(dbl_vec_t& epochs, dbl_vec_t& mean_densities)
+bool SimDP::integrate(const int n_next_epochs)
 {
+    if (epochs.size() < i_epoch+n_next_epochs)
+    {
+        std::cout << "Too many epochs: " 
+            << epochs.size()
+            << " < " 
+            << i_epoch+n_next_epochs
+            << std::endl;
+    }
     int i;
     double t; 
+    // AAAARGHHH I don't yet know how to use a pointer to one
+    //   of these integrate() functions; if I did, there would
+    //   be no duplication here!
+    // void (*integrate_fn)(rng_t&);
+    void (DPLangevin::*integrate_fn)(rng_t&);
+    integrate_fn = &DPLangevin::integrate_euler;
+    // dpLangevin->*integrate_fn(*rng);
+    // switch (p.integration_method)
+    // {
+    //     case (IntegrationMethod::EULER):
+    //         integrate_fn = dpLangevin->integrate_euler(*rng);
+    //         break;
+    //     // case (IntegrationMethod::RUNGE_KUTTA):
+    //     //     integrate_fn = dpLangevin->integrate_rungekutta;
+    //     //     break;
+    //     default:
+    //         return false;
+    // }
 
-    // std::cout << "integrate::  n_epochs = " << n_epochs << std::endl;
-    // std::cout << "integrate::  epochs.size = " << epochs.size() << std::endl;
-    // std::cout << "integrate::  mean_densities.size = " << mean_densities.size() << std::endl;
-    switch (p.integration_method)
+    for (i=i_epoch, t=t_epoch; i<i_epoch+n_next_epochs; t+=p.dt, i++)
     {
-        case (IntegrationMethod::EULER):
-            // std::cout << "integrate::  Euler "<< std::endl;
-            for (i=0, t=0; i<epochs.size(); t+=p.dt, i++)
-            {
-                dpLangevin->integrate_euler(*rng);
-                epochs[i] = t;
-                mean_densities[i] = dpLangevin->get_mean_density();
-            };
-            return true;
-        case (IntegrationMethod::RUNGE_KUTTA):
-            // std::cout << "integrate::  Runge-Kutta "<< std::endl;
-            // std::cout << "integrate::  dpLangevin = " << dpLangevin << std::endl;
-            for (i=0, t=0; i<epochs.size(); t+=p.dt, i++)
-            {
+        switch (p.integration_method)
+        {
+            case (IntegrationMethod::RUNGE_KUTTA): 
                 dpLangevin->integrate_rungekutta(*rng);
-                epochs[i] = t;
-                mean_densities[i] = dpLangevin->get_mean_density();
-            };
-            return true;
-        default:
-            return false;
-    }
+                break;
+            case (IntegrationMethod::EULER): 
+                dpLangevin->integrate_euler(*rng);
+                break;
+            default:
+                return false;
+        }
+        epochs[i] = t;
+        mean_densities[i] = dpLangevin->get_mean_density();
+    };
+    i_epoch = i;
+    t_epoch = t;
+    return true;
 }
 
 bool SimDP::prep_epochs()

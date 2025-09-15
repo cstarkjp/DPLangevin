@@ -18,14 +18,16 @@ private:
     rng_t *rng; 
     DPLangevin *dpLangevin;
     int n_epochs;
+    int i_epoch;
+    double t_epoch;
+    dbl_vec_t epochs, mean_densities;
     py_array_t return_epochs, return_mean_densities, return_density;
-    dbl_vec_t epochs;
-    dbl_vec_t mean_densities;
+    bool did_integrate = false;
     bool is_initialized = false;
     bool construct_grid();
     bool initialize_grid();
     int count_epochs() const;
-    bool integrate(dbl_vec_t& epochs, dbl_vec_t& mean_densities);
+    bool integrate(const int n_next_epochs);
     bool prep_epochs();
     bool prep_mean_densities();
     bool prep_density();
@@ -44,7 +46,9 @@ public:
         const IntegrationMethod integration_method
     );
     bool initialize();
-    bool run();
+    bool run(const int n_next_epochs);
+    bool finalize();
+    int get_n_epochs() const;
     py_array_t get_epochs() const;
     py_array_t get_mean_densities() const;
     py_array_t get_density() const;
