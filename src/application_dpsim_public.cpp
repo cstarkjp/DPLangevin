@@ -77,7 +77,7 @@ bool SimDP::process()
 int SimDP::get_n_epochs() const { return n_epochs; }
 int SimDP::get_i_epoch() const { return i_epoch; }
 double SimDP::get_t_epoch() const { return t_epoch; }
-py_array_t SimDP::get_epochs() const { return return_epochs; }
+py_array_t SimDP::get_t_epochs() const { return return_epochs; }
 py_array_t SimDP::get_mean_densities() const { return return_mean_densities; }
 py_array_t SimDP::get_density() const { return return_density; }
 

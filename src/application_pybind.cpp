@@ -84,7 +84,7 @@ PYBIND11_MODULE(dplvn, module)
         .def("get_n_epochs", &SimDP::get_n_epochs)
         .def("get_i_epoch", &SimDP::get_i_epoch)
         .def("get_t_epoch", &SimDP::get_t_epoch)
-        .def("get_epochs", &SimDP::get_epochs)
+        .def("get_t_epochs", &SimDP::get_t_epochs)
         .def("get_mean_densities", &SimDP::get_mean_densities)
         .def("get_density", &SimDP::get_density);
 

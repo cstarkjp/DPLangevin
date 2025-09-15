@@ -5,8 +5,8 @@
 // CPS 2025-09-02
 // 
 
-#ifndef DPSIM_HPP
-#define DPSIM_HPP
+#ifndef SIMDP_HPP
+#define SIMDP_HPP
 
 #include "application_dplangevin.hpp"
 
@@ -51,7 +51,7 @@ public:
     int get_n_epochs() const;
     int get_i_epoch() const;
     double get_t_epoch() const;
-    py_array_t get_epochs() const;
+    py_array_t get_t_epochs() const;
     py_array_t get_mean_densities() const;
     py_array_t get_density() const;
 };

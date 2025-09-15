@@ -50,7 +50,7 @@ if not sim_dp.process():
 i_epoch = sim_dp.get_i_epoch()
 t_epoch = sim_dp.get_t_epoch()
 print(bold(f"segment={i_segment+1}/{n_segments}  i={i_epoch-1}"))
-print(f"epochs:  {sim_dp.get_epochs()}")
+print(f"t_epochs:  {sim_dp.get_t_epochs()}")
 print(f"mean_densities:  {sim_dp.get_mean_densities()}")
 print("cell density grid:")
 print(np.round(sim_dp.get_density().T, 2))
@@ -66,7 +66,7 @@ for i_segment in range(n_segments):
         f"segment={i_segment+1}/{n_segments}  "
         + f"i={i_epoch-1} t={np.round(t_epoch-Δt,5)}"
     ))
-    print(f"epochs:  {sim_dp.get_epochs()}")
+    print(f"t_epochs:  {sim_dp.get_t_epochs()}")
     print(f"mean_densities:  {sim_dp.get_mean_densities()}")
     print("cell density grid:")
     print(np.round(sim_dp.get_density().T, 2))
