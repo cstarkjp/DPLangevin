@@ -62,6 +62,7 @@ PYBIND11_MODULE(dplvn, module)
                 InitialCondition,
                 IntegrationMethod
             >(),
+            "Simulation of DP Langevin equation",
             py::arg("linear") = 1.0, 
             py::arg("quadratic") = 2.0, 
             py::arg("diffusion") = 0.1,
@@ -75,8 +76,7 @@ PYBIND11_MODULE(dplvn, module)
             py::arg("grid_topology") = GridTopology::BOUNDED,
             py::arg("boundary_condition") = BoundaryCondition::FLOATING,
             py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
-            py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA,
-            "Simulation of DP Langevin equation"
+            py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA
         )
         .def("initialize", &SimDP::initialize)
         .def("run", &SimDP::run)
