@@ -47,8 +47,10 @@ public:
     );
     bool initialize();
     bool run(const int n_next_epochs);
-    bool finalize();
+    bool process();
     int get_n_epochs() const;
+    int get_i_epoch() const;
+    double get_t_epoch() const;
     py_array_t get_epochs() const;
     py_array_t get_mean_densities() const;
     py_array_t get_density() const;

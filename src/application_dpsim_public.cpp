@@ -61,20 +61,22 @@ bool SimDP::run(const int n_next_epochs)
     return did_integrate;
 }
 
-bool SimDP::finalize()
+bool SimDP::process()
 {
-    if (not did_integrate) 
+    if (not is_initialized) 
     { 
-        std::cout << "Failure: no data to finalize yet" << std::endl;
+        std::cout << "Failure: no data to process yet" << std::endl;
         return false; 
     }
-    bool did_finalize = (
+    bool did_process = (
         prep_epochs() and prep_mean_densities() and prep_density()
     ); 
-    return did_finalize;
+    return did_process;
 }
 
 int SimDP::get_n_epochs() const { return n_epochs; }
+int SimDP::get_i_epoch() const { return i_epoch; }
+double SimDP::get_t_epoch() const { return t_epoch; }
 py_array_t SimDP::get_epochs() const { return return_epochs; }
 py_array_t SimDP::get_mean_densities() const { return return_mean_densities; }
 py_array_t SimDP::get_density() const { return return_density; }

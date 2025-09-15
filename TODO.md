@@ -8,7 +8,3 @@
   - [ ] Implement distinct x/y/z topologies
   - [ ] Implement fixed value bcs on each boundary
   - [ ] Implement fixed flux bcs on each boundary
-
-
-
-  
