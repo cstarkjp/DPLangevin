@@ -4,9 +4,12 @@ import numpy as np
 from numpy.typing import NDArray
 import dplvn # type: ignore
 
+BS = "\033[1m"
+BE = "\033[0m"
 print()
-print(f"dplvn version:  {dplvn.__version__}")
+print(BS + f"dplvn version:  {dplvn.__version__}" + BE)
 print()
+
 
 sim_dp = dplvn.SimDP(
     linear=1.0, quadratic=2.0, 
@@ -32,5 +35,6 @@ if not sim_dp.run():
 print(f"epochs:  {sim_dp.get_epochs()}")
 print(f"mean_densities:  {sim_dp.get_mean_densities()}")
 print()
+print("cell density grid  (not working yet):")
 print(sim_dp.get_density())
 
