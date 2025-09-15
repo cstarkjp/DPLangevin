@@ -59,43 +59,27 @@ bool SimDP::integrate(const int n_next_epochs)
 {
     int i;
     double t; 
-    // AAAARGHHH I don't yet know how to use a pointer to one
-    //   of these integrate() functions; if I did, there would
-    //   be no duplication here!
-    // void (*integrate_fn)(rng_t&);
-    void (DPLangevin::*integrate_fn)(rng_t&);
-    integrate_fn = &DPLangevin::integrate_euler;
-    // dpLangevin->*integrate_fn(*rng);
-    // switch (p.integration_method)
-    // {
-    //     case (IntegrationMethod::EULER):
-    //         integrate_fn = dpLangevin->integrate_euler(*rng);
-    //         break;
-    //     // case (IntegrationMethod::RUNGE_KUTTA):
-    //     //     integrate_fn = dpLangevin->integrate_rungekutta;
-    //     //     break;
-    //     default:
-    //         return false;
-    // }
-
+    void (DPLangevin::*ptr_to_integrate_fn)(rng_t&);
     if (epochs.size() < i_epoch+n_next_epochs)
     {
         std::cout << "Too many epochs: " 
             << epochs.size() << " < " << i_epoch+n_next_epochs << std::endl;
+        return false;
+    }
+    switch (p.integration_method)
+    {
+        case (IntegrationMethod::RUNGE_KUTTA):
+            ptr_to_integrate_fn = &DPLangevin::integrate_rungekutta;
+            break;
+        case (IntegrationMethod::EULER):
+            ptr_to_integrate_fn = &DPLangevin::integrate_euler;
+            break;
+        default:
+            return false;
     }
     for (i=i_epoch, t=t_epoch; i<i_epoch+n_next_epochs; t+=p.dt, i++)
     {
-        switch (p.integration_method)
-        {
-            case (IntegrationMethod::RUNGE_KUTTA): 
-                dpLangevin->integrate_rungekutta(*rng);
-                break;
-            case (IntegrationMethod::EULER): 
-                dpLangevin->integrate_euler(*rng);
-                break;
-            default:
-                return false;
-        }
+        (dpLangevin->*ptr_to_integrate_fn)(*rng);
         epochs[i] = t;
         mean_densities[i] = dpLangevin->get_mean_density();
     };

@@ -71,4 +71,3 @@ for i_segment in range(n_segments):
     print("cell density grid:")
     print(np.round(sim_dp.get_density().T, 2))
     print()
-print()
