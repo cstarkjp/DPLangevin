@@ -46,7 +46,7 @@ bool SimDP::initialize_grid()
         }  
     }
 
-int SimDP::count_epochs()
+int SimDP::count_epochs() const
 {
     // Count total number of time steps, just in case rounding causes problems
     int n_epochs;
@@ -55,38 +55,37 @@ int SimDP::count_epochs()
     return n_epochs;
 }
 
-bool SimDP::integrate(dbl_vec_t& epochs, dbl_vec_t& mean_densities)
+bool SimDP::integrate(const int n_next_epochs)
 {
-    int i;
-    double t; 
-
-    // std::cout << "integrate::  n_epochs = " << n_epochs << std::endl;
-    // std::cout << "integrate::  epochs.size = " << epochs.size() << std::endl;
-    // std::cout << "integrate::  mean_densities.size = " << mean_densities.size() << std::endl;
+    if (epochs.size() < i_epoch+n_next_epochs)
+    {
+        std::cout << "Too many epochs: " 
+            << epochs.size() << " < " << i_epoch+n_next_epochs << std::endl;
+        return false;
+    }
+    void (DPLangevin::*ptr_to_integrate_fn)(rng_t&);
     switch (p.integration_method)
     {
-        case (IntegrationMethod::EULER):
-            // std::cout << "integrate::  Euler "<< std::endl;
-            for (i=0, t=0; i<epochs.size(); t+=p.dt, i++)
-            {
-                dpLangevin->integrate_euler(*rng);
-                epochs[i] = t;
-                mean_densities[i] = dpLangevin->get_mean_density();
-            };
-            return true;
         case (IntegrationMethod::RUNGE_KUTTA):
-            // std::cout << "integrate::  Runge-Kutta "<< std::endl;
-            // std::cout << "integrate::  dpLangevin = " << dpLangevin << std::endl;
-            for (i=0, t=0; i<epochs.size(); t+=p.dt, i++)
-            {
-                dpLangevin->integrate_rungekutta(*rng);
-                epochs[i] = t;
-                mean_densities[i] = dpLangevin->get_mean_density();
-            };
-            return true;
+            ptr_to_integrate_fn = &DPLangevin::integrate_rungekutta;
+            break;
+        case (IntegrationMethod::EULER):
+            ptr_to_integrate_fn = &DPLangevin::integrate_euler;
+            break;
         default:
             return false;
     }
+    int i;
+    double t; 
+    for (i=i_epoch, t=t_epoch; i<i_epoch+n_next_epochs; t+=p.dt, i++)
+    {
+        (dpLangevin->*ptr_to_integrate_fn)(*rng);
+        epochs[i] = t;
+        mean_densities[i] = dpLangevin->get_mean_density();
+    };
+    i_epoch = i;
+    t_epoch = t;
+    return true;
 }
 
 bool SimDP::prep_epochs()
@@ -97,7 +96,7 @@ bool SimDP::prep_epochs()
     {
         epochs_proxy(i) = epochs[i];
     };
-    return_epochs = epochs_array;
+    return_t_epochs = epochs_array;
     return true;
 }
 

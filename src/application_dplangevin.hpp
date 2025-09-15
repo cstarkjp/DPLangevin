@@ -14,8 +14,8 @@ public:
     double quadratic_coeff;
     double D;
     DPLangevin() = default;
-    DPLangevin(Parameters params);
-    void set_nonlinear_coefficients(const Coefficients &f_coefficients);
+    DPLangevin(Parameters p);
+    void set_nonlinear_coefficients(const Coefficients &coefficients);
     double nonlinear_rhs(const int i_cell, const dbl_vec_t &field) const;
 };
 

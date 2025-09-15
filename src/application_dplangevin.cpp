@@ -26,14 +26,13 @@ DPLangevin::DPLangevin(Parameters p)
     dts = dt/6.0;
 }
 
-void DPLangevin::set_nonlinear_coefficients(const Coefficients &f_coefficients)
+void DPLangevin::set_nonlinear_coefficients(const Coefficients &coefficients)
 {
-    quadratic_coeff = f_coefficients.quadratic;
-    D = f_coefficients.diffusion / (dx*dx);
+    quadratic_coeff = coefficients.quadratic;
+    D = coefficients.diffusion / (dx*dx);
 }
 
-double DPLangevin::nonlinear_rhs(const int i_cell, const dbl_vec_t &field) 
-const
+double DPLangevin::nonlinear_rhs(const int i_cell, const dbl_vec_t &field) const
 {
     // Non-linear terms
     const double quadratic_term 

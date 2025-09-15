@@ -62,14 +62,14 @@ public:
         rng_t &rng
     );
     void euler_and_stochastic(dbl_vec_t &aux, rng_t &rng);
-    double get_cell_density(const int);
-    double get_mean_density();
-    double get_poisson_mean();
+    double get_cell_density(const int) const;
+    double get_mean_density() const;
+    double get_poisson_mean() const;
 
     // Defined by the application — these are placeholders
     virtual void set_nonlinear_coefficients(const Coefficients &coefficients) {};
-    virtual double nonlinear_rhs(const int i_cell, const dbl_vec_t &field) 
-        const { return 0; };
+    virtual double nonlinear_rhs(const int i_cell, const dbl_vec_t &field) const 
+        { return 0; };
 };
 
 #endif
