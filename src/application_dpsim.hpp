@@ -21,7 +21,7 @@ private:
     int i_epoch;
     double t_epoch;
     dbl_vec_t epochs, mean_densities;
-    py_array_t return_epochs, return_mean_densities, return_density;
+    py_array_t return_t_epochs, return_mean_densities, return_density;
     bool did_integrate = false;
     bool is_initialized = false;
     bool construct_grid();

@@ -96,7 +96,7 @@ bool SimDP::prep_epochs()
     {
         epochs_proxy(i) = epochs[i];
     };
-    return_epochs = epochs_array;
+    return_t_epochs = epochs_array;
     return true;
 }
 
