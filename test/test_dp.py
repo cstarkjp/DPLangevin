@@ -23,7 +23,7 @@ sim_dp = dplvn.SimDP(
     initial_condition=dplvn.RANDOM_UNIFORM,
     integration_method=dplvn.RUNGE_KUTTA
 )
-print(dir(sim_dp))
+# print(dir(sim_dp))
 if not sim_dp.initialize():
     raise Exception("Failed to initialize sim")
 if not sim_dp.run():

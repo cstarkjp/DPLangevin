@@ -10,7 +10,7 @@
 
 bool SimDP::construct_grid()
 {
-    std::cout << "construct_grid::  dpLangevin = " << dpLangevin << std::endl;
+    // std::cout << "construct_grid::  dpLangevin = " << dpLangevin << std::endl;
     switch (p.grid_dimension)
     {
         case (GridDimension::D1):
@@ -59,14 +59,13 @@ bool SimDP::integrate(dbl_vec_t& epochs, dbl_vec_t& mean_densities)
     int i;
     double t; 
 
-    std::cout << "integrate::  n_epochs = " << n_epochs << std::endl;
-    std::cout << "integrate::  epochs.size = " << epochs.size() << std::endl;
-    std::cout << "integrate::  mean_densities.size = " << mean_densities.size() << std::endl;
-
+    // std::cout << "integrate::  n_epochs = " << n_epochs << std::endl;
+    // std::cout << "integrate::  epochs.size = " << epochs.size() << std::endl;
+    // std::cout << "integrate::  mean_densities.size = " << mean_densities.size() << std::endl;
     switch (p.integration_method)
     {
         case (IntegrationMethod::EULER):
-            std::cout << "integrate::  Euler "<< std::endl;
+            // std::cout << "integrate::  Euler "<< std::endl;
             for (i=0, t=0; i<epochs.size(); t+=p.dt, i++)
             {
                 dpLangevin->integrate_euler(*rng);
@@ -75,8 +74,8 @@ bool SimDP::integrate(dbl_vec_t& epochs, dbl_vec_t& mean_densities)
             };
             return true;
         case (IntegrationMethod::RUNGE_KUTTA):
-            std::cout << "integrate::  Runge-Kutta "<< std::endl;
-            std::cout << "integrate::  dpLangevin = " << dpLangevin << std::endl;
+            // std::cout << "integrate::  Runge-Kutta "<< std::endl;
+            // std::cout << "integrate::  dpLangevin = " << dpLangevin << std::endl;
             for (i=0, t=0; i<epochs.size(); t+=p.dt, i++)
             {
                 dpLangevin->integrate_rungekutta(*rng);

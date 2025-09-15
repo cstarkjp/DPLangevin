@@ -7,11 +7,11 @@
 
 #include "general_core.hpp"
 
-// Make the density visible
-dbl_vec_t Langevin::get_density() 
-{
-    return cell_density;
-}
+// // Make the density visible
+// dbl_vec_t Langevin::get_density() 
+// {
+//     return cell_density;
+// }
 
 // Make the density visible
 double Langevin::get_mean_density() 
