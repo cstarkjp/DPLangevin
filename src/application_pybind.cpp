@@ -6,17 +6,17 @@
 // 
 // 
 #include <pybind11/numpy.h>
+// Essential for STL container conversions
+#include <pybind11/stl.h> 
 #include "general_core.hpp"
 #include "application_dplangevin.hpp"
 #include "application_dpsim.hpp"
-// Essential for STL container conversions
-#include <pybind11/stl.h> 
 
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__version__") = "2025.09.14a2";
+    module.attr("__version__") = "2025.09.15a1";
     module.doc() = 
-        "'Dornic' operator-splitting method of integrating DP-type Langevin equations"; 
+        "Operator-splitting method of integrating DP-type Langevin equations"; 
 
     py::enum_<GridDimension>(module, "GridDimension")
         .value("D1", GridDimension::D1)
@@ -62,6 +62,7 @@ PYBIND11_MODULE(dplvn, module)
                 InitialCondition,
                 IntegrationMethod
             >(),
+            "Simulation of DP Langevin equation",
             py::arg("linear") = 1.0, 
             py::arg("quadratic") = 2.0, 
             py::arg("diffusion") = 0.1,
@@ -75,8 +76,7 @@ PYBIND11_MODULE(dplvn, module)
             py::arg("grid_topology") = GridTopology::BOUNDED,
             py::arg("boundary_condition") = BoundaryCondition::FLOATING,
             py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
-            py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA,
-            "Simulation of DP Langevin equation"
+            py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA
         )
         .def("initialize", &SimDP::initialize)
         .def("run", &SimDP::run)

@@ -35,8 +35,8 @@ protected:
 
 public:
     Langevin() = default;
-    void construct_1D_grid(const Parameters parameters);
-    void construct_2D_grid(const Parameters parameters);
+    bool construct_1D_grid(const Parameters parameters);
+    bool construct_2D_grid(const Parameters parameters);
     void ic_random_uniform(
         rng_t &rng, const double min_value = 0.0, const double max_value = 1.0
     );
@@ -62,7 +62,7 @@ public:
         rng_t &rng
     );
     void euler_and_stochastic(dbl_vec_t &aux, rng_t &rng);
-    dbl_vec_t get_density(void);
+    double get_cell_density(const int);
     double get_mean_density(void);
     double get_poisson_mean(void);
 
