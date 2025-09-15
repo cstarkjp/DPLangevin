@@ -36,6 +36,6 @@ if not sim_dp.run():
 print(f"epochs:  {sim_dp.get_epochs()}")
 print(f"mean_densities:  {sim_dp.get_mean_densities()}")
 print()
-print("cell density grid  (not working yet):")
+print("cell density grid (at final t):")
 print(np.round(sim_dp.get_density().T, 2))
 
