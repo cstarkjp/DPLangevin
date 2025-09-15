@@ -6,17 +6,17 @@
 // 
 // 
 #include <pybind11/numpy.h>
+// Essential for STL container conversions
+#include <pybind11/stl.h> 
 #include "general_core.hpp"
 #include "application_dplangevin.hpp"
 #include "application_dpsim.hpp"
-// Essential for STL container conversions
-#include <pybind11/stl.h> 
 
 PYBIND11_MODULE(dplvn, module)
 {
     module.attr("__version__") = "2025.09.15a1";
     module.doc() = 
-        "'Dornic' operator-splitting method of integrating DP-type Langevin equations"; 
+        "Operator-splitting method of integrating DP-type Langevin equations"; 
 
     py::enum_<GridDimension>(module, "GridDimension")
         .value("D1", GridDimension::D1)

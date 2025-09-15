@@ -10,13 +10,9 @@
 #include "general_core.hpp"
 #include "application_dplangevin.hpp"
 
-DPLangevin::DPLangevin(Parameters params)
+DPLangevin::DPLangevin(Parameters p)
 {
-    dt = params.dt;
-    dx = params.dx;
-    dtm = 0.5*dt;
-    dts = dt/6.0;
-    n_cells = params.n_cells;
+    n_cells = p.n_cells;
     cell_density = dbl_vec_t(n_cells, 0.0); 
     aux_cell_new = dbl_vec_t(n_cells);
     aux_cell_old = dbl_vec_t(n_cells);
@@ -24,6 +20,10 @@ DPLangevin::DPLangevin(Parameters params)
     k2 = dbl_vec_t(n_cells, 0.0);
     k3 = dbl_vec_t(n_cells, 0.0);
     k4 = dbl_vec_t(n_cells, 0.0);
+    dt = p.dt;
+    dx = p.dx;
+    dtm = 0.5*dt;
+    dts = dt/6.0;
 }
 
 void DPLangevin::set_nonlinear_coefficients(const Coefficients &f_coefficients)

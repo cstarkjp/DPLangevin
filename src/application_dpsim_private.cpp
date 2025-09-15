@@ -33,6 +33,7 @@ bool SimDP::initialize_grid()
                 dpLangevin->ic_constant_value(1.0);
                 return true;
             case (InitialCondition::SINGLE_SEED):
+                // n_cells is not yet set
                 dpLangevin->ic_single_seed(
                     static_cast<double>(p.n_cells)/2.0, 1.0
                 );
