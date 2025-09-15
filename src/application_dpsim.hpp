@@ -24,7 +24,7 @@ private:
     bool is_initialized = false;
     bool construct_grid();
     bool initialize_grid();
-    int count_epochs();
+    int count_epochs() const;
     bool integrate(dbl_vec_t& epochs, dbl_vec_t& mean_densities);
     bool prep_epochs();
     bool prep_mean_densities();

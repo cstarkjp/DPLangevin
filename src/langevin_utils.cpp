@@ -8,19 +8,19 @@
 #include "general_core.hpp"
 
 // Make the cell density visible
-double Langevin::get_cell_density(const int i) 
+double Langevin::get_cell_density(const int i) const 
 {
     return cell_density[i];
 }
 
 // Make the density visible
-double Langevin::get_mean_density() 
+double Langevin::get_mean_density() const
 {
     return mean_density;
 }
 
 // Check the mean of the Poisson distribution
-double Langevin::get_poisson_mean()
+double Langevin::get_poisson_mean() const
 {
     return lambda_product * mean_density;
 }

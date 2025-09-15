@@ -46,7 +46,7 @@ bool SimDP::initialize_grid()
         }  
     }
 
-int SimDP::count_epochs()
+int SimDP::count_epochs() const
 {
     // Count total number of time steps, just in case rounding causes problems
     int n_epochs;
