@@ -53,11 +53,11 @@ bool SimDP::run(const int n_next_epochs)
         return false; 
     }
     // Need to figure out how to segment sim right here
-    std::cout << "before i: " << i_epoch << std::endl;
-    std::cout << "before t: " << t_epoch << std::endl;
+    // std::cout << "before i: " << i_epoch << std::endl;
+    // std::cout << "before t: " << t_epoch << std::endl;
     did_integrate = integrate(n_next_epochs);
-    std::cout << "after  i: " << i_epoch << std::endl;
-    std::cout << "after  t: " << t_epoch << std::endl;
+    // std::cout << "after  i: " << i_epoch << std::endl;
+    // std::cout << "after  t: " << t_epoch << std::endl;
     return did_integrate;
 }
 
