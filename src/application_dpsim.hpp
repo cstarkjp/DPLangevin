@@ -28,7 +28,7 @@ private:
     bool initialize_grid();
     int count_epochs() const;
     bool integrate(const int n_next_epochs);
-    bool prep_epochs();
+    bool prep_t_epochs();
     bool prep_mean_densities();
     bool prep_density();
 

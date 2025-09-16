@@ -77,6 +77,7 @@ bool SimDP::integrate(const int n_next_epochs)
     }
     int i;
     double t; 
+    if (i_epoch==1) { mean_densities[0] = dpLangevin->get_mean_density(); }
     for (i=i_epoch, t=t_epoch; i<i_epoch+n_next_epochs; t+=p.dt, i++)
     {
         (dpLangevin->*ptr_to_integrate_fn)(*rng);
@@ -88,7 +89,7 @@ bool SimDP::integrate(const int n_next_epochs)
     return true;
 }
 
-bool SimDP::prep_epochs()
+bool SimDP::prep_t_epochs()
 {
     py_array_t epochs_array(n_epochs);
     auto epochs_proxy = epochs_array.mutable_unchecked();
