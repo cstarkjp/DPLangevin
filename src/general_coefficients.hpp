@@ -18,9 +18,7 @@ public:
     
     Coefficients(
         double a, double b, double c, double d
-    ) : 
-    linear(a), quadratic(b), diffusion(c), noise(d)
-    {}
+    ) : linear(a), quadratic(b), diffusion(c), noise(d) {}
 
     void print() {
         std::cout<< "linear: " << linear << std::endl;
