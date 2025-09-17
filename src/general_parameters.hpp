@@ -94,9 +94,9 @@ public:
         }
     }
 
-    std::string icstr(IntegrationMethod ic) 
+    std::string imstr(IntegrationMethod im) 
     {
-        switch (ic) {
+        switch (im) {
             case IntegrationMethod::EULER: return "Euler";
             case IntegrationMethod::RUNGE_KUTTA: return "Runge-Kutta";
             default: return "Unknown";
@@ -117,7 +117,7 @@ public:
         std::cout<< "grid_topology: " << gtstr(grid_topology) << std::endl;
         std::cout<< "boundary_condition: " << bcstr(boundary_condition) << std::endl;
         std::cout<< "initial_condition: " << icstr(initial_condition) << std::endl;
-        std::cout<< "integration_method: "  << icstr(integration_method) << std::endl;
+        std::cout<< "integration_method: "  << imstr(integration_method) << std::endl;
     }
 
     ~Parameters() {}
