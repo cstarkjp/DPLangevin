@@ -51,15 +51,6 @@ Simple demos are provided in the [`test/`](https://github.com/cstarkjp/DPLangevi
 
 Build info is in [`src/`](https://github.com/cstarkjp/DPLangevin/tree/main/src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), using [pybind11](https://pybind11.readthedocs.io/en/stable/) as the C++ wrapper. 
 
-Then, if you want to run the demos, you will need to point Python to this local build of `dplvn`. 
-Comment out the lines:
-
-    import sys, os
-    sys.path.insert(0, os.path.join(os.path.pardir, "build"))
-
-and check that Python is using your local build:
-
-    print(dplvn.__file__)
 
 ## References
 
