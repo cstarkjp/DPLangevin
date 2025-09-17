@@ -14,3 +14,13 @@ A similar test is provided in the Jupyter notebook
 
 but the resulting time series is instead unpacked from the returned `numpy` 
 array and graphed; the results plot is exported to a PNG file.
+
+If you build from source, you will need to point Python to your local build of `dplvn`. 
+Comment out the lines:
+
+    import sys, os
+    sys.path.insert(0, os.path.join(os.path.pardir, "build"))
+
+and check that Python is using your local build:
+
+    print(dplvn.__file__)

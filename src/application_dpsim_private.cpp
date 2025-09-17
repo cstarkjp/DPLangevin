@@ -23,28 +23,28 @@ bool SimDP::construct_grid()
 }
 
 bool SimDP::initialize_grid()
+{
+    switch (p.initial_condition)
     {
-        switch (p.initial_condition)
-        {
-            case (InitialCondition::RANDOM_GAUSSIAN):
-                dpLangevin->ic_random_uniform(*rng);
-                return true;
-            case (InitialCondition::CONSTANT_VALUE):
-                dpLangevin->ic_constant_value(1.0);
-                return true;
-            case (InitialCondition::SINGLE_SEED):
-                // n_cells is not yet set
-                dpLangevin->ic_single_seed(
-                    static_cast<double>(p.n_cells)/2.0, 1.0
-                );
-                return true;
-            case (InitialCondition::RANDOM_UNIFORM):
-                dpLangevin->ic_random_uniform(*rng);
-                return true;
-            default:
-                return false;
-        }  
-    }
+        case (InitialCondition::RANDOM_GAUSSIAN):
+            dpLangevin->ic_random_uniform(*rng);
+            return true;
+        case (InitialCondition::CONSTANT_VALUE):
+            dpLangevin->ic_constant_value(1.0);
+            return true;
+        case (InitialCondition::SINGLE_SEED):
+            // n_cells is not yet set
+            dpLangevin->ic_single_seed(
+                static_cast<double>(p.n_cells)/2.0, 1.0
+            );
+            return true;
+        case (InitialCondition::RANDOM_UNIFORM):
+            dpLangevin->ic_random_uniform(*rng);
+            return true;
+        default:
+            return false;
+    }  
+}
 
 int SimDP::count_epochs() const
 {

@@ -12,4 +12,4 @@ or just build in-place
 
     rm -rf build; meson setup build; meson compile -C build   
 
-Then run either the test Python script or the test Jupyter/Python notebook.
+Then run either the test Python script or the test Jupyter/Python notebook. See [`test/`](https://github.com/cstarkjp/DPLangevin/tree/main/test/README.md) for more details.

@@ -27,8 +27,10 @@ protected:
     // Grid variables
     int n_cells;
     dbl_vec_t cell_density;
-    std::vector< int_vec_t > neighbors;
     double mean_density;
+
+    // Grid topology
+    std::vector< int_vec_t > neighbors;
 
     // Dornic method coefficients
     double linear_coeff, noise_coeff;
