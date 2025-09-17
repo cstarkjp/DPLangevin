@@ -62,6 +62,7 @@ dist/
 *~
 \#*
 *.so
+src/cuts.txt
 
 # Ignore big GeoTIFFs
 *.tif
