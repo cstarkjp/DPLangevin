@@ -35,12 +35,12 @@ bool SimDP::initialize()
     if (not initialize_grid()) { return false; }
     dpLangevin->set_coefficients(coefficients);
     n_epochs = count_epochs();
-    epochs = dbl_vec_t(n_epochs, 0.0);
+    t_epochs = dbl_vec_t(n_epochs, 0.0);
     mean_densities = dbl_vec_t(n_epochs, 0.0);
     // Treat epoch#0 as the initial grid state
     // So after initialization, we are nominally at epoch#1
-    i_epoch = 1;
-    t_epoch = p.dt;
+    i_next_epoch = 1;
+    t_next_epoch = p.dt;
     is_initialized = true;
     return is_initialized;
 }
@@ -53,11 +53,11 @@ bool SimDP::run(const int n_next_epochs)
         return false; 
     }
     // Need to figure out how to segment sim right here
-    // std::cout << "before i: " << i_epoch << std::endl;
-    // std::cout << "before t: " << t_epoch << std::endl;
+    // std::cout << "before i: " << i_next_epoch << std::endl;
+    // std::cout << "before t: " << t_next_epoch << std::endl;
     did_integrate = integrate(n_next_epochs);
-    // std::cout << "after  i: " << i_epoch << std::endl;
-    // std::cout << "after  t: " << t_epoch << std::endl;
+    // std::cout << "after  i: " << i_next_epoch << std::endl;
+    // std::cout << "after  t: " << t_next_epoch << std::endl;
     return did_integrate;
 }
 
@@ -69,14 +69,16 @@ bool SimDP::process()
         return false; 
     }
     bool did_process = (
-        prep_epochs() and prep_mean_densities() and prep_density()
+        prep_density() and prep_t_epochs() and prep_mean_densities() 
     ); 
     return did_process;
 }
 
 int SimDP::get_n_epochs() const { return n_epochs; }
-int SimDP::get_i_epoch() const { return i_epoch; }
-double SimDP::get_t_epoch() const { return t_epoch; }
+int SimDP::get_i_current_epoch() const { return i_current_epoch; }
+int SimDP::get_i_next_epoch() const { return i_next_epoch; }
+double SimDP::get_t_current_epoch() const { return t_current_epoch; }
+double SimDP::get_t_next_epoch() const { return t_next_epoch; }
 py_array_t SimDP::get_t_epochs() const { return return_t_epochs; }
 py_array_t SimDP::get_mean_densities() const { return return_mean_densities; }
 py_array_t SimDP::get_density() const { return return_density; }

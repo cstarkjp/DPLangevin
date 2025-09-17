@@ -28,11 +28,19 @@ See
 
 ## Installation
 
-First, set up a Python environment using either `conda` and the `environment.yml` file, or `pip` and the `requirements.txt`. At minimum, you will need to have `pybind11` in your Python environment to install `dplvn`; to run the demos you will also need `numpy`, `matplotlib`, `jupyter`, and `ipython`.
+At minimum, you will need Python >3.12 and the package `pybind11` to allow installation of
+`dplvn`. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, and `ipython`.
 
-Then, since we're still in the testing phase, install the `dplvn` package from `TestPyPI` into this environment:
+If you use `conda` or `miniconda`, take a look at the `environment.yml` file and use it to set up a suitable Python environment. If you prefer to use `pip`, you can either install the requisite packages by hand, or use the `requirements.txt` file (it's very strict, so it may not be helpful).
+
+Then, install the `dplvn` package from `TestPyPI` into whatever Python environment you have set up (even if you use `conda`):
 
     pip install -i https://test.pypi.org/simple/ dplvn
+    
+Once the testing phase is over, this package will be made available on `PyPI`
+and the package dependencies will be made automatic (it's not currently possible to 
+set these dependencies with `TestPyPI`). With luck, it will also be made available via `conda`.
+
 
 ## Usage
 
@@ -43,6 +51,15 @@ Simple demos are provided in the [`test/`](https://github.com/cstarkjp/DPLangevi
 
 Build info is in [`src/`](https://github.com/cstarkjp/DPLangevin/tree/main/src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), using [pybind11](https://pybind11.readthedocs.io/en/stable/) as the C++ wrapper. 
 
+Then, if you want to run the demos, you will need to point Python to this local build of `dplvn`. 
+Comment out the lines:
+
+    import sys, os
+    sys.path.insert(0, os.path.join(os.path.pardir, "build"))
+
+and check that Python is using your local build:
+
+    print(dplvn.__file__)
 
 ## References
 
