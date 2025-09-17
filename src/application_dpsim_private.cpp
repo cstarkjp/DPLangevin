@@ -57,10 +57,10 @@ int SimDP::count_epochs() const
 
 bool SimDP::integrate(const int n_next_epochs)
 {
-    if (epochs.size() < i_epoch+n_next_epochs)
+    if (t_epochs.size() < i_next_epoch+n_next_epochs)
     {
         std::cout << "Too many epochs: " 
-            << epochs.size() << " < " << i_epoch+n_next_epochs << std::endl;
+            << t_epochs.size() << " < " << i_next_epoch+n_next_epochs << std::endl;
         return false;
     }
     void (DPLangevin::*ptr_to_integrate_fn)(rng_t&);
@@ -77,15 +77,21 @@ bool SimDP::integrate(const int n_next_epochs)
     }
     int i;
     double t; 
-    if (i_epoch==1) { mean_densities[0] = dpLangevin->get_mean_density(); }
-    for (i=i_epoch, t=t_epoch; i<i_epoch+n_next_epochs; t+=p.dt, i++)
+    if (i_next_epoch==1) { 
+        mean_densities[0] = dpLangevin->get_mean_density(); 
+        i_current_epoch = 0;
+        t_current_epoch = 0;
+    }
+    for (i=i_next_epoch, t=t_next_epoch; i<i_next_epoch+n_next_epochs; t+=p.dt, i++)
     {
         (dpLangevin->*ptr_to_integrate_fn)(*rng);
-        epochs[i] = t;
+        t_epochs[i] = t;
         mean_densities[i] = dpLangevin->get_mean_density();
+        i_current_epoch = i;
+        t_current_epoch = t;
     };
-    i_epoch = i;
-    t_epoch = t;
+    i_next_epoch = i;
+    t_next_epoch = t;
     return true;
 }
 
@@ -95,7 +101,7 @@ bool SimDP::prep_t_epochs()
     auto epochs_proxy = epochs_array.mutable_unchecked();
     for (auto i=0; i<n_epochs; i++)
     {
-        epochs_proxy(i) = epochs[i];
+        epochs_proxy(i) = t_epochs[i];
     };
     return_t_epochs = epochs_array;
     return true;

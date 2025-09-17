@@ -14,7 +14,7 @@
 
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__version__") = "2025.09.16a1";
+    module.attr("__version__") = "2025.09.17a1";
     module.doc() = 
         "Operator-splitting method of integrating DP-type Langevin equations"; 
 
@@ -82,8 +82,10 @@ PYBIND11_MODULE(dplvn, module)
         .def("run", &SimDP::run)
         .def("process", &SimDP::process)
         .def("get_n_epochs", &SimDP::get_n_epochs)
-        .def("get_i_epoch", &SimDP::get_i_epoch)
-        .def("get_t_epoch", &SimDP::get_t_epoch)
+        .def("get_i_next_epoch", &SimDP::get_i_next_epoch)
+        .def("get_i_current_epoch", &SimDP::get_i_current_epoch)
+        .def("get_t_next_epoch", &SimDP::get_t_next_epoch)
+        .def("get_t_current_epoch", &SimDP::get_t_current_epoch)
         .def("get_t_epochs", &SimDP::get_t_epochs)
         .def("get_mean_densities", &SimDP::get_mean_densities)
         .def("get_density", &SimDP::get_density);
