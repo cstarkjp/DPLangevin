@@ -26,7 +26,6 @@ public:
     const IntegrationMethod integration_method=IntegrationMethod::RUNGE_KUTTA;
 
     Parameters() = default;
-
     Parameters(
         const double t_final, 
         const double dx, const double dt, 
