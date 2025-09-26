@@ -6,8 +6,8 @@
 ![](https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/test/density_grid.png
  "Density grid")
 
-A Python interface to C++ code for integrating the directed-percolation Langevin equation — and more generally, for integrating Langevin equations that represent absorbing phase transitions. The software implements the operator-splitting method originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
-The core C++ integration scheme  is heavily adapted from code by [Paula Villa Martín](https://github.com/pvillamartin), extended by [Victor Buendía](https://github.com/VictorSeven), and arising from earlier efforts by Ivan Dornic and Juan Bonachela.
+`dplvn`: Python/C++ code for integrating the directed-percolation (DP) Langevin equation — and more generally, for integrating Langevin equations that represent absorbing phase transitions. The package implements the operator-splitting method originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
+It provides a Python wrapper around core C++ heavily adapted from a code base written by [Paula Villa Martín](https://github.com/pvillamartin), extended by [Victor Buendía](https://github.com/VictorSeven), and arising from earlier efforts by Ivan Dornic and Juan Bonachela. The wrapper provides easy access to the Langevin integrator, and broad opportunity to experiment, adapt, and extend it further.
 
 ![](https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/test/meandensity_time.png
  "Mean density over time")
@@ -28,7 +28,7 @@ See
 
 ## Installation
 
-At minimum, you will need Python >=3.12 and the package `pybind11` to allow installation of
+At minimum, you will need Python $\geq$ 3.12 and the package `pybind11` to allow installation of
 `dplvn`. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, and `ipython`.
 
 If you use `conda` or `miniconda`, take a look at the `environment.yml` file and use it to set up a suitable Python environment. If you prefer to use `pip`, you can either install the requisite packages by hand, or use the `requirements.txt` file (it's very strict, so it may not be helpful, but you can use it as a guide).
