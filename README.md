@@ -30,7 +30,7 @@ See
 
 ## Installation
 
-At minimum, you will need Python $\geq$ 3.12 and the package `pybind11` to allow installation of
+At minimum, you will need Python≥3.12 and the package `pybind11` to allow installation of
 `dplvn`. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, and `ipython`.
 
 If you use `conda` or `miniconda`, take a look at the `environment.yml` file and use it to set up a suitable Python environment. If you prefer to use `pip`, you can either install the requisite packages by hand, or use the `requirements.txt` file (it's very strict, so it may not be helpful, but you can use it as a guide).
