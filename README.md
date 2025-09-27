@@ -1,13 +1,15 @@
-# DP Langevin
-## Operator-splitting method of integrating Langevin equations for directed percolation (DP)
+# DP Langevin: `dplvn`
+## Operator-splitting method for integrating Langevin equations of directed percolation (DP) type
 
 <!-- ![](test/meandensity_time.png "Results of demo DP integration") -->
 
 ![](https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/test/density_grid.png
  "Density grid")
 
-Python interface to C++ code implementing the operator-splitting method of integrating Langevin equations that represent directed percolation (more generally, absorbing phase transitions), originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
-Adapted heavily from code developed by [Paula Villa Martín](https://github.com/pvillamartin), extended by [Victor Buendía](https://github.com/VictorSeven), and arising from earlier code written by Ivan Dornic and Juan Bonachela.
+`dplvn`: Python/C++ code for integrating the directed-percolation (DP) Langevin equation — and more generally, for integrating Langevin equations that represent absorbing phase transitions. 
+
+The package implements the operator-splitting method originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
+It provides a Python wrapper around core C++ heavily adapted from a code base written by [Paula Villa Martín](https://github.com/pvillamartin), extended by [Victor Buendía](https://github.com/VictorSeven), and arising from earlier efforts by Ivan Dornic and Juan Bonachela. The wrapper provides easy access to the Langevin integrator, and broad opportunity to experiment, adapt, and extend it further.
 
 ![](https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/test/meandensity_time.png
  "Mean density over time")
@@ -28,28 +30,28 @@ See
 
 ## Installation
 
-At minimum, you will need Python >3.12 and the package `pybind11` to allow installation of
+At minimum, you will need Python $\geq$ 3.12 and the package `pybind11` to allow installation of
 `dplvn`. To run the demos, you will also need `numpy`, `matplotlib`, `jupyter`, and `ipython`.
 
-If you use `conda` or `miniconda`, take a look at the `environment.yml` file and use it to set up a suitable Python environment. If you prefer to use `pip`, you can either install the requisite packages by hand, or use the `requirements.txt` file (it's very strict, so it may not be helpful).
+If you use `conda` or `miniconda`, take a look at the `environment.yml` file and use it to set up a suitable Python environment. If you prefer to use `pip`, you can either install the requisite packages by hand, or use the `requirements.txt` file (it's very strict, so it may not be helpful, but you can use it as a guide).
 
-Then, install the `dplvn` package from `TestPyPI` into whatever Python environment you have set up (even if you use `conda`):
+Then, use `pip` to install the `dplvn` package from `TestPyPI` into whatever Python environment you have set up (even if you use `conda`):
 
     pip install -i https://test.pypi.org/simple/ dplvn
     
-Once the testing phase is over, this package will be made available on `PyPI`
-and the package dependencies will be made automatic (it's not currently possible to 
-set these dependencies with `TestPyPI`). With luck, it will also be made available via `conda`.
+Once project development has matured, the `dplvn` package will be made available on the full `PyPI` site.
+Its package dependencies will then be made automatic; apparently it's not currently possible to 
+set such dependencies with `TestPyPI` without incurring problems. Eventually, `dplvn` may also be made available via `conda`. 
 
 
 ## Usage
 
-Simple demos are provided in the [`test/`](https://github.com/cstarkjp/DPLangevin/tree/main/test/README.md) directory.
+Simple demos are provided in the [`test/`](https://github.com/cstarkjp/DPLangevin/tree/main/test/README.md) directory. The easiest route is to `git` clone the repo to get these files, or you can download one-by-one.
 
 
 ## Building from source
 
-Build info is in [`src/`](https://github.com/cstarkjp/DPLangevin/tree/main/src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), using [pybind11](https://pybind11.readthedocs.io/en/stable/) as the C++ wrapper. 
+Build info is provided in [`src/`](https://github.com/cstarkjp/DPLangevin/tree/main/src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), using [pybind11](https://pybind11.readthedocs.io/en/stable/) as the C++ wrapper. 
 
 
 ## References

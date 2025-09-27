@@ -2,7 +2,7 @@
   - [x] Specify n_next_epochs in SimDP.run() to split sim into segments
   - [x] Return successive cell density grids to Python after each sim segment
   - [x] Mod test py to generate a set of successive grids
-  - [ ] Mod test nb to generate a set of successive grid images
+  - [x] Mod test nb to generate a set of successive grid images
   - [ ] Generate an animation from such a set of images
   - [ ] Test periodic topology again
   - [ ] Implement distinct x/y/z topologies

@@ -26,7 +26,6 @@ public:
     const IntegrationMethod integration_method=IntegrationMethod::RUNGE_KUTTA;
 
     Parameters() = default;
-
     Parameters(
         const double t_final, 
         const double dx, const double dt, 
@@ -54,7 +53,8 @@ public:
         n_cells = n_x * n_y * n_z;
     }
 
-    std::string gdstr(GridDimension gd) 
+    // Use overloading to provide alternate "printout" commands
+    std::string report(GridDimension gd) 
     {
         switch (gd) {
             case GridDimension::D1: return "1d";
@@ -63,8 +63,7 @@ public:
             default: return "Unknown";
         }
     }
-
-    std::string gtstr(GridTopology gt) 
+    std::string report(GridTopology gt) 
     {
         switch (gt) {
             case GridTopology::BOUNDED: return "bounded";
@@ -72,8 +71,7 @@ public:
             default: return "Unknown";
         }
     }
-
-    std::string bcstr(BoundaryCondition bc) 
+    std::string report(BoundaryCondition bc) 
     {
         switch (bc) {
             case BoundaryCondition::FLOATING: return "floating";
@@ -82,8 +80,7 @@ public:
             default: return "Unknown";
         }
     }
-
-    std::string icstr(InitialCondition ic) 
+    std::string report(InitialCondition ic) 
     {
         switch (ic) {
             case InitialCondition::RANDOM_UNIFORM: return "random uniform values";
@@ -93,8 +90,7 @@ public:
             default: return "Unknown";
         }
     }
-
-    std::string imstr(IntegrationMethod im) 
+    std::string report(IntegrationMethod im) 
     {
         switch (im) {
             case IntegrationMethod::EULER: return "Euler";
@@ -109,15 +105,15 @@ public:
         std::cout<< "dx: " << dx << std::endl;
         std::cout<< "dt: " << dt << std::endl;
         std::cout<< "random_seed: " << random_seed << std::endl;
-        std::cout<< "grid_dimension: " << gdstr(grid_dimension) << std::endl;
+        std::cout<< "grid_dimension: " << report(grid_dimension) << std::endl;
         std::cout<< "grid_size: ";
         for (const auto& element : grid_size) {std::cout << element << " ";}
         std::cout<< std::endl;        
         std::cout<< "n_cells: " << n_cells << std::endl;
-        std::cout<< "grid_topology: " << gtstr(grid_topology) << std::endl;
-        std::cout<< "boundary_condition: " << bcstr(boundary_condition) << std::endl;
-        std::cout<< "initial_condition: " << icstr(initial_condition) << std::endl;
-        std::cout<< "integration_method: "  << imstr(integration_method) << std::endl;
+        std::cout<< "grid_topology: " << report(grid_topology) << std::endl;
+        std::cout<< "boundary_condition: " << report(boundary_condition) << std::endl;
+        std::cout<< "initial_condition: " << report(initial_condition) << std::endl;
+        std::cout<< "integration_method: "  << report(integration_method) << std::endl;
     }
 
     ~Parameters() {}
