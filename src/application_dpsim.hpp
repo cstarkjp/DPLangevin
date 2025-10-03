@@ -1,6 +1,6 @@
 /**
  * @file application_dpsim.hpp
- * @brief Class to manage & execute Langevin model simulation.
+ * @brief Class to manage & execute model simulation using DPLangevin integrator.
  */ 
 
 #ifndef SIMDP_HPP
@@ -9,9 +9,11 @@
 #include "application_dplangevin.hpp"
 
 /**
- * @brief Class to manage & execute Langevin model simulation.
+ * @brief Class to manage & execute model simulation using DPLangevin integrator.
  *
- * Class to manage & execute Langevin model simulation using DPLangevin integrator.
+ * Class to manage & execute model simulation using an instances of 
+ * the DPLangevin integrator class, the Coefficients struct, and the 
+ * Parameters struct.
  */
 class SimDP 
 {
