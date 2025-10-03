@@ -1,15 +1,24 @@
 # Build notes
 
-Full deployment to PyPI is in progress. For now, if you want to use this
-package, first set up the Python environment (see `environment.yml` for 
-a `conda` install), then do a build using `meson-python`. 
+The first build step is to set up a Python environment (see `environment.yml` for  a `conda` install, and refer to `requirements.txt` for a definitive but overly strict list of "dependencies"). 
+The second build step uses `meson-python` to compile and link the `C++` source to generate a Python-importable executable, and (optionally) deploy in the usual way as a Python package within that environment.
 
-Either build and deploy to your local Python environment (note: do this from the cloned repo root directory, not in `src/`)
+First step: having cloned the repo, enter the root directory; don't try to build from the `src/` directory.
+
+Second step: build and deploy as a Python package:
 
     rm -rf build; pip install .
 
-or just build in-place
+or just build and _not_ deploy:
 
     rm -rf build; meson setup build; meson compile -C build   
 
-Then run either the test Python script or the test Jupyter/Python notebook. See [`test/`](https://github.com/cstarkjp/DPLangevin/tree/main/test/README.md) for more details.
+Then, test your build/deployment using the Python script and Jupyter notebook in `test/`. See the
+[README](https://github.com/cstarkjp/DPLangevin/tree/main/test/README.md) there for more details. 
+
+If you choose to build the `dplvn` package and subsequently use it in-place, without deployment, you will need something like the following in all your Python scripts:
+
+    import sys, os
+    sys.path.insert(0, os.path.join(os.path.pardir, "build"))
+
+Here, the assumption is you're running the script from a directory parallel with `build/`, such as in `test/`.
