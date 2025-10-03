@@ -1,6 +1,6 @@
 /**
  * @file application_dplangevin.cpp
- * @brief Methods implementing deterministic, nonlinear part of Langevin eqn.
+ * @brief Redefinition of Langevin constructor and DPLangevin specific methods.
  */
 
 #include <pybind11/numpy.h>
@@ -8,6 +8,9 @@
 #include "general_core.hpp"
 #include "application_dplangevin.hpp"
 
+/**
+ * @brief Redefinition of Langevin class constructor
+ */
 DPLangevin::DPLangevin(Parameters p)
 {
     n_cells = p.n_cells;
@@ -24,15 +27,17 @@ DPLangevin::DPLangevin(Parameters p)
     dts = dt/6.0;
 }
 
+//! Implementation by DPLangevin application
 void DPLangevin::set_nonlinear_coefficients(const Coefficients &coefficients)
 {
     quadratic_coeff = coefficients.quadratic;
     D = coefficients.diffusion / (dx*dx);
 }
 
+//! Implementation by DPLangevin application
 double DPLangevin::nonlinear_rhs(const int i_cell, const dbl_vec_t &field) const
 {
-    // Non-linear terms
+    // Non-linear term
     const double quadratic_term 
         = -quadratic_coeff*field[i_cell]*field[i_cell];
 

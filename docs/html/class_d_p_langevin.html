@@ -92,7 +92,7 @@ $(function(){initNavTree('class_d_p_langevin.html','','class_d_p_langevin-member
 </div><!--header-->
 <div class="contents">
 
-<p>Methods implementing deterministic, nonlinear part of <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> eqn.  
+<p><a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of Langevin class integrator.">DPLangevin</a> model application of <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> class integrator.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="application__dplangevin_8hpp_source.html">application_dplangevin.hpp</a>&gt;</code></p>
@@ -108,102 +108,118 @@ Inheritance diagram for DPLangevin:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7c96523be07813456dc2803557b00daf" id="r_a7c96523be07813456dc2803557b00daf"><td class="memItemLeft" align="right" valign="top"><a id="a7c96523be07813456dc2803557b00daf" name="a7c96523be07813456dc2803557b00daf"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DPLangevin</b> (<a class="el" href="struct_parameters.html">Parameters</a> p)</td></tr>
+<tr class="memitem:ab247d7d45790cb3424be312401357140" id="r_ab247d7d45790cb3424be312401357140"><td class="memItemLeft" align="right" valign="top"><a id="ab247d7d45790cb3424be312401357140" name="ab247d7d45790cb3424be312401357140"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DPLangevin</b> ()=default</td></tr>
+<tr class="memdesc:ab247d7d45790cb3424be312401357140"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor assuming default model parameters. <br /></td></tr>
+<tr class="memitem:a7c96523be07813456dc2803557b00daf" id="r_a7c96523be07813456dc2803557b00daf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c96523be07813456dc2803557b00daf">DPLangevin</a> (<a class="el" href="struct_parameters.html">Parameters</a> p)</td></tr>
+<tr class="memdesc:a7c96523be07813456dc2803557b00daf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor when model parameters are passed by the user.  <br /></td></tr>
 <tr class="memitem:a0008b416d0460cdcb34646733dae8156" id="r_a0008b416d0460cdcb34646733dae8156"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0008b416d0460cdcb34646733dae8156">set_nonlinear_coefficients</a> (const <a class="el" href="struct_coefficients.html">Coefficients</a> &amp;coefficients)</td></tr>
-<tr class="memitem:a15549d3c4cae4939c3263e9704a7af5c" id="r_a15549d3c4cae4939c3263e9704a7af5c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15549d3c4cae4939c3263e9704a7af5c">nonlinear_rhs</a> (const int i_cell, const dbl_vec_t &amp;field) const</td></tr>
+<tr class="memdesc:a0008b416d0460cdcb34646733dae8156"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation by <a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of Langevin class integrator.">DPLangevin</a> application.  <br /></td></tr>
+<tr class="memitem:a15549d3c4cae4939c3263e9704a7af5c" id="r_a15549d3c4cae4939c3263e9704a7af5c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15549d3c4cae4939c3263e9704a7af5c">nonlinear_rhs</a> (const int i_cell, const <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> &amp;field) const</td></tr>
+<tr class="memdesc:a15549d3c4cae4939c3263e9704a7af5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation by <a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of Langevin class integrator.">DPLangevin</a> application.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_langevin"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_langevin')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_langevin.html">Langevin</a></td></tr>
-<tr class="memitem:a947980072860d472e606d0fd5962a5ed inherit pub_methods_class_langevin" id="r_a947980072860d472e606d0fd5962a5ed"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>construct_1D_grid</b> (const <a class="el" href="struct_parameters.html">Parameters</a> parameters)</td></tr>
-<tr class="memitem:a9f16176760eeb14f2fa0c2279ae4a2b2 inherit pub_methods_class_langevin" id="r_a9f16176760eeb14f2fa0c2279ae4a2b2"><td class="memItemLeft" align="right" valign="top">
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>construct_2D_grid</b> (const <a class="el" href="struct_parameters.html">Parameters</a> parameters)</td></tr>
-<tr class="memitem:a50249cc0fc3389e7fa164d20efac4cea inherit pub_methods_class_langevin" id="r_a50249cc0fc3389e7fa164d20efac4cea"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ic_random_uniform</b> (rng_t &amp;rng, const double min_value=0.0, const double max_value=1.0)</td></tr>
-<tr class="memitem:aebb1519d3999c6f9c77b9b246dce0344 inherit pub_methods_class_langevin" id="r_aebb1519d3999c6f9c77b9b246dce0344"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ic_constant_value</b> (const double density_value=1.0)</td></tr>
-<tr class="memitem:ad3ce63953d9d6f28536acdd666cf03b2 inherit pub_methods_class_langevin" id="r_ad3ce63953d9d6f28536acdd666cf03b2"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ic_single_seed</b> (const int i_node, const double value=1.0)</td></tr>
-<tr class="memitem:ac2d3641b7a4fc6863fd8a57795683e1b inherit pub_methods_class_langevin" id="r_ac2d3641b7a4fc6863fd8a57795683e1b"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_coefficients</b> (const <a class="el" href="struct_coefficients.html">Coefficients</a> &amp;coefficients)</td></tr>
-<tr class="memitem:aa2aa8394cbdeac2f4c864c4bf3f7d3e2 inherit pub_methods_class_langevin" id="r_aa2aa8394cbdeac2f4c864c4bf3f7d3e2"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_essential_coefficients</b> (const <a class="el" href="struct_coefficients.html">Coefficients</a> &amp;coefficients)</td></tr>
-<tr class="memitem:a23b8904402857d915d6cf222d53de6f0 inherit pub_methods_class_langevin" id="r_a23b8904402857d915d6cf222d53de6f0"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_lambdas</b> ()</td></tr>
-<tr class="memitem:ab9adbb441c438ba448221c29d3fd76ea inherit pub_methods_class_langevin" id="r_ab9adbb441c438ba448221c29d3fd76ea"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>integrate_rungekutta</b> (rng_t &amp;rng)</td></tr>
-<tr class="memitem:a1931a10c922b1caff284e1d8f2dd6379 inherit pub_methods_class_langevin" id="r_a1931a10c922b1caff284e1d8f2dd6379"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>integrate_euler</b> (rng_t &amp;rng)</td></tr>
-<tr class="memitem:a0d28b5e1980d7f5a29ab9186e7d201f2 inherit pub_methods_class_langevin" id="r_a0d28b5e1980d7f5a29ab9186e7d201f2"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>rk_f1</b> (dbl_vec_t &amp;aux_cell, dbl_vec_t &amp;k1)</td></tr>
-<tr class="memitem:a0453e1de2e0c0775459a3a36dd602711 inherit pub_methods_class_langevin" id="r_a0453e1de2e0c0775459a3a36dd602711"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>rk_f2f3</b> (const dbl_vec_t &amp;aux_old, dbl_vec_t &amp;aux_new, dbl_vec_t &amp;k_out, const double dt_in)</td></tr>
-<tr class="memitem:ae18ee654632657e2c8c0afd963d97520 inherit pub_methods_class_langevin" id="r_ae18ee654632657e2c8c0afd963d97520"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>rk_f4_and_stochastic</b> (const dbl_vec_t &amp;aux_old, const dbl_vec_t &amp;k1, const dbl_vec_t &amp;k2, const dbl_vec_t &amp;k3, rng_t &amp;rng)</td></tr>
-<tr class="memitem:a62e7cfabcb67a68732af610979d19541 inherit pub_methods_class_langevin" id="r_a62e7cfabcb67a68732af610979d19541"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>euler_and_stochastic</b> (dbl_vec_t &amp;aux, rng_t &amp;rng)</td></tr>
-<tr class="memitem:af6941c0d46115a951fa06f35614cc1b5 inherit pub_methods_class_langevin" id="r_af6941c0d46115a951fa06f35614cc1b5"><td class="memItemLeft" align="right" valign="top">
-double&#160;</td><td class="memItemRight" valign="bottom"><b>get_cell_density</b> (const int) const</td></tr>
-<tr class="memitem:ab53972b8dd0ebddaaab7961b60dfbddf inherit pub_methods_class_langevin" id="r_ab53972b8dd0ebddaaab7961b60dfbddf"><td class="memItemLeft" align="right" valign="top">
-double&#160;</td><td class="memItemRight" valign="bottom"><b>get_mean_density</b> () const</td></tr>
-<tr class="memitem:ae7927b5cdb1d72103a66eea57997a900 inherit pub_methods_class_langevin" id="r_ae7927b5cdb1d72103a66eea57997a900"><td class="memItemLeft" align="right" valign="top">
-double&#160;</td><td class="memItemRight" valign="bottom"><b>get_poisson_mean</b> () const</td></tr>
+<tr class="memitem:acc72807662de119423cd43b3017ca5ce inherit pub_methods_class_langevin" id="r_acc72807662de119423cd43b3017ca5ce"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>Langevin</b> ()=default</td></tr>
+<tr class="memdesc:acc72807662de119423cd43b3017ca5ce inherit pub_methods_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
+<tr class="memitem:a947980072860d472e606d0fd5962a5ed inherit pub_methods_class_langevin" id="r_a947980072860d472e606d0fd5962a5ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a947980072860d472e606d0fd5962a5ed">construct_1D_grid</a> (const <a class="el" href="struct_parameters.html">Parameters</a> parameters)</td></tr>
+<tr class="memdesc:a947980072860d472e606d0fd5962a5ed inherit pub_methods_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to build 1d density grid and associated grid cell topology vectors.  <br /></td></tr>
+<tr class="memitem:a9f16176760eeb14f2fa0c2279ae4a2b2 inherit pub_methods_class_langevin" id="r_a9f16176760eeb14f2fa0c2279ae4a2b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a9f16176760eeb14f2fa0c2279ae4a2b2">construct_2D_grid</a> (const <a class="el" href="struct_parameters.html">Parameters</a> parameters)</td></tr>
+<tr class="memdesc:a9f16176760eeb14f2fa0c2279ae4a2b2 inherit pub_methods_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to build 2d density grid and associated grid cell topology vectors.  <br /></td></tr>
+<tr class="memitem:a50249cc0fc3389e7fa164d20efac4cea inherit pub_methods_class_langevin" id="r_a50249cc0fc3389e7fa164d20efac4cea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a50249cc0fc3389e7fa164d20efac4cea">ic_random_uniform</a> (<a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng, const double min_value=0.0, const double max_value=1.0)</td></tr>
+<tr class="memdesc:a50249cc0fc3389e7fa164d20efac4cea inherit pub_methods_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to assign uniform random numbers to the initial density field.  <br /></td></tr>
+<tr class="memitem:aebb1519d3999c6f9c77b9b246dce0344 inherit pub_methods_class_langevin" id="r_aebb1519d3999c6f9c77b9b246dce0344"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#aebb1519d3999c6f9c77b9b246dce0344">ic_constant_value</a> (const double density_value=1.0)</td></tr>
+<tr class="memitem:ad3ce63953d9d6f28536acdd666cf03b2 inherit pub_methods_class_langevin" id="r_ad3ce63953d9d6f28536acdd666cf03b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#ad3ce63953d9d6f28536acdd666cf03b2">ic_single_seed</a> (const int i_node, const double value=1.0)</td></tr>
+<tr class="memitem:ac2d3641b7a4fc6863fd8a57795683e1b inherit pub_methods_class_langevin" id="r_ac2d3641b7a4fc6863fd8a57795683e1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#ac2d3641b7a4fc6863fd8a57795683e1b">set_coefficients</a> (const <a class="el" href="struct_coefficients.html">Coefficients</a> &amp;coefficients)</td></tr>
+<tr class="memitem:aa2aa8394cbdeac2f4c864c4bf3f7d3e2 inherit pub_methods_class_langevin" id="r_aa2aa8394cbdeac2f4c864c4bf3f7d3e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#aa2aa8394cbdeac2f4c864c4bf3f7d3e2">set_essential_coefficients</a> (const <a class="el" href="struct_coefficients.html">Coefficients</a> &amp;coefficients)</td></tr>
+<tr class="memitem:a23b8904402857d915d6cf222d53de6f0 inherit pub_methods_class_langevin" id="r_a23b8904402857d915d6cf222d53de6f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a23b8904402857d915d6cf222d53de6f0">set_lambdas</a> ()</td></tr>
+<tr class="memitem:ab9adbb441c438ba448221c29d3fd76ea inherit pub_methods_class_langevin" id="r_ab9adbb441c438ba448221c29d3fd76ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#ab9adbb441c438ba448221c29d3fd76ea">integrate_rungekutta</a> (<a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
+<tr class="memitem:a1931a10c922b1caff284e1d8f2dd6379 inherit pub_methods_class_langevin" id="r_a1931a10c922b1caff284e1d8f2dd6379"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a1931a10c922b1caff284e1d8f2dd6379">integrate_euler</a> (<a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
+<tr class="memitem:a0d28b5e1980d7f5a29ab9186e7d201f2 inherit pub_methods_class_langevin" id="r_a0d28b5e1980d7f5a29ab9186e7d201f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a0d28b5e1980d7f5a29ab9186e7d201f2">rk_f1</a> (<a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> &amp;aux_cell, <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> &amp;<a class="el" href="class_langevin.html#ae4bbdc7051c7b2f3475f194c2e2e8a03">k1</a>)</td></tr>
+<tr class="memitem:a0453e1de2e0c0775459a3a36dd602711 inherit pub_methods_class_langevin" id="r_a0453e1de2e0c0775459a3a36dd602711"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a0453e1de2e0c0775459a3a36dd602711">rk_f2f3</a> (const <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> &amp;aux_old, <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> &amp;aux_new, <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> &amp;k_out, const double dt_in)</td></tr>
+<tr class="memitem:ae18ee654632657e2c8c0afd963d97520 inherit pub_methods_class_langevin" id="r_ae18ee654632657e2c8c0afd963d97520"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#ae18ee654632657e2c8c0afd963d97520">rk_f4_and_stochastic</a> (const <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> &amp;aux_old, const <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> &amp;<a class="el" href="class_langevin.html#ae4bbdc7051c7b2f3475f194c2e2e8a03">k1</a>, const <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> &amp;<a class="el" href="class_langevin.html#a224b0ea9d82d5fc2beae6747eeebf718">k2</a>, const <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> &amp;<a class="el" href="class_langevin.html#a817cc5941c84bf516d2d6671216f8490">k3</a>, <a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
+<tr class="memitem:a62e7cfabcb67a68732af610979d19541 inherit pub_methods_class_langevin" id="r_a62e7cfabcb67a68732af610979d19541"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a62e7cfabcb67a68732af610979d19541">euler_and_stochastic</a> (<a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> &amp;aux, <a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
+<tr class="memitem:af6941c0d46115a951fa06f35614cc1b5 inherit pub_methods_class_langevin" id="r_af6941c0d46115a951fa06f35614cc1b5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#af6941c0d46115a951fa06f35614cc1b5">get_cell_density</a> (const int) const</td></tr>
+<tr class="memdesc:af6941c0d46115a951fa06f35614cc1b5 inherit pub_methods_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the cell density visible.  <br /></td></tr>
+<tr class="memitem:ab53972b8dd0ebddaaab7961b60dfbddf inherit pub_methods_class_langevin" id="r_ab53972b8dd0ebddaaab7961b60dfbddf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#ab53972b8dd0ebddaaab7961b60dfbddf">get_mean_density</a> () const</td></tr>
+<tr class="memdesc:ab53972b8dd0ebddaaab7961b60dfbddf inherit pub_methods_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the density visible.  <br /></td></tr>
+<tr class="memitem:ae7927b5cdb1d72103a66eea57997a900 inherit pub_methods_class_langevin" id="r_ae7927b5cdb1d72103a66eea57997a900"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#ae7927b5cdb1d72103a66eea57997a900">get_poisson_mean</a> () const</td></tr>
+<tr class="memdesc:ae7927b5cdb1d72103a66eea57997a900 inherit pub_methods_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check the mean of the Poisson distribution.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ad4b3b951467ea5b2997ec31d1eeee1cd" id="r_ad4b3b951467ea5b2997ec31d1eeee1cd"><td class="memItemLeft" align="right" valign="top"><a id="ad4b3b951467ea5b2997ec31d1eeee1cd" name="ad4b3b951467ea5b2997ec31d1eeee1cd"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>quadratic_coeff</b></td></tr>
-<tr class="memitem:af8a9e4224322e673273c97f047a13416" id="r_af8a9e4224322e673273c97f047a13416"><td class="memItemLeft" align="right" valign="top"><a id="af8a9e4224322e673273c97f047a13416" name="af8a9e4224322e673273c97f047a13416"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>D</b></td></tr>
+<tr class="memitem:ad4b3b951467ea5b2997ec31d1eeee1cd" id="r_ad4b3b951467ea5b2997ec31d1eeee1cd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4b3b951467ea5b2997ec31d1eeee1cd">quadratic_coeff</a></td></tr>
+<tr class="memdesc:ad4b3b951467ea5b2997ec31d1eeee1cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficient in nonlinear term -bρ² in DP-Langevin equation.  <br /></td></tr>
+<tr class="memitem:af8a9e4224322e673273c97f047a13416" id="r_af8a9e4224322e673273c97f047a13416"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8a9e4224322e673273c97f047a13416">D</a></td></tr>
+<tr class="memdesc:af8a9e4224322e673273c97f047a13416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diffusion coefficient D in DP-Langevin equation.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_langevin"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_langevin')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="class_langevin.html">Langevin</a></td></tr>
-<tr class="memitem:ae4bbdc7051c7b2f3475f194c2e2e8a03 inherit pro_attribs_class_langevin" id="r_ae4bbdc7051c7b2f3475f194c2e2e8a03"><td class="memItemLeft" align="right" valign="top">
-dbl_vec_t&#160;</td><td class="memItemRight" valign="bottom"><b>k1</b></td></tr>
-<tr class="memitem:a224b0ea9d82d5fc2beae6747eeebf718 inherit pro_attribs_class_langevin" id="r_a224b0ea9d82d5fc2beae6747eeebf718"><td class="memItemLeft" align="right" valign="top">
-dbl_vec_t&#160;</td><td class="memItemRight" valign="bottom"><b>k2</b></td></tr>
-<tr class="memitem:a817cc5941c84bf516d2d6671216f8490 inherit pro_attribs_class_langevin" id="r_a817cc5941c84bf516d2d6671216f8490"><td class="memItemLeft" align="right" valign="top">
-dbl_vec_t&#160;</td><td class="memItemRight" valign="bottom"><b>k3</b></td></tr>
-<tr class="memitem:a7ee17a8a95d0a0ee59b79dbf3d7b42cb inherit pro_attribs_class_langevin" id="r_a7ee17a8a95d0a0ee59b79dbf3d7b42cb"><td class="memItemLeft" align="right" valign="top">
-dbl_vec_t&#160;</td><td class="memItemRight" valign="bottom"><b>k4</b></td></tr>
-<tr class="memitem:aa0ac1638dfdaf96323c1967c849dd673 inherit pro_attribs_class_langevin" id="r_aa0ac1638dfdaf96323c1967c849dd673"><td class="memItemLeft" align="right" valign="top">
-dbl_vec_t&#160;</td><td class="memItemRight" valign="bottom"><b>aux_cell_old</b></td></tr>
-<tr class="memitem:a85048c6236062fb2f7d72bf59f56892a inherit pro_attribs_class_langevin" id="r_a85048c6236062fb2f7d72bf59f56892a"><td class="memItemLeft" align="right" valign="top">
-dbl_vec_t&#160;</td><td class="memItemRight" valign="bottom"><b>aux_cell_new</b></td></tr>
-<tr class="memitem:a3e07c2b14ed6a00817fd7e6e915c2f4f inherit pro_attribs_class_langevin" id="r_a3e07c2b14ed6a00817fd7e6e915c2f4f"><td class="memItemLeft" align="right" valign="top">
-double&#160;</td><td class="memItemRight" valign="bottom"><b>dt</b></td></tr>
-<tr class="memitem:af70e7a19343cd4c60d87f70c97640c11 inherit pro_attribs_class_langevin" id="r_af70e7a19343cd4c60d87f70c97640c11"><td class="memItemLeft" align="right" valign="top">
-double&#160;</td><td class="memItemRight" valign="bottom"><b>dx</b></td></tr>
-<tr class="memitem:a5ec99b2a2dc474377eb58892030d4776 inherit pro_attribs_class_langevin" id="r_a5ec99b2a2dc474377eb58892030d4776"><td class="memItemLeft" align="right" valign="top">
-double&#160;</td><td class="memItemRight" valign="bottom"><b>dtm</b></td></tr>
-<tr class="memitem:a0be4f6995fa80574be4a4dc5a78136e5 inherit pro_attribs_class_langevin" id="r_a0be4f6995fa80574be4a4dc5a78136e5"><td class="memItemLeft" align="right" valign="top">
-double&#160;</td><td class="memItemRight" valign="bottom"><b>dts</b></td></tr>
-<tr class="memitem:ad28c1c755d16768336c3cb3e30838ea7 inherit pro_attribs_class_langevin" id="r_ad28c1c755d16768336c3cb3e30838ea7"><td class="memItemLeft" align="right" valign="top">
-double&#160;</td><td class="memItemRight" valign="bottom"><b>lambda</b></td></tr>
-<tr class="memitem:ac0d771998a0ec3824949f78781c6cbca inherit pro_attribs_class_langevin" id="r_ac0d771998a0ec3824949f78781c6cbca"><td class="memItemLeft" align="right" valign="top">
-double&#160;</td><td class="memItemRight" valign="bottom"><b>lambda_product</b></td></tr>
-<tr class="memitem:ab6439951fa23c417ea783fe941015b9e inherit pro_attribs_class_langevin" id="r_ab6439951fa23c417ea783fe941015b9e"><td class="memItemLeft" align="right" valign="top">
-int_poisson_dist_t&#160;</td><td class="memItemRight" valign="bottom"><b>poisson</b></td></tr>
-<tr class="memitem:a539c7982c85105eb565491a5898e6faa inherit pro_attribs_class_langevin" id="r_a539c7982c85105eb565491a5898e6faa"><td class="memItemLeft" align="right" valign="top">
-dbl_gamma_dist_t&#160;</td><td class="memItemRight" valign="bottom"><b>gamma</b></td></tr>
-<tr class="memitem:a18e72b5d82ced30bc61af220233b636d inherit pro_attribs_class_langevin" id="r_a18e72b5d82ced30bc61af220233b636d"><td class="memItemLeft" align="right" valign="top">
-dbl_normal_dist_t&#160;</td><td class="memItemRight" valign="bottom"><b>normal</b></td></tr>
-<tr class="memitem:acca70d551163153f85b66340753d5904 inherit pro_attribs_class_langevin" id="r_acca70d551163153f85b66340753d5904"><td class="memItemLeft" align="right" valign="top">
-int&#160;</td><td class="memItemRight" valign="bottom"><b>n_cells</b></td></tr>
-<tr class="memitem:a83355d2928b18a9dff4f408c5c02ec1a inherit pro_attribs_class_langevin" id="r_a83355d2928b18a9dff4f408c5c02ec1a"><td class="memItemLeft" align="right" valign="top">
-dbl_vec_t&#160;</td><td class="memItemRight" valign="bottom"><b>cell_density</b></td></tr>
-<tr class="memitem:a0fd1061b1bda67f8a4e9a074f73d94e0 inherit pro_attribs_class_langevin" id="r_a0fd1061b1bda67f8a4e9a074f73d94e0"><td class="memItemLeft" align="right" valign="top">
-double&#160;</td><td class="memItemRight" valign="bottom"><b>mean_density</b></td></tr>
-<tr class="memitem:acd026d5a5215f0632190d2dbba91ff7a inherit pro_attribs_class_langevin" id="r_acd026d5a5215f0632190d2dbba91ff7a"><td class="memItemLeft" align="right" valign="top">
-std::vector&lt; int_vec_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>neighbors</b></td></tr>
-<tr class="memitem:a9d4abf4aae8f67d3e9caf06082b4201a inherit pro_attribs_class_langevin" id="r_a9d4abf4aae8f67d3e9caf06082b4201a"><td class="memItemLeft" align="right" valign="top">
-double&#160;</td><td class="memItemRight" valign="bottom"><b>linear_coeff</b></td></tr>
-<tr class="memitem:a4b483786514f90451a08bed6861a2f75 inherit pro_attribs_class_langevin" id="r_a4b483786514f90451a08bed6861a2f75"><td class="memItemLeft" align="right" valign="top">
-double&#160;</td><td class="memItemRight" valign="bottom"><b>noise_coeff</b></td></tr>
+<tr class="memitem:ae4bbdc7051c7b2f3475f194c2e2e8a03 inherit pro_attribs_class_langevin" id="r_ae4bbdc7051c7b2f3475f194c2e2e8a03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#ae4bbdc7051c7b2f3475f194c2e2e8a03">k1</a></td></tr>
+<tr class="memdesc:ae4bbdc7051c7b2f3475f194c2e2e8a03 inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta variable.  <br /></td></tr>
+<tr class="memitem:a224b0ea9d82d5fc2beae6747eeebf718 inherit pro_attribs_class_langevin" id="r_a224b0ea9d82d5fc2beae6747eeebf718"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a224b0ea9d82d5fc2beae6747eeebf718">k2</a></td></tr>
+<tr class="memdesc:a224b0ea9d82d5fc2beae6747eeebf718 inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta variable.  <br /></td></tr>
+<tr class="memitem:a817cc5941c84bf516d2d6671216f8490 inherit pro_attribs_class_langevin" id="r_a817cc5941c84bf516d2d6671216f8490"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a817cc5941c84bf516d2d6671216f8490">k3</a></td></tr>
+<tr class="memdesc:a817cc5941c84bf516d2d6671216f8490 inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta variable.  <br /></td></tr>
+<tr class="memitem:a7ee17a8a95d0a0ee59b79dbf3d7b42cb inherit pro_attribs_class_langevin" id="r_a7ee17a8a95d0a0ee59b79dbf3d7b42cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a7ee17a8a95d0a0ee59b79dbf3d7b42cb">k4</a></td></tr>
+<tr class="memdesc:a7ee17a8a95d0a0ee59b79dbf3d7b42cb inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta variable.  <br /></td></tr>
+<tr class="memitem:aa0ac1638dfdaf96323c1967c849dd673 inherit pro_attribs_class_langevin" id="r_aa0ac1638dfdaf96323c1967c849dd673"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#aa0ac1638dfdaf96323c1967c849dd673">aux_cell_old</a></td></tr>
+<tr class="memitem:a85048c6236062fb2f7d72bf59f56892a inherit pro_attribs_class_langevin" id="r_a85048c6236062fb2f7d72bf59f56892a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a85048c6236062fb2f7d72bf59f56892a">aux_cell_new</a></td></tr>
+<tr class="memitem:a3e07c2b14ed6a00817fd7e6e915c2f4f inherit pro_attribs_class_langevin" id="r_a3e07c2b14ed6a00817fd7e6e915c2f4f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a3e07c2b14ed6a00817fd7e6e915c2f4f">dt</a></td></tr>
+<tr class="memitem:af70e7a19343cd4c60d87f70c97640c11 inherit pro_attribs_class_langevin" id="r_af70e7a19343cd4c60d87f70c97640c11"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#af70e7a19343cd4c60d87f70c97640c11">dx</a></td></tr>
+<tr class="memitem:a5ec99b2a2dc474377eb58892030d4776 inherit pro_attribs_class_langevin" id="r_a5ec99b2a2dc474377eb58892030d4776"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a5ec99b2a2dc474377eb58892030d4776">dtm</a></td></tr>
+<tr class="memitem:a0be4f6995fa80574be4a4dc5a78136e5 inherit pro_attribs_class_langevin" id="r_a0be4f6995fa80574be4a4dc5a78136e5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a0be4f6995fa80574be4a4dc5a78136e5">dts</a></td></tr>
+<tr class="memitem:ad28c1c755d16768336c3cb3e30838ea7 inherit pro_attribs_class_langevin" id="r_ad28c1c755d16768336c3cb3e30838ea7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#ad28c1c755d16768336c3cb3e30838ea7">lambda</a></td></tr>
+<tr class="memdesc:ad28c1c755d16768336c3cb3e30838ea7 inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method stochastic-step variable.  <br /></td></tr>
+<tr class="memitem:ac0d771998a0ec3824949f78781c6cbca inherit pro_attribs_class_langevin" id="r_ac0d771998a0ec3824949f78781c6cbca"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#ac0d771998a0ec3824949f78781c6cbca">lambda_product</a></td></tr>
+<tr class="memdesc:ac0d771998a0ec3824949f78781c6cbca inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method stochastic-step variable.  <br /></td></tr>
+<tr class="memitem:ab6439951fa23c417ea783fe941015b9e inherit pro_attribs_class_langevin" id="r_ab6439951fa23c417ea783fe941015b9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a93f472db53182f058d0dcf09208ef7e0">int_poisson_dist_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#ab6439951fa23c417ea783fe941015b9e">poisson</a></td></tr>
+<tr class="memdesc:ab6439951fa23c417ea783fe941015b9e inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function generating Poisson variates.  <br /></td></tr>
+<tr class="memitem:a539c7982c85105eb565491a5898e6faa inherit pro_attribs_class_langevin" id="r_a539c7982c85105eb565491a5898e6faa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a07ac2a003d07ae5057ce94a7eb7647c8">dbl_gamma_dist_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a539c7982c85105eb565491a5898e6faa">gamma</a></td></tr>
+<tr class="memdesc:a539c7982c85105eb565491a5898e6faa inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function generating gamma variates.  <br /></td></tr>
+<tr class="memitem:a18e72b5d82ced30bc61af220233b636d inherit pro_attribs_class_langevin" id="r_a18e72b5d82ced30bc61af220233b636d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a1f152047f3e9407ad9f9f466d355636a">dbl_normal_dist_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a18e72b5d82ced30bc61af220233b636d">normal</a></td></tr>
+<tr class="memdesc:a18e72b5d82ced30bc61af220233b636d inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function generating normal variates.  <br /></td></tr>
+<tr class="memitem:acca70d551163153f85b66340753d5904 inherit pro_attribs_class_langevin" id="r_acca70d551163153f85b66340753d5904"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#acca70d551163153f85b66340753d5904">n_cells</a></td></tr>
+<tr class="memdesc:acca70d551163153f85b66340753d5904 inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of cells in n-D grid.  <br /></td></tr>
+<tr class="memitem:a83355d2928b18a9dff4f408c5c02ec1a inherit pro_attribs_class_langevin" id="r_a83355d2928b18a9dff4f408c5c02ec1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a83355d2928b18a9dff4f408c5c02ec1a">cell_density</a></td></tr>
+<tr class="memdesc:a83355d2928b18a9dff4f408c5c02ec1a inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Density field grid.  <br /></td></tr>
+<tr class="memitem:a0fd1061b1bda67f8a4e9a074f73d94e0 inherit pro_attribs_class_langevin" id="r_a0fd1061b1bda67f8a4e9a074f73d94e0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a0fd1061b1bda67f8a4e9a074f73d94e0">mean_density</a></td></tr>
+<tr class="memdesc:a0fd1061b1bda67f8a4e9a074f73d94e0 inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grid-average of density field.  <br /></td></tr>
+<tr class="memitem:acd026d5a5215f0632190d2dbba91ff7a inherit pro_attribs_class_langevin" id="r_acd026d5a5215f0632190d2dbba91ff7a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a></td></tr>
+<tr class="memdesc:acd026d5a5215f0632190d2dbba91ff7a inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Neighorhood topology for all grid cells.  <br /></td></tr>
+<tr class="memitem:a9d4abf4aae8f67d3e9caf06082b4201a inherit pro_attribs_class_langevin" id="r_a9d4abf4aae8f67d3e9caf06082b4201a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a9d4abf4aae8f67d3e9caf06082b4201a">linear_coeff</a></td></tr>
+<tr class="memdesc:a9d4abf4aae8f67d3e9caf06082b4201a inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method coefficient.  <br /></td></tr>
+<tr class="memitem:a4b483786514f90451a08bed6861a2f75 inherit pro_attribs_class_langevin" id="r_a4b483786514f90451a08bed6861a2f75"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_langevin.html#a4b483786514f90451a08bed6861a2f75">noise_coeff</a></td></tr>
+<tr class="memdesc:a4b483786514f90451a08bed6861a2f75 inherit pro_attribs_class_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method coefficient.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Methods implementing deterministic, nonlinear part of <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> eqn. </p>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p><a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of Langevin class integrator.">DPLangevin</a> model application of <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> class integrator. </p>
+
+<p class="definition">Definition at line <a class="el" href="application__dplangevin_8hpp_source.html#l00012">12</a> of file <a class="el" href="application__dplangevin_8hpp_source.html">application_dplangevin.hpp</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7c96523be07813456dc2803557b00daf" name="a7c96523be07813456dc2803557b00daf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c96523be07813456dc2803557b00daf">&#9670;&#160;</a></span>DPLangevin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DPLangevin::DPLangevin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_parameters.html">Parameters</a></td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor when model parameters are passed by the user. </p>
+<p>Redefinition of <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> class constructor. </p>
+
+<p class="definition">Definition at line <a class="el" href="application__dplangevin_8cpp_source.html#l00014">14</a> of file <a class="el" href="application__dplangevin_8cpp_source.html">application_dplangevin.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a15549d3c4cae4939c3263e9704a7af5c" name="a15549d3c4cae4939c3263e9704a7af5c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a15549d3c4cae4939c3263e9704a7af5c">&#9670;&#160;</a></span>nonlinear_rhs()</h2>
 
@@ -221,7 +237,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>noise_coeff</b></td
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const dbl_vec_t &amp;</td>          <td class="paramname"><span class="paramname"><em>field</em></span>&#160;) const</td>
+          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>field</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -231,7 +247,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>noise_coeff</b></td
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="class_langevin.html">Langevin</a>.</p>
+<p>Implementation by <a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of Langevin class integrator.">DPLangevin</a> application. </p>
+
+<p>Reimplemented from <a class="el" href="class_langevin.html#a90748784887de1238eb8e22e8f42b5b2">Langevin</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="application__dplangevin_8cpp_source.html#l00038">38</a> of file <a class="el" href="application__dplangevin_8cpp_source.html">application_dplangevin.cpp</a>.</p>
 
 </div>
 </div>
@@ -258,13 +278,54 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>noise_coeff</b></td
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="class_langevin.html">Langevin</a>.</p>
+<p>Implementation by <a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of Langevin class integrator.">DPLangevin</a> application. </p>
+
+<p>Reimplemented from <a class="el" href="class_langevin.html#a59bb7b2fc20b8094e8289ae50dd417ef">Langevin</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="application__dplangevin_8cpp_source.html#l00031">31</a> of file <a class="el" href="application__dplangevin_8cpp_source.html">application_dplangevin.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="af8a9e4224322e673273c97f047a13416" name="af8a9e4224322e673273c97f047a13416"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8a9e4224322e673273c97f047a13416">&#9670;&#160;</a></span>D</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double DPLangevin::D</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Diffusion coefficient D in DP-Langevin equation. </p>
+
+<p class="definition">Definition at line <a class="el" href="application__dplangevin_8hpp_source.html#l00018">18</a> of file <a class="el" href="application__dplangevin_8hpp_source.html">application_dplangevin.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ad4b3b951467ea5b2997ec31d1eeee1cd" name="ad4b3b951467ea5b2997ec31d1eeee1cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4b3b951467ea5b2997ec31d1eeee1cd">&#9670;&#160;</a></span>quadratic_coeff</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double DPLangevin::quadratic_coeff</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Coefficient in nonlinear term -bρ² in DP-Langevin equation. </p>
+
+<p class="definition">Definition at line <a class="el" href="application__dplangevin_8hpp_source.html#l00016">16</a> of file <a class="el" href="application__dplangevin_8hpp_source.html">application_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="application__dplangevin_8hpp_source.html">application_dplangevin.hpp</a></li>
-<li>src/<a class="el" href="application__dplangevin_8cpp.html">application_dplangevin.cpp</a></li>
+<li>src/<a class="el" href="application__dplangevin_8cpp_source.html">application_dplangevin.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

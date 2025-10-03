@@ -92,22 +92,54 @@ $(function(){initNavTree('wrapper__pybind_8cpp.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Pybind11 wrapper between C++ and Python for DP <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> application.  
+<p>Pybind11 wrapper between C++ and Python for <a class="el" href="class_sim_d_p.html" title="Class to manage &amp; execute model simulation using the DPLangevin integrator.">SimDP</a> application class.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;pybind11/numpy.h&gt;</code><br />
 <code>#include &lt;pybind11/stl.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="application__dplangevin_8hpp_source.html">application_dplangevin.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>&quot;</code><br />
-</div><table class="memberdecls">
+</div>
+<p><a href="wrapper__pybind_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a260583c98d3e428eb1fc79bf477e2528" id="r_a260583c98d3e428eb1fc79bf477e2528"><td class="memItemLeft" align="right" valign="top"><a id="a260583c98d3e428eb1fc79bf477e2528" name="a260583c98d3e428eb1fc79bf477e2528"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PYBIND11_MODULE</b> (dplvn, module)</td></tr>
+<tr class="memitem:a260583c98d3e428eb1fc79bf477e2528" id="r_a260583c98d3e428eb1fc79bf477e2528"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a260583c98d3e428eb1fc79bf477e2528">PYBIND11_MODULE</a> (dplvn, module)</td></tr>
+<tr class="memdesc:a260583c98d3e428eb1fc79bf477e2528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pybind11 wrapper between C++ and Python for <a class="el" href="class_sim_d_p.html" title="Class to manage &amp; execute model simulation using the DPLangevin integrator.">SimDP</a> application.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Pybind11 wrapper between C++ and Python for DP <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> application. </p>
-</div></div><!-- contents -->
+<div class="textblock"><p>Pybind11 wrapper between C++ and Python for <a class="el" href="class_sim_d_p.html" title="Class to manage &amp; execute model simulation using the DPLangevin integrator.">SimDP</a> application class. </p>
+
+<p class="definition">Definition in file <a class="el" href="wrapper__pybind_8cpp_source.html">wrapper_pybind.cpp</a>.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a260583c98d3e428eb1fc79bf477e2528" name="a260583c98d3e428eb1fc79bf477e2528"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a260583c98d3e428eb1fc79bf477e2528">&#9670;&#160;</a></span>PYBIND11_MODULE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PYBIND11_MODULE </td>
+          <td>(</td>
+          <td class="paramtype">dplvn</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">module</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pybind11 wrapper between C++ and Python for <a class="el" href="class_sim_d_p.html" title="Class to manage &amp; execute model simulation using the DPLangevin integrator.">SimDP</a> application. </p>
+<p>Binder exposing the <span class="tt">dplvn</span> module to Python, enabling instantiation of the <a class="el" href="class_sim_d_p.html" title="Class to manage &amp; execute model simulation using the DPLangevin integrator.">SimDP</a> class, and exchange of model parameters and simulation data results. This class exploits the <a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of Langevin class integrator.">DPLangevin</a> integrator, which itself is a subclass of the more general <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> integration scheme.</p>
+<p>This macro expands the parameter <span class="tt">"dplvn"</span> into <span class="tt">pybind11_exec_dplvn</span> and generates the function <span class="tt">pybind11_init_dplvn</span> among others. </p>
+
+<p class="definition">Definition at line <a class="el" href="wrapper__pybind_8cpp_source.html#l00025">25</a> of file <a class="el" href="wrapper__pybind_8cpp_source.html">wrapper_pybind.cpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

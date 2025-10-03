@@ -14,10 +14,10 @@
  * Langevin equation.
  * Includes a method to print out all coefficient values.
  *
- * @param linear Linear constant "a".
- * @param quadratic Nonlinear constant "b".
- * @param diffusion Diffusion rate.
- * @param noise Noise amplitude.
+ * @param linear Coefficient in linear term +aρ.
+ * @param quadratic  Coefficient in nonlinear term -bρ².
+ * @param diffusion Diffusion rate D in diffusion term D∇²ρ.
+ * @param noise Noise amplitude γ in noise term γ√(ρ)η.
  * 
  */
 struct Coefficients 
@@ -29,8 +29,8 @@ public:
     double noise;
     
     Coefficients(
-        double a, double b, double c, double d
-    ) : linear(a), quadratic(b), diffusion(c), noise(d) {}
+        double linear, double quadratic, double diffusion, double noise
+    ) : linear(linear), quadratic(quadratic), diffusion(diffusion), noise(noise) {}
 
     void print() {
         std::cout<< "linear: " << linear << std::endl;

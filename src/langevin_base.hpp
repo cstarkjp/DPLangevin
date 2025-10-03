@@ -17,31 +17,54 @@
 class Langevin
 {
 protected:
-    // Runge-Kutta variables
-    dbl_vec_t k1, k2, k3, k4, aux_cell_old, aux_cell_new;
+    //! Runge-Kutta variable
+    dbl_vec_t k1;
+    //! Runge-Kutta variable
+    dbl_vec_t k2;
+    //! Runge-Kutta variable
+    dbl_vec_t k3;
+    //! Runge-Kutta variable
+    dbl_vec_t k4;
+
+    dbl_vec_t aux_cell_old, aux_cell_new;
+
     double dt, dx, dtm, dts;
 
-    // Dornic method stochastic-step variables
-    double lambda, lambda_product;
+    //! Dornic method stochastic-step variable
+    double lambda;
+    //! Dornic method stochastic-step variable
+    double lambda_product;
+
+    //! Function generating Poisson variates
     int_poisson_dist_t poisson;
+    //! Function generating gamma variates
     dbl_gamma_dist_t gamma;
+    //! Function generating normal variates
     dbl_normal_dist_t normal;
 
-    // Grid variables
+    //! Total number of cells in n-D grid
     int n_cells;
+    //! Density field grid
     dbl_vec_t cell_density;
+    //! Grid-average of density field
     double mean_density;
 
-    // Grid topology
+    //! Neighorhood topology for all grid cells
     std::vector< int_vec_t > neighbors;
 
-    // Dornic method coefficients
-    double linear_coeff, noise_coeff;
+    //! Dornic method coefficient
+    double linear_coeff;
+    //! Dornic method coefficient
+    double noise_coeff;
 
 public:
+    //! Default constructor
     Langevin() = default;
+    //! Method to build 1d density grid and associated grid cell topology vectors
     bool construct_1D_grid(const Parameters parameters);
+    //! Method to build 2d density grid and associated grid cell topology vectors
     bool construct_2D_grid(const Parameters parameters);
+    //! Method to assign uniform random numbers to the initial density field
     void ic_random_uniform(
         rng_t &rng, const double min_value = 0.0, const double max_value = 1.0
     );
@@ -71,8 +94,9 @@ public:
     double get_mean_density() const;
     double get_poisson_mean() const;
 
-    // Defined by the application — these are placeholders
+    //! Method to set nonlinear coefficients for deterministic integration step: to be defined by application
     virtual void set_nonlinear_coefficients(const Coefficients &coefficients) {};
+    //! Method to set nonlinear RHS of Langevin equation for deterministic integration step: to be defined by application
     virtual double nonlinear_rhs(const int i_cell, const dbl_vec_t &field) const 
         { return 0; };
 };

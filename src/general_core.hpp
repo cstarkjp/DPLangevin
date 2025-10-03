@@ -11,13 +11,19 @@
 #include <random>
 #include <pybind11/numpy.h>
 
-// Use Mersenne Twister random number generator
+//! Use Mersenne Twister random number generator
 typedef std::mt19937 rng_t;
+//! Type for vectors of doubles
 typedef std::vector<double> dbl_vec_t;
+//! Type for vectors of integers
 typedef std::vector<int> int_vec_t;
+//! Type for function generating Poisson variates
 typedef std::poisson_distribution<int> int_poisson_dist_t;
+//! Type for function generating gamma variates
 typedef std::gamma_distribution<double> dbl_gamma_dist_t;
+//! Type for function generating Gaussian variates
 typedef std::normal_distribution<double> dbl_normal_dist_t;
+//! Type for function generating uniformly distributed variates
 typedef std::uniform_real_distribution<double> dbl_uniform_dist_t;
 
 #include "general_enums.hpp"
@@ -26,11 +32,13 @@ typedef std::uniform_real_distribution<double> dbl_uniform_dist_t;
 #include "langevin_base.hpp"
 
 namespace py = pybind11;
+//! Type for Python arrays of doubles
 typedef py::array_t<double, py::array::c_style> py_array_t;
 
-// Option to approximate Poisson distribution using Gaussian for large means
+//! Option to approximate Poisson distribution using Gaussian for large means
 #ifndef APPROXIMATE_POISSON_DISTBN
 #define APPROXIMATE_POISSON_DISTBN false
+//! Threshold mean value above which Gaussian approximation should be used
 #ifndef MU_THRESHOLD
 #define MU_THRESHOLD 100.0
 #endif

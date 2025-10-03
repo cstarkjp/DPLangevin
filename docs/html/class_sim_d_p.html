@@ -92,45 +92,329 @@ $(function(){initNavTree('class_sim_d_p.html','','class_sim_d_p-members'); });
 </div><!--header-->
 <div class="contents">
 
-<p>Class to manage &amp; execute model simulation using <a class="el" href="class_d_p_langevin.html" title="Methods implementing deterministic, nonlinear part of Langevin eqn.">DPLangevin</a> integrator.  
+<p>Class to manage &amp; execute model simulation using the <a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of Langevin class integrator.">DPLangevin</a> integrator.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4e5e8163e3b9a33c717ead5a13c3996a" id="r_a4e5e8163e3b9a33c717ead5a13c3996a"><td class="memItemLeft" align="right" valign="top"><a id="a4e5e8163e3b9a33c717ead5a13c3996a" name="a4e5e8163e3b9a33c717ead5a13c3996a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SimDP</b> (const double linear, const double quadratic, const double diffusion, const double noise, const double t_final, const double dx, const double dt, const int random_seed, const GridDimension grid_dimension, const int_vec_t &amp;grid_size, const GridTopology grid_topology, const BoundaryCondition boundary_condition, const InitialCondition initial_condition, const IntegrationMethod integration_method)</td></tr>
-<tr class="memitem:ab65df84b0d1a792f5b4d31376e34fca0" id="r_ab65df84b0d1a792f5b4d31376e34fca0"><td class="memItemLeft" align="right" valign="top"><a id="ab65df84b0d1a792f5b4d31376e34fca0" name="ab65df84b0d1a792f5b4d31376e34fca0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>initialize</b> ()</td></tr>
-<tr class="memitem:a1373e7e03fbe12b058fa9011839ffc19" id="r_a1373e7e03fbe12b058fa9011839ffc19"><td class="memItemLeft" align="right" valign="top"><a id="a1373e7e03fbe12b058fa9011839ffc19" name="a1373e7e03fbe12b058fa9011839ffc19"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> (const int n_next_epochs)</td></tr>
-<tr class="memitem:a81fb3515710a88115470e8b4d1058042" id="r_a81fb3515710a88115470e8b4d1058042"><td class="memItemLeft" align="right" valign="top"><a id="a81fb3515710a88115470e8b4d1058042" name="a81fb3515710a88115470e8b4d1058042"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>process</b> ()</td></tr>
-<tr class="memitem:ad6f805bbe90241bcfb9b8234a9e7ae1e" id="r_ad6f805bbe90241bcfb9b8234a9e7ae1e"><td class="memItemLeft" align="right" valign="top"><a id="ad6f805bbe90241bcfb9b8234a9e7ae1e" name="ad6f805bbe90241bcfb9b8234a9e7ae1e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>get_n_epochs</b> () const</td></tr>
-<tr class="memitem:a0b0f84a1423caae94ccfe6749e478034" id="r_a0b0f84a1423caae94ccfe6749e478034"><td class="memItemLeft" align="right" valign="top"><a id="a0b0f84a1423caae94ccfe6749e478034" name="a0b0f84a1423caae94ccfe6749e478034"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>get_i_current_epoch</b> () const</td></tr>
-<tr class="memitem:adb5f16cc75ca46f6591243b8b33b6f2e" id="r_adb5f16cc75ca46f6591243b8b33b6f2e"><td class="memItemLeft" align="right" valign="top"><a id="adb5f16cc75ca46f6591243b8b33b6f2e" name="adb5f16cc75ca46f6591243b8b33b6f2e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>get_i_next_epoch</b> () const</td></tr>
-<tr class="memitem:aca82f1cbea272e5f270f2c753cb7e804" id="r_aca82f1cbea272e5f270f2c753cb7e804"><td class="memItemLeft" align="right" valign="top"><a id="aca82f1cbea272e5f270f2c753cb7e804" name="aca82f1cbea272e5f270f2c753cb7e804"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>get_t_current_epoch</b> () const</td></tr>
-<tr class="memitem:a966900f7d2285150849cf9b00fbd587d" id="r_a966900f7d2285150849cf9b00fbd587d"><td class="memItemLeft" align="right" valign="top"><a id="a966900f7d2285150849cf9b00fbd587d" name="a966900f7d2285150849cf9b00fbd587d"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>get_t_next_epoch</b> () const</td></tr>
-<tr class="memitem:a8cef17c1366d1c72f409c2bba68b990f" id="r_a8cef17c1366d1c72f409c2bba68b990f"><td class="memItemLeft" align="right" valign="top"><a id="a8cef17c1366d1c72f409c2bba68b990f" name="a8cef17c1366d1c72f409c2bba68b990f"></a>
-py_array_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_t_epochs</b> () const</td></tr>
-<tr class="memitem:ad3f59c2ff9d7abbc4ee296e54f10ead4" id="r_ad3f59c2ff9d7abbc4ee296e54f10ead4"><td class="memItemLeft" align="right" valign="top"><a id="ad3f59c2ff9d7abbc4ee296e54f10ead4" name="ad3f59c2ff9d7abbc4ee296e54f10ead4"></a>
-py_array_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_mean_densities</b> () const</td></tr>
-<tr class="memitem:a373628fc3abfe97695a822987305abd8" id="r_a373628fc3abfe97695a822987305abd8"><td class="memItemLeft" align="right" valign="top"><a id="a373628fc3abfe97695a822987305abd8" name="a373628fc3abfe97695a822987305abd8"></a>
-py_array_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_density</b> () const</td></tr>
+<tr class="memitem:a4e5e8163e3b9a33c717ead5a13c3996a" id="r_a4e5e8163e3b9a33c717ead5a13c3996a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e5e8163e3b9a33c717ead5a13c3996a">SimDP</a> (const double linear, const double quadratic, const double diffusion, const double noise, const double t_final, const double dx, const double dt, const int random_seed, const <a class="el" href="general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a> grid_dimension, const <a class="el" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a> &amp;grid_size, const <a class="el" href="general__enums_8hpp.html#a68f3239e8ec4a7e08e8f21fd2bb264fa">GridTopology</a> grid_topology, const <a class="el" href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a> boundary_condition, const <a class="el" href="general__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a> initial_condition, const <a class="el" href="general__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a> integration_method)</td></tr>
+<tr class="memitem:ab65df84b0d1a792f5b4d31376e34fca0" id="r_ab65df84b0d1a792f5b4d31376e34fca0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab65df84b0d1a792f5b4d31376e34fca0">initialize</a> ()</td></tr>
+<tr class="memitem:a1373e7e03fbe12b058fa9011839ffc19" id="r_a1373e7e03fbe12b058fa9011839ffc19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1373e7e03fbe12b058fa9011839ffc19">run</a> (const int n_next_epochs)</td></tr>
+<tr class="memitem:a81fb3515710a88115470e8b4d1058042" id="r_a81fb3515710a88115470e8b4d1058042"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81fb3515710a88115470e8b4d1058042">process</a> ()</td></tr>
+<tr class="memitem:ad6f805bbe90241bcfb9b8234a9e7ae1e" id="r_ad6f805bbe90241bcfb9b8234a9e7ae1e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6f805bbe90241bcfb9b8234a9e7ae1e">get_n_epochs</a> () const</td></tr>
+<tr class="memitem:a0b0f84a1423caae94ccfe6749e478034" id="r_a0b0f84a1423caae94ccfe6749e478034"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b0f84a1423caae94ccfe6749e478034">get_i_current_epoch</a> () const</td></tr>
+<tr class="memitem:adb5f16cc75ca46f6591243b8b33b6f2e" id="r_adb5f16cc75ca46f6591243b8b33b6f2e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb5f16cc75ca46f6591243b8b33b6f2e">get_i_next_epoch</a> () const</td></tr>
+<tr class="memitem:aca82f1cbea272e5f270f2c753cb7e804" id="r_aca82f1cbea272e5f270f2c753cb7e804"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca82f1cbea272e5f270f2c753cb7e804">get_t_current_epoch</a> () const</td></tr>
+<tr class="memitem:a966900f7d2285150849cf9b00fbd587d" id="r_a966900f7d2285150849cf9b00fbd587d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a966900f7d2285150849cf9b00fbd587d">get_t_next_epoch</a> () const</td></tr>
+<tr class="memitem:a8cef17c1366d1c72f409c2bba68b990f" id="r_a8cef17c1366d1c72f409c2bba68b990f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a6ca910c60cfadd300fe98a7367e87aa8">py_array_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cef17c1366d1c72f409c2bba68b990f">get_t_epochs</a> () const</td></tr>
+<tr class="memitem:ad3f59c2ff9d7abbc4ee296e54f10ead4" id="r_ad3f59c2ff9d7abbc4ee296e54f10ead4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a6ca910c60cfadd300fe98a7367e87aa8">py_array_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3f59c2ff9d7abbc4ee296e54f10ead4">get_mean_densities</a> () const</td></tr>
+<tr class="memitem:a373628fc3abfe97695a822987305abd8" id="r_a373628fc3abfe97695a822987305abd8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a6ca910c60cfadd300fe98a7367e87aa8">py_array_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a373628fc3abfe97695a822987305abd8">get_density</a> () const</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class to manage &amp; execute model simulation using <a class="el" href="class_d_p_langevin.html" title="Methods implementing deterministic, nonlinear part of Langevin eqn.">DPLangevin</a> integrator. </p>
-<p>Class to manage &amp; execute model simulation using an instances of the <a class="el" href="class_d_p_langevin.html" title="Methods implementing deterministic, nonlinear part of Langevin eqn.">DPLangevin</a> integrator class, the <a class="el" href="struct_coefficients.html" title="Container for nonlinear Langevin equation coefficients.">Coefficients</a> struct, and the <a class="el" href="struct_parameters.html" title="Container for Langevin integrator parameters.">Parameters</a> struct. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p>Class to manage &amp; execute model simulation using the <a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of Langevin class integrator.">DPLangevin</a> integrator. </p>
+<p>Class to manage &amp; execute model simulation using an instances of the <a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of Langevin class integrator.">DPLangevin</a> integrator class, the <a class="el" href="struct_coefficients.html" title="Container for nonlinear Langevin equation coefficients.">Coefficients</a> struct, and the <a class="el" href="struct_parameters.html" title="Container for Langevin integrator parameters.">Parameters</a> struct. </p>
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00018">18</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4e5e8163e3b9a33c717ead5a13c3996a" name="a4e5e8163e3b9a33c717ead5a13c3996a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e5e8163e3b9a33c717ead5a13c3996a">&#9670;&#160;</a></span>SimDP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SimDP::SimDP </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>linear</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>quadratic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>diffusion</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>noise</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>t_final</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>dx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>dt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>random_seed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a></td>          <td class="paramname"><span class="paramname"><em>grid_dimension</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>grid_size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="general__enums_8hpp.html#a68f3239e8ec4a7e08e8f21fd2bb264fa">GridTopology</a></td>          <td class="paramname"><span class="paramname"><em>grid_topology</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a></td>          <td class="paramname"><span class="paramname"><em>boundary_condition</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="general__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a></td>          <td class="paramname"><span class="paramname"><em>initial_condition</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="general__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a></td>          <td class="paramname"><span class="paramname"><em>integration_method</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00009">9</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a373628fc3abfe97695a822987305abd8" name="a373628fc3abfe97695a822987305abd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a373628fc3abfe97695a822987305abd8">&#9670;&#160;</a></span>get_density()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="general__core_8hpp.html#a6ca910c60cfadd300fe98a7367e87aa8">py_array_t</a> SimDP::get_density </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00082">82</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0b0f84a1423caae94ccfe6749e478034" name="a0b0f84a1423caae94ccfe6749e478034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b0f84a1423caae94ccfe6749e478034">&#9670;&#160;</a></span>get_i_current_epoch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SimDP::get_i_current_epoch </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00076">76</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+
+</div>
+</div>
+<a id="adb5f16cc75ca46f6591243b8b33b6f2e" name="adb5f16cc75ca46f6591243b8b33b6f2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb5f16cc75ca46f6591243b8b33b6f2e">&#9670;&#160;</a></span>get_i_next_epoch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SimDP::get_i_next_epoch </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00077">77</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad3f59c2ff9d7abbc4ee296e54f10ead4" name="ad3f59c2ff9d7abbc4ee296e54f10ead4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3f59c2ff9d7abbc4ee296e54f10ead4">&#9670;&#160;</a></span>get_mean_densities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="general__core_8hpp.html#a6ca910c60cfadd300fe98a7367e87aa8">py_array_t</a> SimDP::get_mean_densities </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00081">81</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad6f805bbe90241bcfb9b8234a9e7ae1e" name="ad6f805bbe90241bcfb9b8234a9e7ae1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6f805bbe90241bcfb9b8234a9e7ae1e">&#9670;&#160;</a></span>get_n_epochs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SimDP::get_n_epochs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00075">75</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aca82f1cbea272e5f270f2c753cb7e804" name="aca82f1cbea272e5f270f2c753cb7e804"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca82f1cbea272e5f270f2c753cb7e804">&#9670;&#160;</a></span>get_t_current_epoch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double SimDP::get_t_current_epoch </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00078">78</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8cef17c1366d1c72f409c2bba68b990f" name="a8cef17c1366d1c72f409c2bba68b990f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cef17c1366d1c72f409c2bba68b990f">&#9670;&#160;</a></span>get_t_epochs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="general__core_8hpp.html#a6ca910c60cfadd300fe98a7367e87aa8">py_array_t</a> SimDP::get_t_epochs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00080">80</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a966900f7d2285150849cf9b00fbd587d" name="a966900f7d2285150849cf9b00fbd587d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a966900f7d2285150849cf9b00fbd587d">&#9670;&#160;</a></span>get_t_next_epoch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double SimDP::get_t_next_epoch </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00079">79</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab65df84b0d1a792f5b4d31376e34fca0" name="ab65df84b0d1a792f5b4d31376e34fca0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab65df84b0d1a792f5b4d31376e34fca0">&#9670;&#160;</a></span>initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SimDP::initialize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00030">30</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a81fb3515710a88115470e8b4d1058042" name="a81fb3515710a88115470e8b4d1058042"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81fb3515710a88115470e8b4d1058042">&#9670;&#160;</a></span>process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SimDP::process </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00062">62</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1373e7e03fbe12b058fa9011839ffc19" name="a1373e7e03fbe12b058fa9011839ffc19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1373e7e03fbe12b058fa9011839ffc19">&#9670;&#160;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SimDP::run </td>
+          <td>(</td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>n_next_epochs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00046">46</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a></li>
-<li>src/<a class="el" href="application__dpsim__private_8cpp.html">application_dpsim_private.cpp</a></li>
-<li>src/<a class="el" href="application__dpsim__public_8cpp.html">application_dpsim_public.cpp</a></li>
+<li>src/<a class="el" href="application__dpsim__private_8cpp_source.html">application_dpsim_private.cpp</a></li>
+<li>src/<a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
