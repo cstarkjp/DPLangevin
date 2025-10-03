@@ -1,4 +1,4 @@
-name: Doxygen GitHub Pages Deploy Action
+name: Doxygen gh-pages deploy action
 
 on:
   release:
@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
+#   workflow_dispatch:
 
 jobs:
   deploy:
