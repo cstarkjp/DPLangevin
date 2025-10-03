@@ -41,7 +41,7 @@ At the lower level, the code is split into three groups, each denoted by one of 
    1. The `application_` source files implement specific uses of the operator-splitting integration method. For now, the only implemented application is to solve the directed-percolation (DP) Langevin equation. 
    This implementation is split into a "simulation" part (`application_dpsim_` files) and an "integrator" part (`application_dplangevin_` files). 
 
-       The `application_dpsim_` files provide a `SimDP` class, made available through the wrapper at the Python level, required to manage and execute DP Langevin model integration.  Each instance of the `SimDP` class instantiates a `DPLangevin` class integrator to do the hard work of numerical integration of the stochastic differential equation.
+      The `application_dpsim_` files provide a `SimDP` class, made available through the wrapper at the Python level, required to manage and execute DP Langevin model integration.  Each instance of the `SimDP` class instantiates a `DPLangevin` class integrator to do the hard work of numerical integration of the stochastic differential equation.
 
        The `application_dplangevin_` files define this `DPLangevin` integrator class. They inherit the general `Langevin` integrator class and implement several methods left undefined by that parent; most important, they define methods implementing the particular functional form of the directed-percolation Langevin equation and its corresponding nonlinear, deterministic integration step in the split operator scheme.
 
