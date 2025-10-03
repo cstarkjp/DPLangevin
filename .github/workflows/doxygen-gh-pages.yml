@@ -1,12 +1,12 @@
 name: Doxygen GitHub Pages Deploy Action
 
 on:
-#   release:
-#     types: [published]
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  release:
+    types: [published]
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:
 
 jobs:
   deploy:
