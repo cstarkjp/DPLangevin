@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DP Langevin: DP Langevin: &lt;tt&gt;dplvn&lt;/tt&gt;</title>
+<title>DP Langevin: DP Langevin</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,14 +88,14 @@ $(function(){initNavTree('md__r_e_a_d_m_e.html','',''); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">DP Langevin: <span class="tt">dplvn</span> </div></div>
+  <div class="headertitle"><div class="title">DP Langevin </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
 Operator-splitting method for integrating Langevin equations of directed percolation (DP) type</h1>
 <p><img src="https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/test/density_grid.png" alt="" title="Density grid" class="inline"/></p>
-<p>Python/C++ code for integrating the directed-percolation (DP) <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> equation — and more generally, for integrating <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> equations that represent absorbing phase transitions.</p>
+<p><span class="tt">dplvn</span>: A Python/C++ package for integrating the directed-percolation (DP) <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> equation — and more generally, for integrating <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> equations that represent absorbing phase transitions.</p>
 <p>The package implements the operator-splitting method originally developed by Dornic et al (2005), Pechenik &amp; Levine (1999) and others, and improved upon by Weissmann et al (2018). It provides a Python wrapper around core C++ heavily adapted from a code base written by <a href="https://github.com/pvillamartin">Paula Villa Martín</a>, extended by <a href="https://github.com/VictorSeven">Victor Buendía</a>, and arising from earlier efforts by Ivan Dornic and Juan Bonachela. The wrapper provides easy access to the <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> integrator, and broad opportunity to experiment, adapt, and extend it further.</p>
 <p><img src="https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/test/meandensity_time.png" alt="" title="Mean density over time" class="inline"/></p>
 <p>The equation solved in the demo here is the DP <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> for a 2D grid with initial values sampled from U[0,1]:</p>

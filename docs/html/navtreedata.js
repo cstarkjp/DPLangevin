@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "DP Langevin", "index.html", [
-    [ "DP Langevin: <span class=\"tt\">dplvn</span>", "md__r_e_a_d_m_e.html", [
+    [ "DP Langevin", "md__r_e_a_d_m_e.html", [
       [ "Operator-splitting method for integrating Langevin equations of directed percolation (DP) type", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
       [ "Program design", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
       [ "Installation", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
