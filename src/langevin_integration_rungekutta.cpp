@@ -1,5 +1,5 @@
 /**
- * @file langevin_rungekutta.cpp
+ * @file langevin_integration_rungekutta.cpp
  * @brief Methods to carry out 4th-order Runge-Kutta integration.
  */
 
