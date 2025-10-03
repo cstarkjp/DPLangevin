@@ -3,8 +3,8 @@
   - [x] Return successive cell density grids to Python after each sim segment
   - [x] Mod test py to generate a set of successive grids
   - [x] Mod test nb to generate a set of successive grid images
-  - [ ] Generate an animation from such a set of images
-  - [ ] Test periodic topology again
+  - [x] Generate an animation from such a set of images
+  - [x] Test periodic topology again
   - [ ] Implement distinct x/y/z topologies
   - [ ] Implement fixed value bcs on each boundary
   - [ ] Implement fixed flux bcs on each boundary
