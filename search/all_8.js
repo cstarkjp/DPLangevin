@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['langevin_0',['Langevin',['../classLangevin.html',1,'']]],
+  ['langevin_0',['Langevin',['../md_README.html',1,'DP Langevin'],['../classLangevin.html',1,'Langevin']]],
   ['langevin_20equations_20of_20directed_20percolation_20dp_20type_1',['Operator-splitting method for integrating Langevin equations of directed percolation (DP) type',['../md_README.html#autotoc_md1',1,'']]],
   ['langevin_5fbase_2ehpp_2',['langevin_base.hpp',['../langevin__base_8hpp.html',1,'']]],
   ['langevin_5fgrid_5f1d_2ecpp_3',['langevin_grid_1d.cpp',['../langevin__grid__1d_8cpp.html',1,'']]],
