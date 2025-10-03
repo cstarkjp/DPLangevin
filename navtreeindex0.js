@@ -31,7 +31,9 @@ var NAVTREEINDEX0 =
 "langevin__grid__2d_8cpp.html":[3,0,0,11],
 "langevin__initial__condition_8cpp.html":[3,0,0,12],
 "langevin__initialization_8cpp.html":[3,0,0,13],
-"langevin__utils_8cpp.html":[3,0,0,14],
+"langevin__integration__euler_8cpp.html":[3,0,0,14],
+"langevin__integration__rungekutta_8cpp.html":[3,0,0,15],
+"langevin__utils_8cpp.html":[3,0,0,16],
 "md_README.html":[0],
 "md_README.html#autotoc_md1":[0,0],
 "md_README.html#autotoc_md2":[0,1],
@@ -43,5 +45,5 @@ var NAVTREEINDEX0 =
 "pages.html":[],
 "structCoefficients.html":[2,0,0],
 "structParameters.html":[2,0,3],
-"wrapper__pybind_8cpp.html":[3,0,0,15]
+"wrapper__pybind_8cpp.html":[3,0,0,17]
 };
