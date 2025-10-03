@@ -1,4 +1,4 @@
-# `dplvn`
+# DP Langevin: `dplvn`
 ## Operator-splitting method for integrating Langevin equations of directed percolation (DP) type
 
 <!-- ![](test/meandensity_time.png "Results of demo DP integration") -->
