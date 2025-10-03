@@ -5,7 +5,7 @@ The structure of the DP/APT Langevin-equation integrator package is broadly as f
 (access the pertinent source `C++` files 
 [here](https://github.com/cstarkjp/DPLangevin/tree/main/src/)).
 
-At the top level, there is a wrapper file called [`wrapper_pybind.cpp`](https://github.com/cstarkjp/DPLangevin/tree/main/src/wrapper_pybind.cpp) that uses `pybind11` to link the `C++` code to a Python runtime. It `#include`s the "application" and core header files.
+At the top level, there is a wrapper file called [`wrapper_pybind.cpp`](https://github.com/cstarkjp/DPLangevin/tree/main/src/wrapper_pybind.cpp) that uses `pybind11` to link the `C++` code to a Python runtime. It `#include`'s the "application" and core header files.
 
 At the lower level, the code is split into three groups, each denoted by one of three file prefixes: (1) `application_`, (2) `langevin_` or (3) `general_`:
 
@@ -19,4 +19,4 @@ At the lower level, the code is split into three groups, each denoted by one of 
 
    2. The `langevin_` source files provide the base `Langevin` class that implements the operator-splitting integration method in a fairly general fashion. Grid geometry and topology, boundary conditions, initial conditions, the integration scheme, and a general form of the Langevin equation are all coded here. Some of these methods are heavily altered versions of the Villa-Martín and Buendían code; others remain very similar to their original implementations.
 
-   3. The `general_` source files provide the basic stuff used throughout the code, notably the `typedef`s, `struct`s, `enum`s, and macros.
+   3. The `general_` source files provide the basic stuff used throughout the code, notably the `typedefs`, `structs`, `enums`, and macros.
