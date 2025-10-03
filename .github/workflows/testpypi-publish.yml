@@ -1,9 +1,11 @@
 name: Upload Python Package to TestPyPI
 
 on:
-  push:
-    # branches:
-    #   - main
+  release:
+    types: [published]
+  # push:
+  #   branches:
+  #     - main
 
 permissions:
   contents: read

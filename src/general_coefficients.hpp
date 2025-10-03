@@ -7,8 +7,6 @@
 #define COEFFICIENTS_HPP
 
 /**
- * @brief Container for nonlinear Langevin equation coefficients.
- *
  * Container for the set of coefficients in the nonlinear Langevin 
  * equation to be integrated, which here is the directed percolation (DP)
  * Langevin equation.

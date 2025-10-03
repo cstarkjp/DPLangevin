@@ -48,5 +48,5 @@ classifiers = [
 [project.urls]
 homepage = "https://github.com/cstarkjp/DPLangevin"
 repository = "https://github.com/cstarkjp/DPLangevin"
-documentation = "https://github.com/cstarkjp/DPLangevin"
+documentation = "https://cstarkjp.github.io/DPLangevin"
 # "Bug Tracker" = "https://github.com/cstarkjp/DPLangevin"
