@@ -9,9 +9,9 @@
 #include "application_dplangevin.hpp"
 
 /**
- * Class to manage & execute Langevin model simulation using DPLangevin integrator.
+ * @brief Class to manage & execute Langevin model simulation.
  *
- * 
+ * Class to manage & execute Langevin model simulation using DPLangevin integrator.
  */
 class SimDP 
 {
