@@ -1,9 +1,7 @@
-// 
-// "Dornic" operator-splitting method of integrating DP-type Langevin equations
-//   adapted from code by Paula Villa Martín and Victor Buendía.
-//
-// CPS 2025-09-02
-// 
+/**
+ * @file langevin_base.hpp
+ * @brief Base class for Langevin equation integrator.
+ */
 
 #ifndef BASE_HPP
 #define BASE_HPP
@@ -11,6 +9,11 @@
 #include "general_coefficients.hpp"
 #include "general_parameters.hpp"
 
+/**
+ * @brief Base class for Langevin equation integrator.
+ * 
+ * 
+ */
 class Langevin
 {
 protected:

@@ -1,9 +1,7 @@
-// 
-// "Dornic" operator-splitting method of integrating DP-type Langevin equations
-//   adapted from code by Paula Villa Martín and Victor Buendía.
-//
-// CPS 2025-09-02
-// 
+/**
+ * @file langevin_utils.cpp
+ * @brief Utility methods to process the Langevin field grid.
+ */
 
 #include "general_core.hpp"
 

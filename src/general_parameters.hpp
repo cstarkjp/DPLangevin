@@ -1,12 +1,22 @@
-// 
-// "Dornic" operator-splitting method of integrating DP-type Langevin equations
-//   adapted from code by Paula Villa Martín and Victor Buendía.
-//
-// CPS 2025-09-02
-// 
+/**
+ * @file general_parameters.hpp
+ * @brief Container for Langevin integrator parameters.
+ * 
+ * Container for Langevin integrator parameters.
+ * Includes method to print most/all of these parameters,
+ * using overloaded methods to report struct-type parameters.
+ * The constructor does a modicum of computation to deduce grid
+ * dimensions.
+ */
 
 #ifndef PARAMETERS_HPP
 #define PARAMETERS_HPP
+
+/**
+ * @brief Container for Langevin integrator parameters.
+ * 
+ * 
+ */
 struct Parameters 
 {
 public:

@@ -1,9 +1,7 @@
-// 
-// "Dornic" operator-splitting method of integrating DP-type Langevin equations
-//   adapted from code by Paula Villa Martín and Victor Buendía.
-//
-// CPS 2025-09-02
-// 
+/**
+ * @file langevin_initial_condition.cpp
+ * @brief Methods for setting up the initial condition of the Langevin model.
+ */
 
 #include "general_core.hpp"
 

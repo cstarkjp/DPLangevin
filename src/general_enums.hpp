@@ -1,9 +1,11 @@
-// 
-// "Dornic" operator-splitting method of integrating DP-type Langevin equations
-//   adapted from code by Paula Villa Martín and Victor Buendía.
-//
-// CPS 2025-09-02
-// 
+/**
+ * @file general_enums.hpp
+ * @brief Enumerated parameter options.
+ * 
+ * Parameter options as enums, used in both C++ and Python, used to choose 
+ * e.g. suitable grid geometries, topologies, boundary and initial conditions, 
+ * and the lowest-level integration method.
+ */
 
 #ifndef ENUMS_HPP
 #define ENUMS_HPP

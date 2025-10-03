@@ -1,9 +1,7 @@
-// 
-// "Dornic" operator-splitting method of integrating DP-type Langevin equations
-//   adapted from code by Paula Villa Martín and Victor Buendía.
-//
-// CPS 2025-09-02
-// 
+/**
+ * @file application_dpsim_public.cpp
+ * @brief Class to manage & execute Langevin model simulation: public methods.
+ */ 
 
 #include "general_core.hpp"
 #include "application_dpsim.hpp"

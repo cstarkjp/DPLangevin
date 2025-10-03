@@ -1,13 +1,25 @@
-// 
-// "Dornic" operator-splitting method of integrating DP-type Langevin equations
-//   adapted from code by Paula Villa Martín and Victor Buendía.
-//
-// CPS 2025-09-02
-// 
+/**
+ * @file general_coefficients.hpp
+ * @brief Container for nonlinear Langevin equation coefficients.
+ */
 
 #ifndef COEFFICIENTS_HPP
 #define COEFFICIENTS_HPP
 
+/**
+ * @brief Container for nonlinear Langevin equation coefficients.
+ *
+ * Container for the set of coefficients in the nonlinear Langevin 
+ * equation to be integrated, which here is the directed percolation (DP)
+ * Langevin equation.
+ * Includes a method to print out all coefficient values.
+ *
+ * @param linear Linear constant "a".
+ * @param quadratic Nonlinear constant "b".
+ * @param diffusion Diffusion rate.
+ * @param noise Noise amplitude.
+ * 
+ */
 struct Coefficients 
 {
 public:
