@@ -1,15 +1,18 @@
-// 
-// "Dornic" operator-splitting method of integrating DP-type Langevin equations
-//   adapted from code by Paula Villa Martín and Victor Buendía.
-//
-// CPS 2025-09-02
-// 
+/**
+ * @file application_dpsim.hpp
+ * @brief Class to manage & execute Langevin model simulation.
+ */ 
 
 #ifndef SIMDP_HPP
 #define SIMDP_HPP
 
 #include "application_dplangevin.hpp"
 
+/**
+ * @brief Class to manage & execute Langevin model simulation.
+ *
+ * 
+ */
 class SimDP 
 {
 private:

@@ -1,10 +1,8 @@
-// 
-// "Dornic" operator-splitting method of integrating DP-type Langevin equations
-//   adapted from code by Paula Villa Martín and Victor Buendía.
-//
-// CPS 2025-09-02
-// 
-// 
+/**
+ * @file wrapper_pybind.cpp
+ * @brief Pybind11 wrapper between C++ and Python for DP Langevin application.
+ */
+
 #include <pybind11/numpy.h>
 // Essential for STL container conversions
 #include <pybind11/stl.h> 

@@ -1,9 +1,7 @@
-// 
-// "Dornic" operator-splitting method of integrating DP-type Langevin equations
-//   adapted from code by Paula Villa Martín and Victor Buendía.
-//
-// CPS 2025-09-02
-// 
+/**
+ * @file langevin_rungekutta.cpp
+ * @brief Methods to carry out 4th-order Runge-Kutta integration.
+ */
 
 #include "general_core.hpp"
 
