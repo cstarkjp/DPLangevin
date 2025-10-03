@@ -1,7 +1,11 @@
+#
+# Configuration file for Meson build system.
+#
+
 project(
     'DPLangevin',
     'cpp',
-    version: '2025.09.27a2',
+    version: '2025.10.03a',
     default_options: ['cpp_std=c++11'],
 )
 add_project_arguments('-Ofast', '-g3', language : 'cpp')
@@ -17,7 +21,7 @@ cpp_sources = files(
     'src/application_dplangevin.cpp', 
     'src/application_dpsim_public.cpp', 
     'src/application_dpsim_private.cpp', 
-    'src/application_pybind.cpp'
+    'src/wrapper_pybind.cpp'
 )
 
 pybind11_dep = dependency('pybind11')
