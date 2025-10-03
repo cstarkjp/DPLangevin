@@ -9,7 +9,7 @@
 #include "application_dplangevin.hpp"
 
 /**
- * @brief Class to manage & execute Langevin model simulation.
+ * Class to manage & execute Langevin model simulation.
  *
  * 
  */
