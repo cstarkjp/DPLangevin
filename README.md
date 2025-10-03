@@ -1,4 +1,4 @@
-# DP Langevin: `dplvn`
+# DP Langevin
 ## Operator-splitting method for integrating Langevin equations of directed percolation (DP) type
 
 <!-- ![](test/meandensity_time.png "Results of demo DP integration") -->
@@ -6,7 +6,7 @@
 ![](https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/test/density_grid.png
  "Density grid")
 
-Python/C++ code for integrating the directed-percolation (DP) Langevin equation — and more generally, for integrating Langevin equations that represent absorbing phase transitions. 
+`dplvn`: A Python/C++ package for integrating the directed-percolation (DP) Langevin equation — and more generally, for integrating Langevin equations that represent absorbing phase transitions. 
 
 The package implements the operator-splitting method originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
 It provides a Python wrapper around core C++ heavily adapted from a code base written by [Paula Villa Martín](https://github.com/pvillamartin), extended by [Victor Buendía](https://github.com/VictorSeven), and arising from earlier efforts by Ivan Dornic and Juan Bonachela. The wrapper provides easy access to the Langevin integrator, and broad opportunity to experiment, adapt, and extend it further.
