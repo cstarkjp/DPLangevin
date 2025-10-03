@@ -16,7 +16,7 @@ It provides a Python wrapper around core C++ heavily adapted from a code base wr
 
 The equation solved in the demo here is the DP Langevin for a 2D grid with initial values sampled from U[0,1]: 
 
-![](https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/doc/dplangevin_equation.png
+![](https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/images/dplangevin_equation.png
  "DP Langevin equation")
 
 
