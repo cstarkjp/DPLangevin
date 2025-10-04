@@ -17,7 +17,7 @@ A similar test is provided in the Jupyter notebook
 but the final density grid is also plotted as an image, and the mean-density time series is graphed. Both plots are exported to PNG files.
 
 If you build from source, you will need to point Python to your local build of `dplvn`. 
-Comment out the lines:
+Uncomment the lines:
 
     import sys, os
     sys.path.insert(0, os.path.join(os.path.pardir, "build"))
