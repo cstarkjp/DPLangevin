@@ -1,6 +1,6 @@
 /**
  * @file application_dplangevin.cpp
- * @brief Methods implementing deterministic, nonlinear part of Langevin eqn.
+ * @brief Redefinition of BaseLangevin constructor; implementation of stub methods.
  */
 
 #include <pybind11/numpy.h>
@@ -8,12 +8,15 @@
 #include "general_core.hpp"
 #include "application_dplangevin.hpp"
 
+/**
+ * @brief Redefinition of BaseLangevin class constructor
+ */
 DPLangevin::DPLangevin(Parameters p)
 {
     n_cells = p.n_cells;
-    cell_density = dbl_vec_t(n_cells, 0.0); 
-    aux_cell_new = dbl_vec_t(n_cells);
-    aux_cell_old = dbl_vec_t(n_cells);
+    density_grid = dbl_vec_t(n_cells, 0.0); 
+    density_grid_aux_new = dbl_vec_t(n_cells);
+    density_grid_aux_old = dbl_vec_t(n_cells);
     k1 = dbl_vec_t(n_cells, 0.0);
     k2 = dbl_vec_t(n_cells, 0.0);
     k3 = dbl_vec_t(n_cells, 0.0);
@@ -24,15 +27,19 @@ DPLangevin::DPLangevin(Parameters p)
     dts = dt/6.0;
 }
 
+//! Method to set nonlinear coefficients in DP Langevin equation 
+//! for deterministic integration step
 void DPLangevin::set_nonlinear_coefficients(const Coefficients &coefficients)
 {
     quadratic_coeff = coefficients.quadratic;
     D = coefficients.diffusion / (dx*dx);
 }
 
+//! Method to set nonlinear RHS of DP Langevin equation 
+//! for deterministic integration step
 double DPLangevin::nonlinear_rhs(const int i_cell, const dbl_vec_t &field) const
 {
-    // Non-linear terms
+    // Non-linear term, which is quadratic in the DP Langevin
     const double quadratic_term 
         = -quadratic_coeff*field[i_cell]*field[i_cell];
 

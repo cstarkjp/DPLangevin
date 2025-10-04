@@ -1,6 +1,6 @@
 /**
  * @file application_dpsim_private.cpp
- * @brief Class to manage & execute Langevin model simulation: private methods.
+ * @brief Class to manage & execute DPLangevin model simulation: private methods.
  */ 
 
 #include "general_core.hpp"
@@ -117,7 +117,7 @@ bool SimDP::prep_mean_densities()
     return true;
 }
 
-bool SimDP::prep_density()
+bool SimDP::prep_density_grid()
 {
     if (not (p.n_cells == p.n_x * p.n_y * p.n_z)) { 
         std::cout << "prep_density: grid size problem" << std::endl;
@@ -132,7 +132,7 @@ bool SimDP::prep_density()
         i_x = i % p.n_x;
         i_y = i / p.n_x;
         // std::cout << i << " " << i_x << " " << i_y << " " << std::endl;
-        density_proxy(i_x, i_y) = dpLangevin->get_cell_density(i);
+        density_proxy(i_x, i_y) = dpLangevin->get_density_grid_value(i);
     };
     return_density = density_array;
     return true;

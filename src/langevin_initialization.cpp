@@ -5,25 +5,27 @@
 
 #include "general_core.hpp"
 
-// Set all the parameters
-void Langevin::set_coefficients(const Coefficients &coefficients)
+//! Set the Langevin equation coefficients and "lambda" coefficients
+void BaseLangevin::set_coefficients(const Coefficients &coefficients)
 {
     set_essential_coefficients(coefficients);
     set_nonlinear_coefficients(coefficients);
     set_lambdas();
 }
 
-// Coefficients needed to integrate linear + noise parts
-void Langevin::set_essential_coefficients(const Coefficients &coefficients)
+//! Set the Langevin equation coefficients
+void BaseLangevin::set_essential_coefficients(const Coefficients &coefficients)
 {
     linear_coeff = coefficients.linear;
     noise_coeff = coefficients.noise;
 }
 
-void Langevin::set_lambdas(void)
+//! Set "lambda" coefficients used in Poisson and gamma sampling
+void BaseLangevin::set_lambdas(void)
 {
     double lambda_const = 2.0/(noise_coeff*noise_coeff);
     double lambda_exp = exp(-linear_coeff*dt);
+    // Used in sampling gamma distribution
     lambda = lambda_const*linear_coeff*lambda_exp/(1.0-lambda_exp);
     lambda_product = lambda/lambda_exp;
 }

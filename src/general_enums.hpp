@@ -1,6 +1,6 @@
 /**
  * @file general_enums.hpp
- * @brief Enumerated parameter options.
+ * @brief Enumerated parameter options for BaseLangevin integrator.
  * 
  * Parameter options as enums, used in both C++ and Python, used to choose 
  * e.g. suitable grid geometries, topologies, boundary and initial conditions, 
@@ -10,6 +10,7 @@
 #ifndef ENUMS_HPP
 #define ENUMS_HPP
 
+//! Density field grid dimension: only 1D or 2D grids implemented so far
 enum class GridDimension
 {
     D1 = 1,
@@ -18,12 +19,14 @@ enum class GridDimension
     D4 = 4
 };
 
+//! Grid boundary topology: only bounded or periodic (along all edges) implemented so far
 enum class GridTopology
 {
     BOUNDED = 1,
     PERIODIC = 2
 };
 
+//! Grid boundary condition: floating/fixed value/fixed flux; application equally to all edges only for now
 enum class BoundaryCondition
 {
     FLOATING = 1,
@@ -31,6 +34,7 @@ enum class BoundaryCondition
     FIXED_FLUX = 3
 };
 
+//! Grid density field initial condition: random uniform or Gaussian variates; constant everywhere; or central seed value
 enum class InitialCondition
 {
     RANDOM_UNIFORM = 1,
@@ -39,6 +43,7 @@ enum class InitialCondition
     SINGLE_SEED = 4
 };
 
+//! Deterministic integration method: default is 4th-order Runge-Kutta; can be explicit Euler
 enum class IntegrationMethod
 {
     EULER = 1,

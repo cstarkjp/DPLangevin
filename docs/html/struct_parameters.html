@@ -92,62 +92,530 @@ $(function(){initNavTree('struct_parameters.html','','struct_parameters-members'
 </div><!--header-->
 <div class="contents">
 
-<p>Container for <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> integrator parameters.  
+<p>Container for <a class="el" href="class_base_langevin.html" title="Base class for Langevin equation integrator.">BaseLangevin</a> integrator parameters.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3dd04ee9be18f0af4b39dfa0013d7ccb" id="r_a3dd04ee9be18f0af4b39dfa0013d7ccb"><td class="memItemLeft" align="right" valign="top"><a id="a3dd04ee9be18f0af4b39dfa0013d7ccb" name="a3dd04ee9be18f0af4b39dfa0013d7ccb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Parameters</b> (const double t_final, const double dx, const double dt, const int rs, const GridDimension gd, const int_vec_t &amp;gs, const GridTopology gt, const BoundaryCondition bc, const InitialCondition ic, const IntegrationMethod im)</td></tr>
-<tr class="memitem:a2ff3cfce2dc60669639765b849c47bb3" id="r_a2ff3cfce2dc60669639765b849c47bb3"><td class="memItemLeft" align="right" valign="top"><a id="a2ff3cfce2dc60669639765b849c47bb3" name="a2ff3cfce2dc60669639765b849c47bb3"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>report</b> (GridDimension gd)</td></tr>
-<tr class="memitem:ad9fcda150974deeab02b6896651d0f25" id="r_ad9fcda150974deeab02b6896651d0f25"><td class="memItemLeft" align="right" valign="top"><a id="ad9fcda150974deeab02b6896651d0f25" name="ad9fcda150974deeab02b6896651d0f25"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>report</b> (GridTopology gt)</td></tr>
-<tr class="memitem:a9f1ea851b7963d20270ec1dbc722aa4c" id="r_a9f1ea851b7963d20270ec1dbc722aa4c"><td class="memItemLeft" align="right" valign="top"><a id="a9f1ea851b7963d20270ec1dbc722aa4c" name="a9f1ea851b7963d20270ec1dbc722aa4c"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>report</b> (BoundaryCondition bc)</td></tr>
-<tr class="memitem:ae7db707fb8247f8ef19fcd2adf3f7ad2" id="r_ae7db707fb8247f8ef19fcd2adf3f7ad2"><td class="memItemLeft" align="right" valign="top"><a id="ae7db707fb8247f8ef19fcd2adf3f7ad2" name="ae7db707fb8247f8ef19fcd2adf3f7ad2"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>report</b> (InitialCondition ic)</td></tr>
-<tr class="memitem:aab4a940450445ebf7f71544fcb3ab0f8" id="r_aab4a940450445ebf7f71544fcb3ab0f8"><td class="memItemLeft" align="right" valign="top"><a id="aab4a940450445ebf7f71544fcb3ab0f8" name="aab4a940450445ebf7f71544fcb3ab0f8"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>report</b> (IntegrationMethod im)</td></tr>
-<tr class="memitem:a2c70c08a5aefdf0433d87b537fbf00fd" id="r_a2c70c08a5aefdf0433d87b537fbf00fd"><td class="memItemLeft" align="right" valign="top"><a id="a2c70c08a5aefdf0433d87b537fbf00fd" name="a2c70c08a5aefdf0433d87b537fbf00fd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
+<tr class="memitem:a3dd04ee9be18f0af4b39dfa0013d7ccb" id="r_a3dd04ee9be18f0af4b39dfa0013d7ccb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dd04ee9be18f0af4b39dfa0013d7ccb">Parameters</a> (const double t_final, const double dx, const double dt, const int rs, const <a class="el" href="general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a> gd, const <a class="el" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a> &amp;gs, const <a class="el" href="general__enums_8hpp.html#a68f3239e8ec4a7e08e8f21fd2bb264fa">GridTopology</a> gt, const <a class="el" href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a> bc, const <a class="el" href="general__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a> ic, const <a class="el" href="general__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a> im)</td></tr>
+<tr class="memitem:a2ff3cfce2dc60669639765b849c47bb3" id="r_a2ff3cfce2dc60669639765b849c47bb3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ff3cfce2dc60669639765b849c47bb3">report</a> (<a class="el" href="general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a> gd)</td></tr>
+<tr class="memitem:ad9fcda150974deeab02b6896651d0f25" id="r_ad9fcda150974deeab02b6896651d0f25"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9fcda150974deeab02b6896651d0f25">report</a> (<a class="el" href="general__enums_8hpp.html#a68f3239e8ec4a7e08e8f21fd2bb264fa">GridTopology</a> gt)</td></tr>
+<tr class="memitem:a9f1ea851b7963d20270ec1dbc722aa4c" id="r_a9f1ea851b7963d20270ec1dbc722aa4c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f1ea851b7963d20270ec1dbc722aa4c">report</a> (<a class="el" href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a> bc)</td></tr>
+<tr class="memitem:ae7db707fb8247f8ef19fcd2adf3f7ad2" id="r_ae7db707fb8247f8ef19fcd2adf3f7ad2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7db707fb8247f8ef19fcd2adf3f7ad2">report</a> (<a class="el" href="general__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a> ic)</td></tr>
+<tr class="memitem:aab4a940450445ebf7f71544fcb3ab0f8" id="r_aab4a940450445ebf7f71544fcb3ab0f8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab4a940450445ebf7f71544fcb3ab0f8">report</a> (<a class="el" href="general__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a> im)</td></tr>
+<tr class="memitem:a2c70c08a5aefdf0433d87b537fbf00fd" id="r_a2c70c08a5aefdf0433d87b537fbf00fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c70c08a5aefdf0433d87b537fbf00fd">print</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a4d904e1b6daac65f2d6ae7514ceab50d" id="r_a4d904e1b6daac65f2d6ae7514ceab50d"><td class="memItemLeft" align="right" valign="top"><a id="a4d904e1b6daac65f2d6ae7514ceab50d" name="a4d904e1b6daac65f2d6ae7514ceab50d"></a>
-const double&#160;</td><td class="memItemRight" valign="bottom"><b>t_final</b> =0</td></tr>
-<tr class="memitem:ab0d1e0c40c5c694a832283e5acbf5728" id="r_ab0d1e0c40c5c694a832283e5acbf5728"><td class="memItemLeft" align="right" valign="top"><a id="ab0d1e0c40c5c694a832283e5acbf5728" name="ab0d1e0c40c5c694a832283e5acbf5728"></a>
-const double&#160;</td><td class="memItemRight" valign="bottom"><b>dx</b> =0</td></tr>
-<tr class="memitem:ab64d7d074a27871ff23552c13cf5c4b5" id="r_ab64d7d074a27871ff23552c13cf5c4b5"><td class="memItemLeft" align="right" valign="top"><a id="ab64d7d074a27871ff23552c13cf5c4b5" name="ab64d7d074a27871ff23552c13cf5c4b5"></a>
-const double&#160;</td><td class="memItemRight" valign="bottom"><b>dt</b> =0</td></tr>
-<tr class="memitem:a1e75b88d2dd86cc9afb139b9617517de" id="r_a1e75b88d2dd86cc9afb139b9617517de"><td class="memItemLeft" align="right" valign="top"><a id="a1e75b88d2dd86cc9afb139b9617517de" name="a1e75b88d2dd86cc9afb139b9617517de"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>random_seed</b> =0</td></tr>
-<tr class="memitem:a05da0212e4e5bb8df70bf0c7f8dd52cc" id="r_a05da0212e4e5bb8df70bf0c7f8dd52cc"><td class="memItemLeft" align="right" valign="top"><a id="a05da0212e4e5bb8df70bf0c7f8dd52cc" name="a05da0212e4e5bb8df70bf0c7f8dd52cc"></a>
-const GridDimension&#160;</td><td class="memItemRight" valign="bottom"><b>grid_dimension</b> =GridDimension::D1</td></tr>
-<tr class="memitem:a2510cec74749eb4df4db906e4698f2c7" id="r_a2510cec74749eb4df4db906e4698f2c7"><td class="memItemLeft" align="right" valign="top"><a id="a2510cec74749eb4df4db906e4698f2c7" name="a2510cec74749eb4df4db906e4698f2c7"></a>
-const int_vec_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>grid_size</b> = {0}</td></tr>
-<tr class="memitem:a797f86845f017d53edd6d4b63c52cd91" id="r_a797f86845f017d53edd6d4b63c52cd91"><td class="memItemLeft" align="right" valign="top"><a id="a797f86845f017d53edd6d4b63c52cd91" name="a797f86845f017d53edd6d4b63c52cd91"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>n_cells</b> =0</td></tr>
-<tr class="memitem:a4c0a3c3290bd15ef55b3f2d196577be4" id="r_a4c0a3c3290bd15ef55b3f2d196577be4"><td class="memItemLeft" align="right" valign="top"><a id="a4c0a3c3290bd15ef55b3f2d196577be4" name="a4c0a3c3290bd15ef55b3f2d196577be4"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>n_x</b> =0</td></tr>
-<tr class="memitem:a2f1f9b70fa6faa738b18508334fefa61" id="r_a2f1f9b70fa6faa738b18508334fefa61"><td class="memItemLeft" align="right" valign="top"><a id="a2f1f9b70fa6faa738b18508334fefa61" name="a2f1f9b70fa6faa738b18508334fefa61"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>n_y</b> =0</td></tr>
-<tr class="memitem:a01fc9c84fccf9b082428d1e222a6518e" id="r_a01fc9c84fccf9b082428d1e222a6518e"><td class="memItemLeft" align="right" valign="top"><a id="a01fc9c84fccf9b082428d1e222a6518e" name="a01fc9c84fccf9b082428d1e222a6518e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>n_z</b> =0</td></tr>
-<tr class="memitem:a0b6d6e6bff43b908474d567bc942ea2f" id="r_a0b6d6e6bff43b908474d567bc942ea2f"><td class="memItemLeft" align="right" valign="top"><a id="a0b6d6e6bff43b908474d567bc942ea2f" name="a0b6d6e6bff43b908474d567bc942ea2f"></a>
-const GridTopology&#160;</td><td class="memItemRight" valign="bottom"><b>grid_topology</b> =GridTopology::BOUNDED</td></tr>
-<tr class="memitem:a4cdc6b9c213003603e927bb2500cd8f0" id="r_a4cdc6b9c213003603e927bb2500cd8f0"><td class="memItemLeft" align="right" valign="top"><a id="a4cdc6b9c213003603e927bb2500cd8f0" name="a4cdc6b9c213003603e927bb2500cd8f0"></a>
-const BoundaryCondition&#160;</td><td class="memItemRight" valign="bottom"><b>boundary_condition</b> =BoundaryCondition::FLOATING</td></tr>
-<tr class="memitem:a9abc00c1ebc255d74f02c3e9c807411f" id="r_a9abc00c1ebc255d74f02c3e9c807411f"><td class="memItemLeft" align="right" valign="top"><a id="a9abc00c1ebc255d74f02c3e9c807411f" name="a9abc00c1ebc255d74f02c3e9c807411f"></a>
-const InitialCondition&#160;</td><td class="memItemRight" valign="bottom"><b>initial_condition</b> =InitialCondition::RANDOM_UNIFORM</td></tr>
-<tr class="memitem:ab62cbda9dd9041d86167605921a4139d" id="r_ab62cbda9dd9041d86167605921a4139d"><td class="memItemLeft" align="right" valign="top"><a id="ab62cbda9dd9041d86167605921a4139d" name="ab62cbda9dd9041d86167605921a4139d"></a>
-const IntegrationMethod&#160;</td><td class="memItemRight" valign="bottom"><b>integration_method</b> =IntegrationMethod::RUNGE_KUTTA</td></tr>
+<tr class="memitem:a4d904e1b6daac65f2d6ae7514ceab50d" id="r_a4d904e1b6daac65f2d6ae7514ceab50d"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d904e1b6daac65f2d6ae7514ceab50d">t_final</a> =0</td></tr>
+<tr class="memitem:ab0d1e0c40c5c694a832283e5acbf5728" id="r_ab0d1e0c40c5c694a832283e5acbf5728"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0d1e0c40c5c694a832283e5acbf5728">dx</a> =0</td></tr>
+<tr class="memitem:ab64d7d074a27871ff23552c13cf5c4b5" id="r_ab64d7d074a27871ff23552c13cf5c4b5"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab64d7d074a27871ff23552c13cf5c4b5">dt</a> =0</td></tr>
+<tr class="memitem:a1e75b88d2dd86cc9afb139b9617517de" id="r_a1e75b88d2dd86cc9afb139b9617517de"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e75b88d2dd86cc9afb139b9617517de">random_seed</a> =0</td></tr>
+<tr class="memitem:a05da0212e4e5bb8df70bf0c7f8dd52cc" id="r_a05da0212e4e5bb8df70bf0c7f8dd52cc"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05da0212e4e5bb8df70bf0c7f8dd52cc">grid_dimension</a> =GridDimension::D1</td></tr>
+<tr class="memitem:a2510cec74749eb4df4db906e4698f2c7" id="r_a2510cec74749eb4df4db906e4698f2c7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2510cec74749eb4df4db906e4698f2c7">grid_size</a> = {0}</td></tr>
+<tr class="memitem:a797f86845f017d53edd6d4b63c52cd91" id="r_a797f86845f017d53edd6d4b63c52cd91"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a797f86845f017d53edd6d4b63c52cd91">n_cells</a> =0</td></tr>
+<tr class="memitem:a4c0a3c3290bd15ef55b3f2d196577be4" id="r_a4c0a3c3290bd15ef55b3f2d196577be4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c0a3c3290bd15ef55b3f2d196577be4">n_x</a> =0</td></tr>
+<tr class="memitem:a2f1f9b70fa6faa738b18508334fefa61" id="r_a2f1f9b70fa6faa738b18508334fefa61"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f1f9b70fa6faa738b18508334fefa61">n_y</a> =0</td></tr>
+<tr class="memitem:a01fc9c84fccf9b082428d1e222a6518e" id="r_a01fc9c84fccf9b082428d1e222a6518e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01fc9c84fccf9b082428d1e222a6518e">n_z</a> =0</td></tr>
+<tr class="memitem:a0b6d6e6bff43b908474d567bc942ea2f" id="r_a0b6d6e6bff43b908474d567bc942ea2f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="general__enums_8hpp.html#a68f3239e8ec4a7e08e8f21fd2bb264fa">GridTopology</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b6d6e6bff43b908474d567bc942ea2f">grid_topology</a> =GridTopology::BOUNDED</td></tr>
+<tr class="memitem:a4cdc6b9c213003603e927bb2500cd8f0" id="r_a4cdc6b9c213003603e927bb2500cd8f0"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cdc6b9c213003603e927bb2500cd8f0">boundary_condition</a> =BoundaryCondition::FLOATING</td></tr>
+<tr class="memitem:a9abc00c1ebc255d74f02c3e9c807411f" id="r_a9abc00c1ebc255d74f02c3e9c807411f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="general__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9abc00c1ebc255d74f02c3e9c807411f">initial_condition</a> =InitialCondition::RANDOM_UNIFORM</td></tr>
+<tr class="memitem:ab62cbda9dd9041d86167605921a4139d" id="r_ab62cbda9dd9041d86167605921a4139d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="general__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab62cbda9dd9041d86167605921a4139d">integration_method</a> =IntegrationMethod::RUNGE_KUTTA</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Container for <a class="el" href="class_langevin.html" title="Base class for Langevin equation integrator.">Langevin</a> integrator parameters. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<div class="textblock"><p>Container for <a class="el" href="class_base_langevin.html" title="Base class for Langevin equation integrator.">BaseLangevin</a> integrator parameters. </p>
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00020">20</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3dd04ee9be18f0af4b39dfa0013d7ccb" name="a3dd04ee9be18f0af4b39dfa0013d7ccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dd04ee9be18f0af4b39dfa0013d7ccb">&#9670;&#160;</a></span>Parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Parameters::Parameters </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>t_final</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>dx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>dt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>rs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a></td>          <td class="paramname"><span class="paramname"><em>gd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>gs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="general__enums_8hpp.html#a68f3239e8ec4a7e08e8f21fd2bb264fa">GridTopology</a></td>          <td class="paramname"><span class="paramname"><em>gt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a></td>          <td class="paramname"><span class="paramname"><em>bc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="general__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a></td>          <td class="paramname"><span class="paramname"><em>ic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="general__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a></td>          <td class="paramname"><span class="paramname"><em>im</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00039">39</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a640a1a349975a8cb023696f25e563a5c" name="a640a1a349975a8cb023696f25e563a5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a640a1a349975a8cb023696f25e563a5c">&#9670;&#160;</a></span>~Parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Parameters::~Parameters </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00129">129</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a2c70c08a5aefdf0433d87b537fbf00fd" name="a2c70c08a5aefdf0433d87b537fbf00fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c70c08a5aefdf0433d87b537fbf00fd">&#9670;&#160;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parameters::print </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00112">112</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a9f1ea851b7963d20270ec1dbc722aa4c" name="a9f1ea851b7963d20270ec1dbc722aa4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f1ea851b7963d20270ec1dbc722aa4c">&#9670;&#160;</a></span>report() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Parameters::report </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a></td>          <td class="paramname"><span class="paramname"><em>bc</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00084">84</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2ff3cfce2dc60669639765b849c47bb3" name="a2ff3cfce2dc60669639765b849c47bb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ff3cfce2dc60669639765b849c47bb3">&#9670;&#160;</a></span>report() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Parameters::report </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a></td>          <td class="paramname"><span class="paramname"><em>gd</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00067">67</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ad9fcda150974deeab02b6896651d0f25" name="ad9fcda150974deeab02b6896651d0f25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9fcda150974deeab02b6896651d0f25">&#9670;&#160;</a></span>report() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Parameters::report </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="general__enums_8hpp.html#a68f3239e8ec4a7e08e8f21fd2bb264fa">GridTopology</a></td>          <td class="paramname"><span class="paramname"><em>gt</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00076">76</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae7db707fb8247f8ef19fcd2adf3f7ad2" name="ae7db707fb8247f8ef19fcd2adf3f7ad2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7db707fb8247f8ef19fcd2adf3f7ad2">&#9670;&#160;</a></span>report() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Parameters::report </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="general__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a></td>          <td class="paramname"><span class="paramname"><em>ic</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00093">93</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aab4a940450445ebf7f71544fcb3ab0f8" name="aab4a940450445ebf7f71544fcb3ab0f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab4a940450445ebf7f71544fcb3ab0f8">&#9670;&#160;</a></span>report() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Parameters::report </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="general__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a></td>          <td class="paramname"><span class="paramname"><em>im</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00103">103</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a4cdc6b9c213003603e927bb2500cd8f0" name="a4cdc6b9c213003603e927bb2500cd8f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cdc6b9c213003603e927bb2500cd8f0">&#9670;&#160;</a></span>boundary_condition</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a> Parameters::boundary_condition =BoundaryCondition::FLOATING</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00034">34</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab64d7d074a27871ff23552c13cf5c4b5" name="ab64d7d074a27871ff23552c13cf5c4b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab64d7d074a27871ff23552c13cf5c4b5">&#9670;&#160;</a></span>dt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double Parameters::dt =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00025">25</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab0d1e0c40c5c694a832283e5acbf5728" name="ab0d1e0c40c5c694a832283e5acbf5728"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0d1e0c40c5c694a832283e5acbf5728">&#9670;&#160;</a></span>dx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double Parameters::dx =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00024">24</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a05da0212e4e5bb8df70bf0c7f8dd52cc" name="a05da0212e4e5bb8df70bf0c7f8dd52cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05da0212e4e5bb8df70bf0c7f8dd52cc">&#9670;&#160;</a></span>grid_dimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a> Parameters::grid_dimension =GridDimension::D1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00027">27</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2510cec74749eb4df4db906e4698f2c7" name="a2510cec74749eb4df4db906e4698f2c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2510cec74749eb4df4db906e4698f2c7">&#9670;&#160;</a></span>grid_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>&amp; Parameters::grid_size = {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00028">28</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0b6d6e6bff43b908474d567bc942ea2f" name="a0b6d6e6bff43b908474d567bc942ea2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b6d6e6bff43b908474d567bc942ea2f">&#9670;&#160;</a></span>grid_topology</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="general__enums_8hpp.html#a68f3239e8ec4a7e08e8f21fd2bb264fa">GridTopology</a> Parameters::grid_topology =GridTopology::BOUNDED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00033">33</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a9abc00c1ebc255d74f02c3e9c807411f" name="a9abc00c1ebc255d74f02c3e9c807411f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9abc00c1ebc255d74f02c3e9c807411f">&#9670;&#160;</a></span>initial_condition</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="general__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a> Parameters::initial_condition =InitialCondition::RANDOM_UNIFORM</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00035">35</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab62cbda9dd9041d86167605921a4139d" name="ab62cbda9dd9041d86167605921a4139d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab62cbda9dd9041d86167605921a4139d">&#9670;&#160;</a></span>integration_method</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="general__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a> Parameters::integration_method =IntegrationMethod::RUNGE_KUTTA</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00036">36</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a797f86845f017d53edd6d4b63c52cd91" name="a797f86845f017d53edd6d4b63c52cd91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a797f86845f017d53edd6d4b63c52cd91">&#9670;&#160;</a></span>n_cells</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parameters::n_cells =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00029">29</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4c0a3c3290bd15ef55b3f2d196577be4" name="a4c0a3c3290bd15ef55b3f2d196577be4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c0a3c3290bd15ef55b3f2d196577be4">&#9670;&#160;</a></span>n_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parameters::n_x =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00030">30</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2f1f9b70fa6faa738b18508334fefa61" name="a2f1f9b70fa6faa738b18508334fefa61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f1f9b70fa6faa738b18508334fefa61">&#9670;&#160;</a></span>n_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parameters::n_y =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00031">31</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a01fc9c84fccf9b082428d1e222a6518e" name="a01fc9c84fccf9b082428d1e222a6518e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01fc9c84fccf9b082428d1e222a6518e">&#9670;&#160;</a></span>n_z</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parameters::n_z =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00032">32</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a1e75b88d2dd86cc9afb139b9617517de" name="a1e75b88d2dd86cc9afb139b9617517de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e75b88d2dd86cc9afb139b9617517de">&#9670;&#160;</a></span>random_seed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int Parameters::random_seed =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00026">26</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4d904e1b6daac65f2d6ae7514ceab50d" name="a4d904e1b6daac65f2d6ae7514ceab50d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d904e1b6daac65f2d6ae7514ceab50d">&#9670;&#160;</a></span>t_final</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double Parameters::t_final =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__parameters_8hpp_source.html#l00023">23</a> of file <a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>src/<a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a></li>
 </ul>
 </div><!-- contents -->

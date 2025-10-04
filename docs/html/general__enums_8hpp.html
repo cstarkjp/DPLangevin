@@ -92,38 +92,176 @@ $(function(){initNavTree('general__enums_8hpp.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Enumerated parameter options.  
+<p>Enumerated parameter options for <a class="el" href="class_base_langevin.html" title="Base class for Langevin equation integrator.">BaseLangevin</a> integrator.  
 <a href="#details">More...</a></p>
 
 <p><a href="general__enums_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a9712d9f1c8de72f9e8a1a8949908f1e7" id="r_a9712d9f1c8de72f9e8a1a8949908f1e7"><td class="memItemLeft" align="right" valign="top"><a id="a9712d9f1c8de72f9e8a1a8949908f1e7" name="a9712d9f1c8de72f9e8a1a8949908f1e7"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>GridDimension</b> { <b>D1</b> = 1
+<tr class="memitem:a9712d9f1c8de72f9e8a1a8949908f1e7" id="r_a9712d9f1c8de72f9e8a1a8949908f1e7"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a> { <b>D1</b> = 1
 , <b>D2</b> = 2
 , <b>D3</b> = 3
 , <b>D4</b> = 4
  }</td></tr>
-<tr class="memitem:a68f3239e8ec4a7e08e8f21fd2bb264fa" id="r_a68f3239e8ec4a7e08e8f21fd2bb264fa"><td class="memItemLeft" align="right" valign="top"><a id="a68f3239e8ec4a7e08e8f21fd2bb264fa" name="a68f3239e8ec4a7e08e8f21fd2bb264fa"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>GridTopology</b> { <b>BOUNDED</b> = 1
+<tr class="memdesc:a9712d9f1c8de72f9e8a1a8949908f1e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Density field grid dimension: only 1D or 2D grids implemented so far.  <a href="#a9712d9f1c8de72f9e8a1a8949908f1e7">More...</a><br /></td></tr>
+<tr class="memitem:a68f3239e8ec4a7e08e8f21fd2bb264fa" id="r_a68f3239e8ec4a7e08e8f21fd2bb264fa"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68f3239e8ec4a7e08e8f21fd2bb264fa">GridTopology</a> { <b>BOUNDED</b> = 1
 , <b>PERIODIC</b> = 2
  }</td></tr>
-<tr class="memitem:af3393571fa8a8daa4ee5c06613b26555" id="r_af3393571fa8a8daa4ee5c06613b26555"><td class="memItemLeft" align="right" valign="top"><a id="af3393571fa8a8daa4ee5c06613b26555" name="af3393571fa8a8daa4ee5c06613b26555"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>BoundaryCondition</b> { <b>FLOATING</b> = 1
+<tr class="memdesc:a68f3239e8ec4a7e08e8f21fd2bb264fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grid boundary topology: only bounded or periodic (along all edges) implemented so far.  <a href="#a68f3239e8ec4a7e08e8f21fd2bb264fa">More...</a><br /></td></tr>
+<tr class="memitem:af3393571fa8a8daa4ee5c06613b26555" id="r_af3393571fa8a8daa4ee5c06613b26555"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a> { <b>FLOATING</b> = 1
 , <b>FIXED_VALUE</b> = 2
 , <b>FIXED_FLUX</b> = 3
  }</td></tr>
-<tr class="memitem:ae752395ed9ab021eab6a3f2ffacd763f" id="r_ae752395ed9ab021eab6a3f2ffacd763f"><td class="memItemLeft" align="right" valign="top"><a id="ae752395ed9ab021eab6a3f2ffacd763f" name="ae752395ed9ab021eab6a3f2ffacd763f"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>InitialCondition</b> { <b>RANDOM_UNIFORM</b> = 1
+<tr class="memdesc:af3393571fa8a8daa4ee5c06613b26555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grid boundary condition: floating/fixed value/fixed flux; application equally to all edges only for now.  <a href="#af3393571fa8a8daa4ee5c06613b26555">More...</a><br /></td></tr>
+<tr class="memitem:ae752395ed9ab021eab6a3f2ffacd763f" id="r_ae752395ed9ab021eab6a3f2ffacd763f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a> { <b>RANDOM_UNIFORM</b> = 1
 , <b>RANDOM_GAUSSIAN</b> = 2
 , <b>CONSTANT_VALUE</b> = 3
 , <b>SINGLE_SEED</b> = 4
  }</td></tr>
-<tr class="memitem:a9eca50997f7f604b063d2cb1874f5fef" id="r_a9eca50997f7f604b063d2cb1874f5fef"><td class="memItemLeft" align="right" valign="top"><a id="a9eca50997f7f604b063d2cb1874f5fef" name="a9eca50997f7f604b063d2cb1874f5fef"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>IntegrationMethod</b> { <b>EULER</b> = 1
+<tr class="memdesc:ae752395ed9ab021eab6a3f2ffacd763f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grid density field initial condition: random uniform or Gaussian variates; constant everywhere; or central seed value.  <a href="#ae752395ed9ab021eab6a3f2ffacd763f">More...</a><br /></td></tr>
+<tr class="memitem:a9eca50997f7f604b063d2cb1874f5fef" id="r_a9eca50997f7f604b063d2cb1874f5fef"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a> { <b>EULER</b> = 1
 , <b>RUNGE_KUTTA</b> = 2
  }</td></tr>
+<tr class="memdesc:a9eca50997f7f604b063d2cb1874f5fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deterministic integration method: default is 4th-order Runge-Kutta; can be explicit Euler.  <a href="#a9eca50997f7f604b063d2cb1874f5fef">More...</a><br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Enumerated parameter options. </p>
+<div class="textblock"><p>Enumerated parameter options for <a class="el" href="class_base_langevin.html" title="Base class for Langevin equation integrator.">BaseLangevin</a> integrator. </p>
 <p>Parameter options as enums, used in both C++ and Python, used to choose e.g. suitable grid geometries, topologies, boundary and initial conditions, and the lowest-level integration method. </p>
-</div></div><!-- contents -->
+
+<p class="definition">Definition in file <a class="el" href="general__enums_8hpp_source.html">general_enums.hpp</a>.</p>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
+<a id="af3393571fa8a8daa4ee5c06613b26555" name="af3393571fa8a8daa4ee5c06613b26555"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3393571fa8a8daa4ee5c06613b26555">&#9670;&#160;</a></span>BoundaryCondition</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Grid boundary condition: floating/fixed value/fixed flux; application equally to all edges only for now. </p>
+
+<p class="definition">Definition at line <a class="el" href="general__enums_8hpp_source.html#l00030">30</a> of file <a class="el" href="general__enums_8hpp_source.html">general_enums.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a9712d9f1c8de72f9e8a1a8949908f1e7" name="a9712d9f1c8de72f9e8a1a8949908f1e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9712d9f1c8de72f9e8a1a8949908f1e7">&#9670;&#160;</a></span>GridDimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Density field grid dimension: only 1D or 2D grids implemented so far. </p>
+
+<p class="definition">Definition at line <a class="el" href="general__enums_8hpp_source.html#l00014">14</a> of file <a class="el" href="general__enums_8hpp_source.html">general_enums.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a68f3239e8ec4a7e08e8f21fd2bb264fa" name="a68f3239e8ec4a7e08e8f21fd2bb264fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68f3239e8ec4a7e08e8f21fd2bb264fa">&#9670;&#160;</a></span>GridTopology</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a68f3239e8ec4a7e08e8f21fd2bb264fa">GridTopology</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Grid boundary topology: only bounded or periodic (along all edges) implemented so far. </p>
+
+<p class="definition">Definition at line <a class="el" href="general__enums_8hpp_source.html#l00023">23</a> of file <a class="el" href="general__enums_8hpp_source.html">general_enums.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae752395ed9ab021eab6a3f2ffacd763f" name="ae752395ed9ab021eab6a3f2ffacd763f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae752395ed9ab021eab6a3f2ffacd763f">&#9670;&#160;</a></span>InitialCondition</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Grid density field initial condition: random uniform or Gaussian variates; constant everywhere; or central seed value. </p>
+
+<p class="definition">Definition at line <a class="el" href="general__enums_8hpp_source.html#l00038">38</a> of file <a class="el" href="general__enums_8hpp_source.html">general_enums.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a9eca50997f7f604b063d2cb1874f5fef" name="a9eca50997f7f604b063d2cb1874f5fef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eca50997f7f604b063d2cb1874f5fef">&#9670;&#160;</a></span>IntegrationMethod</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deterministic integration method: default is 4th-order Runge-Kutta; can be explicit Euler. </p>
+
+<p class="definition">Definition at line <a class="el" href="general__enums_8hpp_source.html#l00047">47</a> of file <a class="el" href="general__enums_8hpp_source.html">general_enums.hpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

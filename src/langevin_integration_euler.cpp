@@ -5,38 +5,42 @@
 
 #include "general_core.hpp"
 
-void Langevin::integrate_euler(rng_t &rng)
+//! Perform explicit-Euler then stochastic integration steps, and update grid
+void BaseLangevin::integrate_euler(rng_t &rng)
 {
-    euler_and_stochastic(aux_cell_old, rng);
-    cell_density.swap(aux_cell_old); 
+    euler_and_stochastic(density_grid_aux_old, rng);
+    // Update density field grid with result of integration
+    density_grid.swap(density_grid_aux_old); 
 }
 
-void Langevin::euler_and_stochastic(dbl_vec_t &aux, rng_t &rng)
+//! Perform an explicit-Euler integration step then a stochastic integration 
+//! step for all cells across the grid.
+void BaseLangevin::euler_and_stochastic(dbl_vec_t &density_grid_aux, rng_t &rng)
 {
     mean_density = 0.0;
     for (auto i=0; i<n_cells; i++)
     {
-        double f = nonlinear_rhs(i, cell_density);
-        aux[i] = cell_density[i] + dt*f;
+        double f = nonlinear_rhs(i, density_grid);
+        density_grid_aux[i] = density_grid[i] + f*dt;
 
         #if !APPROXIMATE_POISSON_DISTBN
-        poisson = int_poisson_dist_t(lambda_product * aux[i]);
-        gamma = dbl_gamma_dist_t(poisson(rng), 1.0);
+        poisson_rng = int_poisson_dist_t(lambda_product * density_grid_aux[i]);
+        gamma_rng = dbl_gamma_dist_t(poisson_rng(rng), 1.0);
         #else
-        double mu = lambda_product * aux[i];
+        double mu = lambda_product * density_grid_aux[i];
         if (mu > MU_THRESHOLD)
         {
             normal = dbl_normal_dist_t(mu, sqrt(mu));
-            gamma = dbl_gamma_dist_t(normal(rng), 1.0);
+            gamma_rng = dbl_gamma_dist_t(normal(rng), 1.0);
         }
         else
         {
-            poisson = int_poisson_dist_t(lambda_product * aux[i]);
-            gamma = dbl_gamma_dist_t(poisson(rng), 1.0);
+            poisson_rng = int_poisson_dist_t(lambda_product * density_grid_aux[i]);
+            gamma_rng = dbl_gamma_dist_t(poisson_rng(rng), 1.0);
         }
         #endif
-        aux[i]= gamma(rng)/lambda;
-        mean_density += aux[i];
+        density_grid_aux[i]= gamma_rng(rng)/lambda;
+        mean_density += density_grid_aux[i];
     }    
     mean_density /= static_cast<double>(n_cells);   
 }
