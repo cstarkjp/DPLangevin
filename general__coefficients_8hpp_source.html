@@ -106,8 +106,8 @@ $(function(){initNavTree('general__coefficients_8hpp_source.html','',''); });
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">double</span> noise;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    Coefficients(</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b, <span class="keywordtype">double</span> c, <span class="keywordtype">double</span> d</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    ) : linear(a), quadratic(b), diffusion(c), noise(d) {}</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">double</span> linear, <span class="keywordtype">double</span> quadratic, <span class="keywordtype">double</span> diffusion, <span class="keywordtype">double</span> noise</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    ) : linear(linear), quadratic(quadratic), diffusion(diffusion), noise(noise) {}</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> print() {</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        std::cout&lt;&lt; <span class="stringliteral">&quot;linear: &quot;</span> &lt;&lt; linear &lt;&lt; std::endl;</div>

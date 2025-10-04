@@ -1,4 +1,4 @@
 var application__dplangevin_8hpp =
 [
-    [ "DPLangevin", "classDPLangevin.html", null ]
+    [ "DPLangevin", "classDPLangevin.html", "classDPLangevin" ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dplangevin_0',['DPLangevin',['../classDPLangevin.html',1,'']]]
+  ['coefficients_0',['Coefficients',['../structCoefficients.html',1,'']]]
 ];

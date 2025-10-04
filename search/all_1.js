@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['build_20notes_0',['Build notes',['..//home/runner/work/DPLangevin/DPLangevin/src/README.md#autotoc_md7',1,'']]],
-  ['building_20from_20source_1',['Building from source',['../md_README.html#autotoc_md5',1,'']]]
+  ['baselangevin_0',['BaseLangevin',['../classBaseLangevin.html',1,'BaseLangevin'],['../classBaseLangevin.html#aac3ba1395e4671aa3da561b07245c41e',1,'BaseLangevin::BaseLangevin()']]],
+  ['boundarycondition_1',['BoundaryCondition',['../general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555',1,'general_enums.hpp']]],
+  ['build_20notes_2',['Build notes',['..//home/runner/work/DPLangevin/DPLangevin/src/README.md#autotoc_md7',1,'']]],
+  ['building_20from_20source_3',['Building from source',['../md_README.html#autotoc_md5',1,'']]]
 ];

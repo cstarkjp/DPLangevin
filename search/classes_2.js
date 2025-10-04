@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['langevin_0',['Langevin',['../classLangevin.html',1,'']]]
+  ['dplangevin_0',['DPLangevin',['../classDPLangevin.html',1,'']]]
 ];

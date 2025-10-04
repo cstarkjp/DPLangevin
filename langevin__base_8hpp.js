@@ -1,4 +1,4 @@
 var langevin__base_8hpp =
 [
-    [ "Langevin", "classLangevin.html", null ]
+    [ "BaseLangevin", "classBaseLangevin.html", "classBaseLangevin" ]
 ];

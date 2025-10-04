@@ -1,4 +1,4 @@
 var application__dpsim_8hpp =
 [
-    [ "SimDP", "classSimDP.html", null ]
+    [ "SimDP", "classSimDP.html", "classSimDP" ]
 ];

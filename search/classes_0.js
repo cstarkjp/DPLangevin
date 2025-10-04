@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['coefficients_0',['Coefficients',['../structCoefficients.html',1,'']]]
+  ['baselangevin_0',['BaseLangevin',['../classBaseLangevin.html',1,'']]]
 ];
