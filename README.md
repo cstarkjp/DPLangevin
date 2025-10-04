@@ -9,7 +9,12 @@
 `dplvn`: A Python/C++ package for integrating the directed-percolation (DP) Langevin equation — and more generally, for integrating Langevin equations that represent absorbing phase transitions. 
 
 The package implements the operator-splitting method originally developed by Dornic et al (2005), Pechenik & Levine (1999) and others, and improved upon by Weissmann et al (2018).
-It provides a Python wrapper around core C++ heavily adapted from a code base written by [Paula Villa Martín](https://github.com/pvillamartin), extended by [Victor Buendía](https://github.com/VictorSeven), and arising from earlier efforts by Ivan Dornic and Juan Bonachela. The wrapper provides easy access to the Langevin integrator, and broad opportunity to experiment, adapt, and extend it further.
+It provides a Python wrapper around core C++ heavily adapted from a code base written by [Paula Villa Martín](https://github.com/pvillamartin), extended by [Victor Buendía](https://github.com/VictorSeven) ("VMB"), and arising from earlier efforts by Ivan Dornic and Juan Bonachela. The wrapper provides easy access to the Langevin integrator, and broad opportunity to experiment, adapt, and extend it further. 
+
+The current C++ implementation extends the VMB code to allow run-time specification of 
+grid dimension and size, boundary topology (bounded or periodic), boundary conditions, and initial conditions. It further provides tools for running model integration 
+in batches, time-slicing the Langevin field grid, and recording of time-series
+of grid properties.
 
 ![](https://raw.githubusercontent.com/cstarkjp/DPLangevin/main/test/meandensity_time.png
  "Mean density over time")
@@ -45,10 +50,10 @@ At the lower level, the code is split into three groups, each denoted by one of 
       The `SimDP` class also serves an invaluable role as the conduit back to Python of the simulation results: the density field grids are returned as `numpy` arrays
       as are time series of the mean density field and its corresponding epochs.
 
-       The `application_dplangevin_*` files define this `DPLangevin` integrator class. They inherit the general `Langevin` integrator class and implement several methods left undefined by that parent; most important, they define methods implementing the particular functional form of the directed-percolation Langevin equation and its corresponding nonlinear, deterministic integration step in the split operator scheme.
+       The `application_dplangevin_*` files define this `DPLangevin` integrator class. They inherit the general `BaseLangevin` integrator class and implement several methods left undefined by that parent; most important, they define methods implementing the particular functional form of the directed-percolation Langevin equation and its corresponding nonlinear, deterministic integration step in the split operator scheme.
 
 
-   2. The `langevin_*` source files provide the base `Langevin` class that implements the operator-splitting integration method in a fairly general fashion. Grid geometry and topology, boundary conditions, initial conditions, the integration scheme, and a general form of the Langevin equation are all coded here. Some of these methods are heavily altered versions of the Villa-Martín and Buendían code; others remain very similar to their original implementations.
+   2. The `langevin_*` source files provide the base `BaseLangevin` class that implements the operator-splitting integration method in a fairly general fashion. Grid geometry and topology, boundary conditions, initial conditions, the integration scheme, and a general form of the Langevin equation are all coded here. Some of these methods are heavily altered versions of the Villa-Martín and Buendían code; others remain very similar to their original implementations.
 
    3. The `general_*` source files provide the basic stuff used throughout the code, notably the `typedefs`, `structs`, `enums`, and macros.
 

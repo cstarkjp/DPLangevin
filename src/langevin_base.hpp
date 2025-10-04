@@ -111,7 +111,7 @@ public:
     );
     //! Explicit Euler + stochastic integration
     void euler_and_stochastic(dbl_vec_t &aux, rng_t &rng);
-    //! Expose density grid at a given "node"
+    //! Expose density grid at a given "index" (1d-flattened position of grid element)
     double get_density_grid_value(const int) const;
     //! Expose mean density
     double get_mean_density() const;
