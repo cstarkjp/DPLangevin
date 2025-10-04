@@ -14,8 +14,8 @@
  * Langevin equation.
  * Includes a method to print out all coefficient values.
  *
- * @param linear Coefficient in linear term +aρ.
- * @param quadratic  Coefficient in nonlinear term -bρ².
+ * @param linear Coefficient a in linear term +aρ.
+ * @param quadratic  Coefficient b in nonlinear term -bρ².
  * @param diffusion Diffusion rate D in diffusion term D∇²ρ.
  * @param noise Noise amplitude γ in noise term γ√(ρ)η.
  * 

@@ -1,15 +1,15 @@
 /**
  * @file application_dplangevin.hpp
- * @brief DPLangevin model application of Langevin class integrator.
+ * @brief DPLangevin model application of BaseLangevin class integrator.
  */
 
 #ifndef DPLANGEVIN_HPP
 #define DPLANGEVIN_HPP
 
 /**
- * @brief DPLangevin model application of Langevin class integrator.
+ * @brief DPLangevin model application of BaseLangevin class integrator.
  */
-class DPLangevin : public Langevin 
+class DPLangevin : public BaseLangevin 
 {
 public:
     //! Coefficient in nonlinear term -bρ² in DP-Langevin equation

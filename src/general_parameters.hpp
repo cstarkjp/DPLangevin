@@ -1,8 +1,8 @@
 /**
  * @file general_parameters.hpp
- * @brief Container for Langevin integrator parameters.
+ * @brief Container for BaseLangevin integrator parameters.
  * 
- * Container for Langevin integrator parameters.
+ * Container for BaseLangevin integrator parameters.
  * Includes method to print most/all of these parameters,
  * using overloaded methods to report struct-type parameters.
  * The constructor does a modicum of computation to deduce grid
@@ -13,7 +13,7 @@
 #define PARAMETERS_HPP
 
 /**
- * @brief Container for Langevin integrator parameters.
+ * @brief Container  for BaseLangevin integrator parameters.
  * 
  * 
  */

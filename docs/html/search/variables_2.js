@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gamma_0',['gamma',['../class_langevin.html#a539c7982c85105eb565491a5898e6faa',1,'Langevin']]]
+  ['gamma_5frng_0',['gamma_rng',['../class_base_langevin.html#ab1117e929ae2300134dcc5fec4fe62c0',1,'BaseLangevin']]]
 ];

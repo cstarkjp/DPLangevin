@@ -1,6 +1,6 @@
 /**
  * @file application_dpsim_public.cpp
- * @brief Class to manage & execute Langevin model simulation: public methods.
+ * @brief Class to manage & execute DPLangevin model simulation: public methods.
  */ 
 
 #include "general_core.hpp"
@@ -59,7 +59,7 @@ bool SimDP::run(const int n_next_epochs)
     return did_integrate;
 }
 
-bool SimDP::process()
+bool SimDP::postprocess()
 {
     if (not is_initialized) 
     { 
@@ -67,7 +67,7 @@ bool SimDP::process()
         return false; 
     }
     bool did_process = (
-        prep_density() and prep_t_epochs() and prep_mean_densities() 
+        prep_density_grid() and prep_t_epochs() and prep_mean_densities() 
     ); 
     return did_process;
 }

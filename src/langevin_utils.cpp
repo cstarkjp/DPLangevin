@@ -5,21 +5,21 @@
 
 #include "general_core.hpp"
 
-//! Make the cell density visible.
-double Langevin::get_cell_density(const int i) const 
+//! Return the Langevin density field grid value at a given "node"
+double BaseLangevin::get_density_grid_value(const int i) const 
 {
-    return cell_density[i];
+    return density_grid[i];
 }
 
-//! Make the density visible
-double Langevin::get_mean_density() const
+//! Return the grid-averaged Langevin field mean value
+double BaseLangevin::get_mean_density() const
 {
-    // ! Make the density visible
     return mean_density;
 }
 
-//! Check the mean of the Poisson distribution
-double Langevin::get_poisson_mean() const
+//! Compute the mean field density times "lamba_product", 
+//! which should be equal to the Poisson distribution mean
+double BaseLangevin::get_poisson_mean() const
 {
     return lambda_product * mean_density;
 }

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['k1_0',['k1',['../class_langevin.html#ae4bbdc7051c7b2f3475f194c2e2e8a03',1,'Langevin']]],
-  ['k2_1',['k2',['../class_langevin.html#a224b0ea9d82d5fc2beae6747eeebf718',1,'Langevin']]],
-  ['k3_2',['k3',['../class_langevin.html#a817cc5941c84bf516d2d6671216f8490',1,'Langevin']]],
-  ['k4_3',['k4',['../class_langevin.html#a7ee17a8a95d0a0ee59b79dbf3d7b42cb',1,'Langevin']]]
+  ['i_5fcurrent_5fepoch_0',['i_current_epoch',['../class_sim_d_p.html#a0f579637e5437deafa5a997995f67dce',1,'SimDP']]],
+  ['i_5fnext_5fepoch_1',['i_next_epoch',['../class_sim_d_p.html#a326dfd7d46fc1c78c1d5a1250a8af880',1,'SimDP']]],
+  ['is_5finitialized_2',['is_initialized',['../class_sim_d_p.html#a90ad057adf7ad95ba23d034ad9cd49c4',1,'SimDP']]]
 ];

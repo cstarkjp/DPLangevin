@@ -145,7 +145,7 @@ $(function(){initNavTree('test__dp_8py_source.html','',''); });
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordflow">for</span> i_segment <span class="keywordflow">in</span> range(0, n_segments+1, 1):</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">if</span> i_segment&gt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> sim.run(n_segment_epochs):</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Failed to run sim&quot;</span>)</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> sim.process():</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> sim.postprocess():</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Failed to process sim results&quot;</span>)</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    i_epoch = sim.get_i_current_epoch()</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    t_epoch = np.round(sim.get_t_current_epoch())</div>

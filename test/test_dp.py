@@ -52,7 +52,7 @@ density_dict: dict[float, NDArray] = {}
 for i_segment in range(0, n_segments+1, 1):
     if i_segment>0 and not sim.run(n_segment_epochs):
         raise Exception("Failed to run sim")
-    if not sim.process():
+    if not sim.postprocess():
         raise Exception("Failed to process sim results")
     i_epoch = sim.get_i_current_epoch()
     t_epoch = np.round(sim.get_t_current_epoch())

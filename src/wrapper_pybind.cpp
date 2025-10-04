@@ -17,14 +17,14 @@
  * Binder exposing the `dplvn` module to Python, enabling instantiation of 
  * the SimDP class, and exchange of model parameters and simulation
  * data results. This class exploits the  DPLangevin integrator, which itself
- * is a subclass of the more general Langevin integration scheme.
+ * is a subclass of the more general BaseLangevin integration scheme.
  * 
  * This macro expands the parameter `"dplvn"` into `pybind11_exec_dplvn` and generates 
  * the function `pybind11_init_dplvn` among others.
  */
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__version__") = "2025.10.03a6";
+    module.attr("__version__") = "2025.10.04a0";
     module.doc() = 
         "Operator-splitting method of integrating DP-type Langevin equations"; 
   
@@ -90,7 +90,7 @@ PYBIND11_MODULE(dplvn, module)
         )
         .def("initialize", &SimDP::initialize)
         .def("run", &SimDP::run)
-        .def("process", &SimDP::process)
+        .def("postprocess", &SimDP::postprocess)
         .def("get_n_epochs", &SimDP::get_n_epochs)
         .def("get_i_next_epoch", &SimDP::get_i_next_epoch)
         .def("get_i_current_epoch", &SimDP::get_i_current_epoch)

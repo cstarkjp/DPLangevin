@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quadratic_5fcoeff_0',['quadratic_coeff',['../class_d_p_langevin.html#ad4b3b951467ea5b2997ec31d1eeee1cd',1,'DPLangevin']]]
+  ['p_0',['p',['../class_sim_d_p.html#a49ffbb20dcee99eb8399fb149cbb79e4',1,'SimDP']]],
+  ['poisson_5frng_1',['poisson_rng',['../class_base_langevin.html#a6c3dd2dc7754c9b1852a2d63fb24c599',1,'BaseLangevin']]]
 ];

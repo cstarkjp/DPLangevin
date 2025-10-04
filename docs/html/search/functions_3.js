@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ic_5frandom_5funiform_0',['ic_random_uniform',['../class_langevin.html#a50249cc0fc3389e7fa164d20efac4cea',1,'Langevin']]]
+  ['euler_5fand_5fstochastic_0',['euler_and_stochastic',['../class_base_langevin.html#abf00674dbbd6ef4eafc2a6f3bf821212',1,'BaseLangevin']]]
 ];

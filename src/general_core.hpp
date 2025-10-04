@@ -1,6 +1,6 @@
 /**
  * @file general_core.hpp
- * @brief Core definitions for APT/DP Langevin integration.
+ * @brief Core definitions for BaseLangevin integrator.
  */
 
 #ifndef CORE_HPP

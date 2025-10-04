@@ -94,122 +94,122 @@ $(function(){initNavTree('langevin__grid__2d_8cpp_source.html','',''); });
 <a href="langevin__grid__2d_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="general__core_8hpp.html">general_core.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_langevin.html#a9f16176760eeb14f2fa0c2279ae4a2b2">    8</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_langevin.html#a9f16176760eeb14f2fa0c2279ae4a2b2">Langevin::construct_2D_grid</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_parameters.html">Parameters</a> parameters)</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> n_x = parameters.n_x;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> n_y = parameters.n_y;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">int</span> i_cell, i_up, i_down, i_right, i_left;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">int</span> i_top_row, i_bottom_row, i_right_column, i_left_column;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a> = std::vector&lt;int_vec_t&gt;(n_x*n_y, <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(4));</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">switch</span> (parameters.grid_topology)</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordflow">case</span> GridTopology::PERIODIC:</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            <span class="comment">// Periodic grid topology in both x and y</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> y=0; y&lt;n_y; y++)</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> x=0; x&lt;n_x; x++)</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                    i_cell = x + y*n_x;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                    i_up    = (y &lt; n_y-1) ? i_cell + n_x : x;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                    i_down  = (y &gt; 0)     ? i_cell - n_x : x + (n_y-1)*n_x;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                    i_right = (x &lt; n_x-1) ? i_cell + 1 : 0 + y*n_x;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                    i_left  = (x &gt; 0)     ? i_cell - 1 : n_x-1 + y*n_x;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                    <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][0] = i_up;    <span class="comment">// Up</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>                    <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][1] = i_down;  <span class="comment">// Down</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                    <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][2] = i_right; <span class="comment">// Right   (VMB: left)</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                    <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][3] = i_left;  <span class="comment">// Left    (VMB: right)</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                }</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            }</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">case</span> GridTopology::BOUNDED:</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="comment">// Bounded grid topology in both x and y</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> y=1; y&lt;n_y-1; y++)</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> x=1; x&lt;n_x-1; x++)</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                    <span class="comment">// i_cell is the index of the flattened grid</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                    i_cell = x + y*n_x;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                    <span class="comment">// Each cell has 4 neighbors[i_cell] indexes</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                    <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][0] = i_cell + n_x;  <span class="comment">// Up:   i_cell + n_x // x + (y+1)*n_x;</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                    <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][1] = i_cell - n_x;  <span class="comment">// Down: i_cell - n_x // x + (y-1)*n_x;</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                    <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][2] = i_cell + 1;    <span class="comment">// Right: i_cell+1   (VMB: left)  // (x+1) + y*n_x;</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                    <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][3] = i_cell - 1;    <span class="comment">// Left:  i_cell-1   (VMB: right) // (x-1) + y*n_x;</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                }</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="comment">// Top and bottom rows</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> x=1; x&lt;n_x-1; x++)</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                i_bottom_row = x;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                i_top_row    = x + (n_y-1)*n_x;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                <span class="comment">// Each boundary cell has only 3 neighbors</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_bottom_row] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(3);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_top_row]    = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(3);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_bottom_row][0] = i_bottom_row + n_x;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_bottom_row][1] = i_bottom_row - 1; </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_bottom_row][2] = i_bottom_row + 1; </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_top_row][0] = i_top_row - n_x;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_top_row][1] = i_top_row - 1; </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_top_row][2] = i_top_row + 1;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="comment">// Left and right columns</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> y=1; y&lt;n_y-1; y++)</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                i_left_column  = y*n_x;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                i_right_column = (n_x-1) + y*n_x;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                <span class="comment">// Each boundary cell has only 3 neighbors</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_left_column]  = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(3);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_right_column] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(3);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_left_column][0] = i_left_column + n_x;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_left_column][1] = i_left_column - n_x; </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_left_column][2] = i_left_column + 1;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_right_column][0] = i_right_column + n_x;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_right_column][1] = i_right_column - n_x; </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_right_column][2] = i_right_column - 1;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="comment">// Each corner cell has only 2 neighbors</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="comment">// Bottom-left corner</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            i_cell = 0;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(2);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][0] = i_cell + 1; </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][1] = i_cell + n_x;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            <span class="comment">// Bottom-right corner</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            i_cell = n_x-1;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(2);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][0] = i_cell - 1;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][1] = i_cell + n_x;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <span class="comment">// Top-left corner</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            i_cell = (n_y-1)*n_x;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(2);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][0] = i_cell + 1; </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][1] = i_cell - n_x;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="comment">// Top-right corner</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            i_cell = (n_x-1)+(n_y-1)*n_x;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(2);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][0] = i_cell - 1; </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <a class="code hl_variable" href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">neighbors</a>[i_cell][1] = i_cell - n_x;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>}</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span></div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_base_langevin.html#a1c785de7a81b904d3e50719e2278b17e">    9</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_base_langevin.html#a1c785de7a81b904d3e50719e2278b17e">BaseLangevin::construct_2D_grid</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_parameters.html">Parameters</a> parameters)</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> n_x = parameters.n_x;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> n_y = parameters.n_y;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">int</span> i_cell, i_up, i_down, i_right, i_left;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">int</span> i_top_row, i_bottom_row, i_right_column, i_left_column;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a> = std::vector&lt;int_vec_t&gt;(n_x*n_y, <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(4));</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">switch</span> (parameters.grid_topology)</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordflow">case</span> GridTopology::PERIODIC:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="comment">// Periodic grid topology in both x and y</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> y=0; y&lt;n_y; y++)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> x=0; x&lt;n_x; x++)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                    i_cell = x + y*n_x;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                    i_up    = (y &lt; n_y-1) ? i_cell + n_x : x;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                    i_down  = (y &gt; 0)     ? i_cell - n_x : x + (n_y-1)*n_x;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                    i_right = (x &lt; n_x-1) ? i_cell + 1 : 0 + y*n_x;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                    i_left  = (x &gt; 0)     ? i_cell - 1 : n_x-1 + y*n_x;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>                    <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][0] = i_up;    <span class="comment">// Up</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                    <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][1] = i_down;  <span class="comment">// Down</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                    <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][2] = i_right; <span class="comment">// Right   (VMB: left)</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                    <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][3] = i_left;  <span class="comment">// Left    (VMB: right)</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">case</span> GridTopology::BOUNDED:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="comment">// Bounded grid topology in both x and y</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> y=1; y&lt;n_y-1; y++)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> x=1; x&lt;n_x-1; x++)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                    <span class="comment">// i_cell is the index of the flattened grid</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                    i_cell = x + y*n_x;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                    <span class="comment">// Each cell has 4 neighbors[i_cell] indexes</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                    <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][0] = i_cell + n_x;  <span class="comment">// Up:   i_cell + n_x // x + (y+1)*n_x;</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                    <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][1] = i_cell - n_x;  <span class="comment">// Down: i_cell - n_x // x + (y-1)*n_x;</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                    <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][2] = i_cell + 1;    <span class="comment">// Right: i_cell+1   (VMB: left)  // (x+1) + y*n_x;</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                    <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][3] = i_cell - 1;    <span class="comment">// Left:  i_cell-1   (VMB: right) // (x-1) + y*n_x;</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="comment">// Top and bottom rows</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> x=1; x&lt;n_x-1; x++)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                i_bottom_row = x;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                i_top_row    = x + (n_y-1)*n_x;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                <span class="comment">// Each boundary cell has only 3 neighbors</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_bottom_row] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(3);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_top_row]    = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(3);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_bottom_row][0] = i_bottom_row + n_x;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_bottom_row][1] = i_bottom_row - 1; </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_bottom_row][2] = i_bottom_row + 1; </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_top_row][0] = i_top_row - n_x;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_top_row][1] = i_top_row - 1; </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_top_row][2] = i_top_row + 1;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="comment">// Left and right columns</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> y=1; y&lt;n_y-1; y++)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                i_left_column  = y*n_x;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                i_right_column = (n_x-1) + y*n_x;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                <span class="comment">// Each boundary cell has only 3 neighbors</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_left_column]  = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(3);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_right_column] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(3);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_left_column][0] = i_left_column + n_x;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_left_column][1] = i_left_column - n_x; </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_left_column][2] = i_left_column + 1;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_right_column][0] = i_right_column + n_x;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_right_column][1] = i_right_column - n_x; </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_right_column][2] = i_right_column - 1;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="comment">// Each corner cell has only 2 neighbors</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="comment">// Bottom-left corner</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            i_cell = 0;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(2);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][0] = i_cell + 1; </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][1] = i_cell + n_x;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="comment">// Bottom-right corner</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            i_cell = n_x-1;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(2);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][0] = i_cell - 1;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][1] = i_cell + n_x;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="comment">// Top-left corner</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            i_cell = (n_y-1)*n_x;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(2);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][0] = i_cell + 1; </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][1] = i_cell - n_x;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="comment">// Top-right corner</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            i_cell = (n_x-1)+(n_y-1)*n_x;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(2);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][0] = i_cell - 1; </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <a class="code hl_variable" href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[i_cell][1] = i_cell - n_x;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>}</div>
 </div>
-<div class="ttc" id="aclass_langevin_html_a9f16176760eeb14f2fa0c2279ae4a2b2"><div class="ttname"><a href="class_langevin.html#a9f16176760eeb14f2fa0c2279ae4a2b2">Langevin::construct_2D_grid</a></div><div class="ttdeci">bool construct_2D_grid(const Parameters parameters)</div><div class="ttdoc">Method to build 2d density grid and associated grid cell topology vectors.</div><div class="ttdef"><b>Definition</b> <a href="#l00008">langevin_grid_2d.cpp:8</a></div></div>
-<div class="ttc" id="aclass_langevin_html_acd026d5a5215f0632190d2dbba91ff7a"><div class="ttname"><a href="class_langevin.html#acd026d5a5215f0632190d2dbba91ff7a">Langevin::neighbors</a></div><div class="ttdeci">std::vector&lt; int_vec_t &gt; neighbors</div><div class="ttdoc">Neighorhood topology for all grid cells.</div><div class="ttdef"><b>Definition</b> <a href="langevin__base_8hpp_source.html#l00053">langevin_base.hpp:53</a></div></div>
-<div class="ttc" id="ageneral__core_8hpp_html"><div class="ttname"><a href="general__core_8hpp.html">general_core.hpp</a></div><div class="ttdoc">Core definitions for APT/DP Langevin integration.</div></div>
+<div class="ttc" id="aclass_base_langevin_html_a12048a935fbc25b9129b41ce117fce08"><div class="ttname"><a href="class_base_langevin.html#a12048a935fbc25b9129b41ce117fce08">BaseLangevin::neighbors</a></div><div class="ttdeci">std::vector&lt; int_vec_t &gt; neighbors</div><div class="ttdoc">Neighorhood topology for all grid cells.</div><div class="ttdef"><b>Definition</b> <a href="langevin__base_8hpp_source.html#l00063">langevin_base.hpp:63</a></div></div>
+<div class="ttc" id="aclass_base_langevin_html_a1c785de7a81b904d3e50719e2278b17e"><div class="ttname"><a href="class_base_langevin.html#a1c785de7a81b904d3e50719e2278b17e">BaseLangevin::construct_2D_grid</a></div><div class="ttdeci">bool construct_2D_grid(const Parameters parameters)</div><div class="ttdoc">Build 2d Langevin density field grid &amp; topology.</div><div class="ttdef"><b>Definition</b> <a href="#l00009">langevin_grid_2d.cpp:9</a></div></div>
+<div class="ttc" id="ageneral__core_8hpp_html"><div class="ttname"><a href="general__core_8hpp.html">general_core.hpp</a></div><div class="ttdoc">Core definitions for BaseLangevin integrator.</div></div>
 <div class="ttc" id="ageneral__core_8hpp_html_abbfd825d9228dfbd560eada2571e757f"><div class="ttname"><a href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a></div><div class="ttdeci">std::vector&lt; int &gt; int_vec_t</div><div class="ttdoc">Type for vectors of integers.</div><div class="ttdef"><b>Definition</b> <a href="general__core_8hpp_source.html#l00019">general_core.hpp:19</a></div></div>
-<div class="ttc" id="astruct_parameters_html"><div class="ttname"><a href="struct_parameters.html">Parameters</a></div><div class="ttdoc">Container for Langevin integrator parameters.</div><div class="ttdef"><b>Definition</b> <a href="general__parameters_8hpp_source.html#l00020">general_parameters.hpp:21</a></div></div>
+<div class="ttc" id="astruct_parameters_html"><div class="ttname"><a href="struct_parameters.html">Parameters</a></div><div class="ttdoc">Container for BaseLangevin integrator parameters.</div><div class="ttdef"><b>Definition</b> <a href="general__parameters_8hpp_source.html#l00020">general_parameters.hpp:21</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

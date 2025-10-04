@@ -5,7 +5,8 @@
 
 #include "general_core.hpp"
 
-bool Langevin::construct_2D_grid(const Parameters parameters)
+//! Construct 2D density field ρ(x,t) grid and corresponding cell-cell topologies
+bool BaseLangevin::construct_2D_grid(const Parameters parameters)
 {
     const int n_x = parameters.n_x;
     const int n_y = parameters.n_y;

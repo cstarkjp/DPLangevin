@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['cell_5fdensity_0',['cell_density',['../class_langevin.html#a83355d2928b18a9dff4f408c5c02ec1a',1,'Langevin']]],
-  ['coefficients_1',['Coefficients',['../struct_coefficients.html',1,'']]],
-  ['construct_5f1d_5fgrid_2',['construct_1D_grid',['../class_langevin.html#a947980072860d472e606d0fd5962a5ed',1,'Langevin']]],
-  ['construct_5f2d_5fgrid_3',['construct_2D_grid',['../class_langevin.html#a9f16176760eeb14f2fa0c2279ae4a2b2',1,'Langevin']]]
+  ['coefficients_0',['Coefficients',['../struct_coefficients.html',1,'']]],
+  ['coefficients_1',['coefficients',['../class_sim_d_p.html#a5f60bbc57176c81430f2872dcc25d058',1,'SimDP']]],
+  ['construct_5f1d_5fgrid_2',['construct_1D_grid',['../class_base_langevin.html#af23cd5ed5aaa9202f8b294793bb8ae3e',1,'BaseLangevin']]],
+  ['construct_5f2d_5fgrid_3',['construct_2D_grid',['../class_base_langevin.html#a1c785de7a81b904d3e50719e2278b17e',1,'BaseLangevin']]],
+  ['construct_5fgrid_4',['construct_grid',['../class_sim_d_p.html#adf9706187d694ad0ba16cb4e2c308cd1',1,'SimDP']]],
+  ['count_5fepochs_5',['count_epochs',['../class_sim_d_p.html#a587ef106d6540a3f23a24cd86f2861b7',1,'SimDP']]]
 ];

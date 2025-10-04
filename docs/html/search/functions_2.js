@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['get_5fcell_5fdensity_0',['get_cell_density',['../class_langevin.html#af6941c0d46115a951fa06f35614cc1b5',1,'Langevin']]],
-  ['get_5fmean_5fdensity_1',['get_mean_density',['../class_langevin.html#ab53972b8dd0ebddaaab7961b60dfbddf',1,'Langevin']]],
-  ['get_5fpoisson_5fmean_2',['get_poisson_mean',['../class_langevin.html#ae7927b5cdb1d72103a66eea57997a900',1,'Langevin']]]
+  ['dplangevin_0',['DPLangevin',['../class_d_p_langevin.html#ab247d7d45790cb3424be312401357140',1,'DPLangevin::DPLangevin()=default'],['../class_d_p_langevin.html#a7c96523be07813456dc2803557b00daf',1,'DPLangevin::DPLangevin(Parameters p)']]]
 ];

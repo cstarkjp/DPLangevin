@@ -1,6 +1,6 @@
 /**
  * @file general_enums.hpp
- * @brief Enumerated parameter options.
+ * @brief Enumerated parameter options for BaseLangevin integrator.
  * 
  * Parameter options as enums, used in both C++ and Python, used to choose 
  * e.g. suitable grid geometries, topologies, boundary and initial conditions, 

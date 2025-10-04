@@ -5,7 +5,8 @@
 
 #include "general_core.hpp"
 
-bool Langevin::construct_1D_grid(const Parameters parameters)
+//! Construct 1D density field ρ(x,t) grid and corresponding cell-cell topologies
+bool BaseLangevin::construct_1D_grid(const Parameters parameters)
 {
     const int n_x = parameters.n_x;
     neighbors = std::vector<int_vec_t>(n_x, int_vec_t(2));
