@@ -140,7 +140,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abf00674dbbd6ef4eafc2a6f3bf821212" id="r_abf00674dbbd6ef4eafc2a6f3bf821212"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf00674dbbd6ef4eafc2a6f3bf821212">euler_and_stochastic</a> (<a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> &amp;aux, <a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
 <tr class="memdesc:abf00674dbbd6ef4eafc2a6f3bf821212"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit Euler + stochastic integration.  <br /></td></tr>
 <tr class="memitem:a8e997a82e0660b7795005f4771350e17" id="r_a8e997a82e0660b7795005f4771350e17"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e997a82e0660b7795005f4771350e17">get_density_grid_value</a> (const int) const</td></tr>
-<tr class="memdesc:a8e997a82e0660b7795005f4771350e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expose density grid at a given "node".  <br /></td></tr>
+<tr class="memdesc:a8e997a82e0660b7795005f4771350e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expose density grid at a given "index" (1d-flattened position of grid element)  <br /></td></tr>
 <tr class="memitem:a662fc98edabb628c914c955690aa5651" id="r_a662fc98edabb628c914c955690aa5651"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a662fc98edabb628c914c955690aa5651">get_mean_density</a> () const</td></tr>
 <tr class="memdesc:a662fc98edabb628c914c955690aa5651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expose mean density.  <br /></td></tr>
 <tr class="memitem:a40a0bfdb181d47b532fb03f545449e0d" id="r_a40a0bfdb181d47b532fb03f545449e0d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40a0bfdb181d47b532fb03f545449e0d">get_poisson_mean</a> () const</td></tr>
@@ -285,7 +285,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Expose density grid at a given "node". </p>
+<p>Expose density grid at a given "index" (1d-flattened position of grid element) </p>
 <p>Return the Langevin density field grid value at a given "node". </p>
 
 <p class="definition">Definition at line <a class="el" href="langevin__utils_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__utils_8cpp_source.html">langevin_utils.cpp</a>.</p>
