@@ -11,7 +11,6 @@
 //! for efficiency.
 void BaseLangevin::integrate_rungekutta(rng_t &rng)
 {
-
     rk_f1(density_grid_aux_old, k1);
     rk_f2f3(density_grid_aux_old, density_grid_aux_new, k2, dtm);
     // Swap contents is O(1), better than old = fast
