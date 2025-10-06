@@ -132,6 +132,7 @@ jobs:
   publish-to-testpypi:
     needs: [
       build-macos-14, 
+      build-macos-15, 
       build-macos-latest, 
       build-linux,
       # build-windows, 
@@ -143,6 +144,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: macos-14-dist
+          path: dist/
+      - name: Retrieve macos-15 artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: macos-15-dist
           path: dist/
       - name: Retrieve macos artifact
         uses: actions/download-artifact@v4
