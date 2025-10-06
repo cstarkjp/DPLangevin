@@ -103,7 +103,7 @@ Testing</h1>
 </pre><p>which performs an integration of the DP-Langevin equation on a small rectangular 2D grid. The grid-averaged mean density is written out as a time series into a text file named "solution.txt" for all simulation time steps ("epochs"). Time slices of the density grid are printed for selected epochs.</p>
 <p>A similar test is provided in the Jupyter notebook </p><pre class="fragment">TestDP.ipynb
 </pre><p>but the final density grid is also plotted as an image, and the mean-density time series is graphed. Both plots are exported to PNG files.</p>
-<p>If you build from source, you will need to point Python to your local build of <span class="tt">dplvn</span>. Comment out the lines: </p><pre class="fragment">import sys, os
+<p>If you build from source, you will need to point Python to your local build of <span class="tt">dplvn</span>. Uncomment the lines: </p><pre class="fragment">import sys, os
 sys.path.insert(0, os.path.join(os.path.pardir, "build"))
 </pre><p>and check that Python is using your local build: </p><pre class="fragment">print(dplvn.__file__)
 </pre> </div><!-- contents -->
