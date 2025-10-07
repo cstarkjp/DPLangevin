@@ -38,8 +38,6 @@ public:
         std::cout<< "diffusion: " << diffusion << std::endl;
         std::cout<< "noise: " << noise << std::endl;
     }
-
-    ~Coefficients() {}
 };
 
 #endif

@@ -5,7 +5,7 @@
 project(
     'DPLangevin',
     'cpp',
-    version: '2025.10.06a3',
+    version: '2025.10.07a0',
     default_options: ['cpp_std=c++11'],
 )
 add_project_arguments('-Ofast', '-g3', language : 'cpp')
