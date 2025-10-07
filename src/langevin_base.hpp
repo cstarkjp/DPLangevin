@@ -12,7 +12,6 @@
 /**
  * @brief Base class for Langevin equation integrator.
  * 
- * 
  */
 class BaseLangevin
 {
