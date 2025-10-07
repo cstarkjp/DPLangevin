@@ -67,8 +67,14 @@ If you use `conda` or `miniconda`, take a look at the `environment.yml` file and
 Then, use `pip` to install the `dplvn` package from `TestPyPI` into whatever Python environment you have set up (even if you use `conda`):
 
     pip install -i https://test.pypi.org/simple/ dplvn
+
+This only works if we have pre-built a binary wheel for your platform: we currently support macOS 14, macOS 15, and all(?) flavors of Linux. If your platform is not supported, the following will force a build from source:
+
+    pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/  -v  --no-binary :all: dplvn
+
+Be aware that this build takes a **long** time, because it recompiles pretty much everything needed.
     
-Once project development has matured, the `dplvn` package will be made available on the full `PyPI` site.
+Once project development has matured, the `dplvn` package will be made available on the full `PyPI` site with broader platform support.
 Its package dependencies will then be made automatic; apparently it's not currently possible to 
 set such dependencies with `TestPyPI` without incurring problems. Eventually, `dplvn` may also be made available via `conda`. 
 
