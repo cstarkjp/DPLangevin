@@ -1,8 +1,10 @@
-# Build and install Python package
+# Helper makefile
+
 SRC_HPP = $(wildcard src/*hpp)
 SRC_CPP = $(wildcard src/*cpp)
 
-src: $(SRC_HPP) $(SRC_CPP) meson.build
+# Build and install Python package
+src: $(SRC_HPP) $(SRC_CPP) pyproject.toml meson.build
 	@echo "****************************************************************"
 	@echo "Build and install Python package"
 	rm -rf build
@@ -11,7 +13,9 @@ src: $(SRC_HPP) $(SRC_CPP) meson.build
 	@echo "Done"
 	@echo "****************************************************************"
 
-quick: $(SRC_HPP) $(SRC_CPP) meson.build
+# Build Python package but don't install
+.PHONY: local
+local: $(SRC_HPP) $(SRC_CPP) meson.build
 	@echo "****************************************************************"
 	@echo "Build Python package locally"
 	rm -rf build
@@ -21,7 +25,8 @@ quick: $(SRC_HPP) $(SRC_CPP) meson.build
 	@echo "****************************************************************"
 
 # Generate Doxygen docs/html/*
-docs: $(SRC_HPP) $(SRC_CPP) meson.build pyproject.toml README.md
+.PHONY: docs
+docs: #$(SRC_HPP) $(SRC_CPP) meson.build pyproject.toml README.md
 	@echo "****************************************************************"
 	@echo "Build Doxygen documentation"
 	doxygen Doxyfile
