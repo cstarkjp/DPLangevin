@@ -1,5 +1,5 @@
 /**
- * @file langevin_grid_2d.cpp
+ * @file langevin_grid_2d_multitopology.cpp
  * @brief Method for setting up a 2D grid for the model Langevin field.
  */
 
