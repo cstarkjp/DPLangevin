@@ -75,7 +75,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
         connect_periodic_edge_cell_xplus(x, y);
         connect_periodic_edge_cell_xminus(x, y);        
     };
-    // x=left edge or x=right edge, loop over y cells
+    // Left and right edges, loop over y cells
     auto connect_periodic_y_edge_cells = [&](int x)
     {
         assert(x==0 or x==n_x-1);
@@ -84,7 +84,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
             connect_periodic_edge_cells(x, y);
         }
     };
-    // y=bottom edge or y=top edge, loop over x cells
+    // Bottom and top edges, loop over x cells
     auto connect_periodic_x_edge_cells = [&](int y)
     {
         assert(y==0 or y==n_y-1);
@@ -93,40 +93,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
             connect_periodic_edge_cells(x, y);
         }
     };
-    // // Bottom-left corner
-    // auto connect_periodic_bl_corner = [&]()
-    // {
-    //     connect_periodic_edge_cell_yplus(0, 0);
-    //     connect_periodic_edge_cell_yminus(0, 0);
-    //     connect_periodic_edge_cell_xplus(0, 0);
-    //     connect_periodic_edge_cell_xminus(0, 0);
-    // };
-    // // Bottom-right corner
-    // auto connect_periodic_br_corner = [&]()
-    // {
-    //     connect_periodic_edge_cell_yplus(n_x-1, 0);
-    //     connect_periodic_edge_cell_yminus(n_x-1, 0);
-    //     connect_periodic_edge_cell_xplus(n_x-1, 0);
-    //     connect_periodic_edge_cell_xminus(n_x-1, 0);
-    // };
-    // // Top-left corner
-    // auto connect_periodic_tl_corner = [&]()
-    // {
-    //     connect_periodic_edge_cell_yplus(0, n_y-1);
-    //     connect_periodic_edge_cell_yminus(0, n_y-1);
-    //     connect_periodic_edge_cell_xplus(0, n_y-1);
-    //     connect_periodic_edge_cell_xminus(0, n_y-1);
-    // };
-    // // Top-right corner
-    // auto connect_periodic_tr_corner = [&]()
-    // {
-    //     connect_periodic_edge_cell_yplus(n_x-1, n_y-1);
-    //     connect_periodic_edge_cell_yminus(n_x-1, n_y-1);
-    //     connect_periodic_edge_cell_xplus(n_x-1, n_y-1);
-    //     connect_periodic_edge_cell_xminus(n_x-1, n_y-1);
-    // };
-    // //
-    // Top-right corner
+    // Corners
     auto connect_periodic_corner = [&](int x, int y)
     {
         connect_periodic_edge_cell_yplus(x, y);
@@ -164,37 +131,15 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
             neighbors[i_cell][2] = i_cell + 1;
         }
     };
-    // Bottom-left corner
-    auto connect_bounded_bl_corner = [&]()
+    // Corners
+    auto connect_bounded_corner = [&](int x, int y)
     {
-        auto i_cell = 0;
+        auto x_plus_or_minus = (x==0) ? +1 : -1;
+        auto y_plus_or_minus = (y==0) ? +1 : -1;
+        auto i_cell = x + y*n_x;
         neighbors[i_cell] = int_vec_t(2);
-        neighbors[i_cell][0] = i_cell + 1; 
-        neighbors[i_cell][1] = i_cell + n_x;
-    };
-    // Bottom-right corner
-    auto connect_bounded_br_corner = [&]()
-    {
-        auto i_cell = n_x-1;
-        neighbors[i_cell] = int_vec_t(2);
-        neighbors[i_cell][0] = i_cell - 1;
-        neighbors[i_cell][1] = i_cell + n_x;
-    };
-    // Top-left corner
-    auto connect_bounded_tl_corner = [&]()
-    {
-        auto i_cell = (n_y-1)*n_x;
-        neighbors[i_cell] = int_vec_t(2);
-        neighbors[i_cell][0] = i_cell + 1; 
-        neighbors[i_cell][1] = i_cell - n_x;
-    };
-    // Top-right corner
-    auto connect_bounded_tr_corner = [&]()
-    {
-        auto i_cell = (n_x-1)+(n_y-1)*n_x;
-        neighbors[i_cell] = int_vec_t(2);
-        neighbors[i_cell][0] = i_cell - 1; 
-        neighbors[i_cell][1] = i_cell - n_x;
+        neighbors[i_cell][0] = i_cell + 1*x_plus_or_minus; 
+        neighbors[i_cell][1] = i_cell + n_x*y_plus_or_minus;
     };
 
     /////////////////////////////////////////////
@@ -220,16 +165,12 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
             // Right column
             connect_periodic_y_edge_cells(n_x-1);
             // Bottom-left corner
-            // connect_periodic_bl_corner();
             connect_periodic_corner(0, 0);
             // Bottom-right corner
-            // connect_periodic_br_corner();
             connect_periodic_corner(n_x-1, 0);
             // Top-left corner
-            // connect_periodic_tl_corner();
             connect_periodic_corner(0, n_y-1);
             // Top-right corner
-            // connect_periodic_tr_corner();
             connect_periodic_corner(n_x-1, n_y-1);
 
             return true;
@@ -249,13 +190,13 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
             // Right column
             connect_bounded_y_edge_cells(n_x-1);
             // Bottom-left corner
-            connect_bounded_bl_corner();
+            connect_bounded_corner(0, 0);
             // Bottom-right corner
-            connect_bounded_br_corner();
+            connect_bounded_corner(n_x-1, 0);
             // Top-left corner
-            connect_bounded_tl_corner();
+            connect_bounded_corner(0, n_y-1);
             // Top-right corner
-            connect_bounded_tr_corner();
+            connect_bounded_corner(n_x-1, n_y-1);
 
             return true;
         }
