@@ -145,26 +145,16 @@ public:
         std::cout << std::endl;        
         std::cout << "n_cells: " 
             << n_cells << std::endl;
-        std::cout << "grid_topology: " 
-            << report(grid_topology) << std::endl;
+        // std::cout << "grid_topology: " 
+        //     << report(grid_topology) << std::endl;
         std::cout << "grid_topologies: " 
             << report(grid_dimension, grid_topologies) << std::endl;
-        // std::cout << "gt: " 
-        //     << int(grid_topologies.at(0)) 
-        //     << ", " << int(grid_topologies.at(1)) 
-        //     << ", " << int(grid_topologies.at(2)) 
-        //     << ", " << int(grid_topologies.at(3)) 
-        //     << std::endl;
         std::cout << "boundary_condition: " 
             << report(boundary_condition) << std::endl;
         std::cout << "initial_condition: " 
             << report(initial_condition) << std::endl;
         std::cout << "integration_method: "  
             << report(integration_method) << std::endl;
-        // std::cout 
-        //     << "gts size: "
-        //     << int(grid_topologies.size())
-        //     << std::endl;
     }
 };
 

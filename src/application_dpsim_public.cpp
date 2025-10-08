@@ -27,32 +27,10 @@ SimDP::SimDP(
     dpLangevin = new DPLangevin(p);
     coefficients.print();
     p.print();
-    // std::cout 
-    //     << "SimDP::SimDP: grid vec size: "
-    //     << int(p.grid_size.size())
-    //     << std::endl;
-    // std::cout 
-    //     << "SimDP::SimDP: gts vec size: "
-    //     << int(p.grid_topologies.size())
-    //     << std::endl;
 }
 
 bool SimDP::initialize()
 {
-    // std::cout 
-    //     << "SimDP::initialize: grid: "
-    //     << static_cast<int16_t>(this->p.grid_size.at(0))
-    //     << ", "
-    //     << static_cast<int16_t>(this->p.grid_size.at(1))
-    //     << std::endl;
-    // std::cout 
-    //     << "SimDP::initialize: grid vec size: "
-    //     << int(p.grid_size.size())
-    //     << std::endl;
-    // std::cout 
-    //     << "SimDP::initialize: gts vec size: "
-    //     << int(p.grid_topologies.size())
-    //     << std::endl;
     if (not construct_grid()) { 
         std::cout 
             << "SimDP::initialize failure: couldn't construct grid" 
