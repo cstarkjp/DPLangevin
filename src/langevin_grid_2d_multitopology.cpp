@@ -8,12 +8,17 @@
 //! Construct 2D density field ρ(x,t) grid and corresponding cell-cell topologies
 bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
 {
-    const int n_x = p.n_x;
-    const int n_y = p.n_y;
+    const auto n_x = p.n_x;
+    const auto n_y = p.n_y;
     int i_cell, i_top_row, i_bottom_row, i_right_column, i_left_column;
 
+    // Flattened grid vector each with a set of 4 connection "i_node" elements.
+    // Each i_node element will contain 1 of 4 possible neighbor locations.
+    // Along edges these sets will be reduced to 3 elements.
+    // At corners these sets will be reduced to 2 elements.
     neighbors = std::vector<int_vec_t>(n_x*n_y, int_vec_t(4));
 
+    // Wiring lambdas
     auto connect_central_cell = [&](int x, int y)
     {
         // i_cell is the index of the flattened grid
@@ -35,7 +40,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
             }
         }
     };
-    auto connect_periodic_edge_cell_ypm = [&](int x, int y) 
+    auto connect_periodic_edge_cell_yplusminus = [&](int x, int y) 
     {
         auto i_edge_cell = x + y*n_x;
         auto i_yplus   = (y < n_y-1) ? i_edge_cell + n_x : x;
@@ -43,7 +48,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
         neighbors[i_edge_cell][0] = i_yplus;   // Up
         neighbors[i_edge_cell][1] = i_yminus;  // Down
     };
-    auto connect_periodic_edge_cell_xpm = [&](int x, int y) 
+    auto connect_periodic_edge_cell_xplusminus = [&](int x, int y) 
     {
         auto i_edge_cell = x + y*n_x;
         auto i_xplus  = (x < n_x-1) ? i_edge_cell + 1 : 0 + y*n_x;
@@ -55,16 +60,16 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
     {
         for (auto y=0; y<n_y; y++)
         {
-            connect_periodic_edge_cell_ypm(x, y);
-            connect_periodic_edge_cell_xpm(x, y);
+            connect_periodic_edge_cell_yplusminus(x, y);
+            connect_periodic_edge_cell_xplusminus(x, y);
         }
     };
     auto connect_periodic_edge_x_cells = [&](int y)
     {
         for (auto x=0; x<n_x; x++)
         {
-            connect_periodic_edge_cell_ypm(x, y);
-            connect_periodic_edge_cell_xpm(x, y);
+            connect_periodic_edge_cell_yplusminus(x, y);
+            connect_periodic_edge_cell_xplusminus(x, y);
         }
     };
 
