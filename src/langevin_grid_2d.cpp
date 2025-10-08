@@ -20,7 +20,7 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
 
     // Central cells
     // Single cell
-    auto connect_central_cell = [&](int x, int y)
+    auto wire_central_cell = [&](int x, int y)
     {
         // i_cell is the index of the flattened grid
         auto i_central_cell = x + y*n_x;
@@ -32,79 +32,79 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
 
     };
     // All grid cells except edges
-    auto connect_central_cells = [&]()
+    auto wire_central_cells = [&]()
     {
         for (auto y=1; y<n_y-1; y++)
         {
             for (auto x=1; x<n_x-1; x++)
             {
-                connect_central_cell(x,y);
+                wire_central_cell(x,y);
             }
         }
     };
     
     // Periodic
-    auto connect_periodic_edge_cell_yplus = [&](int x, int y) 
+    auto wire_periodic_edge_cell_yplus = [&](int x, int y) 
     {
         auto i_edge_cell = x + y*n_x;
         auto i_yplus = (y < n_y-1) ? i_edge_cell + n_x : x;
         neighbors[i_edge_cell][0] = i_yplus;   // Up
     };
-    auto connect_periodic_edge_cell_yminus = [&](int x, int y) 
+    auto wire_periodic_edge_cell_yminus = [&](int x, int y) 
     {
         auto i_edge_cell = x + y*n_x;
         auto i_yminus = (y > 0) ? i_edge_cell - n_x : x + (n_y-1)*n_x;
         neighbors[i_edge_cell][1] = i_yminus;  // Down
     };
-    auto connect_periodic_edge_cell_xplus = [&](int x, int y) 
+    auto wire_periodic_edge_cell_xplus = [&](int x, int y) 
     {
         auto i_edge_cell = x + y*n_x;
         auto i_xplus = (x < n_x-1) ? i_edge_cell + 1 : 0 + y*n_x;
         neighbors[i_edge_cell][2] = i_xplus;  // Right   (VMB: left)
     };
-    auto connect_periodic_edge_cell_xminus = [&](int x, int y) 
+    auto wire_periodic_edge_cell_xminus = [&](int x, int y) 
     {
         auto i_edge_cell = x + y*n_x;
         auto i_xminus = (x > 0) ? i_edge_cell - 1 : n_x-1 + y*n_x;
         neighbors[i_edge_cell][3] = i_xminus; // Left    (VMB: right)
     };
-    auto connect_periodic_edge_cells = [&](int x, int y) 
+    auto wire_periodic_edge_cells = [&](int x, int y) 
     {
-        connect_periodic_edge_cell_yplus(x, y);
-        connect_periodic_edge_cell_yminus(x, y);
-        connect_periodic_edge_cell_xplus(x, y);
-        connect_periodic_edge_cell_xminus(x, y);        
+        wire_periodic_edge_cell_yplus(x, y);
+        wire_periodic_edge_cell_yminus(x, y);
+        wire_periodic_edge_cell_xplus(x, y);
+        wire_periodic_edge_cell_xminus(x, y);        
     };
     // Left and right edges, loop over y cells
-    auto connect_periodic_y_edge_cells = [&](int x)
+    auto wire_periodic_y_edge_cells = [&](int x)
     {
         assert(x==0 or x==n_x-1);
         for (auto y=1; y<n_y-1; y++)
         {
-            connect_periodic_edge_cells(x, y);
+            wire_periodic_edge_cells(x, y);
         }
     };
     // Bottom and top edges, loop over x cells
-    auto connect_periodic_x_edge_cells = [&](int y)
+    auto wire_periodic_x_edge_cells = [&](int y)
     {
         assert(y==0 or y==n_y-1);
         for (auto x=1; x<n_x-1; x++)
         {
-            connect_periodic_edge_cells(x, y);
+            wire_periodic_edge_cells(x, y);
         }
     };
     // Corners
-    auto connect_periodic_corner = [&](int x, int y)
+    auto wire_periodic_corner = [&](int x, int y)
     {
-        connect_periodic_edge_cell_yplus(x, y);
-        connect_periodic_edge_cell_yminus(x, y);
-        connect_periodic_edge_cell_xplus(x, y);
-        connect_periodic_edge_cell_xminus(x, y);
+        wire_periodic_edge_cell_yplus(x, y);
+        wire_periodic_edge_cell_yminus(x, y);
+        wire_periodic_edge_cell_xplus(x, y);
+        wire_periodic_edge_cell_xminus(x, y);
     };
 
     // Bounded
     // Left and right edges, loop over y cells
-    auto connect_bounded_y_edge_cells = [&](int x)
+    auto wire_bounded_y_edge_cells = [&](int x)
     {
         assert(x==0 or x==n_x-1);
         auto plus_or_minus = (x==0) ? +1 : -1;
@@ -118,7 +118,7 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
         }
     };
     // Bottom and top edges, loop over x cells
-    auto connect_bounded_x_edge_cells = [&](int y)
+    auto wire_bounded_x_edge_cells = [&](int y)
     {
         assert(y==0 or y==n_y-1);
         auto plus_or_minus = (y==0) ? +1 : -1;
@@ -132,7 +132,7 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
         }
     };
     // Corners
-    auto connect_bounded_corner = [&](int x, int y)
+    auto wire_bounded_corner = [&](int x, int y)
     {
         auto x_plus_or_minus = (x==0) ? +1 : -1;
         auto y_plus_or_minus = (y==0) ? +1 : -1;
@@ -145,7 +145,7 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
     /////////////////////////////////////////////
 
     // Step 1: Wire all the non-edge grid cells.
-    connect_central_cells();
+    wire_central_cells();
 
     // Step 2: Wire grid edge cells according to topology specs.
     switch (p.grid_topology)
@@ -154,21 +154,21 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
         {
             // Periodic grid topology in both x and y
             // Bottom row
-            connect_periodic_x_edge_cells(0);
+            wire_periodic_x_edge_cells(0);
             // Top row
-            connect_periodic_x_edge_cells(n_y-1);
+            wire_periodic_x_edge_cells(n_y-1);
             // Left column
-            connect_periodic_y_edge_cells(0);
+            wire_periodic_y_edge_cells(0);
             // Right column
-            connect_periodic_y_edge_cells(n_x-1);
+            wire_periodic_y_edge_cells(n_x-1);
             // Bottom-left corner
-            connect_periodic_corner(0, 0);
+            wire_periodic_corner(0, 0);
             // Bottom-right corner
-            connect_periodic_corner(n_x-1, 0);
+            wire_periodic_corner(n_x-1, 0);
             // Top-left corner
-            connect_periodic_corner(0, n_y-1);
+            wire_periodic_corner(0, n_y-1);
             // Top-right corner
-            connect_periodic_corner(n_x-1, n_y-1);
+            wire_periodic_corner(n_x-1, n_y-1);
 
             return true;
         }
@@ -176,21 +176,21 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
         {
             // Bounded grid topology in both x and y
             // Bottom row
-            connect_bounded_x_edge_cells(0);
+            wire_bounded_x_edge_cells(0);
             // Top row
-            connect_bounded_x_edge_cells(n_y-1);
+            wire_bounded_x_edge_cells(n_y-1);
             // Left column
-            connect_bounded_y_edge_cells(0);
+            wire_bounded_y_edge_cells(0);
             // Right column
-            connect_bounded_y_edge_cells(n_x-1);
+            wire_bounded_y_edge_cells(n_x-1);
             // Bottom-left corner
-            connect_bounded_corner(0, 0);
+            wire_bounded_corner(0, 0);
             // Bottom-right corner
-            connect_bounded_corner(n_x-1, 0);
+            wire_bounded_corner(n_x-1, 0);
             // Top-left corner
-            connect_bounded_corner(0, n_y-1);
+            wire_bounded_corner(0, n_y-1);
             // Top-right corner
-            connect_bounded_corner(n_x-1, n_y-1);
+            wire_bounded_corner(n_x-1, n_y-1);
 
             return true;
         }
