@@ -79,7 +79,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
     auto connect_periodic_y_edge_cells = [&](int x)
     {
         assert(x==0 or x==n_x-1);
-        for (auto y=0; y<n_y; y++)
+        for (auto y=1; y<n_y-1; y++)
         {
             connect_periodic_edge_cells(x, y);
         }
@@ -88,11 +88,32 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
     auto connect_periodic_x_edge_cells = [&](int y)
     {
         assert(y==0 or y==n_y-1);
-        for (auto x=0; x<n_x; x++)
+        for (auto x=1; x<n_x-1; x++)
         {
             connect_periodic_edge_cells(x, y);
         }
     };
+    // Bottom-left corner
+    auto connect_periodic_bl_corner = [&]()
+    {
+        connect_periodic_edge_cells(0, 0);
+    };
+    // Bottom-right corner
+    auto connect_periodic_br_corner = [&]()
+    {
+        connect_periodic_edge_cells(n_x-1, 0);
+    };
+    // Top-left corner
+    auto connect_periodic_tl_corner = [&]()
+    {
+        connect_periodic_edge_cells(0, n_y-1);
+    };
+    // Top-right corner
+    auto connect_periodic_tr_corner = [&]()
+    {
+        connect_periodic_edge_cells(n_x-1, n_y-1);
+    };
+
 
     // Bounded
     // Left and right edges, loop over y cells
@@ -169,14 +190,24 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
             // Periodic grid topology in both x and y
             std::cout << "construct_2D_grid_multitopology: " 
                 << "periodic" << std::endl;
-            // Left edge, x=0, y cells
-            connect_periodic_y_edge_cells(0);
-            // Right edge, x=n_x-1, y cells
-            connect_periodic_y_edge_cells(n_x-1);
-            // Bottom edge, y=0, x cells
+
+            // Bottom row
             connect_periodic_x_edge_cells(0);
-            // Top edge, y=n_y-1, x cells
+            // Top row
             connect_periodic_x_edge_cells(n_y-1);
+            // Left column
+            connect_periodic_y_edge_cells(0);
+            // Right column
+            connect_periodic_y_edge_cells(n_x-1);
+            // Bottom-left corner
+            connect_periodic_bl_corner();
+            // Bottom-right corner
+            connect_periodic_br_corner();
+            // Top-left corner
+            connect_periodic_tl_corner();
+            // Top-right corner
+            connect_periodic_tr_corner();
+
             return true;
         }
         case GridTopology::BOUNDED:
@@ -184,11 +215,14 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
             // Bounded grid topology in both x and y
             std::cout << "construct_2D_grid_multitopology: " 
                 << "bounded" << std::endl;
-            // Top and bottom rows
+
+            // Bottom row
             connect_bounded_x_edge_cells(0);
+            // Top row
             connect_bounded_x_edge_cells(n_y-1);
-            // Left and right columns
+            // Left column
             connect_bounded_y_edge_cells(0);
+            // Right column
             connect_bounded_y_edge_cells(n_x-1);
             // Bottom-left corner
             connect_bounded_bl_corner();
