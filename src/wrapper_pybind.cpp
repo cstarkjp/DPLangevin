@@ -68,6 +68,7 @@ PYBIND11_MODULE(dplvn, module)
                 GridDimension,
                 int_vec_t&,
                 GridTopology,
+                gt_vec_t&,
                 BoundaryCondition,
                 InitialCondition,
                 IntegrationMethod
@@ -84,6 +85,7 @@ PYBIND11_MODULE(dplvn, module)
             py::arg("grid_dimension") = GridDimension::D2,
             py::arg("grid_size") = int_vec_t(4),
             py::arg("grid_topology") = GridTopology::BOUNDED,
+            py::arg("grid_topologies") = gt_vec_t(4),
             py::arg("boundary_condition") = BoundaryCondition::FLOATING,
             py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
             py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA
