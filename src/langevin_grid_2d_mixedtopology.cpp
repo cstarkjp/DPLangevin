@@ -5,16 +5,15 @@
 
 #include "general_core.hpp"
 
-constexpr unsigned long pack_tuple(const gt_vec_t& gt) {
+//! Utility to allow switch-case with GridTopology tuple (overloaded)
+constexpr unsigned long pack(const gt_vec_t& gt) {
     return (
         (static_cast<unsigned long>(gt[0]) << 8) | 
         static_cast<unsigned long>(gt[1])
     );
 }
-
-constexpr unsigned long pack(
-    GridTopology a, GridTopology b
-) {
+//! Utility to allow switch-case with GridTopology tuple (overloaded)
+constexpr unsigned long pack(GridTopology a, GridTopology b) {
     return (
         (static_cast<unsigned long>(a) << 8) | 
         static_cast<unsigned long>(b)
@@ -164,8 +163,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
     wire_central_cells();
 
     // Step 2: Wire grid edge cells according to topology specs.
-    unsigned long grid_topologies = pack_tuple(p.grid_topologies);
-
+    auto grid_topologies = pack(p.grid_topologies);
     switch (grid_topologies) 
     {
         case pack(GridTopology::PERIODIC, GridTopology::PERIODIC):
