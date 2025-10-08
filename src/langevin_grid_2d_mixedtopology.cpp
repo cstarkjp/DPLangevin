@@ -20,7 +20,24 @@ constexpr unsigned long pack(GridTopology a, GridTopology b) {
     );
 }
 
-//! Construct 2D density field ρ(x,t) grid and corresponding cell-cell topologies
+/**
+* @details Construct 2D density field ρ(x,t) grid and corresponding cell-cell topologies
+* 
+* Implements mixed grid edge topology: i.e., x and y grid edges 
+* can separately be specified as "bounded" or "periodic".
+*
+* The "bounded" edge topology simply means those exterior grid cells are only
+* connected to their neighboring grid-interior cells.
+*
+* The "periodic" edge topology means the grid cells along one edge are also 
+* connected to those on the opposite edge. 
+*
+* If both x and y edges are periodic, the grid topology is toroidal.
+* If only one edge is periodic, the grid topology is cylindrical.
+* If both are bounded, the grid topology is a bounded plane.
+*
+* @param BaseLangevin integrator Parameters bundle.
+*/
 bool BaseLangevin::construct_2D_grid_mixedtopology(const Parameters p)
 {
     // Shorthand
@@ -34,6 +51,7 @@ bool BaseLangevin::construct_2D_grid_mixedtopology(const Parameters p)
     neighbors = std::vector<int_vec_t>(n_x*n_y, int_vec_t(4));
 
     // Central cells
+
     // Single cell
     auto wire_central_cell = [&](int x, int y)
     {
