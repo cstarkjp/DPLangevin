@@ -124,7 +124,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
         }
     };
     // Bottom-left corner
-    auto connect_bl_corner = [&]()
+    auto connect_bounded_bl_corner = [&]()
     {
         auto i_cell = 0;
         neighbors[i_cell] = int_vec_t(2);
@@ -132,7 +132,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
         neighbors[i_cell][1] = i_cell + n_x;
     };
     // Bottom-right corner
-    auto connect_br_corner = [&]()
+    auto connect_bounded_br_corner = [&]()
     {
         auto i_cell = n_x-1;
         neighbors[i_cell] = int_vec_t(2);
@@ -140,7 +140,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
         neighbors[i_cell][1] = i_cell + n_x;
     };
     // Top-left corner
-    auto connect_tl_corner = [&]()
+    auto connect_bounded_tl_corner = [&]()
     {
         auto i_cell = (n_y-1)*n_x;
         neighbors[i_cell] = int_vec_t(2);
@@ -148,13 +148,15 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
         neighbors[i_cell][1] = i_cell - n_x;
     };
     // Top-right corner
-    auto connect_tr_corner = [&]()
+    auto connect_bounded_tr_corner = [&]()
     {
         auto i_cell = (n_x-1)+(n_y-1)*n_x;
         neighbors[i_cell] = int_vec_t(2);
         neighbors[i_cell][0] = i_cell - 1; 
         neighbors[i_cell][1] = i_cell - n_x;
     };
+
+    /////////////////////////////////////////////
 
     // Step 1: Wire all the non-edge grid cells.
     connect_central_cells();
@@ -189,13 +191,13 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
             connect_bounded_y_edge_cells(0);
             connect_bounded_y_edge_cells(n_x-1);
             // Bottom-left corner
-            connect_bl_corner();
+            connect_bounded_bl_corner();
             // Bottom-right corner
-            connect_br_corner();
+            connect_bounded_br_corner();
             // Top-left corner
-            connect_tl_corner();
+            connect_bounded_tl_corner();
             // Top-right corner
-            connect_tr_corner();
+            connect_bounded_tr_corner();
 
             return true;
         }
