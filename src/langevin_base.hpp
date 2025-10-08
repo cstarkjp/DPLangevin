@@ -74,7 +74,7 @@ public:
     bool construct_1D_grid(const Parameters parameters);
     //! Build 2d Langevin density field grid & topology
     bool construct_2D_grid(const Parameters parameters);
-    //! Build 2d Langevin density field grid & mixedtopology
+    //! Build 2d Langevin density field grid & mixed topology
     bool construct_2D_grid_mixedtopology(const Parameters parameters);
     //! Initial condition for density field: uniformly random
     void ic_random_uniform(
