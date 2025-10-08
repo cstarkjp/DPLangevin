@@ -90,16 +90,16 @@ public:
     std::string report(GridDimension gd, gt_vec_t gts) 
     {
         std::string combo = "x:";
-        combo.append(report(gts[0]));
+        combo.append(report(gts.at(0)));
         if (gd==GridDimension::D2 or gd==GridDimension::D3)
         {
             combo.append(", y:");
-            combo.append(report(gts[1]));
+            combo.append(report(gts.at(1)));
         }
         if (gd==GridDimension::D3)
         {
             combo.append(", z:");
-            combo.append(report(gts[2]));
+            combo.append(report(gts.at(2)));
         }
         return combo;
     }
