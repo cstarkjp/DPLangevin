@@ -20,11 +20,11 @@ sim = dplvn.SimDP(
     # t_final=1e4-1e-10, 
     dx=0.5, dt=0.01,
     random_seed=1,
-    # grid_dimension=dplvn.D1,
-    # grid_size=(4096,),
-    grid_dimension=dplvn.D2,
-    grid_size=(12,8,),
-    # grid_size=(40,20,),
+    grid_dimension=dplvn.D1,
+    grid_size=(4096,),
+    # grid_dimension=dplvn.D2,
+    # grid_size=(12,8,),
+    # # grid_size=(40,20,),
     grid_topology=dplvn.BOUNDED,
     grid_topologies=[
         dplvn.BOUNDED, dplvn.PERIODIC, dplvn.BOUNDED, dplvn.BOUNDED

@@ -31,8 +31,14 @@ SimDP::SimDP(
 
 bool SimDP::initialize()
 {
-    if (not construct_grid()) { return false; }
-    if (not initialize_grid()) { return false; }
+    if (not construct_grid()) { 
+        std::cout << "Failure: couldn't construct grid" << std::endl;
+        return false; 
+    }
+    if (not initialize_grid()) { 
+        std::cout << "Failure: couldn't initialize grid" << std::endl;
+        return false; 
+    }
     dpLangevin->set_coefficients(coefficients);
     n_epochs = count_epochs();
     t_epochs = dbl_vec_t(n_epochs, 0.0);
