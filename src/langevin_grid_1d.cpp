@@ -27,12 +27,14 @@ bool BaseLangevin::construct_1D_grid(const Parameters parameters)
             neighbors[0][0] = n_x-1;      // left-end left
             neighbors[0][1] = 1;          // left-end right
             neighbors[n_x-1][0] = n_x-2;  // right-end left VMB: [n_x-1][0] = n_x-2;
-            neighbors[n_x-1][1] = 0;      // right-end right  
+            neighbors[n_x-1][1] = 0;      // right-end right
+            return true;
             
         case GridTopology::BOUNDED:
             // Link each end cell to its adjacent cell only
             neighbors[0] = int_vec_t(1, 1);
             neighbors[n_x-1] = int_vec_t(1, n_x-2);
+            return true;
 
         default:
             return false;
