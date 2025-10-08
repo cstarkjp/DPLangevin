@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['int_5fpoisson_5fdist_5ft_0',['int_poisson_dist_t',['../general__core_8hpp.html#a93f472db53182f058d0dcf09208ef7e0',1,'general_core.hpp']]],
-  ['int_5fvec_5ft_1',['int_vec_t',['../general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f',1,'general_core.hpp']]]
+  ['gt_5fvec_5ft_0',['gt_vec_t',['../general__core_8hpp.html#a8e652b99fe1e99f2033cf406f9a9a1a5',1,'general_core.hpp']]]
 ];

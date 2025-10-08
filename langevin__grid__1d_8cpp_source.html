@@ -117,17 +117,19 @@ $(function(){initNavTree('langevin__grid__1d_8cpp_source.html','',''); });
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <a class="code hl_variable" href="classBaseLangevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[0][0] = n_x-1;      <span class="comment">// left-end left</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <a class="code hl_variable" href="classBaseLangevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[0][1] = 1;          <span class="comment">// left-end right</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <a class="code hl_variable" href="classBaseLangevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[n_x-1][0] = n_x-2;  <span class="comment">// right-end left VMB: [n_x-1][0] = n_x-2;</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_variable" href="classBaseLangevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[n_x-1][1] = 0;      <span class="comment">// right-end right  </span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">case</span> GridTopology::BOUNDED:</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <span class="comment">// Link each end cell to its adjacent cell only</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <a class="code hl_variable" href="classBaseLangevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[0] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(1, 1);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <a class="code hl_variable" href="classBaseLangevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[n_x-1] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(1, n_x-2);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_variable" href="classBaseLangevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[n_x-1][1] = 0;      <span class="comment">// right-end right</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">case</span> GridTopology::BOUNDED:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="comment">// Link each end cell to its adjacent cell only</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <a class="code hl_variable" href="classBaseLangevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[0] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(1, 1);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <a class="code hl_variable" href="classBaseLangevin.html#a12048a935fbc25b9129b41ce117fce08">neighbors</a>[n_x-1] = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(1, n_x-2);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
 </div>
 <div class="ttc" id="aclassBaseLangevin_html_a12048a935fbc25b9129b41ce117fce08"><div class="ttname"><a href="classBaseLangevin.html#a12048a935fbc25b9129b41ce117fce08">BaseLangevin::neighbors</a></div><div class="ttdeci">std::vector&lt; int_vec_t &gt; neighbors</div><div class="ttdoc">Neighorhood topology for all grid cells.</div><div class="ttdef"><b>Definition</b> <a href="langevin__base_8hpp_source.html#l00063">langevin_base.hpp:63</a></div></div>
 <div class="ttc" id="aclassBaseLangevin_html_af23cd5ed5aaa9202f8b294793bb8ae3e"><div class="ttname"><a href="classBaseLangevin.html#af23cd5ed5aaa9202f8b294793bb8ae3e">BaseLangevin::construct_1D_grid</a></div><div class="ttdeci">bool construct_1D_grid(const Parameters parameters)</div><div class="ttdoc">Build 1d Langevin density field grid &amp; topology.</div><div class="ttdef"><b>Definition</b> <a href="#l00009">langevin_grid_1d.cpp:9</a></div></div>

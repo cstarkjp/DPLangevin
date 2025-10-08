@@ -1,6 +1,6 @@
 var classSimDP =
 [
-    [ "SimDP", "classSimDP.html#a4e5e8163e3b9a33c717ead5a13c3996a", null ],
+    [ "SimDP", "classSimDP.html#a18a1350f7264aca8691084a1dae4b42f", null ],
     [ "construct_grid", "classSimDP.html#adf9706187d694ad0ba16cb4e2c308cd1", null ],
     [ "count_epochs", "classSimDP.html#a587ef106d6540a3f23a24cd86f2861b7", null ],
     [ "get_density", "classSimDP.html#a373628fc3abfe97695a822987305abd8", null ],
