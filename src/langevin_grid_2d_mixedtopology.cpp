@@ -21,7 +21,7 @@ constexpr unsigned long pack(GridTopology a, GridTopology b) {
 }
 
 //! Construct 2D density field ρ(x,t) grid and corresponding cell-cell topologies
-bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
+bool BaseLangevin::construct_2D_grid_mixedtopology(const Parameters p)
 {
     // Shorthand
     const auto n_x = p.n_x;
@@ -170,7 +170,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
         {
             // Periodic grid topology in both x and y
             std::cout 
-                << "construct_2D_grid_multitopology: " 
+                << "construct_2D_grid_mixedtopology: " 
                 << "x:periodic, y:periodic"
                 << std::endl;
 
@@ -189,7 +189,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
         {
             // Bounded grid topology in both x and y
             std::cout 
-                << "construct_2D_grid_multitopology: " 
+                << "construct_2D_grid_mixedtopology: " 
                 << "x:bounded, y:bounded"
                 << std::endl;
 
@@ -210,7 +210,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
             // Bounded along x edges
             // Periodic along y edges
             std::cout 
-                << "construct_2D_grid_multitopology: " 
+                << "construct_2D_grid_mixedtopology: " 
                 << "x:bounded, y:periodic"
                 << std::endl;
 
@@ -232,7 +232,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
             // Periodic along x edges
             // Bounded along y edges
             std::cout 
-                << "construct_2D_grid_multitopology: " 
+                << "construct_2D_grid_mixedtopology: " 
                 << "x:periodic, y:bounded"
                 << std::endl;
 
@@ -251,7 +251,7 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
         default:
         {
             std::cout
-                << "construct_2D_grid_multitopology: " 
+                << "construct_2D_grid_mixedtopology: " 
                 << "FAILED "
                 << std::hex << grid_topologies
                 << std::endl;

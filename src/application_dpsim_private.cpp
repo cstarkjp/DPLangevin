@@ -25,7 +25,7 @@ bool SimDP::construct_grid()
             //         << "gt: " 
             //         << int(p.grid_topologies.at(0)) << ", " 
             //         << int(p.grid_topologies.at(1)) << std::endl;
-            return dpLangevin->construct_2D_grid_multitopology(p);
+            return dpLangevin->construct_2D_grid_mixedtopology(p);
         default:
             return false;
     }    
