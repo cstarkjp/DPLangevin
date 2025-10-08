@@ -6,6 +6,7 @@
 import numpy as np
 from numpy.typing import NDArray
 import dplvn # type: ignore
+from sys import exit
 
 bold = lambda str: ("\033[1m" + str + "\033[0m")
 
@@ -24,7 +25,7 @@ sim = dplvn.SimDP(
     grid_dimension=dplvn.D2,
     grid_size=(12,8,),
     # grid_size=(40,20,),
-    grid_topologies=(dplvn.PERIODIC, dplvn.PERIODIC,),
+    grid_topologies=(dplvn.BOUNDED, dplvn.PERIODIC,),
     boundary_condition=dplvn.FLOATING,
     initial_condition=dplvn.RANDOM_UNIFORM,
     integration_method=dplvn.RUNGE_KUTTA
@@ -36,6 +37,8 @@ n_epochs: int = sim.get_n_epochs()
 print()
 print(f"Number of sim epochs = {n_epochs}")
 print()
+
+# exit()
 
 n_segments: int = 5
 n_segment_epochs: int = (n_epochs-1) // n_segments

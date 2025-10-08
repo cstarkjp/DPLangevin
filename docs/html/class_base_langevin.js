@@ -3,6 +3,7 @@ var class_base_langevin =
     [ "BaseLangevin", "class_base_langevin.html#aac3ba1395e4671aa3da561b07245c41e", null ],
     [ "construct_1D_grid", "class_base_langevin.html#af23cd5ed5aaa9202f8b294793bb8ae3e", null ],
     [ "construct_2D_grid", "class_base_langevin.html#a1c785de7a81b904d3e50719e2278b17e", null ],
+    [ "construct_2D_grid_multitopology", "class_base_langevin.html#a448aa48d2675d51a8546e6cdeec49889", null ],
     [ "euler_and_stochastic", "class_base_langevin.html#ae16115a582dc618d6184aa8b7a954b92", null ],
     [ "get_density_grid_value", "class_base_langevin.html#a8e997a82e0660b7795005f4771350e17", null ],
     [ "get_mean_density", "class_base_langevin.html#a662fc98edabb628c914c955690aa5651", null ],

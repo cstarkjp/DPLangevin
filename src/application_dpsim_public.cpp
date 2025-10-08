@@ -12,14 +12,16 @@ SimDP::SimDP(
     const double t_final, const double dx, const double dt, 
     const int random_seed,
     const GridDimension grid_dimension,
-    const int_vec_t& grid_size,
+    const int_vec_t grid_size,
     const GridTopology grid_topology,
+    const gt_vec_t grid_topologies,
     const BoundaryCondition boundary_condition,
     const InitialCondition initial_condition,
     const IntegrationMethod integration_method
 ) : coefficients(linear, quadratic, diffusion, noise),
-    p(t_final, dx, dt, random_seed, grid_dimension, grid_size, grid_topology,
-      boundary_condition, initial_condition, integration_method)
+    p(t_final, dx, dt, random_seed, 
+        grid_dimension, grid_size, grid_topology, grid_topologies,
+        boundary_condition, initial_condition, integration_method)
 {
     rng = new rng_t(p.random_seed); 
     dpLangevin = new DPLangevin(p);
@@ -29,8 +31,18 @@ SimDP::SimDP(
 
 bool SimDP::initialize()
 {
-    if (not construct_grid()) { return false; }
-    if (not initialize_grid()) { return false; }
+    if (not construct_grid()) { 
+        std::cout 
+            << "SimDP::initialize failure: couldn't construct grid" 
+            << std::endl;
+        return false; 
+    }
+    if (not initialize_grid()) { 
+        std::cout 
+            << "SimDP::initialize failure: couldn't initialize grid" 
+            << std::endl;
+        return false; 
+    }
     dpLangevin->set_coefficients(coefficients);
     n_epochs = count_epochs();
     t_epochs = dbl_vec_t(n_epochs, 0.0);

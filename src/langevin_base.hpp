@@ -74,6 +74,8 @@ public:
     bool construct_1D_grid(const Parameters parameters);
     //! Build 2d Langevin density field grid & topology
     bool construct_2D_grid(const Parameters parameters);
+    //! Build 2d Langevin density field grid & multitopology
+    bool construct_2D_grid_multitopology(const Parameters parameters);
     //! Initial condition for density field: uniformly random
     void ic_random_uniform(
         rng_t &rng, const double min_value = 0.0, const double max_value = 1.0

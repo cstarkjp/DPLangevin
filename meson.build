@@ -5,7 +5,7 @@
 project(
     'DPLangevin',
     'cpp',
-    version: '2025.10.07a0',
+    version: '2025.10.08a0',
     default_options: ['cpp_std=c++11'],
 )
 add_project_arguments('-Ofast', '-g3', language : 'cpp')
@@ -13,6 +13,7 @@ add_project_arguments('-Ofast', '-g3', language : 'cpp')
 cpp_sources = files(
     'src/langevin_grid_1d.cpp', 
     'src/langevin_grid_2d.cpp', 
+    'src/langevin_grid_2d_mixedtopology.cpp', 
     'src/langevin_initial_condition.cpp', 
     'src/langevin_initialization.cpp', 
     'src/langevin_integration_rungekutta.cpp', 

@@ -74,8 +74,9 @@ public:
         const double t_final, const double dx, const double dt, 
         const int random_seed,
         const GridDimension grid_dimension,
-        const int_vec_t& grid_size,
+        const int_vec_t grid_size,
         const GridTopology grid_topology,
+        const gt_vec_t grid_topologies,
         const BoundaryCondition boundary_condition,
         const InitialCondition initial_condition,
         const IntegrationMethod integration_method
