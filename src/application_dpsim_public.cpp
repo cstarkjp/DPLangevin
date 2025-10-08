@@ -12,9 +12,9 @@ SimDP::SimDP(
     const double t_final, const double dx, const double dt, 
     const int random_seed,
     const GridDimension grid_dimension,
-    const int_vec_t& grid_size,
+    const int_vec_t grid_size,
     const GridTopology grid_topology,
-    const gt_vec_t& grid_topologies,
+    const gt_vec_t grid_topologies,
     const BoundaryCondition boundary_condition,
     const InitialCondition initial_condition,
     const IntegrationMethod integration_method
@@ -27,16 +27,42 @@ SimDP::SimDP(
     dpLangevin = new DPLangevin(p);
     coefficients.print();
     p.print();
+    // std::cout 
+    //     << "SimDP::SimDP: grid vec size: "
+    //     << int(p.grid_size.size())
+    //     << std::endl;
+    // std::cout 
+    //     << "SimDP::SimDP: gts vec size: "
+    //     << int(p.grid_topologies.size())
+    //     << std::endl;
 }
 
 bool SimDP::initialize()
 {
+    // std::cout 
+    //     << "SimDP::initialize: grid: "
+    //     << static_cast<int16_t>(this->p.grid_size.at(0))
+    //     << ", "
+    //     << static_cast<int16_t>(this->p.grid_size.at(1))
+    //     << std::endl;
+    // std::cout 
+    //     << "SimDP::initialize: grid vec size: "
+    //     << int(p.grid_size.size())
+    //     << std::endl;
+    // std::cout 
+    //     << "SimDP::initialize: gts vec size: "
+    //     << int(p.grid_topologies.size())
+    //     << std::endl;
     if (not construct_grid()) { 
-        std::cout << "Failure: couldn't construct grid" << std::endl;
+        std::cout 
+            << "SimDP::initialize failure: couldn't construct grid" 
+            << std::endl;
         return false; 
     }
     if (not initialize_grid()) { 
-        std::cout << "Failure: couldn't initialize grid" << std::endl;
+        std::cout 
+            << "SimDP::initialize failure: couldn't initialize grid" 
+            << std::endl;
         return false; 
     }
     dpLangevin->set_coefficients(coefficients);

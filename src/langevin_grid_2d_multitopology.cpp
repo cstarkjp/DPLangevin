@@ -5,6 +5,22 @@
 
 #include "general_core.hpp"
 
+constexpr unsigned long pack_tuple(const gt_vec_t& gt) {
+    return (
+        (static_cast<unsigned long>(gt[0]) << 8) | 
+        static_cast<unsigned long>(gt[1])
+    );
+}
+
+constexpr unsigned long pack(
+    GridTopology a, GridTopology b
+) {
+    return (
+        (static_cast<unsigned long>(a) << 8) | 
+        static_cast<unsigned long>(b)
+    );
+}
+
 //! Construct 2D density field ρ(x,t) grid and corresponding cell-cell topologies
 bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
 {
@@ -148,13 +164,38 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
     connect_central_cells();
 
     // Step 2: Wire grid edge cells according to topology specs.
-    switch (p.grid_topology)
+    // std::cout 
+    //     << "construct_2D_grid_multitopology: " 
+    //     << "gt: " << int(p.grid_topologies[0]) 
+    //     << ", " << int(p.grid_topologies[1]) 
+    //     << std::endl;
+    unsigned long grid_topologies = pack_tuple(p.grid_topologies);
+    // std::cout 
+    //     << "construct_2D_grid_multitopology: " 
+    //     << "gt: " 
+    //     <<  static_cast<unsigned long>(p.grid_topologies[0])
+    //     << ", " 
+    //     <<  static_cast<unsigned long>(p.grid_topologies[1])
+    //     << std::endl;
+    // std::cout 
+    //     << "construct_2D_grid_multitopology: " 
+    //     << "gt: " 
+    //     << std::hex << grid_topologies
+    //     << std::endl;
+
+    switch (grid_topologies) 
     {
-        case GridTopology::PERIODIC:
+        case pack(
+            GridTopology::PERIODIC, 
+            GridTopology::PERIODIC
+        ):
         {
             // Periodic grid topology in both x and y
-            std::cout << "construct_2D_grid_multitopology: " 
-                << "periodic" << std::endl;
+            // std::cout 
+            //     << "construct_2D_grid_multitopology: " 
+            //     << "periodic " 
+            //     << std::hex << grid_topologies
+            //     << std::endl;
 
             // Bottom row
             connect_periodic_x_edge_cells(0);
@@ -175,11 +216,17 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
 
             return true;
         }
-        case GridTopology::BOUNDED:
+        case pack(
+            GridTopology::BOUNDED, 
+            GridTopology::BOUNDED
+        ):
         {
             // Bounded grid topology in both x and y
-            std::cout << "construct_2D_grid_multitopology: " 
-                << "bounded" << std::endl;
+            // std::cout 
+            //     << "construct_2D_grid_multitopology: " 
+            //     << "bounded " 
+            //     << std::hex << grid_topologies
+            //     << std::endl;
 
             // Bottom row
             connect_bounded_x_edge_cells(0);
@@ -202,7 +249,11 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
         }
         default:
         {
-            std::cout<< "construct_2D_grid_multitopology: " << "FAILED" << std::endl;
+            std::cout
+                << "construct_2D_grid_multitopology: " 
+                << "FAILED "
+                << std::hex << grid_topologies
+                << std::endl;
             return false;
         }
     }

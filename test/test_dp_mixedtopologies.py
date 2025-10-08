@@ -26,9 +26,12 @@ sim = dplvn.SimDP(
     grid_size=(12,8,),
     # grid_size=(40,20,),
     grid_topology=dplvn.PERIODIC,
-    grid_topologies=[
-        dplvn.BOUNDED, dplvn.PERIODIC, dplvn.BOUNDED, dplvn.BOUNDED
-    ],
+    grid_topologies=(
+        dplvn.PERIODIC, 
+        dplvn.PERIODIC, 
+        dplvn.PERIODIC, 
+        dplvn.PERIODIC
+    ),
     boundary_condition=dplvn.FLOATING,
     initial_condition=dplvn.RANDOM_UNIFORM,
     integration_method=dplvn.RUNGE_KUTTA

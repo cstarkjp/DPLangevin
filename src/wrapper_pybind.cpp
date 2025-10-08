@@ -66,9 +66,9 @@ PYBIND11_MODULE(dplvn, module)
                 double, double, double,
                 int, 
                 GridDimension,
-                int_vec_t&,
+                int_vec_t,
                 GridTopology,
-                gt_vec_t&,
+                gt_vec_t,
                 BoundaryCondition,
                 InitialCondition,
                 IntegrationMethod

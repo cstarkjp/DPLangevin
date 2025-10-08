@@ -25,13 +25,13 @@ public:
     const double dt=0;
     const int random_seed=0;
     const GridDimension grid_dimension=GridDimension::D1;
-    const int_vec_t& grid_size = {0};
+    const int_vec_t grid_size = {0};
     int n_cells=0;
     int n_x=0;
     int n_y=0;
     int n_z=0;  // but 3d, 4d grids not implemented yet (or ever)
     const GridTopology grid_topology=GridTopology::BOUNDED;
-    const gt_vec_t& grid_topologies = {
+    const gt_vec_t grid_topologies = {
         GridTopology::BOUNDED, GridTopology::BOUNDED, 
         GridTopology::BOUNDED, GridTopology::BOUNDED
     };
@@ -45,9 +45,9 @@ public:
         const double dx, const double dt, 
         const int rs, 
         const GridDimension gd,
-        const int_vec_t& gs,
+        const int_vec_t gs,
         const GridTopology gt,
-        const gt_vec_t& gts,
+        const gt_vec_t gts,
         const BoundaryCondition bc,
         const InitialCondition ic,
         const IntegrationMethod im
@@ -133,20 +133,38 @@ public:
 
     void print() 
     {
-        std::cout<< "t_final: " << t_final << std::endl;
-        std::cout<< "dx: " << dx << std::endl;
-        std::cout<< "dt: " << dt << std::endl;
-        std::cout<< "random_seed: " << random_seed << std::endl;
-        std::cout<< "grid_dimension: " << report(grid_dimension) << std::endl;
-        std::cout<< "grid_size: ";
+        std::cout << "t_final: " << t_final << std::endl;
+        std::cout << "dx: " << dx << std::endl;
+        std::cout << "dt: " << dt << std::endl;
+        std::cout << "random_seed: " 
+            << random_seed << std::endl;
+        std::cout << "grid_dimension: " 
+            << report(grid_dimension) << std::endl;
+        std::cout << "grid_size: ";
         for (const auto& element : grid_size) {std::cout << element << " ";}
-        std::cout<< std::endl;        
-        std::cout<< "n_cells: " << n_cells << std::endl;
-        std::cout<< "grid_topology: " << report(grid_topology) << std::endl;
-        std::cout<< "grid_topologies: " << report(grid_dimension, grid_topologies) << std::endl;
-        std::cout<< "boundary_condition: " << report(boundary_condition) << std::endl;
-        std::cout<< "initial_condition: " << report(initial_condition) << std::endl;
-        std::cout<< "integration_method: "  << report(integration_method) << std::endl;
+        std::cout << std::endl;        
+        std::cout << "n_cells: " 
+            << n_cells << std::endl;
+        std::cout << "grid_topology: " 
+            << report(grid_topology) << std::endl;
+        std::cout << "grid_topologies: " 
+            << report(grid_dimension, grid_topologies) << std::endl;
+        // std::cout << "gt: " 
+        //     << int(grid_topologies.at(0)) 
+        //     << ", " << int(grid_topologies.at(1)) 
+        //     << ", " << int(grid_topologies.at(2)) 
+        //     << ", " << int(grid_topologies.at(3)) 
+        //     << std::endl;
+        std::cout << "boundary_condition: " 
+            << report(boundary_condition) << std::endl;
+        std::cout << "initial_condition: " 
+            << report(initial_condition) << std::endl;
+        std::cout << "integration_method: "  
+            << report(integration_method) << std::endl;
+        // std::cout 
+        //     << "gts size: "
+        //     << int(grid_topologies.size())
+        //     << std::endl;
     }
 };
 

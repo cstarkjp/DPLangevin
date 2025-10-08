@@ -8,14 +8,24 @@
 
 bool SimDP::construct_grid()
 {
-    std::cout << "construct_grid:: " << p.report(p.grid_dimension) << std::endl;
+    // std::cout << "construct_grid:: " 
+    //     << p.report(p.grid_dimension) << std::endl;
     switch (p.grid_dimension)
     {
         case (GridDimension::D1):
             return dpLangevin->construct_1D_grid(p);
         case (GridDimension::D2):
+            // std::cout << "construct_grid:: " 
+            //     << p.report(p.grid_topologies[0]) 
+            //     << ", " 
+            //     << p.report(p.grid_topologies[1]) 
+            //     << std::endl;
+            // std::cout 
+            //         << "construct_grid: " 
+            //         << "gt: " 
+            //         << int(p.grid_topologies.at(0)) << ", " 
+            //         << int(p.grid_topologies.at(1)) << std::endl;
             return dpLangevin->construct_2D_grid_multitopology(p);
-            // return dpLangevin->construct_2D_grid(p);
         default:
             return false;
     }    

@@ -196,7 +196,7 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
         }
         default:
         {
-            std::cout<< "construct_2D_grid_multitopology: " << "FAILED" << std::endl;
+            std::cout << "construct_2D_grid_multitopology: " << "FAILED" << std::endl;
             return false;
         }
     }
