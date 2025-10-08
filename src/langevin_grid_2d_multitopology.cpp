@@ -96,22 +96,34 @@ bool BaseLangevin::construct_2D_grid_multitopology(const Parameters p)
     // Bottom-left corner
     auto connect_periodic_bl_corner = [&]()
     {
-        connect_periodic_edge_cells(0, 0);
+        connect_periodic_edge_cell_yplus(0, 0);
+        connect_periodic_edge_cell_yminus(0, 0);
+        connect_periodic_edge_cell_xplus(0, 0);
+        connect_periodic_edge_cell_xminus(0, 0);
     };
     // Bottom-right corner
     auto connect_periodic_br_corner = [&]()
     {
-        connect_periodic_edge_cells(n_x-1, 0);
+        connect_periodic_edge_cell_yplus(n_x-1, 0);
+        connect_periodic_edge_cell_yminus(n_x-1, 0);
+        connect_periodic_edge_cell_xplus(n_x-1, 0);
+        connect_periodic_edge_cell_xminus(n_x-1, 0);
     };
     // Top-left corner
     auto connect_periodic_tl_corner = [&]()
     {
-        connect_periodic_edge_cells(0, n_y-1);
+        connect_periodic_edge_cell_yplus(0, n_y-1);
+        connect_periodic_edge_cell_yminus(0, n_y-1);
+        connect_periodic_edge_cell_xplus(0, n_y-1);
+        connect_periodic_edge_cell_xminus(0, n_y-1);
     };
     // Top-right corner
     auto connect_periodic_tr_corner = [&]()
     {
-        connect_periodic_edge_cells(n_x-1, n_y-1);
+        connect_periodic_edge_cell_yplus(n_x-1, n_y-1);
+        connect_periodic_edge_cell_yminus(n_x-1, n_y-1);
+        connect_periodic_edge_cell_xplus(n_x-1, n_y-1);
+        connect_periodic_edge_cell_xminus(n_x-1, n_y-1);
     };
 
 
