@@ -24,15 +24,15 @@
  */
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__version__") = "2025.10.09a1";
+    module.attr("__version__") = "2025.10.09a2";
     module.doc() = 
         "Operator-splitting method of integrating DP-type Langevin equations"; 
   
     py::enum_<GridDimension>(module, "GridDimension")
         .value("D1", GridDimension::D1)
         .value("D2", GridDimension::D2)
-        .value("D3", GridDimension::D3)
-        .value("D4", GridDimension::D4)
+        .value("D3", GridDimension::D3)    // might happen one day
+        // .value("D4", GridDimension::D4) // never gonna happen
         .export_values();
 
     py::enum_<GridTopology>(module, "GridTopology")
@@ -84,8 +84,8 @@ PYBIND11_MODULE(dplvn, module)
             py::arg("random_seed") = 1,
             py::arg("aux_values") = dbl_vec_t(3),
             py::arg("grid_dimension") = GridDimension::D2,
-            py::arg("grid_size") = int_vec_t(4),
-            py::arg("grid_topologies") = gt_vec_t(4),
+            py::arg("grid_size") = int_vec_t(2),
+            py::arg("grid_topologies") = gt_vec_t(2),
             py::arg("boundary_condition") = BoundaryCondition::FLOATING,
             py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
             py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA
