@@ -8,15 +8,15 @@
 //! Utility to allow switch-case with GridTopology tuple (overloaded)
 constexpr unsigned long pack(const gt_vec_t& gt) {
     return (
-        (static_cast<unsigned long>(gt[0]) << 8) | 
-        static_cast<unsigned long>(gt[1])
+        (static_cast<unsigned long>(gt[0]) << 8)
+        | static_cast<unsigned long>(gt[1])
     );
 }
 //! Utility to allow switch-case with GridTopology tuple (overloaded)
 constexpr unsigned long pack(GridTopology a, GridTopology b) {
     return (
-        (static_cast<unsigned long>(a) << 8) | 
-        static_cast<unsigned long>(b)
+        (static_cast<unsigned long>(a) << 8)
+        | static_cast<unsigned long>(b)
     );
 }
 
