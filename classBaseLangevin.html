@@ -114,15 +114,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af23cd5ed5aaa9202f8b294793bb8ae3e" id="r_af23cd5ed5aaa9202f8b294793bb8ae3e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af23cd5ed5aaa9202f8b294793bb8ae3e">construct_1D_grid</a> (const <a class="el" href="structParameters.html">Parameters</a> parameters)</td></tr>
 <tr class="memdesc:af23cd5ed5aaa9202f8b294793bb8ae3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build 1d Langevin density field grid &amp; topology.  <br /></td></tr>
 <tr class="memitem:a1c785de7a81b904d3e50719e2278b17e" id="r_a1c785de7a81b904d3e50719e2278b17e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c785de7a81b904d3e50719e2278b17e">construct_2D_grid</a> (const <a class="el" href="structParameters.html">Parameters</a> parameters)</td></tr>
-<tr class="memdesc:a1c785de7a81b904d3e50719e2278b17e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build 2d Langevin density field grid &amp; topology.  <br /></td></tr>
-<tr class="memitem:aed78da90ea981d9ba0435ca07fa89113" id="r_aed78da90ea981d9ba0435ca07fa89113"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed78da90ea981d9ba0435ca07fa89113">construct_2D_grid_mixedtopology</a> (const <a class="el" href="structParameters.html">Parameters</a> parameters)</td></tr>
-<tr class="memdesc:aed78da90ea981d9ba0435ca07fa89113"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build 2d Langevin density field grid &amp; mixed topology.  <br /></td></tr>
+<tr class="memdesc:a1c785de7a81b904d3e50719e2278b17e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build 2d Langevin density field grid &amp; mixed topology.  <br /></td></tr>
 <tr class="memitem:aaafe3c4389a40fb6824c266c1c4a98a7" id="r_aaafe3c4389a40fb6824c266c1c4a98a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaafe3c4389a40fb6824c266c1c4a98a7">ic_random_uniform</a> (<a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng, const double min_value=0.0, const double max_value=1.0)</td></tr>
 <tr class="memdesc:aaafe3c4389a40fb6824c266c1c4a98a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial condition for density field: uniformly random.  <br /></td></tr>
 <tr class="memitem:a34c7b9e9916ed4e68ea4f0b6cbfa5988" id="r_a34c7b9e9916ed4e68ea4f0b6cbfa5988"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34c7b9e9916ed4e68ea4f0b6cbfa5988">ic_constant_value</a> (const double density_value=1.0)</td></tr>
 <tr class="memdesc:a34c7b9e9916ed4e68ea4f0b6cbfa5988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial condition for density field: uniformly constant.  <br /></td></tr>
-<tr class="memitem:ab1c471e3baa7ae050a232caabba26a6a" id="r_ab1c471e3baa7ae050a232caabba26a6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1c471e3baa7ae050a232caabba26a6a">ic_single_seed</a> (const int i_node, const double value=1.0)</td></tr>
-<tr class="memdesc:ab1c471e3baa7ae050a232caabba26a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial condition for density field: single non-zero value.  <br /></td></tr>
+<tr class="memitem:ae0ed05d4489ac382def4bea3589e3405" id="r_ae0ed05d4489ac382def4bea3589e3405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0ed05d4489ac382def4bea3589e3405">ic_single_seed</a> (const int i, const double value=1.0)</td></tr>
+<tr class="memdesc:ae0ed05d4489ac382def4bea3589e3405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial condition for density field: single non-zero value.  <br /></td></tr>
 <tr class="memitem:a7404d2313ab0a225c89bd64833a278ea" id="r_a7404d2313ab0a225c89bd64833a278ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7404d2313ab0a225c89bd64833a278ea">set_coefficients</a> (const <a class="el" href="structCoefficients.html">Coefficients</a> &amp;coefficients)</td></tr>
 <tr class="memdesc:a7404d2313ab0a225c89bd64833a278ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set Langevin equation coefficients and "lambda" constants.  <br /></td></tr>
 <tr class="memitem:af2ba5ff83a1d5221e4dd3f91782eb7ac" id="r_af2ba5ff83a1d5221e4dd3f91782eb7ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2ba5ff83a1d5221e4dd3f91782eb7ac">set_essential_coefficients</a> (const <a class="el" href="structCoefficients.html">Coefficients</a> &amp;coefficients)</td></tr>
@@ -233,28 +231,6 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">bool BaseLangevin::construct_2D_grid </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structParameters.html">Parameters</a></td>          <td class="paramname"><span class="paramname"><em>parameters</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build 2d Langevin density field grid &amp; topology. </p>
-<p>Construct 2D density field ρ(x,t) grid and corresponding cell-cell topologies. </p>
-
-<p class="definition">Definition at line <a class="el" href="langevin__grid__2d_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__grid__2d_8cpp_source.html">langevin_grid_2d.cpp</a>.</p>
-
-</div>
-</div>
-<a id="aed78da90ea981d9ba0435ca07fa89113" name="aed78da90ea981d9ba0435ca07fa89113"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed78da90ea981d9ba0435ca07fa89113">&#9670;&#160;</a></span>construct_2D_grid_mixedtopology()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool BaseLangevin::construct_2D_grid_mixedtopology </td>
-          <td>(</td>
           <td class="paramtype">const <a class="el" href="structParameters.html">Parameters</a></td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
           <td></td>
         </tr>
@@ -262,11 +238,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Build 2d Langevin density field grid &amp; mixed topology. </p>
-<p>Construct 2D density field ρ(x,t) grid and corresponding cell-cell topologies</p>
-<p>Implements mixed grid edge topology: i.e., x and y grid edges can separately be specified as "bounded" or "periodic".</p>
-<p>The "bounded" edge topology simply means those exterior grid cells are only connected to their neighboring grid-interior cells.</p>
-<p>The "periodic" edge topology means the grid cells along one edge are also connected to those on the opposite edge.</p>
-<p>If both x and y edges are periodic, the grid topology is toroidal. If only one edge is periodic, the grid topology is cylindrical. If both are bounded, the grid topology is a bounded plane.</p>
+<p>Construct a connected 2D grid to be used for solving the evolution of a density field ρ(x,t).</p>
+<p>Implements mixed grid edge topology: i.e., x and y grid edges can separately be specified as "bounded" or "periodic". The "bounded" edge topology simply means those exterior grid cells are only connected to their neighboring grid-interior cells. The "periodic" edge topology means the grid cells along one edge are also connected to those on the opposite edge. If both x and y edges are periodic, the grid topology is toroidal. If only one edge is periodic, the grid topology is cylindrical. If both are bounded, the grid topology is a bounded plane.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="classBaseLangevin.html" title="Base class for Langevin equation integrator.">BaseLangevin</a></td><td>integrator <a class="el" href="structParameters.html" title="Container for BaseLangevin integrator parameters.">Parameters</a> bundle. </td></tr>
@@ -274,7 +247,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="langevin__grid__2d__mixedtopology_8cpp_source.html#l00041">41</a> of file <a class="el" href="langevin__grid__2d__mixedtopology_8cpp_source.html">langevin_grid_2d_mixedtopology.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__grid__2d_8cpp_source.html#l00040">40</a> of file <a class="el" href="langevin__grid__2d_8cpp_source.html">langevin_grid_2d.cpp</a>.</p>
 
 </div>
 </div>
@@ -423,8 +396,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ab1c471e3baa7ae050a232caabba26a6a" name="ab1c471e3baa7ae050a232caabba26a6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1c471e3baa7ae050a232caabba26a6a">&#9670;&#160;</a></span>ic_single_seed()</h2>
+<a id="ae0ed05d4489ac382def4bea3589e3405" name="ae0ed05d4489ac382def4bea3589e3405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0ed05d4489ac382def4bea3589e3405">&#9670;&#160;</a></span>ic_single_seed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -432,7 +405,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void BaseLangevin::ic_single_seed </td>
           <td>(</td>
-          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i_node</em></span>, </td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -524,7 +497,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDPLangevin.html#a15549d3c4cae4939c3263e9704a7af5c">DPLangevin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00126">126</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00124">124</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
 
 </div>
 </div>
@@ -649,7 +622,7 @@ Protected Attributes</h2></td></tr>
 <p>Method to set Langevin equation coefficients and "lambda" constants. </p>
 <p>Set the Langevin equation coefficients and "lambda" coefficients. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__initialization_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__initialization_8cpp_source.html">langevin_initialization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__set__coefficients_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a>.</p>
 
 </div>
 </div>
@@ -671,7 +644,7 @@ Protected Attributes</h2></td></tr>
 <p>Method to set Langevin equation coefficients. </p>
 <p>Set the Langevin equation coefficients. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__initialization_8cpp_source.html#l00017">17</a> of file <a class="el" href="langevin__initialization_8cpp_source.html">langevin_initialization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__set__coefficients_8cpp_source.html#l00017">17</a> of file <a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a>.</p>
 
 </div>
 </div>
@@ -693,7 +666,7 @@ Protected Attributes</h2></td></tr>
 <p>Method to set "lambda" constants. </p>
 <p>Set "lambda" coefficients used in Poisson and gamma sampling. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__initialization_8cpp_source.html#l00024">24</a> of file <a class="el" href="langevin__initialization_8cpp_source.html">langevin_initialization.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__set__coefficients_8cpp_source.html#l00024">24</a> of file <a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a>.</p>
 
 </div>
 </div>
@@ -724,7 +697,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDPLangevin.html#a0008b416d0460cdcb34646733dae8156">DPLangevin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00124">124</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00122">122</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
 
 </div>
 </div>
@@ -1279,11 +1252,10 @@ Protected Attributes</h2></td></tr>
 <li>src/<a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a></li>
 <li>src/<a class="el" href="langevin__grid__1d_8cpp_source.html">langevin_grid_1d.cpp</a></li>
 <li>src/<a class="el" href="langevin__grid__2d_8cpp_source.html">langevin_grid_2d.cpp</a></li>
-<li>src/<a class="el" href="langevin__grid__2d__mixedtopology_8cpp_source.html">langevin_grid_2d_mixedtopology.cpp</a></li>
 <li>src/<a class="el" href="langevin__initial__condition_8cpp_source.html">langevin_initial_condition.cpp</a></li>
-<li>src/<a class="el" href="langevin__initialization_8cpp_source.html">langevin_initialization.cpp</a></li>
 <li>src/<a class="el" href="langevin__integration__euler_8cpp_source.html">langevin_integration_euler.cpp</a></li>
 <li>src/<a class="el" href="langevin__integration__rungekutta_8cpp_source.html">langevin_integration_rungekutta.cpp</a></li>
+<li>src/<a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a></li>
 <li>src/<a class="el" href="langevin__utils_8cpp_source.html">langevin_utils.cpp</a></li>
 </ul>
 </div><!-- contents -->
