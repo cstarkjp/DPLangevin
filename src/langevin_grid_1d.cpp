@@ -8,7 +8,7 @@
 //! Construct 1D density field ρ(x,t) grid and corresponding cell-cell topologies
 bool BaseLangevin::construct_1D_grid(const Parameters parameters)
 {
-    const int n_x = parameters.n_x;
+    const auto n_x = parameters.n_x;
     neighbors = std::vector<int_vec_t>(n_x, int_vec_t(2));
 
     // Everywhere except the grid ends
@@ -20,7 +20,7 @@ bool BaseLangevin::construct_1D_grid(const Parameters parameters)
     }
 
     // Grid ends
-    switch (parameters.grid_topology)
+    switch (parameters.grid_topologies.at(0))
     {
         case GridTopology::PERIODIC:
             // Each end cell neighbor is the other end cell, so wrap the indexes

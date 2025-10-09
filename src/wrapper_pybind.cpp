@@ -19,12 +19,12 @@
  * data results. This class exploits the  DPLangevin integrator, which itself
  * is a subclass of the more general BaseLangevin integration scheme.
  * 
- * This macro expands the parameter `"dplvn"` into `pybind11_exec_dplvn` and generates 
- * the function `pybind11_init_dplvn` among others.
+ * This macro expands the parameter `"dplvn"` into `pybind11_exec_dplvn` 
+ * and generates the function `pybind11_init_dplvn` among others.
  */
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__version__") = "2025.10.08a4";
+    module.attr("__version__") = "2025.10.09a0";
     module.doc() = 
         "Operator-splitting method of integrating DP-type Langevin equations"; 
   
@@ -65,9 +65,9 @@ PYBIND11_MODULE(dplvn, module)
                 double, double, 
                 double, double, double,
                 int, 
+                dbl_vec_t,
                 GridDimension,
                 int_vec_t,
-                GridTopology,
                 gt_vec_t,
                 BoundaryCondition,
                 InitialCondition,
@@ -82,9 +82,9 @@ PYBIND11_MODULE(dplvn, module)
             py::arg("dx") = 0.5,
             py::arg("dt") = 0.01,
             py::arg("random_seed") = 1,
+            py::arg("aux_values") = dbl_vec_t(3),
             py::arg("grid_dimension") = GridDimension::D2,
             py::arg("grid_size") = int_vec_t(4),
-            py::arg("grid_topology") = GridTopology::BOUNDED,
             py::arg("grid_topologies") = gt_vec_t(4),
             py::arg("boundary_condition") = BoundaryCondition::FLOATING,
             py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,

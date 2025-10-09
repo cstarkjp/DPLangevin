@@ -1,5 +1,5 @@
 /**
- * @file langevin_initialization.cpp
+ * @file langevin_set_coefficients.cpp
  * @brief Methods for setting the main Langevin model equation coefficients.
  */
 
