@@ -1,6 +1,6 @@
 /**
  * @file application_dpsim_public.cpp
- * @brief Class to manage & execute DPLangevin model simulation: public methods.
+ * @brief Class to manage & run DPLangevin model simulation: public methods.
  */ 
 
 #include "general_core.hpp"
