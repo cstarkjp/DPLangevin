@@ -1,6 +1,6 @@
 var class_sim_d_p =
 [
-    [ "SimDP", "class_sim_d_p.html#a18a1350f7264aca8691084a1dae4b42f", null ],
+    [ "SimDP", "class_sim_d_p.html#ad9f856096461c04e63eb6f823be8e3d1", null ],
     [ "construct_grid", "class_sim_d_p.html#adf9706187d694ad0ba16cb4e2c308cd1", null ],
     [ "count_epochs", "class_sim_d_p.html#a587ef106d6540a3f23a24cd86f2861b7", null ],
     [ "get_density", "class_sim_d_p.html#a373628fc3abfe97695a822987305abd8", null ],
@@ -28,9 +28,9 @@ var class_sim_d_p =
     [ "mean_densities", "class_sim_d_p.html#a508ad77c44188e5d3ced514949459758", null ],
     [ "n_epochs", "class_sim_d_p.html#aa0794cf12da5c60de961f66d882bd00f", null ],
     [ "p", "class_sim_d_p.html#a49ffbb20dcee99eb8399fb149cbb79e4", null ],
-    [ "return_density", "class_sim_d_p.html#a77e25af0bd4a51edbc8317b3c8a277c7", null ],
-    [ "return_mean_densities", "class_sim_d_p.html#a2b7771f9097b333f3675a62770897dbe", null ],
-    [ "return_t_epochs", "class_sim_d_p.html#a26cffb8f69e08417c2451578a6d155aa", null ],
+    [ "pyarray_density", "class_sim_d_p.html#aa6496f1316b9ab26735850b8cbc49df1", null ],
+    [ "pyarray_mean_densities", "class_sim_d_p.html#aa9935dd73a160ba08b53a307aaa96d1a", null ],
+    [ "pyarray_t_epochs", "class_sim_d_p.html#a4d6f94baaa0143513caf34e5956a1448", null ],
     [ "rng", "class_sim_d_p.html#ae45f23d880b71cf41ba5a6f1f489b236", null ],
     [ "t_current_epoch", "class_sim_d_p.html#af35f5d9dda17d1633c309db9be559da5", null ],
     [ "t_epochs", "class_sim_d_p.html#aa3cf41afff66a9f6d32cfa35cd0fd021", null ],

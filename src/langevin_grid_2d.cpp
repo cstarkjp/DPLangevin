@@ -5,7 +5,38 @@
 
 #include "general_core.hpp"
 
-//! Construct 2D density field ρ(x,t) grid and corresponding cell-cell topologies
+//! Utility to allow switch-case with GridTopology tuple (overloaded)
+constexpr unsigned long pack(const gt_vec_t& gt) {
+    return (
+        (static_cast<unsigned long>(gt[0]) << 8) | 
+        static_cast<unsigned long>(gt[1])
+    );
+}
+//! Utility to allow switch-case with GridTopology tuple (overloaded)
+constexpr unsigned long pack(GridTopology a, GridTopology b) {
+    return (
+        (static_cast<unsigned long>(a) << 8) | 
+        static_cast<unsigned long>(b)
+    );
+}
+
+/**
+* @details 
+* Construct a connected 2D grid to be used for solving the evolution
+* of a density field ρ(x,t).
+* 
+* Implements mixed grid edge topology: i.e., x and y grid edges 
+* can separately be specified as "bounded" or "periodic".
+* The "bounded" edge topology simply means those exterior grid cells are only
+* connected to their neighboring grid-interior cells.
+* The "periodic" edge topology means the grid cells along one edge are also 
+* connected to those on the opposite edge. 
+* If both x and y edges are periodic, the grid topology is toroidal.
+* If only one edge is periodic, the grid topology is cylindrical.
+* If both are bounded, the grid topology is a bounded plane.
+*
+* @param BaseLangevin integrator Parameters bundle.
+*/
 bool BaseLangevin::construct_2D_grid(const Parameters p)
 {
     // Shorthand
@@ -19,6 +50,7 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
     neighbors = std::vector<int_vec_t>(n_x*n_y, int_vec_t(4));
 
     // Central cells
+
     // Single cell
     auto wire_central_cell = [&](int x, int y)
     {
@@ -148,55 +180,97 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
     wire_central_cells();
 
     // Step 2: Wire grid edge cells according to topology specs.
-    switch (p.grid_topology)
+    auto grid_topologies = pack(p.grid_topologies);
+    switch (grid_topologies) 
     {
-        case GridTopology::PERIODIC:
+        case pack(GridTopology::PERIODIC, GridTopology::PERIODIC):
         {
             // Periodic grid topology in both x and y
-            // Bottom row
-            wire_periodic_x_edge_cells(0);
-            // Top row
-            wire_periodic_x_edge_cells(n_y-1);
-            // Left column
-            wire_periodic_y_edge_cells(0);
-            // Right column
-            wire_periodic_y_edge_cells(n_x-1);
-            // Bottom-left corner
-            wire_periodic_corner(0, 0);
-            // Bottom-right corner
-            wire_periodic_corner(n_x-1, 0);
-            // Top-left corner
-            wire_periodic_corner(0, n_y-1);
-            // Top-right corner
-            wire_periodic_corner(n_x-1, n_y-1);
+            std::cout 
+                << "construct_2D_grid: " 
+                << "x:periodic, y:periodic"
+                << std::endl;
+
+            wire_periodic_x_edge_cells(0);      // Bottom row
+            wire_periodic_x_edge_cells(n_y-1);  // Top row
+            wire_periodic_y_edge_cells(0);      // Left column
+            wire_periodic_y_edge_cells(n_x-1);  // Right column
+            wire_periodic_corner(0, 0);         // Bottom-left corner
+            wire_periodic_corner(n_x-1, 0);     // Bottom-right corner
+            wire_periodic_corner(0, n_y-1);     // Top-left corner
+            wire_periodic_corner(n_x-1, n_y-1); // Top-right corner
 
             return true;
         }
-        case GridTopology::BOUNDED:
+        case pack(GridTopology::BOUNDED, GridTopology::BOUNDED):
         {
             // Bounded grid topology in both x and y
-            // Bottom row
-            wire_bounded_x_edge_cells(0);
-            // Top row
-            wire_bounded_x_edge_cells(n_y-1);
-            // Left column
-            wire_bounded_y_edge_cells(0);
-            // Right column
-            wire_bounded_y_edge_cells(n_x-1);
-            // Bottom-left corner
-            wire_bounded_corner(0, 0);
-            // Bottom-right corner
-            wire_bounded_corner(n_x-1, 0);
-            // Top-left corner
-            wire_bounded_corner(0, n_y-1);
-            // Top-right corner
-            wire_bounded_corner(n_x-1, n_y-1);
+            std::cout 
+                << "construct_2D_grid: " 
+                << "x:bounded, y:bounded"
+                << std::endl;
+
+            wire_bounded_x_edge_cells(0);        // Bottom row
+            wire_bounded_x_edge_cells(n_y-1);    // Top row
+            wire_bounded_y_edge_cells(0);        // Left column
+            wire_bounded_y_edge_cells(n_x-1);    // Right column
+            wire_bounded_corner(0, 0);           // Bottom-left corner
+            wire_bounded_corner(n_x-1, 0);       // Bottom-right corner
+            wire_bounded_corner(n_x-1, n_y-1);   // Top-right corner
+
+            return true;
+        }
+        case pack(GridTopology::BOUNDED, GridTopology::PERIODIC):
+        {
+            // Periodic in x direction
+            // Bounded along x edges
+            // Periodic along y edges
+            std::cout 
+                << "construct_2D_grid: " 
+                << "x:bounded, y:periodic"
+                << std::endl;
+
+            wire_bounded_x_edge_cells(0);        // Bottom row
+            wire_bounded_x_edge_cells(n_y-1);    // Top row
+            wire_periodic_y_edge_cells(0);       // Left column
+            wire_periodic_y_edge_cells(n_x-1);   // Right column
+            // TBD: rewire for bounded directions
+            wire_periodic_corner(0, 0);          // Bottom-left corner
+            wire_periodic_corner(n_x-1, 0);      // Bottom-right corner
+            wire_periodic_corner(0, n_y-1);      // Top-left corner
+            wire_periodic_corner(n_x-1, n_y-1);  // Top-right corner
+
+            return true;
+        }
+        case pack(GridTopology::PERIODIC, GridTopology::BOUNDED):
+        {
+            // Periodic in y direction
+            // Periodic along x edges
+            // Bounded along y edges
+            std::cout 
+                << "construct_2D_grid: " 
+                << "x:periodic, y:bounded"
+                << std::endl;
+
+            wire_periodic_x_edge_cells(0);       // Bottom row
+            wire_periodic_x_edge_cells(n_y-1);   // Top row
+            wire_bounded_y_edge_cells(0);        // Left column
+            wire_bounded_y_edge_cells(n_x-1);    // Right column
+            // TBD: rewire for bounded directions
+            wire_periodic_corner(0, 0);          // Bottom-left corner
+            wire_periodic_corner(n_x-1, 0);      // Bottom-right corner
+            wire_periodic_corner(0, n_y-1);      // Top-left corner
+            wire_periodic_corner(n_x-1, n_y-1);  // Top-right corner
 
             return true;
         }
         default:
         {
-            std::cout << "construct_2D_grid_mixedtopology: " << "FAILED" << std::endl;
+            std::cout
+                << "construct_2D_grid: " 
+                << "FAILED "
+                << std::hex << grid_topologies
+                << std::endl;
             return false;
         }
     }

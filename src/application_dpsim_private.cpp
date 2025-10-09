@@ -1,6 +1,6 @@
 /**
  * @file application_dpsim_private.cpp
- * @brief Class to manage & execute DPLangevin model simulation: private methods.
+ * @brief Class to manage & run DPLangevin model simulation: private methods.
  */ 
 
 #include "general_core.hpp"
@@ -25,7 +25,7 @@ bool SimDP::construct_grid()
             //         << "gt: " 
             //         << int(p.grid_topologies.at(0)) << ", " 
             //         << int(p.grid_topologies.at(1)) << std::endl;
-            return dpLangevin->construct_2D_grid_mixedtopology(p);
+            return dpLangevin->construct_2D_grid(p);
         default:
             return false;
     }    
@@ -33,19 +33,44 @@ bool SimDP::construct_grid()
 
 bool SimDP::initialize_grid()
 {
+    int i_cell;
     switch (p.initial_condition)
     {
         case (InitialCondition::RANDOM_GAUSSIAN):
             dpLangevin->ic_random_uniform(*rng);
             return true;
         case (InitialCondition::CONSTANT_VALUE):
-            dpLangevin->ic_constant_value(1.0);
+            dpLangevin->ic_constant_value(p.aux_values.at(0));
             return true;
         case (InitialCondition::SINGLE_SEED):
-            // n_cells is not yet set
-            dpLangevin->ic_single_seed(
-                static_cast<double>(p.n_cells)/2.0, 1.0
-            );
+            if (p.grid_dimension==GridDimension::D1)
+            {
+                i_cell = (
+                    static_cast<int>(p.aux_values.at(1))
+                );
+                if (i_cell<0 or i_cell>=p.n_x) return false;
+            } 
+            else if (p.grid_dimension==GridDimension::D2)
+            {
+                i_cell = (
+                    static_cast<int>(p.aux_values.at(1))
+                    + static_cast<int>(p.aux_values.at(2))*p.n_x
+                );
+                // std::cout << "SimDP::initialize_grid"
+                //     << ": "
+                //     << static_cast<int>(p.aux_values.at(1))
+                //     << ", "
+                //     << static_cast<int>(p.aux_values.at(2))
+                //     << ", "
+                //     << i_cell
+                //     << std::endl;
+                if (i_cell<0 or i_cell>=p.n_x*p.n_y) return false;
+            } 
+            else 
+            {
+                return false;
+            }
+            dpLangevin->ic_single_seed(i_cell, p.aux_values.at(0));
             return true;
         case (InitialCondition::RANDOM_UNIFORM):
             dpLangevin->ic_random_uniform(*rng);
@@ -91,7 +116,10 @@ bool SimDP::integrate(const int n_next_epochs)
         i_current_epoch = 0;
         t_current_epoch = 0;
     }
-    for (i=i_next_epoch, t=t_next_epoch; i<i_next_epoch+n_next_epochs; t+=p.dt, i++)
+    for (
+        i=i_next_epoch, t=t_next_epoch; 
+        i<i_next_epoch+n_next_epochs; 
+        t+=p.dt, i++)
     {
         (dpLangevin->*ptr_to_integrate_fn)(*rng);
         t_epochs[i] = t;
@@ -112,7 +140,7 @@ bool SimDP::prep_t_epochs()
     {
         epochs_proxy(i) = t_epochs[i];
     };
-    return_t_epochs = epochs_array;
+    pyarray_t_epochs = epochs_array;
     return true;
 }
 
@@ -124,7 +152,7 @@ bool SimDP::prep_mean_densities()
     {
         mean_densities_proxy(i) = mean_densities[i];
     };
-    return_mean_densities = mean_densities_array;
+    pyarray_mean_densities = mean_densities_array;
     return true;
 }
 
@@ -145,6 +173,6 @@ bool SimDP::prep_density_grid()
         // std::cout << i << " " << i_x << " " << i_y << " " << std::endl;
         density_proxy(i_x, i_y) = dpLangevin->get_density_grid_value(i);
     };
-    return_density = density_array;
+    pyarray_density = density_array;
     return true;
 }

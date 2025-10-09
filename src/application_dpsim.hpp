@@ -41,11 +41,11 @@ private:
     //! Vector time-series of grid-averaged field density values
     dbl_vec_t mean_densities;
     //! Python-compatible array of epochs time-series
-    py_array_t return_t_epochs;
+    py_array_t pyarray_t_epochs;
     //! Python-compatible array of mean density time-series
-    py_array_t return_mean_densities;
+    py_array_t pyarray_mean_densities;
     //! Python-compatible array of current density grid
-    py_array_t return_density;
+    py_array_t pyarray_density;
     //! Flag whether integration step was successful or not
     bool did_integrate = false;
     //! Flag whether simulation has been initialized or not
@@ -73,9 +73,9 @@ public:
         const double diffusion, const double noise, 
         const double t_final, const double dx, const double dt, 
         const int random_seed,
+        const dbl_vec_t aux_values,
         const GridDimension grid_dimension,
         const int_vec_t grid_size,
-        const GridTopology grid_topology,
         const gt_vec_t grid_topologies,
         const BoundaryCondition boundary_condition,
         const InitialCondition initial_condition,

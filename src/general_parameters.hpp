@@ -24,13 +24,13 @@ public:
     const double dx=0;
     const double dt=0;
     const int random_seed=0;
+    const dbl_vec_t aux_values={0};
     const GridDimension grid_dimension=GridDimension::D1;
-    const int_vec_t grid_size = {0};
+    const int_vec_t grid_size={0};
     int n_cells=0;
     int n_x=0;
     int n_y=0;
     int n_z=0;  // but 3d, 4d grids not implemented yet (or ever)
-    const GridTopology grid_topology=GridTopology::BOUNDED;
     const gt_vec_t grid_topologies = {
         GridTopology::BOUNDED, GridTopology::BOUNDED, 
         GridTopology::BOUNDED, GridTopology::BOUNDED
@@ -44,9 +44,9 @@ public:
         const double t_final, 
         const double dx, const double dt, 
         const int rs, 
+        const dbl_vec_t av,
         const GridDimension gd,
         const int_vec_t gs,
-        const GridTopology gt,
         const gt_vec_t gts,
         const BoundaryCondition bc,
         const InitialCondition ic,
@@ -55,9 +55,9 @@ public:
         t_final(t_final), 
         dx(dx), dt(dt), 
         random_seed(rs),
+        aux_values(av),
         grid_dimension(gd), 
         grid_size(gs),
-        grid_topology(gt),
         grid_topologies(gts),
         boundary_condition(bc),
         initial_condition(ic), 
@@ -136,6 +136,9 @@ public:
         std::cout << "t_final: " << t_final << std::endl;
         std::cout << "dx: " << dx << std::endl;
         std::cout << "dt: " << dt << std::endl;
+        std::cout << "aux_values: ";
+        for (const auto& element : aux_values) {std::cout << element << " ";}
+        std::cout << std::endl;        
         std::cout << "random_seed: " 
             << random_seed << std::endl;
         std::cout << "grid_dimension: " 
@@ -145,8 +148,6 @@ public:
         std::cout << std::endl;        
         std::cout << "n_cells: " 
             << n_cells << std::endl;
-        // std::cout << "grid_topology: " 
-        //     << report(grid_topology) << std::endl;
         std::cout << "grid_topologies: " 
             << report(grid_dimension, grid_topologies) << std::endl;
         std::cout << "boundary_condition: " 

@@ -30,8 +30,8 @@ void BaseLangevin::ic_constant_value(const double density_value)
 }
 
 //! Set all the grid cells to zero except a single specified cell
-void BaseLangevin::ic_single_seed(const int i_node, const double value)
+void BaseLangevin::ic_single_seed(const int i_cell, const double value)
 {
-    density_grid[i_node] = value;
+    density_grid[i_cell] = value;
     mean_density = value / static_cast<double>(n_cells);
 }    
