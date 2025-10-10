@@ -25,11 +25,18 @@ bool BaseLangevin::check_boundary_conditions(const Parameters p)
 void BaseLangevin::apply_boundary_conditions(const Parameters p)
 {
     auto i_from_xy = [&](int x, int y) -> int { return x + y*p.n_x; };
-    auto apply_bc_to_edge_2d = [&](
+    auto add_to_density = [&](int x, int y, double value)
+    {
+        density_grid[i_from_xy(x, y)] 
+            = fmax(density_grid[i_from_xy(x, y)] + value*p.dt, 0.0);
+
+    };
+    auto apply_bc_to_edge_2d = [&] (
         GridEdge grid_edge, BoundaryCondition bc, double value
     ) 
     {
-        if (bc==BoundaryCondition::FIXED_VALUE) {
+        if (bc==BoundaryCondition::FIXED_VALUE) 
+        {
             switch (grid_edge)
             {
                 case (GridEdge::lx):
@@ -50,6 +57,36 @@ void BaseLangevin::apply_boundary_conditions(const Parameters p)
                 case (GridEdge::uy):
                     for (auto y=0; y<p.n_y; y++){
                         density_grid[i_from_xy(p.n_x-1, y)] = value;
+                    }
+                    break;
+            }
+        }
+        else if (bc==BoundaryCondition::FIXED_FLUX) 
+        {
+            switch (grid_edge)
+            {
+                case (GridEdge::lx):
+                    for (auto x=0; x<p.n_x; x++){
+                        auto y = 0;
+                        add_to_density(x, y, value);
+                    }
+                    break;
+                case (GridEdge::ux):
+                    for (auto x=0; x<p.n_x; x++){
+                        auto y = p.n_y-1;
+                        add_to_density(x, y, value);
+                    }
+                    break;
+                case (GridEdge::ly):
+                    for (auto y=0; y<p.n_y; y++){
+                        auto x = 0;
+                        add_to_density(x, y, value);
+                    }
+                    break;
+                case (GridEdge::uy):
+                    for (auto y=0; y<p.n_y; y++){
+                        auto x = p.n_x-1;
+                        add_to_density(x, y, value);
                     }
                     break;
             }
