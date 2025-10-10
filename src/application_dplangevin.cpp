@@ -14,17 +14,14 @@
 DPLangevin::DPLangevin(Parameters p)
 {
     n_cells = p.n_cells;
-    density_grid = dbl_vec_t(n_cells, 0.0); 
-    density_grid_aux_new = dbl_vec_t(n_cells);
-    density_grid_aux_old = dbl_vec_t(n_cells);
-    k1 = dbl_vec_t(n_cells, 0.0);
-    k2 = dbl_vec_t(n_cells, 0.0);
-    k3 = dbl_vec_t(n_cells, 0.0);
-    k4 = dbl_vec_t(n_cells, 0.0);
+    density_grid = grid_t(n_cells, 0.0); 
+    density_grid_aux_new = grid_t(n_cells);
+    density_grid_aux_old = grid_t(n_cells);
+    k1_grid = grid_t(n_cells, 0.0);
+    k2_grid = grid_t(n_cells, 0.0);
+    k3_grid = grid_t(n_cells, 0.0);
     dt = p.dt;
     dx = p.dx;
-    dtm = 0.5*dt;
-    dts = dt/6.0;
 }
 
 //! Method to set nonlinear coefficients in DP Langevin equation 
@@ -37,7 +34,7 @@ void DPLangevin::set_nonlinear_coefficients(const Coefficients &coefficients)
 
 //! Method to set nonlinear RHS of DP Langevin equation 
 //! for deterministic integration step
-double DPLangevin::nonlinear_rhs(const int i_cell, const dbl_vec_t &field) const
+double DPLangevin::nonlinear_rhs(const int i_cell, const grid_t &field) const
 {
     // Non-linear term, which is quadratic in the DP Langevin
     const double quadratic_term 
@@ -45,12 +42,12 @@ double DPLangevin::nonlinear_rhs(const int i_cell, const dbl_vec_t &field) const
 
     // Integration of diffusion
     double diffusion_sum = 0.0;
-    int n_neighbors = neighbors[i_cell].size();
-    for (auto i=0; i<n_neighbors; i++)
+    auto n_cells = grid_wiring[i_cell].size();
+    for (auto i=0; i<n_cells; i++)
     {
-        auto i_neighbor = neighbors[i_cell][i];
+        auto i_neighbor = grid_wiring[i_cell][i];
         diffusion_sum += field[i_neighbor];
     }
-    diffusion_sum = D*(diffusion_sum - n_neighbors*field[i_cell]);
+    diffusion_sum = D*(diffusion_sum - n_cells*field[i_cell]);
     return diffusion_sum + quadratic_term;
 }

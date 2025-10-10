@@ -12,7 +12,7 @@ SimDP::SimDP(
     const double t_final, 
     const double dx, const double dt, 
     const int random_seed,
-    const dbl_vec_t aux_values,
+    const grid_t aux_values,
     const GridDimension grid_dimension,
     const int_vec_t grid_size,
     const gt_vec_t grid_topologies,

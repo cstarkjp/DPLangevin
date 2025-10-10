@@ -98,6 +98,7 @@ $(function(){initNavTree('general__core_8hpp.html','',''); });
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;random&gt;</code><br />
 <code>#include &lt;pybind11/numpy.h&gt;</code><br />
+<code>#include &lt;valarray&gt;</code><br />
 <code>#include &quot;<a class="el" href="general__enums_8hpp_source.html">general_enums.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="general__coefficients_8hpp_source.html">general_coefficients.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="general__parameters_8hpp_source.html">general_parameters.hpp</a>&quot;</code><br />
@@ -118,16 +119,22 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:af7b9c0d9aeb308a994c8870974bf6d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use Mersenne Twister random number generator.  <br /></td></tr>
 <tr class="memitem:af0ca13dbe7f906eae124571c96869aec" id="r_af0ca13dbe7f906eae124571c96869aec"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a></td></tr>
 <tr class="memdesc:af0ca13dbe7f906eae124571c96869aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for vectors of doubles.  <br /></td></tr>
+<tr class="memitem:a7800fbbe34dfb1f27186522654a52a4d" id="r_a7800fbbe34dfb1f27186522654a52a4d"><td class="memItemLeft" align="right" valign="top">typedef std::valarray&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7800fbbe34dfb1f27186522654a52a4d">dbl_valarray_t</a></td></tr>
+<tr class="memdesc:a7800fbbe34dfb1f27186522654a52a4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for valarray of doubles.  <br /></td></tr>
 <tr class="memitem:abbfd825d9228dfbd560eada2571e757f" id="r_abbfd825d9228dfbd560eada2571e757f"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a></td></tr>
 <tr class="memdesc:abbfd825d9228dfbd560eada2571e757f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for vectors of integers.  <br /></td></tr>
-<tr class="memitem:a93f472db53182f058d0dcf09208ef7e0" id="r_a93f472db53182f058d0dcf09208ef7e0"><td class="memItemLeft" align="right" valign="top">typedef std::poisson_distribution&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93f472db53182f058d0dcf09208ef7e0">int_poisson_dist_t</a></td></tr>
-<tr class="memdesc:a93f472db53182f058d0dcf09208ef7e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for function generating Poisson variates.  <br /></td></tr>
-<tr class="memitem:a07ac2a003d07ae5057ce94a7eb7647c8" id="r_a07ac2a003d07ae5057ce94a7eb7647c8"><td class="memItemLeft" align="right" valign="top">typedef std::gamma_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07ac2a003d07ae5057ce94a7eb7647c8">dbl_gamma_dist_t</a></td></tr>
-<tr class="memdesc:a07ac2a003d07ae5057ce94a7eb7647c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for function generating gamma variates.  <br /></td></tr>
-<tr class="memitem:a1f152047f3e9407ad9f9f466d355636a" id="r_a1f152047f3e9407ad9f9f466d355636a"><td class="memItemLeft" align="right" valign="top">typedef std::normal_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f152047f3e9407ad9f9f466d355636a">dbl_normal_dist_t</a></td></tr>
-<tr class="memdesc:a1f152047f3e9407ad9f9f466d355636a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for function generating Gaussian variates.  <br /></td></tr>
-<tr class="memitem:a71eb87de48692f3df7c7c0eca9441c77" id="r_a71eb87de48692f3df7c7c0eca9441c77"><td class="memItemLeft" align="right" valign="top">typedef std::uniform_real_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71eb87de48692f3df7c7c0eca9441c77">dbl_uniform_dist_t</a></td></tr>
-<tr class="memdesc:a71eb87de48692f3df7c7c0eca9441c77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for function generating uniformly distributed variates.  <br /></td></tr>
+<tr class="memitem:ac637b9c326a2ae586616cdf711381ef7" id="r_ac637b9c326a2ae586616cdf711381ef7"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac637b9c326a2ae586616cdf711381ef7">grid_t</a></td></tr>
+<tr class="memdesc:ac637b9c326a2ae586616cdf711381ef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for density grid.  <br /></td></tr>
+<tr class="memitem:a747e02ce3e6018d99246fb75ee02dccf" id="r_a747e02ce3e6018d99246fb75ee02dccf"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a747e02ce3e6018d99246fb75ee02dccf">grid_wiring_t</a></td></tr>
+<tr class="memdesc:a747e02ce3e6018d99246fb75ee02dccf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for density grid neighborhoods (local connectivities)  <br /></td></tr>
+<tr class="memitem:a601371a69dbc51f3fc6994eba56c47af" id="r_a601371a69dbc51f3fc6994eba56c47af"><td class="memItemLeft" align="right" valign="top">typedef std::poisson_distribution&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a601371a69dbc51f3fc6994eba56c47af">poisson_dist_t</a></td></tr>
+<tr class="memdesc:a601371a69dbc51f3fc6994eba56c47af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for function generating Poisson variates.  <br /></td></tr>
+<tr class="memitem:a01980fd92bc6cbecff409f2347b6943f" id="r_a01980fd92bc6cbecff409f2347b6943f"><td class="memItemLeft" align="right" valign="top">typedef std::gamma_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01980fd92bc6cbecff409f2347b6943f">gamma_dist_t</a></td></tr>
+<tr class="memdesc:a01980fd92bc6cbecff409f2347b6943f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for function generating gamma variates.  <br /></td></tr>
+<tr class="memitem:a45d7982ecc4c518b8588b3d85e17905f" id="r_a45d7982ecc4c518b8588b3d85e17905f"><td class="memItemLeft" align="right" valign="top">typedef std::normal_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45d7982ecc4c518b8588b3d85e17905f">normal_dist_t</a></td></tr>
+<tr class="memdesc:a45d7982ecc4c518b8588b3d85e17905f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for function generating Gaussian variates.  <br /></td></tr>
+<tr class="memitem:aa3c6f76a012e2dc62c9a5d32cf43dfe2" id="r_aa3c6f76a012e2dc62c9a5d32cf43dfe2"><td class="memItemLeft" align="right" valign="top">typedef std::uniform_real_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3c6f76a012e2dc62c9a5d32cf43dfe2">uniform_dist_t</a></td></tr>
+<tr class="memdesc:aa3c6f76a012e2dc62c9a5d32cf43dfe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for function generating uniformly distributed variates.  <br /></td></tr>
 <tr class="memitem:a8e652b99fe1e99f2033cf406f9a9a1a5" id="r_a8e652b99fe1e99f2033cf406f9a9a1a5"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="general__enums_8hpp.html#a68f3239e8ec4a7e08e8f21fd2bb264fa">GridTopology</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e652b99fe1e99f2033cf406f9a9a1a5">gt_vec_t</a></td></tr>
 <tr class="memdesc:a8e652b99fe1e99f2033cf406f9a9a1a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for specifying grid topology in each direction x, y, z...  <br /></td></tr>
 <tr class="memitem:a6ca910c60cfadd300fe98a7367e87aa8" id="r_a6ca910c60cfadd300fe98a7367e87aa8"><td class="memItemLeft" align="right" valign="top">typedef py::array_t&lt; double, py::array::c_style &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ca910c60cfadd300fe98a7367e87aa8">py_array_t</a></td></tr>
@@ -152,7 +159,7 @@ Typedefs</h2></td></tr>
 
 <p>Option to approximate Poisson distribution using Gaussian for large means. </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00042">42</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00052">52</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
@@ -170,62 +177,26 @@ Typedefs</h2></td></tr>
 
 <p>Threshold mean value above which Gaussian approximation should be used. </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00045">45</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00055">55</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
-<a id="a07ac2a003d07ae5057ce94a7eb7647c8" name="a07ac2a003d07ae5057ce94a7eb7647c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07ac2a003d07ae5057ce94a7eb7647c8">&#9670;&#160;</a></span>dbl_gamma_dist_t</h2>
+<a id="a7800fbbe34dfb1f27186522654a52a4d" name="a7800fbbe34dfb1f27186522654a52a4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7800fbbe34dfb1f27186522654a52a4d">&#9670;&#160;</a></span>dbl_valarray_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::gamma_distribution&lt;double&gt; <a class="el" href="#a07ac2a003d07ae5057ce94a7eb7647c8">dbl_gamma_dist_t</a></td>
+          <td class="memname">typedef std::valarray&lt;double&gt; <a class="el" href="#a7800fbbe34dfb1f27186522654a52a4d">dbl_valarray_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Type for function generating gamma variates. </p>
+<p>Type for valarray of doubles. </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00023">23</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a1f152047f3e9407ad9f9f466d355636a" name="a1f152047f3e9407ad9f9f466d355636a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f152047f3e9407ad9f9f466d355636a">&#9670;&#160;</a></span>dbl_normal_dist_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::normal_distribution&lt;double&gt; <a class="el" href="#a1f152047f3e9407ad9f9f466d355636a">dbl_normal_dist_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Type for function generating Gaussian variates. </p>
-
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00025">25</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a71eb87de48692f3df7c7c0eca9441c77" name="a71eb87de48692f3df7c7c0eca9441c77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71eb87de48692f3df7c7c0eca9441c77">&#9670;&#160;</a></span>dbl_uniform_dist_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::uniform_real_distribution&lt;double&gt; <a class="el" href="#a71eb87de48692f3df7c7c0eca9441c77">dbl_uniform_dist_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Type for function generating uniformly distributed variates. </p>
-
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00027">27</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00021">21</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
@@ -243,7 +214,61 @@ Typedefs</h2></td></tr>
 
 <p>Type for vectors of doubles. </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00017">17</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00019">19</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a01980fd92bc6cbecff409f2347b6943f" name="a01980fd92bc6cbecff409f2347b6943f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01980fd92bc6cbecff409f2347b6943f">&#9670;&#160;</a></span>gamma_dist_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::gamma_distribution&lt;double&gt; <a class="el" href="#a01980fd92bc6cbecff409f2347b6943f">gamma_dist_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type for function generating gamma variates. </p>
+
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00033">33</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac637b9c326a2ae586616cdf711381ef7" name="ac637b9c326a2ae586616cdf711381ef7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac637b9c326a2ae586616cdf711381ef7">&#9670;&#160;</a></span>grid_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> <a class="el" href="#ac637b9c326a2ae586616cdf711381ef7">grid_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type for density grid. </p>
+
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00026">26</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a747e02ce3e6018d99246fb75ee02dccf" name="a747e02ce3e6018d99246fb75ee02dccf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a747e02ce3e6018d99246fb75ee02dccf">&#9670;&#160;</a></span>grid_wiring_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt; <a class="el" href="#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a> &gt; <a class="el" href="#a747e02ce3e6018d99246fb75ee02dccf">grid_wiring_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type for density grid neighborhoods (local connectivities) </p>
+
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00028">28</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
@@ -261,25 +286,7 @@ Typedefs</h2></td></tr>
 
 <p>Type for specifying grid topology in each direction x, y, z... </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00031">31</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a93f472db53182f058d0dcf09208ef7e0" name="a93f472db53182f058d0dcf09208ef7e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93f472db53182f058d0dcf09208ef7e0">&#9670;&#160;</a></span>int_poisson_dist_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::poisson_distribution&lt;int&gt; <a class="el" href="#a93f472db53182f058d0dcf09208ef7e0">int_poisson_dist_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Type for function generating Poisson variates. </p>
-
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00021">21</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00041">41</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
@@ -297,7 +304,43 @@ Typedefs</h2></td></tr>
 
 <p>Type for vectors of integers. </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00019">19</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00023">23</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a45d7982ecc4c518b8588b3d85e17905f" name="a45d7982ecc4c518b8588b3d85e17905f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45d7982ecc4c518b8588b3d85e17905f">&#9670;&#160;</a></span>normal_dist_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::normal_distribution&lt;double&gt; <a class="el" href="#a45d7982ecc4c518b8588b3d85e17905f">normal_dist_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type for function generating Gaussian variates. </p>
+
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00035">35</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a601371a69dbc51f3fc6994eba56c47af" name="a601371a69dbc51f3fc6994eba56c47af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a601371a69dbc51f3fc6994eba56c47af">&#9670;&#160;</a></span>poisson_dist_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::poisson_distribution&lt;int&gt; <a class="el" href="#a601371a69dbc51f3fc6994eba56c47af">poisson_dist_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type for function generating Poisson variates. </p>
+
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00031">31</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
@@ -315,7 +358,7 @@ Typedefs</h2></td></tr>
 
 <p>Type for Python arrays of doubles. </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00038">38</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00048">48</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
@@ -333,7 +376,25 @@ Typedefs</h2></td></tr>
 
 <p>Use Mersenne Twister random number generator. </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00015">15</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00016">16</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa3c6f76a012e2dc62c9a5d32cf43dfe2" name="aa3c6f76a012e2dc62c9a5d32cf43dfe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3c6f76a012e2dc62c9a5d32cf43dfe2">&#9670;&#160;</a></span>uniform_dist_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::uniform_real_distribution&lt;double&gt; <a class="el" href="#aa3c6f76a012e2dc62c9a5d32cf43dfe2">uniform_dist_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type for function generating uniformly distributed variates. </p>
+
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00037">37</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>

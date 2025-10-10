@@ -10,21 +10,31 @@
 #include <vector>
 #include <random>
 #include <pybind11/numpy.h>
+#include <valarray>
 
 //! Use Mersenne Twister random number generator
 typedef std::mt19937 rng_t;
+
 //! Type for vectors of doubles
 typedef std::vector<double> dbl_vec_t;
+//! Type for valarray of doubles
+typedef std::valarray<double> dbl_valarray_t;
 //! Type for vectors of integers
 typedef std::vector<int> int_vec_t;
+
+//! Type for density grid
+typedef dbl_vec_t grid_t;
+//! Type for density grid neighborhoods (local connectivities)
+typedef std::vector< int_vec_t > grid_wiring_t;
+
 //! Type for function generating Poisson variates
-typedef std::poisson_distribution<int> int_poisson_dist_t;
+typedef std::poisson_distribution<int> poisson_dist_t;
 //! Type for function generating gamma variates
-typedef std::gamma_distribution<double> dbl_gamma_dist_t;
+typedef std::gamma_distribution<double> gamma_dist_t;
 //! Type for function generating Gaussian variates
-typedef std::normal_distribution<double> dbl_normal_dist_t;
+typedef std::normal_distribution<double> normal_dist_t;
 //! Type for function generating uniformly distributed variates
-typedef std::uniform_real_distribution<double> dbl_uniform_dist_t;
+typedef std::uniform_real_distribution<double> uniform_dist_t;
 
 #include "general_enums.hpp"
 //! Type for specifying grid topology in each direction x, y, z...

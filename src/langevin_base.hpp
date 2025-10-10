@@ -17,28 +17,20 @@
 class BaseLangevin
 {
 protected:
-    //! Runge-Kutta variable #1
-    dbl_vec_t k1;
-    //! Runge-Kutta variable #2
-    dbl_vec_t k2;
-    //! Runge-Kutta variable #3
-    dbl_vec_t k3;
-    //! Runge-Kutta variable #4
-    dbl_vec_t k4;
-
-    //! Temporary density grid used to perform an integration step
-    dbl_vec_t density_grid_aux_old;
-    //! Temporary density grid used to perform an integration step
-    dbl_vec_t density_grid_aux_new;
+    //! Total number of cells in n-D grid
+    int n_cells;
+    //! Density field grid
+    grid_t density_grid;
+     //! Neighorhood topology for all grid cells
+    grid_wiring_t grid_wiring;
+   
+    //! Grid-average of density field
+    double mean_density;
 
     //! Time step, i.e, epoch-to-epoch Δt
     double dt;
     //! Grid spacing, i.e., spacing Δx between cell centers in all directions
     double dx;
-    //! Time step TBD
-    double dtm;
-    //! Time step TBD
-    double dts;
 
     //! Dornic method stochastic-step variable
     double lambda;
@@ -46,26 +38,28 @@ protected:
     double lambda_product;
 
     //! Function generating Poisson variates
-    int_poisson_dist_t poisson_rng;
+    poisson_dist_t poisson_rng;
     //! Function generating gamma variates
-    dbl_gamma_dist_t gamma_rng;
+    gamma_dist_t gamma_rng;
     //! Function generating normal variates
-    dbl_normal_dist_t normal;
-
-    //! Total number of cells in n-D grid
-    int n_cells;
-    //! Density field grid
-    dbl_vec_t density_grid;
-    //! Grid-average of density field
-    double mean_density;
-
-    //! Neighorhood topology for all grid cells
-    std::vector< int_vec_t > neighbors;
+    normal_dist_t normal;
 
     //! Dornic method coefficient
     double linear_coeff;
     //! Dornic method coefficient
     double noise_coeff;
+
+    //! Runge-Kutta variable grid #1
+    grid_t k1_grid;
+    //! Runge-Kutta variable grid #2
+    grid_t k2_grid;
+    //! Runge-Kutta variable grid #3
+    grid_t k3_grid;
+
+    //! Temporary density grid used to perform an integration step
+    grid_t density_grid_aux_old;
+    //! Temporary density grid used to perform an integration step
+    grid_t density_grid_aux_new;
 
 public:
     //! Default constructor
@@ -93,24 +87,24 @@ public:
     //! Explicit Euler + stochastic integration + grid update
     void integrate_euler(rng_t &rng);
     //! Part #1 of Runge-Kutta integration step
-    void rk_f1(dbl_vec_t &density_grid_aux, dbl_vec_t &k1);
+    void rk_f1(grid_t &density_grid_aux, grid_t &k1_grid);
     //! Parts #2 and #3 of Runge-Kutta integration step
     void rk_f2f3(
-        const dbl_vec_t &density_grid_aux_old, 
-        dbl_vec_t &density_grid_aux_new, 
-        dbl_vec_t &k_out, 
+        const grid_t &density_grid_aux_old, 
+        grid_t &density_grid_aux_new, 
+        grid_t &k_out, 
         const double dt_in
     );
     //! Part #4 of Runge-Kutta integration step + stochastic step
     void rk_f4_and_stochastic(
-        const dbl_vec_t &density_grid_aux_old, 
-        const dbl_vec_t &k1, 
-        const dbl_vec_t &k2, 
-        const dbl_vec_t &k3, 
+        const grid_t &density_grid_aux_old, 
+        const grid_t &k1_grid, 
+        const grid_t &k2_grid, 
+        const grid_t &k3_grid, 
         rng_t &rng
     );
     //! Explicit Euler + stochastic integration
-    void euler_and_stochastic(dbl_vec_t &density_grid_aux, rng_t &rng);
+    void euler_and_stochastic(grid_t &density_grid_aux, rng_t &rng);
     //! Expose density grid at a given "index" (1d-flattened position of grid element)
     double get_density_grid_value(const int) const;
     //! Expose mean density
@@ -121,7 +115,7 @@ public:
     //! Method to set nonlinear coefficients for deterministic integration step: to be defined by application
     virtual void set_nonlinear_coefficients(const Coefficients &coefficients) {};
     //! Method to set nonlinear RHS of Langevin equation for deterministic integration step: to be defined by application
-    virtual double nonlinear_rhs(const int i_cell, const dbl_vec_t &field) const 
+    virtual double nonlinear_rhs(const int i_cell, const grid_t &field) const 
         { return 0; };
 };
 
