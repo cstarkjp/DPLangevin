@@ -27,7 +27,7 @@
  */
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__version__") = "2025.10.10a2";
+    module.attr("__version__") = "2025.10.10a3";
     module.doc() = 
         "Operator-splitting method of integrating DP-type Langevin equations"; 
   
@@ -68,13 +68,15 @@ PYBIND11_MODULE(dplvn, module)
                 double, double, 
                 double, double, double,
                 int, 
-                dbl_vec_t,
+                // dbl_vec_t,
                 GridDimension,
                 int_vec_t,
                 gt_vec_t,
                 BoundaryCondition,
                 InitialCondition,
-                IntegrationMethod
+                IntegrationMethod,
+                dbl_vec_t,
+                dbl_vec_t
             >(),
             "Simulation of DP Langevin equation",
             py::arg("linear") = 1.0, 
@@ -85,13 +87,15 @@ PYBIND11_MODULE(dplvn, module)
             py::arg("dx") = 0.5,
             py::arg("dt") = 0.01,
             py::arg("random_seed") = 1,
-            py::arg("aux_values") = dbl_vec_t(3),
+            // py::arg("aux_values") = dbl_vec_t(3),
             py::arg("grid_dimension") = GridDimension::D2,
             py::arg("grid_size") = int_vec_t(2),
             py::arg("grid_topologies") = gt_vec_t(2),
             py::arg("boundary_condition") = BoundaryCondition::FLOATING,
             py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
-            py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA
+            py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA,
+            py::arg("ic_values") = dbl_vec_t(3),
+            py::arg("bc_values") = dbl_vec_t(4)
         )
         .def("initialize", &SimDP::initialize)
         .def("run", &SimDP::run)

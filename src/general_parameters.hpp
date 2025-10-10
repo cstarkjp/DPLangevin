@@ -24,7 +24,6 @@ public:
     const double dx=0;
     const double dt=0;
     const int random_seed=0;
-    const dbl_vec_t aux_values={0};
     const GridDimension grid_dimension=GridDimension::D1;
     const int_vec_t grid_size={0};
     int n_cells=0;
@@ -38,30 +37,34 @@ public:
     const BoundaryCondition boundary_condition=BoundaryCondition::FLOATING;
     const InitialCondition initial_condition=InitialCondition::RANDOM_UNIFORM;
     const IntegrationMethod integration_method=IntegrationMethod::RUNGE_KUTTA;
+    const dbl_vec_t ic_values={0};
+    const dbl_vec_t bc_values={0};
 
     Parameters() = default;
     Parameters(
         const double t_final, 
         const double dx, const double dt, 
         const int rs, 
-        const dbl_vec_t av,
         const GridDimension gd,
         const int_vec_t gs,
         const gt_vec_t gts,
         const BoundaryCondition bc,
         const InitialCondition ic,
-        const IntegrationMethod im
+        const IntegrationMethod im,
+        const dbl_vec_t icv,
+        const dbl_vec_t bcv
     ) : 
         t_final(t_final), 
         dx(dx), dt(dt), 
         random_seed(rs),
-        aux_values(av),
         grid_dimension(gd), 
         grid_size(gs),
         grid_topologies(gts),
         boundary_condition(bc),
         initial_condition(ic), 
-        integration_method(im)
+        integration_method(im),
+        ic_values(icv),
+        bc_values(bcv)
     {
         n_x = gs.at(0);
         n_y = (gs.size()>1) ? gs.at(1) : 1;
@@ -136,8 +139,6 @@ public:
         std::cout << "t_final: " << t_final << std::endl;
         std::cout << "dx: " << dx << std::endl;
         std::cout << "dt: " << dt << std::endl;
-        std::cout << "aux_values: ";
-        for (const auto& element : aux_values) {std::cout << element << " ";}
         std::cout << std::endl;        
         std::cout << "random_seed: " 
             << random_seed << std::endl;
@@ -156,6 +157,12 @@ public:
             << report(initial_condition) << std::endl;
         std::cout << "integration_method: "  
             << report(integration_method) << std::endl;
+        std::cout << "ic_values: ";
+        for (const auto& element : ic_values) {std::cout << element << " ";}
+        std::cout << std::endl;        
+        std::cout << "bc_values: ";
+        for (const auto& element : bc_values) {std::cout << element << " ";}
+        std::cout << std::endl;        
     }
 };
 

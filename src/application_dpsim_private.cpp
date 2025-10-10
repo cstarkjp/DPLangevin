@@ -28,22 +28,22 @@ bool SimDP::initialize_grid()
             dpLangevin->ic_random_uniform(*rng);
             return true;
         case (InitialCondition::CONSTANT_VALUE):
-            dpLangevin->ic_constant_value(p.aux_values.at(0));
+            dpLangevin->ic_constant_value(p.ic_values.at(0));
             return true;
         case (InitialCondition::SINGLE_SEED):
             if (p.grid_dimension==GridDimension::D1)
             {
-                i_cell = ( static_cast<int>(p.aux_values.at(1)) );
+                i_cell = ( static_cast<int>(p.ic_values.at(1)) );
                 if (i_cell<0 or i_cell>=p.n_x) { return false; }
             } 
             else if (p.grid_dimension==GridDimension::D2)
             {
-                i_cell = (static_cast<int>(p.aux_values.at(1))
-                        + static_cast<int>(p.aux_values.at(2))*p.n_x);
+                i_cell = (static_cast<int>(p.ic_values.at(1))
+                        + static_cast<int>(p.ic_values.at(2))*p.n_x);
                 if (i_cell<0 or i_cell>=p.n_x*p.n_y) { return false; }
             } 
             else { return false; }
-            dpLangevin->ic_single_seed(i_cell, p.aux_values.at(0));
+            dpLangevin->ic_single_seed(i_cell, p.ic_values.at(0));
             return true;
         case (InitialCondition::RANDOM_UNIFORM):
             dpLangevin->ic_random_uniform(*rng);

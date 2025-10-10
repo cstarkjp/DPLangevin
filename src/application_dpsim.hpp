@@ -74,13 +74,15 @@ public:
         const double t_final, 
         const double dx, const double dt, 
         const int random_seed,
-        const dbl_vec_t aux_values,
+        // const dbl_vec_t aux_values,
         const GridDimension grid_dimension,
         const int_vec_t grid_size,
         const gt_vec_t grid_topologies,
         const BoundaryCondition boundary_condition,
         const InitialCondition initial_condition,
-        const IntegrationMethod integration_method
+        const IntegrationMethod integration_method,
+        const dbl_vec_t ic_values,
+        const dbl_vec_t bc_values
     );
     //! Initialize the model simulation
     bool initialize();
