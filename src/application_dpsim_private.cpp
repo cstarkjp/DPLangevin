@@ -8,23 +8,11 @@
 
 bool SimDP::construct_grid()
 {
-    // std::cout << "construct_grid:: " 
-    //     << p.report(p.grid_dimension) << std::endl;
     switch (p.grid_dimension)
     {
         case (GridDimension::D1):
             return dpLangevin->construct_1D_grid(p);
         case (GridDimension::D2):
-            // std::cout << "construct_grid:: " 
-            //     << p.report(p.grid_topologies[0]) 
-            //     << ", " 
-            //     << p.report(p.grid_topologies[1]) 
-            //     << std::endl;
-            // std::cout 
-            //         << "construct_grid: " 
-            //         << "gt: " 
-            //         << int(p.grid_topologies.at(0)) << ", " 
-            //         << int(p.grid_topologies.at(1)) << std::endl;
             return dpLangevin->construct_2D_grid(p);
         default:
             return false;
@@ -45,31 +33,16 @@ bool SimDP::initialize_grid()
         case (InitialCondition::SINGLE_SEED):
             if (p.grid_dimension==GridDimension::D1)
             {
-                i_cell = (
-                    static_cast<int>(p.aux_values.at(1))
-                );
-                if (i_cell<0 or i_cell>=p.n_x) return false;
+                i_cell = ( static_cast<int>(p.aux_values.at(1)) );
+                if (i_cell<0 or i_cell>=p.n_x) { return false; }
             } 
             else if (p.grid_dimension==GridDimension::D2)
             {
-                i_cell = (
-                    static_cast<int>(p.aux_values.at(1))
-                    + static_cast<int>(p.aux_values.at(2))*p.n_x
-                );
-                // std::cout << "SimDP::initialize_grid"
-                //     << ": "
-                //     << static_cast<int>(p.aux_values.at(1))
-                //     << ", "
-                //     << static_cast<int>(p.aux_values.at(2))
-                //     << ", "
-                //     << i_cell
-                //     << std::endl;
-                if (i_cell<0 or i_cell>=p.n_x*p.n_y) return false;
+                i_cell = (static_cast<int>(p.aux_values.at(1))
+                        + static_cast<int>(p.aux_values.at(2))*p.n_x);
+                if (i_cell<0 or i_cell>=p.n_x*p.n_y) { return false; }
             } 
-            else 
-            {
-                return false;
-            }
+            else { return false; }
             dpLangevin->ic_single_seed(i_cell, p.aux_values.at(0));
             return true;
         case (InitialCondition::RANDOM_UNIFORM):
@@ -170,7 +143,6 @@ bool SimDP::prep_density_grid()
     {
         i_x = i % p.n_x;
         i_y = i / p.n_x;
-        // std::cout << i << " " << i_x << " " << i_y << " " << std::endl;
         density_proxy(i_x, i_y) = dpLangevin->get_density_grid_value(i);
     };
     pyarray_density = density_array;

@@ -23,7 +23,7 @@ public:
     //! Method to set nonlinear coefficients for deterministic integration step
     void set_nonlinear_coefficients(const Coefficients &coefficients);
     //! Method to set nonlinear RHS of Langevin equation for deterministic integration step
-    double nonlinear_rhs(const int i_cell, const dbl_vec_t &field) const;
+    double nonlinear_rhs(const int i_cell, const grid_t &field) const;
 };
 
 #endif

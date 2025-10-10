@@ -12,7 +12,7 @@ void BaseLangevin::ic_random_uniform(
     const double max_value
 )
 {
-    dbl_uniform_dist_t uniform(min_value, max_value);
+    uniform_dist_t uniform(min_value, max_value);
     mean_density = 0.0;
     for (auto i=0; i<density_grid.size(); i++)
     {
@@ -25,7 +25,7 @@ void BaseLangevin::ic_random_uniform(
 //! Set all the grid cells to have same value
 void BaseLangevin::ic_constant_value(const double density_value)
 {
-    density_grid = dbl_vec_t(n_cells, density_value);
+    density_grid = grid_t(n_cells, density_value);
     mean_density = density_value;
 }
 

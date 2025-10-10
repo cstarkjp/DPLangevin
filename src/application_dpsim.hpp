@@ -71,7 +71,8 @@ public:
     SimDP(
         const double linear, const double quadratic,
         const double diffusion, const double noise, 
-        const double t_final, const double dx, const double dt, 
+        const double t_final, 
+        const double dx, const double dt, 
         const int random_seed,
         const dbl_vec_t aux_values,
         const GridDimension grid_dimension,

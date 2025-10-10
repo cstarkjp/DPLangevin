@@ -28,28 +28,30 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
     const auto n_x = p.n_x;
     const auto n_y = p.n_y;
 
-    // Flattened grid vector each with a set of <=4 connection i_node elements.
-    // Each i_node element will link to 1 of <=4 possible neighbor locations.
-    // Along edges these sets will be reduced to 3 elements.
-    // At corners these sets will be reduced to 2 elements.
-    neighbors = std::vector<int_vec_t>(n_x*n_y, int_vec_t(0));
+    // Flattened grid vector each with a vector of connection elements.
+    // Each connection element will link to between 2 and 4 neighbor locations.
+    // At central grid cell, there will be 4 connections.
+    // Along periodic edges there will be 3 connection elements.
+    // Along bounded edges there will be 2 connection elements.
+    // At corners these sets will be reduced to 2-3 elements.
+    grid_wiring = grid_wiring_t(n_x*n_y, neighborhood_t(0));
 
     // Compute flattened grid vector index from coordinate
-    auto i_from_xy = [&](int x, int y) -> int { return  x + y*n_x; };
+    auto i_from_xy = [&](int x, int y) -> int { return x + y*n_x; };
     
     // Connect two neighbor cells
-    auto connect_cells = [&](int i, int j){ neighbors.at(i).push_back(j); };
+    auto connect_cells = [&](int i, int j){ grid_wiring.at(i).push_back(j); };
 
     // Central grid cells
     auto wire_central_cell = [&](int x, int y)
     {
         // i_cell is the index of the flattened grid
         auto i_cell = i_from_xy(x, y);
-        // Each cell has 4 neighbors.at(i_cell) indexes
-        connect_cells(i_cell, i_cell + n_x);  // Up:   i_cell + n_x // x + (y+1)*n_x;
-        connect_cells(i_cell, i_cell - n_x);  // Down: i_cell - n_x // x + (y-1)*n_x;
-        connect_cells(i_cell, i_cell + 1);    // Right: i_cell+1   (VMB: left)  // (x+1) + y*n_x;
-        connect_cells(i_cell, i_cell - 1);    // Left:  i_cell-1   (VMB: right) // (x-1) + y*n_x;
+        // Each cell has 4 neighbors
+        connect_cells(i_cell, i_cell+n_x);  // Up
+        connect_cells(i_cell, i_cell-n_x);  // Down
+        connect_cells(i_cell, i_cell+1);    // Right
+        connect_cells(i_cell, i_cell-1);    // Left
 
     };
     auto wire_central_cells = [&]()
@@ -236,10 +238,10 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
 
     /////////////////////////////////////////////
 
-    // Step 1: Wire all the non-edge grid cells.
+    // Step 1: Wire all the non-edge grid cells
     wire_central_cells();
 
-    // Step 2: Wire grid edge cells according to topology specs.
+    // Step 2: Wire grid edge cells according to topology specs
     wire_grid(p.grid_topologies);
 
     return true;
