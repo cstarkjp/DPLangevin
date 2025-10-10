@@ -79,6 +79,10 @@ public:
     void set_essential_coefficients(const Coefficients &coefficients);
     //! Method to set "lambda" constants
     void set_lambdas();
+    //! Check we have 2N boundary conditions for an N-dimensional grid
+    bool check_boundary_conditions(const Parameters parameters);
+    //! Set density field values only the grid edges per bc specs
+    void apply_boundary_conditions(const Parameters parameters);
     //! Runge-Kutta + stochastic integration + grid update
     void integrate_rungekutta(rng_t &rng);
     //! Explicit Euler + stochastic integration + grid update

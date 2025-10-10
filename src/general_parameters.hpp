@@ -24,19 +24,17 @@ public:
     const double dx=0;
     const double dt=0;
     const int random_seed=0;
-    const dbl_vec_t aux_values={0};
     const GridDimension grid_dimension=GridDimension::D1;
-    const int_vec_t grid_size={0};
+    const int_vec_t grid_size={};
     int n_cells=0;
     int n_x=0;
     int n_y=0;
-    int n_z=0;  // but 3d, 4d grids not implemented yet (or ever)
-    const gt_vec_t grid_topologies = {
-        GridTopology::BOUNDED, GridTopology::BOUNDED, 
-        GridTopology::BOUNDED, GridTopology::BOUNDED
-    };
-    const BoundaryCondition boundary_condition=BoundaryCondition::FLOATING;
+    int n_z=0;
+    const gt_vec_t grid_topologies = {};
+    const bc_vec_t boundary_conditions = {};
+    const dbl_vec_t bc_values={};
     const InitialCondition initial_condition=InitialCondition::RANDOM_UNIFORM;
+    const dbl_vec_t ic_values={};
     const IntegrationMethod integration_method=IntegrationMethod::RUNGE_KUTTA;
 
     Parameters() = default;
@@ -44,23 +42,25 @@ public:
         const double t_final, 
         const double dx, const double dt, 
         const int rs, 
-        const dbl_vec_t av,
         const GridDimension gd,
         const int_vec_t gs,
         const gt_vec_t gts,
-        const BoundaryCondition bc,
+        const bc_vec_t bcs,
+        const dbl_vec_t bcv,
         const InitialCondition ic,
+        const dbl_vec_t icv,
         const IntegrationMethod im
     ) : 
         t_final(t_final), 
         dx(dx), dt(dt), 
         random_seed(rs),
-        aux_values(av),
         grid_dimension(gd), 
         grid_size(gs),
         grid_topologies(gts),
-        boundary_condition(bc),
+        boundary_conditions(bcs),
+        bc_values(bcv),
         initial_condition(ic), 
+        ic_values(icv),
         integration_method(im)
     {
         n_x = gs.at(0);
@@ -93,12 +93,12 @@ public:
         combo.append(report(gts.at(0)));
         if (gd==GridDimension::D2 or gd==GridDimension::D3)
         {
-            combo.append(", y:");
+            combo.append("; y:");
             combo.append(report(gts.at(1)));
         }
         if (gd==GridDimension::D3)
         {
-            combo.append(", z:");
+            combo.append("; z:");
             combo.append(report(gts.at(2)));
         }
         return combo;
@@ -111,6 +111,28 @@ public:
             case BoundaryCondition::FIXED_FLUX: return "fixed flux";
             default: return "Unknown";
         }
+    }
+    std::string report(GridDimension gd, bc_vec_t bcs) 
+    {
+        std::string combo = "x0:";
+        combo.append(report(bcs.at(0)));
+        combo.append(", x1:");
+        combo.append(report(bcs.at(1)));
+        if (gd==GridDimension::D2 or gd==GridDimension::D3)
+        {
+            combo.append("; y0:");
+            combo.append(report(bcs.at(2)));
+            combo.append(", y1:");
+            combo.append(report(bcs.at(3)));
+        }
+        if (gd==GridDimension::D3)
+        {
+            combo.append("; z0:");
+            combo.append(report(bcs.at(2)));
+            combo.append(", z1:");
+            combo.append(report(bcs.at(2)));
+        }
+        return combo;
     }
     std::string report(InitialCondition ic) 
     {
@@ -136,24 +158,25 @@ public:
         std::cout << "t_final: " << t_final << std::endl;
         std::cout << "dx: " << dx << std::endl;
         std::cout << "dt: " << dt << std::endl;
-        std::cout << "aux_values: ";
-        for (const auto& element : aux_values) {std::cout << element << " ";}
-        std::cout << std::endl;        
-        std::cout << "random_seed: " 
-            << random_seed << std::endl;
-        std::cout << "grid_dimension: " 
-            << report(grid_dimension) << std::endl;
+            std::cout << std::endl;        
+        std::cout << "random_seed: " << random_seed << std::endl;
+        std::cout << "grid_dimension: " << report(grid_dimension) << std::endl;
         std::cout << "grid_size: ";
         for (const auto& element : grid_size) {std::cout << element << " ";}
-        std::cout << std::endl;        
-        std::cout << "n_cells: " 
-            << n_cells << std::endl;
+            std::cout << std::endl;        
+        std::cout << "n_cells: " << n_cells << std::endl;
         std::cout << "grid_topologies: " 
             << report(grid_dimension, grid_topologies) << std::endl;
-        std::cout << "boundary_condition: " 
-            << report(boundary_condition) << std::endl;
+        std::cout << "boundary_conditions: " 
+            << report(grid_dimension, boundary_conditions) << std::endl;
+        std::cout << "bc_values: ";
+        for (const auto& element : bc_values) {std::cout << element << " ";}
+            std::cout << std::endl;        
         std::cout << "initial_condition: " 
             << report(initial_condition) << std::endl;
+        std::cout << "ic_values: ";
+        for (const auto& element : ic_values) {std::cout << element << " ";}
+            std::cout << std::endl;        
         std::cout << "integration_method: "  
             << report(integration_method) << std::endl;
     }

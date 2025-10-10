@@ -1,5 +1,5 @@
 /**
- * @file langevin_initial_condition.cpp
+ * @file langevin_ic.cpp
  * @brief Methods for setting up the initial condition of the Langevin model.
  */
 

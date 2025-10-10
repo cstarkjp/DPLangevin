@@ -27,14 +27,14 @@
  */
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__version__") = "2025.10.10a2";
+    module.attr("__version__") = "2025.10.10a3";
     module.doc() = 
         "Operator-splitting method of integrating DP-type Langevin equations"; 
   
     py::enum_<GridDimension>(module, "GridDimension")
         .value("D1", GridDimension::D1)
         .value("D2", GridDimension::D2)
-        .value("D3", GridDimension::D3)    // might happen one day
+        .value("D3", GridDimension::D3)
         // .value("D4", GridDimension::D4) // never gonna happen
         .export_values();
 
@@ -68,12 +68,13 @@ PYBIND11_MODULE(dplvn, module)
                 double, double, 
                 double, double, double,
                 int, 
-                dbl_vec_t,
                 GridDimension,
                 int_vec_t,
                 gt_vec_t,
-                BoundaryCondition,
+                bc_vec_t,
+                dbl_vec_t,
                 InitialCondition,
+                dbl_vec_t,
                 IntegrationMethod
             >(),
             "Simulation of DP Langevin equation",
@@ -85,12 +86,13 @@ PYBIND11_MODULE(dplvn, module)
             py::arg("dx") = 0.5,
             py::arg("dt") = 0.01,
             py::arg("random_seed") = 1,
-            py::arg("aux_values") = dbl_vec_t(3),
             py::arg("grid_dimension") = GridDimension::D2,
             py::arg("grid_size") = int_vec_t(2),
             py::arg("grid_topologies") = gt_vec_t(2),
-            py::arg("boundary_condition") = BoundaryCondition::FLOATING,
+            py::arg("boundary_conditions") = bc_vec_t(4),
+            py::arg("bc_values") = dbl_vec_t(4),
             py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
+            py::arg("ic_values") = dbl_vec_t(3),
             py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA
         )
         .def("initialize", &SimDP::initialize)

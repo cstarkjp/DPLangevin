@@ -28,22 +28,22 @@ bool SimDP::initialize_grid()
             dpLangevin->ic_random_uniform(*rng);
             return true;
         case (InitialCondition::CONSTANT_VALUE):
-            dpLangevin->ic_constant_value(p.aux_values.at(0));
+            dpLangevin->ic_constant_value(p.ic_values.at(0));
             return true;
         case (InitialCondition::SINGLE_SEED):
             if (p.grid_dimension==GridDimension::D1)
             {
-                i_cell = ( static_cast<int>(p.aux_values.at(1)) );
+                i_cell = ( static_cast<int>(p.ic_values.at(1)) );
                 if (i_cell<0 or i_cell>=p.n_x) { return false; }
             } 
             else if (p.grid_dimension==GridDimension::D2)
             {
-                i_cell = (static_cast<int>(p.aux_values.at(1))
-                        + static_cast<int>(p.aux_values.at(2))*p.n_x);
+                i_cell = (static_cast<int>(p.ic_values.at(1))
+                        + static_cast<int>(p.ic_values.at(2))*p.n_x);
                 if (i_cell<0 or i_cell>=p.n_x*p.n_y) { return false; }
             } 
             else { return false; }
-            dpLangevin->ic_single_seed(i_cell, p.aux_values.at(0));
+            dpLangevin->ic_single_seed(i_cell, p.ic_values.at(0));
             return true;
         case (InitialCondition::RANDOM_UNIFORM):
             dpLangevin->ic_random_uniform(*rng);
@@ -62,44 +62,61 @@ int SimDP::count_epochs() const
     return n_epochs;
 }
 
+bool SimDP::choose_integrator()
+{
+    switch (p.integration_method)
+    {
+        case (IntegrationMethod::RUNGE_KUTTA):
+            integrator = &DPLangevin::integrate_rungekutta;
+            return true;
+        case (IntegrationMethod::EULER):
+            integrator = &DPLangevin::integrate_euler;
+            return true;
+        default:
+            return false;
+    }
+}
+
 bool SimDP::integrate(const int n_next_epochs)
 {
+    // Check a further n_next_epochs won't exceed total permitted steps
     if (t_epochs.size() < i_next_epoch+n_next_epochs)
     {
         std::cout << "Too many epochs: " 
             << t_epochs.size() << " < " << i_next_epoch+n_next_epochs << std::endl;
         return false;
     }
-    void (DPLangevin::*ptr_to_integrate_fn)(rng_t&);
-    switch (p.integration_method)
-    {
-        case (IntegrationMethod::RUNGE_KUTTA):
-            ptr_to_integrate_fn = &DPLangevin::integrate_rungekutta;
-            break;
-        case (IntegrationMethod::EULER):
-            ptr_to_integrate_fn = &DPLangevin::integrate_euler;
-            break;
-        default:
-            return false;
-    }
+    
+    // Perform (possibly another another) n_next_epochs integration steps
     int i;
     double t; 
+    // For the very first epoch, record mean density right now
     if (i_next_epoch==1) { 
+        // dpLangevin->apply_boundary_conditions();
         mean_densities[0] = dpLangevin->get_mean_density(); 
         i_current_epoch = 0;
         t_current_epoch = 0;
     }
+    // Loop over integration steps.
+    // Effectively increment epoch counter and add to Δt to time counter
+    // so that both point the state *after* each integration step is complete.
+    // In so doing, we will record t_epochs.size() + 1 total integration steps.
     for (
         i=i_next_epoch, t=t_next_epoch; 
         i<i_next_epoch+n_next_epochs; 
         t+=p.dt, i++)
     {
-        (dpLangevin->*ptr_to_integrate_fn)(*rng);
+        // Reapply boundary conditions prior to integrating
+        dpLangevin->apply_boundary_conditions(p);
+        // Perform a single integration over Δt
+        (dpLangevin->*integrator)(*rng);
+        // Record this epoch
         t_epochs[i] = t;
         mean_densities[i] = dpLangevin->get_mean_density();
         i_current_epoch = i;
         t_current_epoch = t;
     };
+    // Set epoch and time counters to point to *after* the last integration step
     i_next_epoch = i;
     t_next_epoch = t;
     return true;

@@ -1,5 +1,5 @@
 /**
- * @file langevin_utils.cpp
+ * @file langevin_utilities.cpp
  * @brief Utility methods to process the Langevin field grid.
  */
 

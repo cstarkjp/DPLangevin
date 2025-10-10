@@ -5,6 +5,6 @@
   - [x] Mod test nb to generate a set of successive grid images
   - [x] Generate an animation from such a set of images
   - [x] Test periodic topology again
-  - [x] Implement distinct x/y/z topologies (mostly done)
-  - [ ] Implement fixed value bcs on each boundary
-  - [ ] Implement fixed flux bcs on each boundary
+  - [x] Implement distinct x/y/z topologies
+  - [x] Implement fixed value bcs on each boundary (mostly done for 2d)
+  - [x] Implement fixed flux bcs on each boundary (mostly done for 2d)

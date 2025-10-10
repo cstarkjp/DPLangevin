@@ -12,17 +12,29 @@ SimDP::SimDP(
     const double t_final, 
     const double dx, const double dt, 
     const int random_seed,
-    const dbl_vec_t aux_values,
     const GridDimension grid_dimension,
     const int_vec_t grid_size,
     const gt_vec_t grid_topologies,
-    const BoundaryCondition boundary_condition,
+    const bc_vec_t boundary_conditions,
+    const dbl_vec_t bc_values,
     const InitialCondition initial_condition,
+    const dbl_vec_t ic_values,
     const IntegrationMethod integration_method
 ) : coefficients(linear, quadratic, diffusion, noise),
-    p(t_final, dx, dt, random_seed, aux_values, 
-        grid_dimension, grid_size, grid_topologies,
-        boundary_condition, initial_condition, integration_method)
+    p(
+        t_final, 
+        dx, 
+        dt, 
+        random_seed,
+        grid_dimension, 
+        grid_size, 
+        grid_topologies,
+        boundary_conditions,
+        bc_values,
+        initial_condition, 
+        ic_values, 
+        integration_method
+    )
 {
     rng = new rng_t(p.random_seed); 
     dpLangevin = new DPLangevin(p);
@@ -52,6 +64,16 @@ bool SimDP::initialize()
     // So after initialization, we are nominally at epoch#1
     i_next_epoch = 1;
     t_next_epoch = p.dt;
+    if (not dpLangevin->check_boundary_conditions(p))
+    {
+        std::cout << "Failure: wrong number of boundary conditions" << std::endl;
+        return false;
+    }
+    if (not choose_integrator())
+    { 
+        std::cout << "Failure: unable to choose integrator" << std::endl;
+        return false; 
+    }        
     is_initialized = true;
     return is_initialized;
 }
@@ -63,12 +85,7 @@ bool SimDP::run(const int n_next_epochs)
         std::cout << "Failure: must initialize first" << std::endl;
         return false; 
     }
-    // Need to figure out how to segment sim right here
-    // std::cout << "before i: " << i_next_epoch << std::endl;
-    // std::cout << "before t: " << t_next_epoch << std::endl;
     did_integrate = integrate(n_next_epochs);
-    // std::cout << "after  i: " << i_next_epoch << std::endl;
-    // std::cout << "after  t: " << t_next_epoch << std::endl;
     return did_integrate;
 }
 

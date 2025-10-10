@@ -1,6 +1,7 @@
 var class_sim_d_p =
 [
-    [ "SimDP", "class_sim_d_p.html#ad9f856096461c04e63eb6f823be8e3d1", null ],
+    [ "SimDP", "class_sim_d_p.html#a6f567ecf5366b0325f9789afbf7b0712", null ],
+    [ "choose_integrator", "class_sim_d_p.html#a70af5f5c5f9f04cd2783f1e14cfba223", null ],
     [ "construct_grid", "class_sim_d_p.html#adf9706187d694ad0ba16cb4e2c308cd1", null ],
     [ "count_epochs", "class_sim_d_p.html#a587ef106d6540a3f23a24cd86f2861b7", null ],
     [ "get_density", "class_sim_d_p.html#a373628fc3abfe97695a822987305abd8", null ],
@@ -24,6 +25,7 @@ var class_sim_d_p =
     [ "dpLangevin", "class_sim_d_p.html#acac8c8a804fd120accc46154c9812add", null ],
     [ "i_current_epoch", "class_sim_d_p.html#a0f579637e5437deafa5a997995f67dce", null ],
     [ "i_next_epoch", "class_sim_d_p.html#a326dfd7d46fc1c78c1d5a1250a8af880", null ],
+    [ "integrator", "class_sim_d_p.html#a92adfe3bb63d10c00500ebc0bf7e0778", null ],
     [ "is_initialized", "class_sim_d_p.html#a90ad057adf7ad95ba23d034ad9cd49c4", null ],
     [ "mean_densities", "class_sim_d_p.html#a508ad77c44188e5d3ced514949459758", null ],
     [ "n_epochs", "class_sim_d_p.html#aa0794cf12da5c60de961f66d882bd00f", null ],

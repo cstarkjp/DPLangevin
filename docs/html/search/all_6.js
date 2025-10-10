@@ -19,7 +19,9 @@ var searchData=
   ['get_5ft_5fnext_5fepoch_16',['get_t_next_epoch',['../class_sim_d_p.html#a966900f7d2285150849cf9b00fbd587d',1,'SimDP']]],
   ['grid_5ft_17',['grid_t',['../general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717',1,'general_core.hpp']]],
   ['grid_5fwiring_18',['grid_wiring',['../class_base_langevin.html#aa76f81c2fd8eb13da2f25c17cd6424f4',1,'BaseLangevin']]],
-  ['griddimension_19',['GridDimension',['../general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7',1,'general_enums.hpp']]],
-  ['gridtopology_20',['GridTopology',['../general__enums_8hpp.html#a68f3239e8ec4a7e08e8f21fd2bb264fa',1,'general_enums.hpp']]],
-  ['gt_5fvec_5ft_21',['gt_vec_t',['../general__core_8hpp.html#a8e652b99fe1e99f2033cf406f9a9a1a5',1,'general_core.hpp']]]
+  ['grid_5fwiring_5ft_19',['grid_wiring_t',['../general__core_8hpp.html#a91e50f8a8197c0ff83c0f5d2eb78e105',1,'general_core.hpp']]],
+  ['griddimension_20',['GridDimension',['../general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7',1,'general_enums.hpp']]],
+  ['gridedge_21',['GridEdge',['../general__enums_8hpp.html#a5980346a38b1e3c46dc215d3688ab711',1,'general_enums.hpp']]],
+  ['gridtopology_22',['GridTopology',['../general__enums_8hpp.html#a68f3239e8ec4a7e08e8f21fd2bb264fa',1,'general_enums.hpp']]],
+  ['gt_5fvec_5ft_23',['gt_vec_t',['../general__core_8hpp.html#a8e652b99fe1e99f2033cf406f9a9a1a5',1,'general_core.hpp']]]
 ];

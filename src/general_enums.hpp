@@ -15,8 +15,18 @@ enum class GridDimension
 {
     D1 = 1,
     D2 = 2,
-    D3 = 3,
-    D4 = 4
+    D3 = 3
+};
+
+//! Classifier for grid edges used in boundary condition handling
+enum class GridEdge
+{
+    lx = 1,
+    ux = 2,
+    ly = 3,
+    uy = 4
+    // lz = 5,
+    // uz = 6
 };
 
 //! Grid boundary topology: only bounded or periodic (along all edges) implemented so far
