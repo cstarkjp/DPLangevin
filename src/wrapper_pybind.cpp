@@ -12,7 +12,7 @@
 #include "application_dpsim.hpp"
 
 /**
- * @brief Pybind11 wrapper between C++ and Python for SimDP application.
+ * @details Pybind11 wrapper between C++ and Python for SimDP application.
  * 
  * Binder exposing the `dplvn` module to Python, enabling instantiation of 
  * the SimDP class, and exchange of model parameters and simulation
@@ -21,6 +21,9 @@
  * 
  * This macro expands the parameter `"dplvn"` into `pybind11_exec_dplvn` 
  * and generates the function `pybind11_init_dplvn` among others.
+ * 
+ * @param dplvn  Name of to-be-created Python module.
+ * @param module  A pybind11::module_ object.
  */
 PYBIND11_MODULE(dplvn, module)
 {
@@ -101,5 +104,4 @@ PYBIND11_MODULE(dplvn, module)
         .def("get_t_epochs", &SimDP::get_t_epochs)
         .def("get_mean_densities", &SimDP::get_mean_densities)
         .def("get_density", &SimDP::get_density);
-
 }

@@ -264,6 +264,13 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
             wire_periodic_corner(0, n_y-1);      // Top-left corner
             wire_periodic_corner(n_x-1, n_y-1);  // Top-right corner
 
+            auto x_plus_or_minus = (x==0) ? +1 : -1;
+            auto y_plus_or_minus = (y==0) ? +1 : -1;
+            auto i_cell = x + y*n_x;
+            neighbors[i_cell] = int_vec_t(2);
+            neighbors[i_cell][0] = i_cell + 1*x_plus_or_minus; 
+            neighbors[i_cell][1] = i_cell + n_x*y_plus_or_minus;
+
             return true;
         }
         default:
