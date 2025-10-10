@@ -17,8 +17,6 @@ typedef std::mt19937 rng_t;
 
 //! Type for vectors of doubles
 typedef std::vector<double> dbl_vec_t;
-//! Type for valarray of doubles
-typedef std::valarray<double> dbl_valarray_t;
 //! Type for vectors of integers
 typedef std::vector<int> int_vec_t;
 
@@ -27,8 +25,8 @@ typedef std::vector<double> grid_t;
 // typedef std::valarray<double> grid_t;  // doesn't work
 
 //! Types for density grid neighborhoods (local connectivities)
-typedef std::vector<int> grid_connection_t;
-typedef std::vector< grid_connection_t > grid_wiring_t;
+typedef std::vector<int> neighborhood_t;
+typedef std::vector< neighborhood_t > grid_wiring_t;
 // typedef std::valarray<int> grid_connection_t;  // doesn't work
 // typedef std::valarray< grid_connection_t > grid_wiring_t;  // doesn't work
 

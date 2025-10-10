@@ -92,7 +92,7 @@ $(function(){initNavTree('class_d_p_langevin.html','','class_d_p_langevin-member
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of BaseLangevin class integrator.">DPLangevin</a> model application of <a class="el" href="class_base_langevin.html" title="Base class for Langevin equation integrator.">BaseLangevin</a> class integrator.  
+<p><a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of BaseLangevin class integrator.">DPLangevin</a> model application of <a class="el" href="class_base_langevin.html">BaseLangevin</a> class integrator.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="application__dplangevin_8hpp_source.html">application_dplangevin.hpp</a>&gt;</code></p>
@@ -102,7 +102,7 @@ Inheritance diagram for DPLangevin:</div>
  <div class="center">
   <img src="class_d_p_langevin.png" usemap="#DPLangevin_map" alt=""/>
   <map id="DPLangevin_map" name="DPLangevin_map">
-<area href="class_base_langevin.html" title="Base class for Langevin equation integrator." alt="BaseLangevin" shape="rect" coords="0,0,92,24"/>
+<area href="class_base_langevin.html" alt="BaseLangevin" shape="rect" coords="0,0,92,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -172,16 +172,12 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memdesc:a0ffb08ee5362c7fdf5fc8efa3583382d inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Density field grid.  <br /></td></tr>
 <tr class="memitem:aa76f81c2fd8eb13da2f25c17cd6424f4 inherit pro_attribs_class_base_langevin" id="r_aa76f81c2fd8eb13da2f25c17cd6424f4"><td class="memItemLeft" align="right" valign="top">grid_wiring_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#aa76f81c2fd8eb13da2f25c17cd6424f4">grid_wiring</a></td></tr>
 <tr class="memdesc:aa76f81c2fd8eb13da2f25c17cd6424f4 inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Neighorhood topology for all grid cells.  <br /></td></tr>
-<tr class="memitem:a7307bed54a012d55cf847fb89853b8db inherit pro_attribs_class_base_langevin" id="r_a7307bed54a012d55cf847fb89853b8db"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#a7307bed54a012d55cf847fb89853b8db">mean_density</a></td></tr>
-<tr class="memdesc:a7307bed54a012d55cf847fb89853b8db inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grid-average of density field.  <br /></td></tr>
 <tr class="memitem:a1b8bdbfd68c3b74071b766df64691719 inherit pro_attribs_class_base_langevin" id="r_a1b8bdbfd68c3b74071b766df64691719"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#a1b8bdbfd68c3b74071b766df64691719">dt</a></td></tr>
 <tr class="memdesc:a1b8bdbfd68c3b74071b766df64691719 inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time step, i.e, epoch-to-epoch Δt.  <br /></td></tr>
 <tr class="memitem:af6e164344c350fdfee62c9a49d6ed1fc inherit pro_attribs_class_base_langevin" id="r_af6e164344c350fdfee62c9a49d6ed1fc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#af6e164344c350fdfee62c9a49d6ed1fc">dx</a></td></tr>
 <tr class="memdesc:af6e164344c350fdfee62c9a49d6ed1fc inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grid spacing, i.e., spacing Δx between cell centers in all directions.  <br /></td></tr>
-<tr class="memitem:a188d74016c9ad9cd915fc385476720a0 inherit pro_attribs_class_base_langevin" id="r_a188d74016c9ad9cd915fc385476720a0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#a188d74016c9ad9cd915fc385476720a0">lambda</a></td></tr>
-<tr class="memdesc:a188d74016c9ad9cd915fc385476720a0 inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method stochastic-step variable.  <br /></td></tr>
-<tr class="memitem:a5453eabca9ac6920c002f5c488b387c4 inherit pro_attribs_class_base_langevin" id="r_a5453eabca9ac6920c002f5c488b387c4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#a5453eabca9ac6920c002f5c488b387c4">lambda_product</a></td></tr>
-<tr class="memdesc:a5453eabca9ac6920c002f5c488b387c4 inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method stochastic-step variable.  <br /></td></tr>
+<tr class="memitem:a7307bed54a012d55cf847fb89853b8db inherit pro_attribs_class_base_langevin" id="r_a7307bed54a012d55cf847fb89853b8db"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#a7307bed54a012d55cf847fb89853b8db">mean_density</a></td></tr>
+<tr class="memdesc:a7307bed54a012d55cf847fb89853b8db inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grid-average of density field.  <br /></td></tr>
 <tr class="memitem:a4b880cb149b15522ab9ae90316017250 inherit pro_attribs_class_base_langevin" id="r_a4b880cb149b15522ab9ae90316017250"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a601371a69dbc51f3fc6994eba56c47af">poisson_dist_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#a4b880cb149b15522ab9ae90316017250">poisson_rng</a></td></tr>
 <tr class="memdesc:a4b880cb149b15522ab9ae90316017250 inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function generating Poisson variates.  <br /></td></tr>
 <tr class="memitem:a8bdb26b944654c9abe78ffde7cfcc714 inherit pro_attribs_class_base_langevin" id="r_a8bdb26b944654c9abe78ffde7cfcc714"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a01980fd92bc6cbecff409f2347b6943f">gamma_dist_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#a8bdb26b944654c9abe78ffde7cfcc714">gamma_rng</a></td></tr>
@@ -192,6 +188,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memdesc:ac3ac2219c2797170b4188ad98130643c inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method coefficient.  <br /></td></tr>
 <tr class="memitem:a84ceb321941f0cff25c8629a62f762e2 inherit pro_attribs_class_base_langevin" id="r_a84ceb321941f0cff25c8629a62f762e2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#a84ceb321941f0cff25c8629a62f762e2">noise_coeff</a></td></tr>
 <tr class="memdesc:a84ceb321941f0cff25c8629a62f762e2 inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method coefficient.  <br /></td></tr>
+<tr class="memitem:a188d74016c9ad9cd915fc385476720a0 inherit pro_attribs_class_base_langevin" id="r_a188d74016c9ad9cd915fc385476720a0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#a188d74016c9ad9cd915fc385476720a0">lambda</a></td></tr>
+<tr class="memdesc:a188d74016c9ad9cd915fc385476720a0 inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method stochastic-step variable.  <br /></td></tr>
+<tr class="memitem:a5453eabca9ac6920c002f5c488b387c4 inherit pro_attribs_class_base_langevin" id="r_a5453eabca9ac6920c002f5c488b387c4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#a5453eabca9ac6920c002f5c488b387c4">lambda_product</a></td></tr>
+<tr class="memdesc:a5453eabca9ac6920c002f5c488b387c4 inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method stochastic-step variable.  <br /></td></tr>
 <tr class="memitem:ac7e29d9da1474a95cc33b172711d8075 inherit pro_attribs_class_base_langevin" id="r_ac7e29d9da1474a95cc33b172711d8075"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a></td></tr>
 <tr class="memdesc:ac7e29d9da1474a95cc33b172711d8075 inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta variable grid #1.  <br /></td></tr>
 <tr class="memitem:ae90291c345f2e38d7cf9a2ade6ccd7cd inherit pro_attribs_class_base_langevin" id="r_ae90291c345f2e38d7cf9a2ade6ccd7cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#ae90291c345f2e38d7cf9a2ade6ccd7cd">k2_grid</a></td></tr>
@@ -204,7 +204,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memdesc:a051859f9192880c631ea8ddb6fdf51ef inherit pro_attribs_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary density grid used to perform an integration step.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of BaseLangevin class integrator.">DPLangevin</a> model application of <a class="el" href="class_base_langevin.html" title="Base class for Langevin equation integrator.">BaseLangevin</a> class integrator. </p>
+<div class="textblock"><p><a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of BaseLangevin class integrator.">DPLangevin</a> model application of <a class="el" href="class_base_langevin.html">BaseLangevin</a> class integrator. </p>
 
 <p class="definition">Definition at line <a class="el" href="application__dplangevin_8hpp_source.html#l00012">12</a> of file <a class="el" href="application__dplangevin_8hpp_source.html">application_dplangevin.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -224,7 +224,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructor when model parameters are passed by the user. </p>
-<p>Redefinition of <a class="el" href="class_base_langevin.html" title="Base class for Langevin equation integrator.">BaseLangevin</a> class constructor. </p>
+<p>Redefinition of <a class="el" href="class_base_langevin.html">BaseLangevin</a> class constructor. </p>
 
 <p class="definition">Definition at line <a class="el" href="application__dplangevin_8cpp_source.html#l00014">14</a> of file <a class="el" href="application__dplangevin_8cpp_source.html">application_dplangevin.cpp</a>.</p>
 

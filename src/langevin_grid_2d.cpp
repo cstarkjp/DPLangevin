@@ -34,7 +34,7 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
     // Along periodic edges there will be 3 connection elements.
     // Along bounded edges there will be 2 connection elements.
     // At corners these sets will be reduced to 2-3 elements.
-    grid_wiring = grid_wiring_t(n_x*n_y, grid_connection_t(0));
+    grid_wiring = grid_wiring_t(n_x*n_y, neighborhood_t(0));
 
     // Compute flattened grid vector index from coordinate
     auto i_from_xy = [&](int x, int y) -> int { return x + y*n_x; };
@@ -238,10 +238,10 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
 
     /////////////////////////////////////////////
 
-    // Step 1: Wire all the non-edge grid cells.
+    // Step 1: Wire all the non-edge grid cells
     wire_central_cells();
 
-    // Step 2: Wire grid edge cells according to topology specs.
+    // Step 2: Wire grid edge cells according to topology specs
     wire_grid(p.grid_topologies);
 
     return true;

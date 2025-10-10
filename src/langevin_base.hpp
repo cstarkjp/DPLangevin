@@ -10,9 +10,7 @@
 #include "general_parameters.hpp"
 
 /**
- * @brief Base class for Langevin equation integrator.
- * 
- * 
+ * @details Base class for Langevin equation integrator.
  */
 class BaseLangevin
 {
@@ -24,18 +22,12 @@ protected:
      //! Neighorhood topology for all grid cells
     grid_wiring_t grid_wiring;
    
-    //! Grid-average of density field
-    double mean_density;
-
     //! Time step, i.e, epoch-to-epoch Δt
     double dt;
     //! Grid spacing, i.e., spacing Δx between cell centers in all directions
     double dx;
-
-    //! Dornic method stochastic-step variable
-    double lambda;
-    //! Dornic method stochastic-step variable
-    double lambda_product;
+    //! Grid-average of density field
+    double mean_density;
 
     //! Function generating Poisson variates
     poisson_dist_t poisson_rng;
@@ -48,6 +40,10 @@ protected:
     double linear_coeff;
     //! Dornic method coefficient
     double noise_coeff;
+    //! Dornic method stochastic-step variable
+    double lambda;
+    //! Dornic method stochastic-step variable
+    double lambda_product;
 
     //! Runge-Kutta variable grid #1
     grid_t k1_grid;
@@ -55,7 +51,6 @@ protected:
     grid_t k2_grid;
     //! Runge-Kutta variable grid #3
     grid_t k3_grid;
-
     //! Temporary density grid used to perform an integration step
     grid_t density_grid_aux_old;
     //! Temporary density grid used to perform an integration step
@@ -71,7 +66,8 @@ public:
     //! Initial condition for density field: uniformly random
     void ic_random_uniform(
         rng_t &rng, 
-        const double min_value = 0.0, const double max_value = 1.0
+        const double min_value=0.0, 
+        const double max_value=1.0
     );
     //! Initial condition for density field: uniformly constant
     void ic_constant_value(const double density_value=1.0);
