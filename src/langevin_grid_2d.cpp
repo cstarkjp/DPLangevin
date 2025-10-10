@@ -46,10 +46,10 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
         // i_cell is the index of the flattened grid
         auto i_cell = i_from_xy(x, y);
         // Each cell has 4 neighbors
-        connect_cells(i_cell, i_cell + n_x);  // Up
-        connect_cells(i_cell, i_cell - n_x);  // Down
-        connect_cells(i_cell, i_cell + 1);    // Right
-        connect_cells(i_cell, i_cell - 1);    // Left
+        connect_cells(i_cell, i_cell+n_x);  // Up
+        connect_cells(i_cell, i_cell-n_x);  // Down
+        connect_cells(i_cell, i_cell+1);    // Right
+        connect_cells(i_cell, i_cell-1);    // Left
 
     };
     auto wire_central_cells = [&]()
