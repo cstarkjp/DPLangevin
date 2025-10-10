@@ -28,10 +28,12 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
     const auto n_x = p.n_x;
     const auto n_y = p.n_y;
 
-    // Flattened grid vector each with a set of <=4 connection i_node elements.
-    // Each i_node element will link to 1 of <=4 possible neighbor locations.
-    // Along edges these sets will be reduced to 3 elements.
-    // At corners these sets will be reduced to 2 elements.
+    // Flattened grid vector each with a vector of connection elements.
+    // Each connection element will link to between 2 and 4 neighbor locations.
+    // At central grid cell, there will be 4 connections.
+    // Along periodic edges there will be 3 connection elements.
+    // Along bounded edges there will be 2 connection elements.
+    // At corners these sets will be reduced to 2-3 elements.
     neighbors = std::vector<int_vec_t>(n_x*n_y, int_vec_t(0));
 
     // Compute flattened grid vector index from coordinate

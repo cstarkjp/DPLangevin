@@ -53,7 +53,7 @@ At the lower level, the code is split into three groups, each denoted by one of 
        The `application_dplangevin_*` files define this `DPLangevin` integrator class. They inherit the general `BaseLangevin` integrator class and implement several methods left undefined by that parent; most important, they define methods implementing the particular functional form of the directed-percolation Langevin equation and its corresponding nonlinear, deterministic integration step in the split operator scheme.
 
 
-   2. The `langevin_*` source files provide the base `BaseLangevin` class that implements the operator-splitting integration method in a fairly general fashion. Grid geometry and topology, boundary conditions, initial conditions, the integration scheme, and a general form of the Langevin equation are all coded here. Some of these methods are heavily altered versions of the Villa-Martín and Buendían code; others remain very similar to their original implementations.
+   2. The `langevin_*` source files provide the base `BaseLangevin` class that implements the operator-splitting integration method in a fairly general fashion. Grid geometry and topology, boundary conditions, initial conditions, the integration scheme, and a general form of the Langevin equation are all coded here. Some of these methods are heavily altered versions of the Villa-Martín and Buendía code; others remain very similar to their original implementations.
 
    3. The `general_*` source files provide the basic stuff used throughout the code, notably the `typedefs`, `structs`, `enums`, and macros.
 
@@ -68,15 +68,24 @@ Then, use `pip` to install the `dplvn` package from `TestPyPI` into whatever Pyt
 
     pip install -i https://test.pypi.org/simple/ dplvn
 
-This only works if we have pre-built a binary wheel for your platform: we currently support macOS 14, macOS 15, and all(?) flavors of Linux. If your platform is not supported, the following will force a build from source:
+This only works if we have pre-built a binary wheel for your platform: we currently support macOS 14, macOS 15, and all(?) flavors of Linux.
 
-    pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/  -v  --no-binary :all: dplvn
 
-Be aware that this build takes a **long** time, because it recompiles pretty much everything needed.
-    
 Once project development has matured, the `dplvn` package will be made available on the full `PyPI` site with broader platform support.
 Its package dependencies will then be made automatic; apparently it's not currently possible to 
 set such dependencies with `TestPyPI` without incurring problems. Eventually, `dplvn` may also be made available via `conda`. 
+
+
+## Build from source
+
+If your platform is not explicitly supported with a pre-built binary, the following will force a build from source:
+
+    pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/  -v  --no-binary :all: dplvn
+
+Be aware that this takes a **long** time, because it recompiles pretty much everything needed.
+    
+The package can also be compiled "by hand."
+Build info is provided in [`src/`](https://github.com/cstarkjp/DPLangevin/tree/main/src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), using [pybind11](https://pybind11.readthedocs.io/en/stable/) as the C++ wrapper. 
 
 
 ## Usage
@@ -84,9 +93,6 @@ set such dependencies with `TestPyPI` without incurring problems. Eventually, `d
 Simple demos are provided in the [`test/`](https://github.com/cstarkjp/DPLangevin/tree/main/test/README.md) directory. The easiest route is to `git` clone the repo to get these files, or you can download one-by-one.
 
 
-## Building from source
-
-Build info is provided in [`src/`](https://github.com/cstarkjp/DPLangevin/tree/main/src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), using [pybind11](https://pybind11.readthedocs.io/en/stable/) as the C++ wrapper. 
 
 
 ## References
