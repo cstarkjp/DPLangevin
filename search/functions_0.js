@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['baselangevin_0',['BaseLangevin',['../classBaseLangevin.html#aac3ba1395e4671aa3da561b07245c41e',1,'BaseLangevin']]]
+  ['apply_5fboundary_5fconditions_0',['apply_boundary_conditions',['../classBaseLangevin.html#a829b9e5e2519d8d5052d5757136b3e18',1,'BaseLangevin']]]
 ];

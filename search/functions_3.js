@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['euler_5fand_5fstochastic_0',['euler_and_stochastic',['../classBaseLangevin.html#af9c67421866ccb50aa3aecfa78a48f05',1,'BaseLangevin']]]
+  ['dplangevin_0',['DPLangevin',['../classDPLangevin.html#ab247d7d45790cb3424be312401357140',1,'DPLangevin::DPLangevin()=default'],['../classDPLangevin.html#a7c96523be07813456dc2803557b00daf',1,'DPLangevin::DPLangevin(Parameters p)']]]
 ];

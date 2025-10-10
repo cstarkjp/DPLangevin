@@ -1,6 +1,8 @@
 var classBaseLangevin =
 [
     [ "BaseLangevin", "classBaseLangevin.html#aac3ba1395e4671aa3da561b07245c41e", null ],
+    [ "apply_boundary_conditions", "classBaseLangevin.html#a829b9e5e2519d8d5052d5757136b3e18", null ],
+    [ "check_boundary_conditions", "classBaseLangevin.html#a2595d62332a3f90dcc815773ab500261", null ],
     [ "construct_1D_grid", "classBaseLangevin.html#af23cd5ed5aaa9202f8b294793bb8ae3e", null ],
     [ "construct_2D_grid", "classBaseLangevin.html#a1c785de7a81b904d3e50719e2278b17e", null ],
     [ "euler_and_stochastic", "classBaseLangevin.html#af9c67421866ccb50aa3aecfa78a48f05", null ],

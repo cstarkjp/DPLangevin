@@ -15,5 +15,6 @@ var searchData=
   ['integrate_5frungekutta_12',['integrate_rungekutta',['../classBaseLangevin.html#a81fc0d0db8d82829483b1ae3bc4baf9f',1,'BaseLangevin']]],
   ['integrating_20langevin_20equations_20of_20directed_20percolation_20dp_20type_13',['Operator-splitting method for integrating Langevin equations of directed percolation (DP) type',['../md_README.html#autotoc_md1',1,'']]],
   ['integrationmethod_14',['IntegrationMethod',['../general__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef',1,'general_enums.hpp']]],
-  ['is_5finitialized_15',['is_initialized',['../classSimDP.html#a90ad057adf7ad95ba23d034ad9cd49c4',1,'SimDP']]]
+  ['integrator_15',['integrator',['../classSimDP.html#a92adfe3bb63d10c00500ebc0bf7e0778',1,'SimDP']]],
+  ['is_5finitialized_16',['is_initialized',['../classSimDP.html#a90ad057adf7ad95ba23d034ad9cd49c4',1,'SimDP']]]
 ];

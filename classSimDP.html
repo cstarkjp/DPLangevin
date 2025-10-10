@@ -99,8 +99,8 @@ $(function(){initNavTree('classSimDP.html','','classSimDP-members'); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad9f856096461c04e63eb6f823be8e3d1" id="r_ad9f856096461c04e63eb6f823be8e3d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9f856096461c04e63eb6f823be8e3d1">SimDP</a> (const double linear, const double quadratic, const double diffusion, const double noise, const double t_final, const double dx, const double dt, const int random_seed, const <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> aux_values, const <a class="el" href="general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a> grid_dimension, const <a class="el" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a> grid_size, const <a class="el" href="general__core_8hpp.html#a8e652b99fe1e99f2033cf406f9a9a1a5">gt_vec_t</a> grid_topologies, const <a class="el" href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a> boundary_condition, const <a class="el" href="general__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a> initial_condition, const <a class="el" href="general__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a> integration_method)</td></tr>
-<tr class="memdesc:ad9f856096461c04e63eb6f823be8e3d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="memitem:a6f567ecf5366b0325f9789afbf7b0712" id="r_a6f567ecf5366b0325f9789afbf7b0712"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f567ecf5366b0325f9789afbf7b0712">SimDP</a> (const double linear, const double quadratic, const double diffusion, const double noise, const double t_final, const double dx, const double dt, const int random_seed, const <a class="el" href="general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a> grid_dimension, const <a class="el" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a> grid_size, const <a class="el" href="general__core_8hpp.html#a8e652b99fe1e99f2033cf406f9a9a1a5">gt_vec_t</a> grid_topologies, const bc_vec_t boundary_conditions, const <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> bc_values, const <a class="el" href="general__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a> initial_condition, const <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a> ic_values, const <a class="el" href="general__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a> integration_method)</td></tr>
+<tr class="memdesc:a6f567ecf5366b0325f9789afbf7b0712"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
 <tr class="memitem:ab65df84b0d1a792f5b4d31376e34fca0" id="r_ab65df84b0d1a792f5b4d31376e34fca0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab65df84b0d1a792f5b4d31376e34fca0">initialize</a> ()</td></tr>
 <tr class="memdesc:ab65df84b0d1a792f5b4d31376e34fca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the model simulation.  <br /></td></tr>
 <tr class="memitem:a1373e7e03fbe12b058fa9011839ffc19" id="r_a1373e7e03fbe12b058fa9011839ffc19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1373e7e03fbe12b058fa9011839ffc19">run</a> (const int n_next_epochs)</td></tr>
@@ -132,6 +132,8 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:ae8d1f849b6a3dbf7a8f83048593a8d34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set initial condition of Langevin density field grid.  <br /></td></tr>
 <tr class="memitem:a587ef106d6540a3f23a24cd86f2861b7" id="r_a587ef106d6540a3f23a24cd86f2861b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a587ef106d6540a3f23a24cd86f2861b7">count_epochs</a> () const</td></tr>
 <tr class="memdesc:a587ef106d6540a3f23a24cd86f2861b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count upcoming number of epochs by running a dummy time-stepping loop.  <br /></td></tr>
+<tr class="memitem:a70af5f5c5f9f04cd2783f1e14cfba223" id="r_a70af5f5c5f9f04cd2783f1e14cfba223"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70af5f5c5f9f04cd2783f1e14cfba223">choose_integrator</a> ()</td></tr>
+<tr class="memdesc:a70af5f5c5f9f04cd2783f1e14cfba223"><td class="mdescLeft">&#160;</td><td class="mdescRight">Choose integrator function implementing RK or Euler.  <br /></td></tr>
 <tr class="memitem:aeb4ea3f905a18a1cefb79af59bb9194e" id="r_aeb4ea3f905a18a1cefb79af59bb9194e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb4ea3f905a18a1cefb79af59bb9194e">integrate</a> (const int n_next_epochs)</td></tr>
 <tr class="memdesc:aeb4ea3f905a18a1cefb79af59bb9194e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform Dornic-type integration of the DP Langevin equation for <span class="tt">n_next_epochs</span>  <br /></td></tr>
 <tr class="memitem:a891b5647ff5c81a798aa706b09855fe0" id="r_a891b5647ff5c81a798aa706b09855fe0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a891b5647ff5c81a798aa706b09855fe0">prep_t_epochs</a> ()</td></tr>
@@ -151,6 +153,8 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:ae45f23d880b71cf41ba5a6f1f489b236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random number generation function (Mersenne prime) (pointer to RNG)  <br /></td></tr>
 <tr class="memitem:acac8c8a804fd120accc46154c9812add" id="r_acac8c8a804fd120accc46154c9812add"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDPLangevin.html">DPLangevin</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acac8c8a804fd120accc46154c9812add">dpLangevin</a></td></tr>
 <tr class="memdesc:acac8c8a804fd120accc46154c9812add"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instance of DP Langevin integrator class (pointer to instance)  <br /></td></tr>
+<tr class="memitem:a92adfe3bb63d10c00500ebc0bf7e0778" id="r_a92adfe3bb63d10c00500ebc0bf7e0778"><td class="memItemLeft" align="right" valign="top">void(DPLangevin::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92adfe3bb63d10c00500ebc0bf7e0778">integrator</a> )(<a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;)</td></tr>
+<tr class="memdesc:a92adfe3bb63d10c00500ebc0bf7e0778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrator: either a Runge-Kutta or an Euler method.  <br /></td></tr>
 <tr class="memitem:aa0794cf12da5c60de961f66d882bd00f" id="r_aa0794cf12da5c60de961f66d882bd00f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0794cf12da5c60de961f66d882bd00f">n_epochs</a></td></tr>
 <tr class="memdesc:aa0794cf12da5c60de961f66d882bd00f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of simulation time steps aka "epochs".  <br /></td></tr>
 <tr class="memitem:a0f579637e5437deafa5a997995f67dce" id="r_a0f579637e5437deafa5a997995f67dce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f579637e5437deafa5a997995f67dce">i_current_epoch</a></td></tr>
@@ -182,8 +186,8 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00018">18</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad9f856096461c04e63eb6f823be8e3d1" name="ad9f856096461c04e63eb6f823be8e3d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9f856096461c04e63eb6f823be8e3d1">&#9670;&#160;</a></span>SimDP()</h2>
+<a id="a6f567ecf5366b0325f9789afbf7b0712" name="a6f567ecf5366b0325f9789afbf7b0712"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f567ecf5366b0325f9789afbf7b0712">&#9670;&#160;</a></span>SimDP()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,11 +235,6 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a></td>          <td class="paramname"><span class="paramname"><em>aux_values</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const <a class="el" href="general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a></td>          <td class="paramname"><span class="paramname"><em>grid_dimension</em></span>, </td>
         </tr>
         <tr>
@@ -251,12 +250,22 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a></td>          <td class="paramname"><span class="paramname"><em>boundary_condition</em></span>, </td>
+          <td class="paramtype">const bc_vec_t</td>          <td class="paramname"><span class="paramname"><em>boundary_conditions</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a></td>          <td class="paramname"><span class="paramname"><em>bc_values</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="general__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a></td>          <td class="paramname"><span class="paramname"><em>initial_condition</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a></td>          <td class="paramname"><span class="paramname"><em>ic_values</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -273,6 +282,35 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a70af5f5c5f9f04cd2783f1e14cfba223" name="a70af5f5c5f9f04cd2783f1e14cfba223"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70af5f5c5f9f04cd2783f1e14cfba223">&#9670;&#160;</a></span>choose_integrator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SimDP::choose_integrator </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Choose integrator function implementing RK or Euler. </p>
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim__private_8cpp_source.html#l00065">65</a> of file <a class="el" href="application__dpsim__private_8cpp_source.html">application_dpsim_private.cpp</a>.</p>
+
+</div>
+</div>
 <a id="adf9706187d694ad0ba16cb4e2c308cd1" name="adf9706187d694ad0ba16cb4e2c308cd1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf9706187d694ad0ba16cb4e2c308cd1">&#9670;&#160;</a></span>construct_grid()</h2>
 
@@ -348,7 +386,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch the current Langevin density field grid as a Python array. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00095">95</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00112">112</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
 
 </div>
 </div>
@@ -369,7 +407,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch the index of the current epoch of the simulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00089">89</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00106">106</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
 
 </div>
 </div>
@@ -390,7 +428,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch the index of the next epoch of the simulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00090">90</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00107">107</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
 
 </div>
 </div>
@@ -411,7 +449,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch a times-series vector of the grid-averaged density field over time as a Python array. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00094">94</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00111">111</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
 
 </div>
 </div>
@@ -432,7 +470,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch the total number of simulation epochs. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00088">88</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00105">105</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
 
 </div>
 </div>
@@ -453,7 +491,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch the current epoch (time) of the simulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00091">91</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00108">108</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
 
 </div>
 </div>
@@ -474,7 +512,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch a times-series vector of the simulation epochs as a Python array. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00093">93</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00110">110</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
 
 </div>
 </div>
@@ -495,7 +533,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch the next epoch (time) of the simulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00092">92</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00109">109</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
 
 </div>
 </div>
@@ -516,7 +554,7 @@ Private Attributes</h2></td></tr>
 
 <p>Initialize the model simulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00033">33</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00045">45</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
 
 </div>
 </div>
@@ -574,7 +612,7 @@ Private Attributes</h2></td></tr>
 
 <p>Perform Dornic-type integration of the DP Langevin equation for <span class="tt">n_next_epochs</span> </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__private_8cpp_source.html#l00065">65</a> of file <a class="el" href="application__dpsim__private_8cpp_source.html">application_dpsim_private.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__private_8cpp_source.html#l00080">80</a> of file <a class="el" href="application__dpsim__private_8cpp_source.html">application_dpsim_private.cpp</a>.</p>
 
 </div>
 </div>
@@ -595,7 +633,7 @@ Private Attributes</h2></td></tr>
 
 <p>Process the model results data if available. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00075">75</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00092">92</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
 
 </div>
 </div>
@@ -624,7 +662,7 @@ Private Attributes</h2></td></tr>
 
 <p>Generate a Python-compatible version of the current density grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__private_8cpp_source.html#l00132">132</a> of file <a class="el" href="application__dpsim__private_8cpp_source.html">application_dpsim_private.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__private_8cpp_source.html#l00149">149</a> of file <a class="el" href="application__dpsim__private_8cpp_source.html">application_dpsim_private.cpp</a>.</p>
 
 </div>
 </div>
@@ -653,7 +691,7 @@ Private Attributes</h2></td></tr>
 
 <p>Generate a Python-compatible version of the mean densities time-series vector. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__private_8cpp_source.html#l00120">120</a> of file <a class="el" href="application__dpsim__private_8cpp_source.html">application_dpsim_private.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__private_8cpp_source.html#l00137">137</a> of file <a class="el" href="application__dpsim__private_8cpp_source.html">application_dpsim_private.cpp</a>.</p>
 
 </div>
 </div>
@@ -682,7 +720,7 @@ Private Attributes</h2></td></tr>
 
 <p>Generate a Python-compatible version of the epochs time-series vector. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__private_8cpp_source.html#l00108">108</a> of file <a class="el" href="application__dpsim__private_8cpp_source.html">application_dpsim_private.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__private_8cpp_source.html#l00125">125</a> of file <a class="el" href="application__dpsim__private_8cpp_source.html">application_dpsim_private.cpp</a>.</p>
 
 </div>
 </div>
@@ -703,7 +741,7 @@ Private Attributes</h2></td></tr>
 
 <p>Execute the model simulation for <span class="tt">n_next_epochs</span> </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00059">59</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim__public_8cpp_source.html#l00081">81</a> of file <a class="el" href="application__dpsim__public_8cpp_source.html">application_dpsim_public.cpp</a>.</p>
 
 </div>
 </div>
@@ -756,7 +794,7 @@ Private Attributes</h2></td></tr>
 
 <p>Flag whether integration step was successful or not. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00050">50</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00052">52</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
 
 </div>
 </div>
@@ -808,7 +846,7 @@ Private Attributes</h2></td></tr>
 
 <p>Index of current epoch aka time step. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00032">32</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00034">34</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
 
 </div>
 </div>
@@ -834,7 +872,33 @@ Private Attributes</h2></td></tr>
 
 <p>Index of next epoch aka time step. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00034">34</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00036">36</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a92adfe3bb63d10c00500ebc0bf7e0778" name="a92adfe3bb63d10c00500ebc0bf7e0778"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92adfe3bb63d10c00500ebc0bf7e0778">&#9670;&#160;</a></span>integrator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(DPLangevin::* SimDP::integrator) (<a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Integrator: either a Runge-Kutta or an Euler method. </p>
+
+<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00030">30</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
 
 </div>
 </div>
@@ -860,7 +924,7 @@ Private Attributes</h2></td></tr>
 
 <p>Flag whether simulation has been initialized or not. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00052">52</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00054">54</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
 
 </div>
 </div>
@@ -886,7 +950,7 @@ Private Attributes</h2></td></tr>
 
 <p>Vector time-series of grid-averaged field density values. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00042">42</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00044">44</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
 
 </div>
 </div>
@@ -912,7 +976,7 @@ Private Attributes</h2></td></tr>
 
 <p>Total number of simulation time steps aka "epochs". </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00030">30</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00032">32</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
 
 </div>
 </div>
@@ -964,7 +1028,7 @@ Private Attributes</h2></td></tr>
 
 <p>Python-compatible array of current density grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00048">48</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00050">50</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
 
 </div>
 </div>
@@ -990,7 +1054,7 @@ Private Attributes</h2></td></tr>
 
 <p>Python-compatible array of mean density time-series. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00046">46</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00048">48</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
 
 </div>
 </div>
@@ -1016,7 +1080,7 @@ Private Attributes</h2></td></tr>
 
 <p>Python-compatible array of epochs time-series. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00044">44</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00046">46</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
 
 </div>
 </div>
@@ -1068,7 +1132,7 @@ Private Attributes</h2></td></tr>
 
 <p>Time of current epoch. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00036">36</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00038">38</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
 
 </div>
 </div>
@@ -1094,7 +1158,7 @@ Private Attributes</h2></td></tr>
 
 <p>Vector time-series of epochs. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00040">40</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00042">42</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
 
 </div>
 </div>
@@ -1120,7 +1184,7 @@ Private Attributes</h2></td></tr>
 
 <p>Time of next epoch. </p>
 
-<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00038">38</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="application__dpsim_8hpp_source.html#l00040">40</a> of file <a class="el" href="application__dpsim_8hpp_source.html">application_dpsim.hpp</a>.</p>
 
 </div>
 </div>

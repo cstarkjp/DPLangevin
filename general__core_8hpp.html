@@ -124,8 +124,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a43f927a93dcaa1b18ffaae9c50f6c717" id="r_a43f927a93dcaa1b18ffaae9c50f6c717"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a></td></tr>
 <tr class="memdesc:a43f927a93dcaa1b18ffaae9c50f6c717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for density grid.  <br /></td></tr>
 <tr class="memitem:a62fa2c6d66d1424f015cf138943986b0" id="r_a62fa2c6d66d1424f015cf138943986b0"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62fa2c6d66d1424f015cf138943986b0">neighborhood_t</a></td></tr>
-<tr class="memdesc:a62fa2c6d66d1424f015cf138943986b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Types for density grid neighborhoods (local connectivities)  <br /></td></tr>
+<tr class="memdesc:a62fa2c6d66d1424f015cf138943986b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for density grid wiring.  <br /></td></tr>
 <tr class="memitem:a91e50f8a8197c0ff83c0f5d2eb78e105" id="r_a91e50f8a8197c0ff83c0f5d2eb78e105"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="#a62fa2c6d66d1424f015cf138943986b0">neighborhood_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91e50f8a8197c0ff83c0f5d2eb78e105">grid_wiring_t</a></td></tr>
+<tr class="memdesc:a91e50f8a8197c0ff83c0f5d2eb78e105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for grid-cell neighborhood connections.  <br /></td></tr>
 <tr class="memitem:a601371a69dbc51f3fc6994eba56c47af" id="r_a601371a69dbc51f3fc6994eba56c47af"><td class="memItemLeft" align="right" valign="top">typedef std::poisson_distribution&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a601371a69dbc51f3fc6994eba56c47af">poisson_dist_t</a></td></tr>
 <tr class="memdesc:a601371a69dbc51f3fc6994eba56c47af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for function generating Poisson variates.  <br /></td></tr>
 <tr class="memitem:a01980fd92bc6cbecff409f2347b6943f" id="r_a01980fd92bc6cbecff409f2347b6943f"><td class="memItemLeft" align="right" valign="top">typedef std::gamma_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01980fd92bc6cbecff409f2347b6943f">gamma_dist_t</a></td></tr>
@@ -136,6 +137,7 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:aa3c6f76a012e2dc62c9a5d32cf43dfe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for function generating uniformly distributed variates.  <br /></td></tr>
 <tr class="memitem:a8e652b99fe1e99f2033cf406f9a9a1a5" id="r_a8e652b99fe1e99f2033cf406f9a9a1a5"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="general__enums_8hpp.html#a68f3239e8ec4a7e08e8f21fd2bb264fa">GridTopology</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e652b99fe1e99f2033cf406f9a9a1a5">gt_vec_t</a></td></tr>
 <tr class="memdesc:a8e652b99fe1e99f2033cf406f9a9a1a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for specifying grid topology in each direction x, y, z...  <br /></td></tr>
+<tr class="memitem:ab35cbc5ebec4626268b3374ae80a8e20" id="r_ab35cbc5ebec4626268b3374ae80a8e20"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab35cbc5ebec4626268b3374ae80a8e20">bc_vec_t</a></td></tr>
 <tr class="memitem:a6ca910c60cfadd300fe98a7367e87aa8" id="r_a6ca910c60cfadd300fe98a7367e87aa8"><td class="memItemLeft" align="right" valign="top">typedef py::array_t&lt; double, py::array::c_style &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ca910c60cfadd300fe98a7367e87aa8">py_array_t</a></td></tr>
 <tr class="memdesc:a6ca910c60cfadd300fe98a7367e87aa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for Python arrays of doubles.  <br /></td></tr>
 </table>
@@ -158,7 +160,7 @@ Typedefs</h2></td></tr>
 
 <p>Option to approximate Poisson distribution using Gaussian for large means. </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00055">55</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00057">57</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
@@ -176,11 +178,27 @@ Typedefs</h2></td></tr>
 
 <p>Threshold mean value above which Gaussian approximation should be used. </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00058">58</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00060">60</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
+<a id="ab35cbc5ebec4626268b3374ae80a8e20" name="ab35cbc5ebec4626268b3374ae80a8e20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab35cbc5ebec4626268b3374ae80a8e20">&#9670;&#160;</a></span>bc_vec_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a>&gt; bc_vec_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00046">46</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+
+</div>
+</div>
 <a id="af0ca13dbe7f906eae124571c96869aec" name="af0ca13dbe7f906eae124571c96869aec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af0ca13dbe7f906eae124571c96869aec">&#9670;&#160;</a></span>dbl_vec_t</h2>
 
@@ -213,7 +231,7 @@ Typedefs</h2></td></tr>
 
 <p>Type for function generating gamma variates. </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00036">36</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00037">37</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
@@ -242,12 +260,14 @@ Typedefs</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::vector&lt; <a class="el" href="#a62fa2c6d66d1424f015cf138943986b0">neighborhood_t</a> &gt; grid_wiring_t</td>
+          <td class="memname">typedef std::vector&lt; <a class="el" href="#a62fa2c6d66d1424f015cf138943986b0">neighborhood_t</a> &gt; <a class="el" href="#a91e50f8a8197c0ff83c0f5d2eb78e105">grid_wiring_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00029">29</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p>Type for grid-cell neighborhood connections. </p>
+
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00030">30</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
@@ -265,7 +285,7 @@ Typedefs</h2></td></tr>
 
 <p>Type for specifying grid topology in each direction x, y, z... </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00044">44</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00045">45</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
@@ -299,7 +319,7 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Types for density grid neighborhoods (local connectivities) </p>
+<p>Type for density grid wiring. </p>
 
 <p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00028">28</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
@@ -319,7 +339,7 @@ Typedefs</h2></td></tr>
 
 <p>Type for function generating Gaussian variates. </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00038">38</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00039">39</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
@@ -337,7 +357,7 @@ Typedefs</h2></td></tr>
 
 <p>Type for function generating Poisson variates. </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00034">34</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00035">35</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
@@ -355,7 +375,7 @@ Typedefs</h2></td></tr>
 
 <p>Type for Python arrays of doubles. </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00051">51</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00053">53</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
@@ -391,7 +411,7 @@ Typedefs</h2></td></tr>
 
 <p>Type for function generating uniformly distributed variates. </p>
 
-<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00040">40</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="general__core_8hpp_source.html#l00041">41</a> of file <a class="el" href="general__core_8hpp_source.html">general_core.hpp</a>.</p>
 
 </div>
 </div>
