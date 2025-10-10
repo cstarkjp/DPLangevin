@@ -54,6 +54,11 @@ bool SimDP::initialize()
     // So after initialization, we are nominally at epoch#1
     i_next_epoch = 1;
     t_next_epoch = p.dt;
+    if (not choose_integrator())
+    { 
+        std::cout << "Failure: unable to choose integrator" << std::endl;
+        return false; 
+    }
     is_initialized = true;
     return is_initialized;
 }
@@ -65,12 +70,7 @@ bool SimDP::run(const int n_next_epochs)
         std::cout << "Failure: must initialize first" << std::endl;
         return false; 
     }
-    // Need to figure out how to segment sim right here
-    // std::cout << "before i: " << i_next_epoch << std::endl;
-    // std::cout << "before t: " << t_next_epoch << std::endl;
     did_integrate = integrate(n_next_epochs);
-    // std::cout << "after  i: " << i_next_epoch << std::endl;
-    // std::cout << "after  t: " << t_next_epoch << std::endl;
     return did_integrate;
 }
 

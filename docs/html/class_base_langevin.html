@@ -264,7 +264,7 @@ Protected Attributes</h2></td></tr>
 <p>Explicit Euler + stochastic integration. </p>
 <p>Perform an explicit-Euler integration step then a stochastic integration step for all cells across the grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integration__euler_8cpp_source.html#l00018">18</a> of file <a class="el" href="langevin__integration__euler_8cpp_source.html">langevin_integration_euler.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__euler_8cpp_source.html#l00018">18</a> of file <a class="el" href="langevin__integrate__euler_8cpp_source.html">langevin_integrate_euler.cpp</a>.</p>
 
 </div>
 </div>
@@ -286,7 +286,7 @@ Protected Attributes</h2></td></tr>
 <p>Expose density grid at a given "index" (1d-flattened position of grid element) </p>
 <p>Return the Langevin density field grid value at a given "node". </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__utils_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__utils_8cpp_source.html">langevin_utils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__utilities_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__utilities_8cpp_source.html">langevin_utilities.cpp</a>.</p>
 
 </div>
 </div>
@@ -308,7 +308,7 @@ Protected Attributes</h2></td></tr>
 <p>Expose mean density. </p>
 <p>Return the grid-averaged Langevin field mean value. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__utils_8cpp_source.html#l00015">15</a> of file <a class="el" href="langevin__utils_8cpp_source.html">langevin_utils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__utilities_8cpp_source.html#l00015">15</a> of file <a class="el" href="langevin__utilities_8cpp_source.html">langevin_utilities.cpp</a>.</p>
 
 </div>
 </div>
@@ -330,7 +330,7 @@ Protected Attributes</h2></td></tr>
 <p>Compute Poisson RNG mean. </p>
 <p>Compute the mean field density times "lamba_product", which should be equal to the Poisson distribution mean </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__utils_8cpp_source.html#l00022">22</a> of file <a class="el" href="langevin__utils_8cpp_source.html">langevin_utils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__utilities_8cpp_source.html#l00022">22</a> of file <a class="el" href="langevin__utilities_8cpp_source.html">langevin_utilities.cpp</a>.</p>
 
 </div>
 </div>
@@ -352,7 +352,7 @@ Protected Attributes</h2></td></tr>
 <p>Initial condition for density field: uniformly constant. </p>
 <p>Set all the grid cells to have same value. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__initial__condition_8cpp_source.html#l00026">26</a> of file <a class="el" href="langevin__initial__condition_8cpp_source.html">langevin_initial_condition.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00026">26</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
 
 </div>
 </div>
@@ -383,7 +383,7 @@ Protected Attributes</h2></td></tr>
 <p>Initial condition for density field: uniformly random. </p>
 <p>Set grid cells to have uniformly random values between min_value and max_value. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__initial__condition_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__initial__condition_8cpp_source.html">langevin_initial_condition.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
 
 </div>
 </div>
@@ -409,7 +409,7 @@ Protected Attributes</h2></td></tr>
 <p>Initial condition for density field: single non-zero value. </p>
 <p>Set all the grid cells to zero except a single specified cell. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__initial__condition_8cpp_source.html#l00033">33</a> of file <a class="el" href="langevin__initial__condition_8cpp_source.html">langevin_initial_condition.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00033">33</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
 
 </div>
 </div>
@@ -431,7 +431,7 @@ Protected Attributes</h2></td></tr>
 <p>Explicit Euler + stochastic integration + grid update. </p>
 <p>Perform explicit-Euler then stochastic integration steps, and update grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integration__euler_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__integration__euler_8cpp_source.html">langevin_integration_euler.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__euler_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__integrate__euler_8cpp_source.html">langevin_integrate_euler.cpp</a>.</p>
 
 </div>
 </div>
@@ -453,7 +453,7 @@ Protected Attributes</h2></td></tr>
 <p>Runge-Kutta + stochastic integration + grid update. </p>
 <p>Runge-Kutta integration of the nonlinear and diffusion terms in the Langevin equation. Update of cells is done in the same loop as last Runge-Kutta step for efficiency. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integration__rungekutta_8cpp_source.html#l00012">12</a> of file <a class="el" href="langevin__integration__rungekutta_8cpp_source.html">langevin_integration_rungekutta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00012">12</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
 
 </div>
 </div>
@@ -514,7 +514,7 @@ Protected Attributes</h2></td></tr>
 <p>Part #1 of Runge-Kutta integration step. </p>
 <p>Runge-Kutta first function. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integration__rungekutta_8cpp_source.html#l00024">24</a> of file <a class="el" href="langevin__integration__rungekutta_8cpp_source.html">langevin_integration_rungekutta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00024">24</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
 
 </div>
 </div>
@@ -550,7 +550,7 @@ Protected Attributes</h2></td></tr>
 <p>Parts #2 and #3 of Runge-Kutta integration step. </p>
 <p>Runge-Kutta second and third functions. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integration__rungekutta_8cpp_source.html#l00034">34</a> of file <a class="el" href="langevin__integration__rungekutta_8cpp_source.html">langevin_integration_rungekutta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00034">34</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
 
 </div>
 </div>
@@ -591,7 +591,7 @@ Protected Attributes</h2></td></tr>
 <p>Part #4 of Runge-Kutta integration step + stochastic step. </p>
 <p>Runge-Kutta fourth function and stochastic step, all in the same loop. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integration__rungekutta_8cpp_source.html#l00049">49</a> of file <a class="el" href="langevin__integration__rungekutta_8cpp_source.html">langevin_integration_rungekutta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00049">49</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
 
 </div>
 </div>
@@ -1165,11 +1165,11 @@ Protected Attributes</h2></td></tr>
 <li>src/<a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a></li>
 <li>src/<a class="el" href="langevin__grid__1d_8cpp_source.html">langevin_grid_1d.cpp</a></li>
 <li>src/<a class="el" href="langevin__grid__2d_8cpp_source.html">langevin_grid_2d.cpp</a></li>
-<li>src/<a class="el" href="langevin__initial__condition_8cpp_source.html">langevin_initial_condition.cpp</a></li>
-<li>src/<a class="el" href="langevin__integration__euler_8cpp_source.html">langevin_integration_euler.cpp</a></li>
-<li>src/<a class="el" href="langevin__integration__rungekutta_8cpp_source.html">langevin_integration_rungekutta.cpp</a></li>
+<li>src/<a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a></li>
+<li>src/<a class="el" href="langevin__integrate__euler_8cpp_source.html">langevin_integrate_euler.cpp</a></li>
+<li>src/<a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a></li>
 <li>src/<a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a></li>
-<li>src/<a class="el" href="langevin__utils_8cpp_source.html">langevin_utils.cpp</a></li>
+<li>src/<a class="el" href="langevin__utilities_8cpp_source.html">langevin_utilities.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -26,6 +26,8 @@ private:
     rng_t *rng; 
     //! Instance of DP Langevin integrator class (pointer to instance)
     DPLangevin *dpLangevin;
+    //! Integrator: either a Runge-Kutta or an Euler method
+    void (DPLangevin::*integrator)(rng_t&);
     //! Total number of simulation time steps aka "epochs"
     int n_epochs;
     //! Index of current epoch aka time step
@@ -57,6 +59,8 @@ private:
     bool initialize_grid();
     //! Count upcoming number of epochs by running a dummy time-stepping loop
     int count_epochs() const;
+    //! Choose integrator function implementing RK or Euler
+    bool choose_integrator();
     //! Perform Dornic-type integration of the DP Langevin equation for `n_next_epochs`
     bool integrate(const int n_next_epochs);
     //! Generate a Python-compatible version of the epochs time-series vector

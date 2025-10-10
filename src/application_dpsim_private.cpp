@@ -62,6 +62,20 @@ int SimDP::count_epochs() const
     return n_epochs;
 }
 
+bool SimDP::choose_integrator()
+{
+    switch (p.integration_method)
+    {
+        case (IntegrationMethod::RUNGE_KUTTA):
+            integrator = &DPLangevin::integrate_rungekutta;
+            return true;
+        case (IntegrationMethod::EULER):
+            integrator = &DPLangevin::integrate_euler;
+            return true;
+        default:
+            return false;
+    }
+}
 bool SimDP::integrate(const int n_next_epochs)
 {
     if (t_epochs.size() < i_next_epoch+n_next_epochs)
@@ -69,18 +83,6 @@ bool SimDP::integrate(const int n_next_epochs)
         std::cout << "Too many epochs: " 
             << t_epochs.size() << " < " << i_next_epoch+n_next_epochs << std::endl;
         return false;
-    }
-    void (DPLangevin::*ptr_to_integrate_fn)(rng_t&);
-    switch (p.integration_method)
-    {
-        case (IntegrationMethod::RUNGE_KUTTA):
-            ptr_to_integrate_fn = &DPLangevin::integrate_rungekutta;
-            break;
-        case (IntegrationMethod::EULER):
-            ptr_to_integrate_fn = &DPLangevin::integrate_euler;
-            break;
-        default:
-            return false;
     }
     int i;
     double t; 
@@ -94,7 +96,9 @@ bool SimDP::integrate(const int n_next_epochs)
         i<i_next_epoch+n_next_epochs; 
         t+=p.dt, i++)
     {
-        (dpLangevin->*ptr_to_integrate_fn)(*rng);
+        // Perform a single integration over Δt
+        (dpLangevin->*integrator)(*rng);
+        // Record this epoch
         t_epochs[i] = t;
         mean_densities[i] = dpLangevin->get_mean_density();
         i_current_epoch = i;

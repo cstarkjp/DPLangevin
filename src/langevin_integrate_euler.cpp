@@ -1,5 +1,5 @@
 /**
- * @file langevin_integration_euler.cpp
+ * @file langevin_integrate_euler.cpp
  * @brief Methods to carry out integration by explicit-Euler time-stepping.
  */ 
 
