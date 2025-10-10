@@ -245,13 +245,14 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
     };
     
     // Whole grid
-    auto wire_grid = [&](bool is_periodic_x_edge, bool is_periodic_y_edge)
+    auto wire_grid = [&](gt_vec_t grid_topologies)
     {
+        auto is_periodic_x_edge = (grid_topologies[0]==GridTopology::PERIODIC);
+        auto is_periodic_y_edge = (grid_topologies[1]==GridTopology::PERIODIC);
         wire_x_edges(is_periodic_x_edge);
         wire_y_edges(is_periodic_y_edge);
         wire_corners(is_periodic_x_edge, is_periodic_y_edge);
     };
-
 
     /////////////////////////////////////////////
 
@@ -259,61 +260,7 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
     wire_central_cells();
 
     // Step 2: Wire grid edge cells according to topology specs.
-    auto grid_topologies = pack(p.grid_topologies);
-    switch (grid_topologies) 
-    {
-        case pack(GridTopology::PERIODIC, GridTopology::PERIODIC):
-        {
-            // Periodic grid topology in both x and y
-            std::cout 
-                << "construct_2D_grid: " 
-                << "x:periodic, y:periodic"
-                << std::endl;
-            wire_grid(true, true);
-            return true;
-        }
-        case pack(GridTopology::BOUNDED, GridTopology::BOUNDED):
-        {
-            // Bounded grid topology in both x and y
-            std::cout 
-                << "construct_2D_grid: " 
-                << "x:bounded, y:bounded"
-                << std::endl;
-            wire_grid(false, false);
-            return true;
-        }
-        case pack(GridTopology::BOUNDED, GridTopology::PERIODIC):
-        {
-            // Periodic in x direction
-            // Bounded along x edges
-            // Periodic along y edges
-            std::cout 
-                << "construct_2D_grid: " 
-                << "x:bounded, y:periodic"
-                << std::endl;
-            wire_grid(false, true);
-            return true;
-        }
-        case pack(GridTopology::PERIODIC, GridTopology::BOUNDED):
-        {
-            // Periodic in y direction
-            // Periodic along x edges
-            // Bounded along y edges
-            std::cout 
-                << "construct_2D_grid: " 
-                << "x:periodic, y:bounded"
-                << std::endl;
-            wire_grid(true, false);
-            return true;
-        }
-        default:
-        {
-            std::cout
-                << "construct_2D_grid: " 
-                << "FAILED "
-                << std::hex << grid_topologies
-                << std::endl;
-            return false;
-        }
-    }
+    wire_grid(p.grid_topologies);
+    
+    return true;
 }
