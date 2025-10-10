@@ -12,7 +12,7 @@
 #include "application_dpsim.hpp"
 
 /**
- * @brief Pybind11 wrapper between C++ and Python for SimDP application.
+ * @details Pybind11 wrapper between C++ and Python for SimDP application.
  * 
  * Binder exposing the `dplvn` module to Python, enabling instantiation of 
  * the SimDP class, and exchange of model parameters and simulation
@@ -21,18 +21,21 @@
  * 
  * This macro expands the parameter `"dplvn"` into `pybind11_exec_dplvn` 
  * and generates the function `pybind11_init_dplvn` among others.
+ * 
+ * @param dplvn  Name of to-be-created Python module.
+ * @param module  A pybind11::module_ object.
  */
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__version__") = "2025.10.09a1";
+    module.attr("__version__") = "2025.10.10a0";
     module.doc() = 
         "Operator-splitting method of integrating DP-type Langevin equations"; 
   
     py::enum_<GridDimension>(module, "GridDimension")
         .value("D1", GridDimension::D1)
         .value("D2", GridDimension::D2)
-        .value("D3", GridDimension::D3)
-        .value("D4", GridDimension::D4)
+        .value("D3", GridDimension::D3)    // might happen one day
+        // .value("D4", GridDimension::D4) // never gonna happen
         .export_values();
 
     py::enum_<GridTopology>(module, "GridTopology")
@@ -84,8 +87,8 @@ PYBIND11_MODULE(dplvn, module)
             py::arg("random_seed") = 1,
             py::arg("aux_values") = dbl_vec_t(3),
             py::arg("grid_dimension") = GridDimension::D2,
-            py::arg("grid_size") = int_vec_t(4),
-            py::arg("grid_topologies") = gt_vec_t(4),
+            py::arg("grid_size") = int_vec_t(2),
+            py::arg("grid_topologies") = gt_vec_t(2),
             py::arg("boundary_condition") = BoundaryCondition::FLOATING,
             py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
             py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA
@@ -101,5 +104,4 @@ PYBIND11_MODULE(dplvn, module)
         .def("get_t_epochs", &SimDP::get_t_epochs)
         .def("get_mean_densities", &SimDP::get_mean_densities)
         .def("get_density", &SimDP::get_density);
-
 }
