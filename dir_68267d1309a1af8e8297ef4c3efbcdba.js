@@ -11,7 +11,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "general_parameters.hpp", "general__parameters_8hpp.html", "general__parameters_8hpp" ],
     [ "langevin_base.hpp", "langevin__base_8hpp.html", "langevin__base_8hpp" ],
     [ "langevin_grid_1d.cpp", "langevin__grid__1d_8cpp.html", null ],
-    [ "langevin_grid_2d.cpp", "langevin__grid__2d_8cpp.html", "langevin__grid__2d_8cpp" ],
+    [ "langevin_grid_2d.cpp", "langevin__grid__2d_8cpp.html", null ],
     [ "langevin_initial_condition.cpp", "langevin__initial__condition_8cpp.html", null ],
     [ "langevin_integration_euler.cpp", "langevin__integration__euler_8cpp.html", null ],
     [ "langevin_integration_rungekutta.cpp", "langevin__integration__rungekutta_8cpp.html", null ],

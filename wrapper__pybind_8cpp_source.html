@@ -100,88 +100,87 @@ $(function(){initNavTree('wrapper__pybind_8cpp_source.html','',''); });
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="application__dplangevin_8hpp.html">application_dplangevin.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="application__dpsim_8hpp.html">application_dpsim.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
-<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="wrapper__pybind_8cpp.html#a260583c98d3e428eb1fc79bf477e2528">   25</a></span><a class="code hl_function" href="wrapper__pybind_8cpp.html#a260583c98d3e428eb1fc79bf477e2528">PYBIND11_MODULE</a>(dplvn, module)</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">module</span>.attr(&quot;__version__&quot;) = &quot;2025.10.09a1&quot;;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">module</span>.doc() = </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        &quot;Operator-splitting method of integrating DP-type Langevin equations&quot;; </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    py::enum_&lt;GridDimension&gt;(module, <span class="stringliteral">&quot;GridDimension&quot;</span>)</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        .value(<span class="stringliteral">&quot;D1&quot;</span>, GridDimension::D1)</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        .value(<span class="stringliteral">&quot;D2&quot;</span>, GridDimension::D2)</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        .value(<span class="stringliteral">&quot;D3&quot;</span>, GridDimension::D3)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        .value(<span class="stringliteral">&quot;D4&quot;</span>, GridDimension::D4)</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        .export_values();</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    py::enum_&lt;GridTopology&gt;(module, <span class="stringliteral">&quot;GridTopology&quot;</span>)</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        .value(<span class="stringliteral">&quot;BOUNDED&quot;</span>, GridTopology::BOUNDED)</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        .value(<span class="stringliteral">&quot;PERIODIC&quot;</span>, GridTopology::PERIODIC)</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        .export_values();</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    py::enum_&lt;BoundaryCondition&gt;(module, <span class="stringliteral">&quot;BoundaryCondition&quot;</span>)</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        .value(<span class="stringliteral">&quot;FLOATING&quot;</span>, BoundaryCondition::FLOATING)</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        .value(<span class="stringliteral">&quot;FIXED_VALUE&quot;</span>, BoundaryCondition::FIXED_VALUE)</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        .value(<span class="stringliteral">&quot;FIXED_FLUX&quot;</span>, BoundaryCondition::FIXED_FLUX)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        .export_values();</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    py::enum_&lt;InitialCondition&gt;(module, <span class="stringliteral">&quot;InitialCondition&quot;</span>)</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        .value(<span class="stringliteral">&quot;RANDOM_UNIFORM&quot;</span>, InitialCondition::RANDOM_UNIFORM)</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        .value(<span class="stringliteral">&quot;RANDOM_GAUSSIAN&quot;</span>, InitialCondition::RANDOM_GAUSSIAN)</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        .value(<span class="stringliteral">&quot;CONSTANT_VALUE&quot;</span>, InitialCondition::CONSTANT_VALUE)</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        .value(<span class="stringliteral">&quot;SINGLE_SEED&quot;</span>, InitialCondition::SINGLE_SEED)</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        .export_values();</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    py::enum_&lt;IntegrationMethod&gt;(module, <span class="stringliteral">&quot;IntegrationMethod&quot;</span>)</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        .value(<span class="stringliteral">&quot;EULER&quot;</span>, IntegrationMethod::EULER)</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        .value(<span class="stringliteral">&quot;RUNGE_KUTTA&quot;</span>, IntegrationMethod::RUNGE_KUTTA)</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        .export_values();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    py::class_&lt;SimDP&gt;(module, <span class="stringliteral">&quot;SimDP&quot;</span>)</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        .def(</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            py::init&lt;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                <span class="keywordtype">double</span>, <span class="keywordtype">double</span>, </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                <span class="keywordtype">double</span>, <span class="keywordtype">double</span>, </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                <span class="keywordtype">double</span>, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>,</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                <span class="keywordtype">int</span>, </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                <a class="code hl_typedef" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a>,</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                <a class="code hl_enumeration" href="general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a>,</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>,</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                <a class="code hl_typedef" href="general__core_8hpp.html#a8e652b99fe1e99f2033cf406f9a9a1a5">gt_vec_t</a>,</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                <a class="code hl_enumeration" href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a>,</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                <a class="code hl_enumeration" href="general__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a>,</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                <a class="code hl_enumeration" href="general__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            &gt;(),</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="stringliteral">&quot;Simulation of DP Langevin equation&quot;</span>,</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            py::arg(<span class="stringliteral">&quot;linear&quot;</span>) = 1.0, </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            py::arg(<span class="stringliteral">&quot;quadratic&quot;</span>) = 2.0, </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            py::arg(<span class="stringliteral">&quot;diffusion&quot;</span>) = 0.1,</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            py::arg(<span class="stringliteral">&quot;noise&quot;</span>) = 1.0,</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            py::arg(<span class="stringliteral">&quot;t_final&quot;</span>) = 100.0,</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            py::arg(<span class="stringliteral">&quot;dx&quot;</span>) = 0.5,</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            py::arg(<span class="stringliteral">&quot;dt&quot;</span>) = 0.01,</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            py::arg(<span class="stringliteral">&quot;random_seed&quot;</span>) = 1,</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            py::arg(<span class="stringliteral">&quot;aux_values&quot;</span>) = <a class="code hl_typedef" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a>(3),</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            py::arg(<span class="stringliteral">&quot;grid_dimension&quot;</span>) = GridDimension::D2,</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            py::arg(<span class="stringliteral">&quot;grid_size&quot;</span>) = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(4),</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            py::arg(<span class="stringliteral">&quot;grid_topologies&quot;</span>) = <a class="code hl_typedef" href="general__core_8hpp.html#a8e652b99fe1e99f2033cf406f9a9a1a5">gt_vec_t</a>(4),</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            py::arg(<span class="stringliteral">&quot;boundary_condition&quot;</span>) = BoundaryCondition::FLOATING,</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            py::arg(<span class="stringliteral">&quot;initial_condition&quot;</span>) = InitialCondition::RANDOM_UNIFORM,</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            py::arg(<span class="stringliteral">&quot;integration_method&quot;</span>) = IntegrationMethod::RUNGE_KUTTA</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        )</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        .def(<span class="stringliteral">&quot;initialize&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#ab65df84b0d1a792f5b4d31376e34fca0">SimDP::initialize</a>)</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        .def(<span class="stringliteral">&quot;run&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#a1373e7e03fbe12b058fa9011839ffc19">SimDP::run</a>)</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        .def(<span class="stringliteral">&quot;postprocess&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#a1564793a08950a3804440b2e89051634">SimDP::postprocess</a>)</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        .def(<span class="stringliteral">&quot;get_n_epochs&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#ad6f805bbe90241bcfb9b8234a9e7ae1e">SimDP::get_n_epochs</a>)</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        .def(<span class="stringliteral">&quot;get_i_next_epoch&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#adb5f16cc75ca46f6591243b8b33b6f2e">SimDP::get_i_next_epoch</a>)</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        .def(<span class="stringliteral">&quot;get_i_current_epoch&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#a0b0f84a1423caae94ccfe6749e478034">SimDP::get_i_current_epoch</a>)</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        .def(<span class="stringliteral">&quot;get_t_next_epoch&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#a966900f7d2285150849cf9b00fbd587d">SimDP::get_t_next_epoch</a>)</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        .def(<span class="stringliteral">&quot;get_t_current_epoch&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#aca82f1cbea272e5f270f2c753cb7e804">SimDP::get_t_current_epoch</a>)</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        .def(<span class="stringliteral">&quot;get_t_epochs&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#a8cef17c1366d1c72f409c2bba68b990f">SimDP::get_t_epochs</a>)</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        .def(<span class="stringliteral">&quot;get_mean_densities&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#ad3f59c2ff9d7abbc4ee296e54f10ead4">SimDP::get_mean_densities</a>)</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        .def(<span class="stringliteral">&quot;get_density&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#a373628fc3abfe97695a822987305abd8">SimDP::get_density</a>);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="wrapper__pybind_8cpp.html#a260583c98d3e428eb1fc79bf477e2528">   28</a></span><a class="code hl_function" href="wrapper__pybind_8cpp.html#a260583c98d3e428eb1fc79bf477e2528">PYBIND11_MODULE</a>(dplvn, module)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">module</span>.attr(&quot;__version__&quot;) = &quot;2025.10.10a0&quot;;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">module</span>.doc() = </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        &quot;Operator-splitting method of integrating DP-type Langevin equations&quot;; </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    py::enum_&lt;GridDimension&gt;(module, <span class="stringliteral">&quot;GridDimension&quot;</span>)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        .value(<span class="stringliteral">&quot;D1&quot;</span>, GridDimension::D1)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        .value(<span class="stringliteral">&quot;D2&quot;</span>, GridDimension::D2)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        .value(<span class="stringliteral">&quot;D3&quot;</span>, GridDimension::D3)    <span class="comment">// might happen one day</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="comment">// .value(&quot;D4&quot;, GridDimension::D4) // never gonna happen</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        .export_values();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    py::enum_&lt;GridTopology&gt;(module, <span class="stringliteral">&quot;GridTopology&quot;</span>)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        .value(<span class="stringliteral">&quot;BOUNDED&quot;</span>, GridTopology::BOUNDED)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        .value(<span class="stringliteral">&quot;PERIODIC&quot;</span>, GridTopology::PERIODIC)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        .export_values();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    py::enum_&lt;BoundaryCondition&gt;(module, <span class="stringliteral">&quot;BoundaryCondition&quot;</span>)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        .value(<span class="stringliteral">&quot;FLOATING&quot;</span>, BoundaryCondition::FLOATING)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        .value(<span class="stringliteral">&quot;FIXED_VALUE&quot;</span>, BoundaryCondition::FIXED_VALUE)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        .value(<span class="stringliteral">&quot;FIXED_FLUX&quot;</span>, BoundaryCondition::FIXED_FLUX)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        .export_values();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    py::enum_&lt;InitialCondition&gt;(module, <span class="stringliteral">&quot;InitialCondition&quot;</span>)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        .value(<span class="stringliteral">&quot;RANDOM_UNIFORM&quot;</span>, InitialCondition::RANDOM_UNIFORM)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        .value(<span class="stringliteral">&quot;RANDOM_GAUSSIAN&quot;</span>, InitialCondition::RANDOM_GAUSSIAN)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        .value(<span class="stringliteral">&quot;CONSTANT_VALUE&quot;</span>, InitialCondition::CONSTANT_VALUE)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        .value(<span class="stringliteral">&quot;SINGLE_SEED&quot;</span>, InitialCondition::SINGLE_SEED)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        .export_values();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    py::enum_&lt;IntegrationMethod&gt;(module, <span class="stringliteral">&quot;IntegrationMethod&quot;</span>)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        .value(<span class="stringliteral">&quot;EULER&quot;</span>, IntegrationMethod::EULER)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        .value(<span class="stringliteral">&quot;RUNGE_KUTTA&quot;</span>, IntegrationMethod::RUNGE_KUTTA)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        .export_values();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    py::class_&lt;SimDP&gt;(module, <span class="stringliteral">&quot;SimDP&quot;</span>)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        .def(</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            py::init&lt;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                <span class="keywordtype">double</span>, <span class="keywordtype">double</span>, </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                <span class="keywordtype">double</span>, <span class="keywordtype">double</span>, </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                <span class="keywordtype">double</span>, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                <span class="keywordtype">int</span>, </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                <a class="code hl_typedef" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a>,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                <a class="code hl_enumeration" href="general__enums_8hpp.html#a9712d9f1c8de72f9e8a1a8949908f1e7">GridDimension</a>,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                <a class="code hl_typedef" href="general__core_8hpp.html#a8e652b99fe1e99f2033cf406f9a9a1a5">gt_vec_t</a>,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                <a class="code hl_enumeration" href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a>,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                <a class="code hl_enumeration" href="general__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a>,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                <a class="code hl_enumeration" href="general__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            &gt;(),</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="stringliteral">&quot;Simulation of DP Langevin equation&quot;</span>,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            py::arg(<span class="stringliteral">&quot;linear&quot;</span>) = 1.0, </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            py::arg(<span class="stringliteral">&quot;quadratic&quot;</span>) = 2.0, </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            py::arg(<span class="stringliteral">&quot;diffusion&quot;</span>) = 0.1,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            py::arg(<span class="stringliteral">&quot;noise&quot;</span>) = 1.0,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            py::arg(<span class="stringliteral">&quot;t_final&quot;</span>) = 100.0,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            py::arg(<span class="stringliteral">&quot;dx&quot;</span>) = 0.5,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            py::arg(<span class="stringliteral">&quot;dt&quot;</span>) = 0.01,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            py::arg(<span class="stringliteral">&quot;random_seed&quot;</span>) = 1,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            py::arg(<span class="stringliteral">&quot;aux_values&quot;</span>) = <a class="code hl_typedef" href="general__core_8hpp.html#af0ca13dbe7f906eae124571c96869aec">dbl_vec_t</a>(3),</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            py::arg(<span class="stringliteral">&quot;grid_dimension&quot;</span>) = GridDimension::D2,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            py::arg(<span class="stringliteral">&quot;grid_size&quot;</span>) = <a class="code hl_typedef" href="general__core_8hpp.html#abbfd825d9228dfbd560eada2571e757f">int_vec_t</a>(2),</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            py::arg(<span class="stringliteral">&quot;grid_topologies&quot;</span>) = <a class="code hl_typedef" href="general__core_8hpp.html#a8e652b99fe1e99f2033cf406f9a9a1a5">gt_vec_t</a>(2),</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            py::arg(<span class="stringliteral">&quot;boundary_condition&quot;</span>) = BoundaryCondition::FLOATING,</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            py::arg(<span class="stringliteral">&quot;initial_condition&quot;</span>) = InitialCondition::RANDOM_UNIFORM,</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            py::arg(<span class="stringliteral">&quot;integration_method&quot;</span>) = IntegrationMethod::RUNGE_KUTTA</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        )</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        .def(<span class="stringliteral">&quot;initialize&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#ab65df84b0d1a792f5b4d31376e34fca0">SimDP::initialize</a>)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        .def(<span class="stringliteral">&quot;run&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#a1373e7e03fbe12b058fa9011839ffc19">SimDP::run</a>)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        .def(<span class="stringliteral">&quot;postprocess&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#a1564793a08950a3804440b2e89051634">SimDP::postprocess</a>)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        .def(<span class="stringliteral">&quot;get_n_epochs&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#ad6f805bbe90241bcfb9b8234a9e7ae1e">SimDP::get_n_epochs</a>)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        .def(<span class="stringliteral">&quot;get_i_next_epoch&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#adb5f16cc75ca46f6591243b8b33b6f2e">SimDP::get_i_next_epoch</a>)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        .def(<span class="stringliteral">&quot;get_i_current_epoch&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#a0b0f84a1423caae94ccfe6749e478034">SimDP::get_i_current_epoch</a>)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        .def(<span class="stringliteral">&quot;get_t_next_epoch&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#a966900f7d2285150849cf9b00fbd587d">SimDP::get_t_next_epoch</a>)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        .def(<span class="stringliteral">&quot;get_t_current_epoch&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#aca82f1cbea272e5f270f2c753cb7e804">SimDP::get_t_current_epoch</a>)</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        .def(<span class="stringliteral">&quot;get_t_epochs&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#a8cef17c1366d1c72f409c2bba68b990f">SimDP::get_t_epochs</a>)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        .def(<span class="stringliteral">&quot;get_mean_densities&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#ad3f59c2ff9d7abbc4ee296e54f10ead4">SimDP::get_mean_densities</a>)</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        .def(<span class="stringliteral">&quot;get_density&quot;</span>, &amp;<a class="code hl_function" href="classSimDP.html#a373628fc3abfe97695a822987305abd8">SimDP::get_density</a>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
 </div>
 <div class="ttc" id="aapplication__dplangevin_8hpp_html"><div class="ttname"><a href="application__dplangevin_8hpp.html">application_dplangevin.hpp</a></div><div class="ttdoc">DPLangevin model application of BaseLangevin class integrator.</div></div>
 <div class="ttc" id="aapplication__dpsim_8hpp_html"><div class="ttname"><a href="application__dpsim_8hpp.html">application_dpsim.hpp</a></div><div class="ttdoc">Class to manage &amp; execute model simulation using the DPLangevin integrator.</div></div>
@@ -204,7 +203,7 @@ $(function(){initNavTree('wrapper__pybind_8cpp_source.html','',''); });
 <div class="ttc" id="ageneral__enums_8hpp_html_a9eca50997f7f604b063d2cb1874f5fef"><div class="ttname"><a href="general__enums_8hpp.html#a9eca50997f7f604b063d2cb1874f5fef">IntegrationMethod</a></div><div class="ttdeci">IntegrationMethod</div><div class="ttdoc">Deterministic integration method: default is 4th-order Runge-Kutta; can be explicit Euler.</div><div class="ttdef"><b>Definition</b> <a href="general__enums_8hpp_source.html#l00047">general_enums.hpp:48</a></div></div>
 <div class="ttc" id="ageneral__enums_8hpp_html_ae752395ed9ab021eab6a3f2ffacd763f"><div class="ttname"><a href="general__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f">InitialCondition</a></div><div class="ttdeci">InitialCondition</div><div class="ttdoc">Grid density field initial condition: random uniform or Gaussian variates; constant everywhere; or ce...</div><div class="ttdef"><b>Definition</b> <a href="general__enums_8hpp_source.html#l00038">general_enums.hpp:39</a></div></div>
 <div class="ttc" id="ageneral__enums_8hpp_html_af3393571fa8a8daa4ee5c06613b26555"><div class="ttname"><a href="general__enums_8hpp.html#af3393571fa8a8daa4ee5c06613b26555">BoundaryCondition</a></div><div class="ttdeci">BoundaryCondition</div><div class="ttdoc">Grid boundary condition: floating/fixed value/fixed flux; application equally to all edges only for n...</div><div class="ttdef"><b>Definition</b> <a href="general__enums_8hpp_source.html#l00030">general_enums.hpp:31</a></div></div>
-<div class="ttc" id="awrapper__pybind_8cpp_html_a260583c98d3e428eb1fc79bf477e2528"><div class="ttname"><a href="wrapper__pybind_8cpp.html#a260583c98d3e428eb1fc79bf477e2528">PYBIND11_MODULE</a></div><div class="ttdeci">PYBIND11_MODULE(dplvn, module)</div><div class="ttdoc">Pybind11 wrapper between C++ and Python for SimDP application.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">wrapper_pybind.cpp:25</a></div></div>
+<div class="ttc" id="awrapper__pybind_8cpp_html_a260583c98d3e428eb1fc79bf477e2528"><div class="ttname"><a href="wrapper__pybind_8cpp.html#a260583c98d3e428eb1fc79bf477e2528">PYBIND11_MODULE</a></div><div class="ttdeci">PYBIND11_MODULE(dplvn, module)</div><div class="ttdef"><b>Definition</b> <a href="#l00028">wrapper_pybind.cpp:28</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
