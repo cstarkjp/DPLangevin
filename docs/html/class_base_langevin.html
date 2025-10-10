@@ -124,6 +124,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af2ba5ff83a1d5221e4dd3f91782eb7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set Langevin equation coefficients.  <br /></td></tr>
 <tr class="memitem:a2df86bdadff3051b6e3d0b36a232cff6" id="r_a2df86bdadff3051b6e3d0b36a232cff6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2df86bdadff3051b6e3d0b36a232cff6">set_lambdas</a> ()</td></tr>
 <tr class="memdesc:a2df86bdadff3051b6e3d0b36a232cff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set "lambda" constants.  <br /></td></tr>
+<tr class="memitem:a2595d62332a3f90dcc815773ab500261" id="r_a2595d62332a3f90dcc815773ab500261"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2595d62332a3f90dcc815773ab500261">check_boundary_conditions</a> (const <a class="el" href="struct_parameters.html">Parameters</a> parameters)</td></tr>
+<tr class="memdesc:a2595d62332a3f90dcc815773ab500261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check we have 2N boundary conditions for an N-dimensional grid.  <br /></td></tr>
+<tr class="memitem:a829b9e5e2519d8d5052d5757136b3e18" id="r_a829b9e5e2519d8d5052d5757136b3e18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a829b9e5e2519d8d5052d5757136b3e18">apply_boundary_conditions</a> (const <a class="el" href="struct_parameters.html">Parameters</a> parameters)</td></tr>
+<tr class="memdesc:a829b9e5e2519d8d5052d5757136b3e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set density field values only the grid edges per bc specs.  <br /></td></tr>
 <tr class="memitem:a81fc0d0db8d82829483b1ae3bc4baf9f" id="r_a81fc0d0db8d82829483b1ae3bc4baf9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81fc0d0db8d82829483b1ae3bc4baf9f">integrate_rungekutta</a> (<a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
 <tr class="memdesc:a81fc0d0db8d82829483b1ae3bc4baf9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta + stochastic integration + grid update.  <br /></td></tr>
 <tr class="memitem:a8fef75bdcc3f916511d559b779e29a2b" id="r_a8fef75bdcc3f916511d559b779e29a2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fef75bdcc3f916511d559b779e29a2b">integrate_euler</a> (<a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
@@ -191,6 +195,50 @@ Protected Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00015">15</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a829b9e5e2519d8d5052d5757136b3e18" name="a829b9e5e2519d8d5052d5757136b3e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a829b9e5e2519d8d5052d5757136b3e18">&#9670;&#160;</a></span>apply_boundary_conditions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BaseLangevin::apply_boundary_conditions </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_parameters.html">Parameters</a></td>          <td class="paramname"><span class="paramname"><em>parameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set density field values only the grid edges per bc specs. </p>
+<p>Set grid cells to have uniformly random values between min_value and max_value. </p>
+
+<p class="definition">Definition at line <a class="el" href="langevin__bc_8cpp_source.html#l00025">25</a> of file <a class="el" href="langevin__bc_8cpp_source.html">langevin_bc.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2595d62332a3f90dcc815773ab500261" name="a2595d62332a3f90dcc815773ab500261"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2595d62332a3f90dcc815773ab500261">&#9670;&#160;</a></span>check_boundary_conditions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BaseLangevin::check_boundary_conditions </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_parameters.html">Parameters</a></td>          <td class="paramname"><span class="paramname"><em>parameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check we have 2N boundary conditions for an N-dimensional grid. </p>
+<p>Check that 2x bcs are specified for each grid dimension, one for each edge. </p>
+
+<p class="definition">Definition at line <a class="el" href="langevin__bc_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__bc_8cpp_source.html">langevin_bc.cpp</a>.</p>
+
+</div>
+</div>
 <a id="af23cd5ed5aaa9202f8b294793bb8ae3e" name="af23cd5ed5aaa9202f8b294793bb8ae3e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af23cd5ed5aaa9202f8b294793bb8ae3e">&#9670;&#160;</a></span>construct_1D_grid()</h2>
 
@@ -488,7 +536,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="class_d_p_langevin.html#a94f89b991ae3fc7601a775525d4ea646">DPLangevin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00115">115</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00119">119</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
 
 </div>
 </div>
@@ -688,7 +736,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="class_d_p_langevin.html#a0008b416d0460cdcb34646733dae8156">DPLangevin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00113">113</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00117">117</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
 
 </div>
 </div>
@@ -1163,6 +1211,7 @@ Protected Attributes</h2></td></tr>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a></li>
+<li>src/<a class="el" href="langevin__bc_8cpp_source.html">langevin_bc.cpp</a></li>
 <li>src/<a class="el" href="langevin__grid__1d_8cpp_source.html">langevin_grid_1d.cpp</a></li>
 <li>src/<a class="el" href="langevin__grid__2d_8cpp_source.html">langevin_grid_2d.cpp</a></li>
 <li>src/<a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a></li>

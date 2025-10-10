@@ -15,6 +15,7 @@ cpp_sources = files(
     'src/langevin_grid_2d.cpp', 
     'src/langevin_set_coefficients.cpp', 
     'src/langevin_ic.cpp', 
+    'src/langevin_bc.cpp', 
     'src/langevin_integrate_rungekutta.cpp', 
     'src/langevin_integrate_euler.cpp', 
     'src/langevin_utilities.cpp', 

@@ -64,11 +64,16 @@ bool SimDP::initialize()
     // So after initialization, we are nominally at epoch#1
     i_next_epoch = 1;
     t_next_epoch = p.dt;
+    if (not dpLangevin->check_boundary_conditions(p))
+    {
+        std::cout << "Failure: wrong number of boundary conditions" << std::endl;
+        return false;
+    }
     if (not choose_integrator())
     { 
         std::cout << "Failure: unable to choose integrator" << std::endl;
         return false; 
-    }
+    }        
     is_initialized = true;
     return is_initialized;
 }

@@ -77,10 +77,6 @@ bool SimDP::choose_integrator()
     }
 }
 
-void SimDP::apply_boundary_conditions()
-{
-}
-
 bool SimDP::integrate(const int n_next_epochs)
 {
     // Check a further n_next_epochs won't exceed total permitted steps
@@ -96,7 +92,7 @@ bool SimDP::integrate(const int n_next_epochs)
     double t; 
     // For the very first epoch, record mean density right now
     if (i_next_epoch==1) { 
-        apply_boundary_conditions();
+        // dpLangevin->apply_boundary_conditions();
         mean_densities[0] = dpLangevin->get_mean_density(); 
         i_current_epoch = 0;
         t_current_epoch = 0;
@@ -111,7 +107,7 @@ bool SimDP::integrate(const int n_next_epochs)
         t+=p.dt, i++)
     {
         // Reapply boundary conditions prior to integrating
-        apply_boundary_conditions();
+        dpLangevin->apply_boundary_conditions(p);
         // Perform a single integration over Δt
         (dpLangevin->*integrator)(*rng);
         // Record this epoch

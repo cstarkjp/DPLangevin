@@ -61,8 +61,6 @@ private:
     int count_epochs() const;
     //! Choose integrator function implementing RK or Euler
     bool choose_integrator();
-    //! Apply boundary conditions along edges
-    void apply_boundary_conditions();
     //! Perform Dornic-type integration of the DP Langevin equation for `n_next_epochs`
     bool integrate(const int n_next_epochs);
     //! Generate a Python-compatible version of the epochs time-series vector

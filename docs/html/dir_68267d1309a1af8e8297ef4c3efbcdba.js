@@ -10,6 +10,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "general_enums.hpp", "general__enums_8hpp.html", "general__enums_8hpp" ],
     [ "general_parameters.hpp", "general__parameters_8hpp.html", "general__parameters_8hpp" ],
     [ "langevin_base.hpp", "langevin__base_8hpp.html", "langevin__base_8hpp" ],
+    [ "langevin_bc.cpp", "langevin__bc_8cpp.html", null ],
     [ "langevin_grid_1d.cpp", "langevin__grid__1d_8cpp.html", null ],
     [ "langevin_grid_2d.cpp", "langevin__grid__2d_8cpp.html", null ],
     [ "langevin_ic.cpp", "langevin__ic_8cpp.html", null ],
