@@ -61,6 +61,8 @@ private:
     int count_epochs() const;
     //! Choose integrator function implementing RK or Euler
     bool choose_integrator();
+    //! Apply boundary conditions along edges
+    void apply_boundary_conditions();
     //! Perform Dornic-type integration of the DP Langevin equation for `n_next_epochs`
     bool integrate(const int n_next_epochs);
     //! Generate a Python-compatible version of the epochs time-series vector
@@ -78,15 +80,14 @@ public:
         const double t_final, 
         const double dx, const double dt, 
         const int random_seed,
-        // const dbl_vec_t aux_values,
         const GridDimension grid_dimension,
         const int_vec_t grid_size,
         const gt_vec_t grid_topologies,
-        const BoundaryCondition boundary_condition,
+        const bc_vec_t boundary_conditions,
+        const dbl_vec_t bc_values,
         const InitialCondition initial_condition,
-        const IntegrationMethod integration_method,
         const dbl_vec_t ic_values,
-        const dbl_vec_t bc_values
+        const IntegrationMethod integration_method
     );
     //! Initialize the model simulation
     bool initialize();

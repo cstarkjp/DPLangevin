@@ -43,6 +43,7 @@ typedef std::uniform_real_distribution<double> uniform_dist_t;
 #include "general_enums.hpp"
 //! Type for specifying grid topology in each direction x, y, z...
 typedef std::vector<GridTopology> gt_vec_t;
+typedef std::vector<BoundaryCondition> bc_vec_t;
 #include "general_coefficients.hpp"
 #include "general_parameters.hpp"
 #include "langevin_base.hpp"

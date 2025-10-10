@@ -1,6 +1,7 @@
 var class_sim_d_p =
 [
-    [ "SimDP", "class_sim_d_p.html#ad6ed97c537135ca2b0ad192e5ed2f2ef", null ],
+    [ "SimDP", "class_sim_d_p.html#a6f567ecf5366b0325f9789afbf7b0712", null ],
+    [ "apply_boundary_conditions", "class_sim_d_p.html#a0f9342664a591a4a5387519abf5e164d", null ],
     [ "choose_integrator", "class_sim_d_p.html#a70af5f5c5f9f04cd2783f1e14cfba223", null ],
     [ "construct_grid", "class_sim_d_p.html#adf9706187d694ad0ba16cb4e2c308cd1", null ],
     [ "count_epochs", "class_sim_d_p.html#a587ef106d6540a3f23a24cd86f2861b7", null ],

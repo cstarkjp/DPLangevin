@@ -76,26 +76,42 @@ bool SimDP::choose_integrator()
             return false;
     }
 }
+
+void SimDP::apply_boundary_conditions()
+{
+}
+
 bool SimDP::integrate(const int n_next_epochs)
 {
+    // Check a further n_next_epochs won't exceed total permitted steps
     if (t_epochs.size() < i_next_epoch+n_next_epochs)
     {
         std::cout << "Too many epochs: " 
             << t_epochs.size() << " < " << i_next_epoch+n_next_epochs << std::endl;
         return false;
     }
+    
+    // Perform (possibly another another) n_next_epochs integration steps
     int i;
     double t; 
+    // For the very first epoch, record mean density right now
     if (i_next_epoch==1) { 
+        apply_boundary_conditions();
         mean_densities[0] = dpLangevin->get_mean_density(); 
         i_current_epoch = 0;
         t_current_epoch = 0;
     }
+    // Loop over integration steps.
+    // Effectively increment epoch counter and add to Δt to time counter
+    // so that both point the state *after* each integration step is complete.
+    // In so doing, we will record t_epochs.size() + 1 total integration steps.
     for (
         i=i_next_epoch, t=t_next_epoch; 
         i<i_next_epoch+n_next_epochs; 
         t+=p.dt, i++)
     {
+        // Reapply boundary conditions prior to integrating
+        apply_boundary_conditions();
         // Perform a single integration over Δt
         (dpLangevin->*integrator)(*rng);
         // Record this epoch
@@ -104,6 +120,7 @@ bool SimDP::integrate(const int n_next_epochs)
         i_current_epoch = i;
         t_current_epoch = t;
     };
+    // Set epoch and time counters to point to *after* the last integration step
     i_next_epoch = i;
     t_next_epoch = t;
     return true;

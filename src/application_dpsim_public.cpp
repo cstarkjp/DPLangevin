@@ -15,16 +15,26 @@ SimDP::SimDP(
     const GridDimension grid_dimension,
     const int_vec_t grid_size,
     const gt_vec_t grid_topologies,
-    const BoundaryCondition boundary_condition,
+    const bc_vec_t boundary_conditions,
+    const dbl_vec_t bc_values,
     const InitialCondition initial_condition,
-    const IntegrationMethod integration_method,
     const dbl_vec_t ic_values,
-    const dbl_vec_t bc_values
+    const IntegrationMethod integration_method
 ) : coefficients(linear, quadratic, diffusion, noise),
-    p(t_final, dx, dt, random_seed,
-        grid_dimension, grid_size, grid_topologies,
-        boundary_condition, initial_condition, integration_method, 
-        ic_values, bc_values)
+    p(
+        t_final, 
+        dx, 
+        dt, 
+        random_seed,
+        grid_dimension, 
+        grid_size, 
+        grid_topologies,
+        boundary_conditions,
+        bc_values,
+        initial_condition, 
+        ic_values, 
+        integration_method
+    )
 {
     rng = new rng_t(p.random_seed); 
     dpLangevin = new DPLangevin(p);
