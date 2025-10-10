@@ -24,8 +24,9 @@ typedef std::vector<int> int_vec_t;
 typedef std::vector<double> grid_t;
 // typedef std::valarray<double> grid_t;  // doesn't work
 
-//! Types for density grid neighborhoods (local connectivities)
+//! Type for density grid wiring
 typedef std::vector<int> neighborhood_t;
+//! Type for grid-cell neighborhood connections
 typedef std::vector< neighborhood_t > grid_wiring_t;
 // typedef std::valarray<int> grid_connection_t;  // doesn't work
 // typedef std::valarray< grid_connection_t > grid_wiring_t;  // doesn't work
