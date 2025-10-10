@@ -29,8 +29,8 @@ var NAVTREE =
       [ "Operator-splitting method for integrating Langevin equations of directed percolation (DP) type", "md_README.html#autotoc_md1", null ],
       [ "Program design", "md_README.html#autotoc_md2", null ],
       [ "Installation", "md_README.html#autotoc_md3", null ],
-      [ "Usage", "md_README.html#autotoc_md4", null ],
-      [ "Building from source", "md_README.html#autotoc_md5", null ],
+      [ "Build from source", "md_README.html#autotoc_md4", null ],
+      [ "Usage", "md_README.html#autotoc_md5", null ],
       [ "References", "md_README.html#autotoc_md6", null ]
     ] ],
     [ "TODO", "md_TODO.html", null ],

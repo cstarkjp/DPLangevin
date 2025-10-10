@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['py_5farray_5ft_0',['py_array_t',['../general__core_8hpp.html#a6ca910c60cfadd300fe98a7367e87aa8',1,'general_core.hpp']]]
+  ['neighborhood_5ft_0',['neighborhood_t',['../general__core_8hpp.html#a62fa2c6d66d1424f015cf138943986b0',1,'general_core.hpp']]],
+  ['normal_5fdist_5ft_1',['normal_dist_t',['../general__core_8hpp.html#a45d7982ecc4c518b8588b3d85e17905f',1,'general_core.hpp']]]
 ];
