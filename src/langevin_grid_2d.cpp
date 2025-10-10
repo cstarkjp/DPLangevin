@@ -41,11 +41,11 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
     {
         // i_cell is the index of the flattened grid
         auto i_cell = i_from_xy(x, y);
-        // Each cell has 4 neighbors[i_cell] indexes
-        neighbors[i_cell].push_back(i_cell + n_x);  // Up:   i_cell + n_x // x + (y+1)*n_x;
-        neighbors[i_cell].push_back(i_cell - n_x);  // Down: i_cell - n_x // x + (y-1)*n_x;
-        neighbors[i_cell].push_back(i_cell + 1);    // Right: i_cell+1   (VMB: left)  // (x+1) + y*n_x;
-        neighbors[i_cell].push_back(i_cell - 1);    // Left:  i_cell-1   (VMB: right) // (x-1) + y*n_x;
+        // Each cell has 4 neighbors.at(i_cell) indexes
+        neighbors.at(i_cell).push_back(i_cell + n_x);  // Up:   i_cell + n_x // x + (y+1)*n_x;
+        neighbors.at(i_cell).push_back(i_cell - n_x);  // Down: i_cell - n_x // x + (y-1)*n_x;
+        neighbors.at(i_cell).push_back(i_cell + 1);    // Right: i_cell+1   (VMB: left)  // (x+1) + y*n_x;
+        neighbors.at(i_cell).push_back(i_cell - 1);    // Left:  i_cell-1   (VMB: right) // (x-1) + y*n_x;
 
     };
     auto wire_central_cells = [&]()
@@ -64,25 +64,25 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
     {
         auto i_cell = i_from_xy(x, y);
         auto i_yplus = (y < n_y-1) ? i_cell + n_x : x;
-        neighbors[i_cell].push_back(i_yplus);   // Up
+        neighbors.at(i_cell).push_back(i_yplus);   // Up
     };
     auto wire_periodic_edge_cell_yminus = [&](int x, int y) 
     {
         auto i_cell = i_from_xy(x, y);
         auto i_yminus = (y > 0) ? i_cell - n_x : x + (n_y-1)*n_x;
-        neighbors[i_cell].push_back(i_yminus);  // Down
+        neighbors.at(i_cell).push_back(i_yminus);  // Down
     };
     auto wire_periodic_edge_cell_xplus = [&](int x, int y) 
     {
         auto i_cell = i_from_xy(x, y);
         auto i_xplus = (x < n_x-1) ? i_cell + 1 : 0 + y*n_x;
-        neighbors[i_cell].push_back(i_xplus);  // Right   (VMB: left)
+        neighbors.at(i_cell).push_back(i_xplus);  // Right   (VMB: left)
     };
     auto wire_periodic_edge_cell_xminus = [&](int x, int y) 
     {
         auto i_cell = i_from_xy(x, y);
         auto i_xminus = (x > 0) ? i_cell - 1 : n_x-1 + y*n_x;
-        neighbors[i_cell].push_back(i_xminus); // Left    (VMB: right)
+        neighbors.at(i_cell).push_back(i_xminus); // Left    (VMB: right)
     };
     auto wire_periodic_edge_cell = [&](int x, int y) 
     {
@@ -116,9 +116,9 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
         for (auto y=1; y<n_y-1; y++)
         {
             auto i_cell = i_from_xy(x, y);
-            neighbors[i_cell].push_back(i_cell + n_x*plus_or_minus);
-            neighbors[i_cell].push_back(i_cell - n_x*plus_or_minus); 
-            neighbors[i_cell].push_back(i_cell + plus_or_minus);
+            neighbors.at(i_cell).push_back(i_cell + n_x*plus_or_minus);
+            neighbors.at(i_cell).push_back(i_cell - n_x*plus_or_minus); 
+            neighbors.at(i_cell).push_back(i_cell + plus_or_minus);
         }
     };
     auto wire_bounded_x_edges = [&](int y)
@@ -128,9 +128,9 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
         for (auto x=1; x<n_x-1; x++)
         {
             auto i_cell = i_from_xy(x, y);
-            neighbors[i_cell].push_back(i_cell + n_x*plus_or_minus);
-            neighbors[i_cell].push_back(i_cell - 1); 
-            neighbors[i_cell].push_back(i_cell + 1);
+            neighbors.at(i_cell).push_back(i_cell + n_x*plus_or_minus);
+            neighbors.at(i_cell).push_back(i_cell - 1); 
+            neighbors.at(i_cell).push_back(i_cell + 1);
         }
     };
     
@@ -175,10 +175,10 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
         i_xminus = n_x-1 + y*n_x;
         i_yplus = i_cell + n_x;
         i_yminus = x + (n_y-1)*n_x;
-        neighbors[i_cell].push_back(i_xplus);
-        neighbors[i_cell].push_back(i_yplus);
-        if (is_periodic_x_edge) { neighbors[i_cell].push_back(i_yminus); }
-        if (is_periodic_y_edge) { neighbors[i_cell].push_back(i_xminus); }
+        neighbors.at(i_cell).push_back(i_xplus);
+        neighbors.at(i_cell).push_back(i_yplus);
+        if (is_periodic_x_edge) { neighbors.at(i_cell).push_back(i_yminus); }
+        if (is_periodic_y_edge) { neighbors.at(i_cell).push_back(i_xminus); }
 
         // Top-left corner
         x = 0;
@@ -188,10 +188,10 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
         i_xminus = n_x-1 + y*n_x;
         i_yplus = x;
         i_yminus = i_cell - n_x;
-        neighbors[i_cell].push_back(i_xplus);
-        neighbors[i_cell].push_back(i_yminus);
-        if (is_periodic_x_edge) { neighbors[i_cell].push_back(i_yplus); }
-        if (is_periodic_y_edge) { neighbors[i_cell].push_back(i_xminus); }
+        neighbors.at(i_cell).push_back(i_xplus);
+        neighbors.at(i_cell).push_back(i_yminus);
+        if (is_periodic_x_edge) { neighbors.at(i_cell).push_back(i_yplus); }
+        if (is_periodic_y_edge) { neighbors.at(i_cell).push_back(i_xminus); }
 
         // Bottom-right corner
         x = n_x-1;
@@ -201,10 +201,10 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
         i_xminus = i_cell - 1;
         i_yplus = i_cell + n_x;
         i_yminus = x + (n_y-1)*n_x;
-        neighbors[i_cell].push_back(i_xminus);
-        neighbors[i_cell].push_back(i_yplus);
-        if (is_periodic_x_edge) { neighbors[i_cell].push_back(i_yminus); }
-        if (is_periodic_y_edge) { neighbors[i_cell].push_back(i_xplus); }
+        neighbors.at(i_cell).push_back(i_xminus);
+        neighbors.at(i_cell).push_back(i_yplus);
+        if (is_periodic_x_edge) { neighbors.at(i_cell).push_back(i_yminus); }
+        if (is_periodic_y_edge) { neighbors.at(i_cell).push_back(i_xplus); }
 
         // Top-right corner
         x = n_x-1;
@@ -214,10 +214,10 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
         i_xminus = i_cell - 1;
         i_yplus = x;
         i_yminus = i_cell - n_x;
-        neighbors[i_cell].push_back(i_xminus);
-        neighbors[i_cell].push_back(i_yminus);
-        if (is_periodic_x_edge) { neighbors[i_cell].push_back(i_yplus); }
-        if (is_periodic_y_edge) { neighbors[i_cell].push_back(i_xplus); }
+        neighbors.at(i_cell).push_back(i_xminus);
+        neighbors.at(i_cell).push_back(i_yminus);
+        if (is_periodic_x_edge) { neighbors.at(i_cell).push_back(i_yplus); }
+        if (is_periodic_y_edge) { neighbors.at(i_cell).push_back(i_xplus); }
     };
     
     // Whole grid
