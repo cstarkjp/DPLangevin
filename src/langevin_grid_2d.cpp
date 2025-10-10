@@ -37,7 +37,7 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
     neighbors = std::vector<int_vec_t>(n_x*n_y, int_vec_t(0));
 
     // Compute flattened grid vector index from coordinate
-    auto i_from_xy = [&](int x, int y) -> int { return  x + y*n_x; };
+    auto i_from_xy = [&](int x, int y) -> int { return x + y*n_x; };
     
     // Connect two neighbor cells
     auto connect_cells = [&](int i, int j){ neighbors.at(i).push_back(j); };
