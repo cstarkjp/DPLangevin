@@ -80,27 +80,27 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
     // Periodic
     auto wire_periodic_edge_cell_yplus = [&](int x, int y) 
     {
-        auto i_edge_cell = x + y*n_x;
-        auto i_yplus = (y < n_y-1) ? i_edge_cell + n_x : x;
-        neighbors[i_edge_cell][0] = i_yplus;   // Up
+        auto i_cell = x + y*n_x;
+        auto i_yplus = (y < n_y-1) ? i_cell + n_x : x;
+        neighbors[i_cell][0] = i_yplus;   // Up
     };
     auto wire_periodic_edge_cell_yminus = [&](int x, int y) 
     {
-        auto i_edge_cell = x + y*n_x;
-        auto i_yminus = (y > 0) ? i_edge_cell - n_x : x + (n_y-1)*n_x;
-        neighbors[i_edge_cell][1] = i_yminus;  // Down
+        auto i_cell = x + y*n_x;
+        auto i_yminus = (y > 0) ? i_cell - n_x : x + (n_y-1)*n_x;
+        neighbors[i_cell][1] = i_yminus;  // Down
     };
     auto wire_periodic_edge_cell_xplus = [&](int x, int y) 
     {
-        auto i_edge_cell = x + y*n_x;
-        auto i_xplus = (x < n_x-1) ? i_edge_cell + 1 : 0 + y*n_x;
-        neighbors[i_edge_cell][2] = i_xplus;  // Right   (VMB: left)
+        auto i_cell = x + y*n_x;
+        auto i_xplus = (x < n_x-1) ? i_cell + 1 : 0 + y*n_x;
+        neighbors[i_cell][2] = i_xplus;  // Right   (VMB: left)
     };
     auto wire_periodic_edge_cell_xminus = [&](int x, int y) 
     {
-        auto i_edge_cell = x + y*n_x;
-        auto i_xminus = (x > 0) ? i_edge_cell - 1 : n_x-1 + y*n_x;
-        neighbors[i_edge_cell][3] = i_xminus; // Left    (VMB: right)
+        auto i_cell = x + y*n_x;
+        auto i_xminus = (x > 0) ? i_cell - 1 : n_x-1 + y*n_x;
+        neighbors[i_cell][3] = i_xminus; // Left    (VMB: right)
     };
     auto wire_periodic_edge_cells = [&](int x, int y) 
     {
@@ -258,18 +258,56 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
             wire_periodic_x_edge_cells(n_y-1);   // Top row
             wire_bounded_y_edge_cells(0);        // Left column
             wire_bounded_y_edge_cells(n_x-1);    // Right column
-            // TBD: rewire for bounded directions
-            wire_periodic_corner(0, 0);          // Bottom-left corner
-            wire_periodic_corner(n_x-1, 0);      // Bottom-right corner
-            wire_periodic_corner(0, n_y-1);      // Top-left corner
-            wire_periodic_corner(n_x-1, n_y-1);  // Top-right corner
 
-            auto x_plus_or_minus = (x==0) ? +1 : -1;
-            auto y_plus_or_minus = (y==0) ? +1 : -1;
-            auto i_cell = x + y*n_x;
-            neighbors[i_cell] = int_vec_t(2);
-            neighbors[i_cell][0] = i_cell + 1*x_plus_or_minus; 
-            neighbors[i_cell][1] = i_cell + n_x*y_plus_or_minus;
+            int x, y, i_cell, i_yminus, i_xminus, i_yplus, i_xplus;
+
+            // Bottom-left corner
+            x = 0;
+            y = 0;
+            i_cell = x + y*n_x;
+            neighbors[i_cell] = int_vec_t(3);
+            i_xplus = i_cell + 1;
+            i_yplus = i_cell + n_x;
+            i_yminus = x + (n_y-1)*n_x;
+            neighbors[i_cell][0] = i_xplus;
+            neighbors[i_cell][1] = i_yplus;
+            neighbors[i_cell][2] = i_yminus;
+
+            // Top-left corner
+            x = 0;
+            y = n_y-1;
+            i_cell = x + y*n_x;
+            neighbors[i_cell] = int_vec_t(3);
+            i_xplus = i_cell + 1;
+            i_yplus = x;
+            i_yminus = i_cell - n_x;
+            neighbors[i_cell][0] = i_xplus;
+            neighbors[i_cell][1] = i_yplus;
+            neighbors[i_cell][2] = i_yminus;
+
+            // Bottom-right corner
+            x = n_x-1;
+            y = 0;
+            i_cell = x + y*n_x;
+            neighbors[i_cell] = int_vec_t(3);
+            i_xminus = i_cell - 1;
+            i_yplus = i_cell + n_x;
+            i_yminus = x + (n_y-1)*n_x;
+            neighbors[i_cell][0] = i_xminus;
+            neighbors[i_cell][1] = i_yplus;
+            neighbors[i_cell][2] = i_yminus;
+
+            // Top-right corner
+            x = n_x-1;
+            y = n_y-1;
+            i_cell = x + y*n_x;
+            neighbors[i_cell] = int_vec_t(3);
+            i_xminus = i_cell - 1;
+            i_yplus = x;
+            i_yminus = i_cell - n_x;
+            neighbors[i_cell][0] = i_xminus;
+            neighbors[i_cell][1] = i_yplus;
+            neighbors[i_cell][2] = i_yminus;
 
             return true;
         }
