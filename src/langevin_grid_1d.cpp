@@ -9,7 +9,7 @@
 bool BaseLangevin::construct_1D_grid(const Parameters parameters)
 {
     const auto n_x = parameters.n_x;
-    grid_wiring = std::vector<int_vec_t>(n_x, int_vec_t(2));
+    grid_wiring = grid_wiring_t(n_x, grid_connection_t(2));
 
     // Everywhere except the grid ends
     for (auto i=1; i<n_x-1; i++)
@@ -32,8 +32,8 @@ bool BaseLangevin::construct_1D_grid(const Parameters parameters)
             
         case GridTopology::BOUNDED:
             // Link each end cell to its adjacent cell only
-            grid_wiring[0] = int_vec_t(1, 1);
-            grid_wiring[n_x-1] = int_vec_t(1, n_x-2);
+            grid_wiring[0] = grid_connection_t(1, 1);
+            grid_wiring[n_x-1] = grid_connection_t(1, n_x-2);
             return true;
 
         default:

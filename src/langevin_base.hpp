@@ -70,7 +70,8 @@ public:
     bool construct_2D_grid(const Parameters parameters);
     //! Initial condition for density field: uniformly random
     void ic_random_uniform(
-        rng_t &rng, const double min_value = 0.0, const double max_value = 1.0
+        rng_t &rng, 
+        const double min_value = 0.0, const double max_value = 1.0
     );
     //! Initial condition for density field: uniformly constant
     void ic_constant_value(const double density_value=1.0);

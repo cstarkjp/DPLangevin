@@ -131,13 +131,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a81fc0d0db8d82829483b1ae3bc4baf9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta + stochastic integration + grid update.  <br /></td></tr>
 <tr class="memitem:a8fef75bdcc3f916511d559b779e29a2b" id="r_a8fef75bdcc3f916511d559b779e29a2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fef75bdcc3f916511d559b779e29a2b">integrate_euler</a> (<a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
 <tr class="memdesc:a8fef75bdcc3f916511d559b779e29a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit Euler + stochastic integration + grid update.  <br /></td></tr>
-<tr class="memitem:ae9f6544f12eccc37709b4259298c9792" id="r_ae9f6544f12eccc37709b4259298c9792"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9f6544f12eccc37709b4259298c9792">rk_f1</a> (<a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;density_grid_aux, <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;<a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a>)</td></tr>
+<tr class="memitem:ae9f6544f12eccc37709b4259298c9792" id="r_ae9f6544f12eccc37709b4259298c9792"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9f6544f12eccc37709b4259298c9792">rk_f1</a> (<a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux, <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a>)</td></tr>
 <tr class="memdesc:ae9f6544f12eccc37709b4259298c9792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Part #1 of Runge-Kutta integration step.  <br /></td></tr>
-<tr class="memitem:a57f360868119fc7c3ecaddc207523813" id="r_a57f360868119fc7c3ecaddc207523813"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57f360868119fc7c3ecaddc207523813">rk_f2f3</a> (const <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;<a class="el" href="#a6c3a45b81c5b51329c0a506f99cb0b88">density_grid_aux_old</a>, <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;<a class="el" href="#a051859f9192880c631ea8ddb6fdf51ef">density_grid_aux_new</a>, <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;k_out, const double dt_in)</td></tr>
+<tr class="memitem:a57f360868119fc7c3ecaddc207523813" id="r_a57f360868119fc7c3ecaddc207523813"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57f360868119fc7c3ecaddc207523813">rk_f2f3</a> (const <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#a6c3a45b81c5b51329c0a506f99cb0b88">density_grid_aux_old</a>, <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#a051859f9192880c631ea8ddb6fdf51ef">density_grid_aux_new</a>, <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;k_out, const double dt_in)</td></tr>
 <tr class="memdesc:a57f360868119fc7c3ecaddc207523813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parts #2 and #3 of Runge-Kutta integration step.  <br /></td></tr>
-<tr class="memitem:a7952510e08d126396232695407682c5b" id="r_a7952510e08d126396232695407682c5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7952510e08d126396232695407682c5b">rk_f4_and_stochastic</a> (const <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;<a class="el" href="#a6c3a45b81c5b51329c0a506f99cb0b88">density_grid_aux_old</a>, const <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;<a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a>, const <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;<a class="el" href="#ae90291c345f2e38d7cf9a2ade6ccd7cd">k2_grid</a>, const <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;<a class="el" href="#af1e69fe1571999dc28977505b86f3fce">k3_grid</a>, <a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
+<tr class="memitem:a7952510e08d126396232695407682c5b" id="r_a7952510e08d126396232695407682c5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7952510e08d126396232695407682c5b">rk_f4_and_stochastic</a> (const <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#a6c3a45b81c5b51329c0a506f99cb0b88">density_grid_aux_old</a>, const <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a>, const <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#ae90291c345f2e38d7cf9a2ade6ccd7cd">k2_grid</a>, const <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#af1e69fe1571999dc28977505b86f3fce">k3_grid</a>, <a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
 <tr class="memdesc:a7952510e08d126396232695407682c5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Part #4 of Runge-Kutta integration step + stochastic step.  <br /></td></tr>
-<tr class="memitem:af9c67421866ccb50aa3aecfa78a48f05" id="r_af9c67421866ccb50aa3aecfa78a48f05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9c67421866ccb50aa3aecfa78a48f05">euler_and_stochastic</a> (<a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;density_grid_aux, <a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
+<tr class="memitem:af9c67421866ccb50aa3aecfa78a48f05" id="r_af9c67421866ccb50aa3aecfa78a48f05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9c67421866ccb50aa3aecfa78a48f05">euler_and_stochastic</a> (<a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux, <a class="el" href="general__core_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
 <tr class="memdesc:af9c67421866ccb50aa3aecfa78a48f05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit Euler + stochastic integration.  <br /></td></tr>
 <tr class="memitem:a8e997a82e0660b7795005f4771350e17" id="r_a8e997a82e0660b7795005f4771350e17"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e997a82e0660b7795005f4771350e17">get_density_grid_value</a> (const int) const</td></tr>
 <tr class="memdesc:a8e997a82e0660b7795005f4771350e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expose density grid at a given "index" (1d-flattened position of grid element)  <br /></td></tr>
@@ -147,16 +147,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a40a0bfdb181d47b532fb03f545449e0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute Poisson RNG mean.  <br /></td></tr>
 <tr class="memitem:adfcbb53015503e909b0b2c2b5549ae5b" id="r_adfcbb53015503e909b0b2c2b5549ae5b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfcbb53015503e909b0b2c2b5549ae5b">set_nonlinear_coefficients</a> (const <a class="el" href="struct_coefficients.html">Coefficients</a> &amp;coefficients)</td></tr>
 <tr class="memdesc:adfcbb53015503e909b0b2c2b5549ae5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set nonlinear coefficients for deterministic integration step: to be defined by application.  <br /></td></tr>
-<tr class="memitem:a2de82e54eb1098353615261ff681d4e6" id="r_a2de82e54eb1098353615261ff681d4e6"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2de82e54eb1098353615261ff681d4e6">nonlinear_rhs</a> (const int i_cell, const <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;field) const</td></tr>
+<tr class="memitem:a2de82e54eb1098353615261ff681d4e6" id="r_a2de82e54eb1098353615261ff681d4e6"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2de82e54eb1098353615261ff681d4e6">nonlinear_rhs</a> (const int i_cell, const <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;field) const</td></tr>
 <tr class="memdesc:a2de82e54eb1098353615261ff681d4e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set nonlinear RHS of Langevin equation for deterministic integration step: to be defined by application.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a22830e75995d3d0bf5405dd18912fa46" id="r_a22830e75995d3d0bf5405dd18912fa46"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22830e75995d3d0bf5405dd18912fa46">n_cells</a></td></tr>
 <tr class="memdesc:a22830e75995d3d0bf5405dd18912fa46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of cells in n-D grid.  <br /></td></tr>
-<tr class="memitem:a0ffb08ee5362c7fdf5fc8efa3583382d" id="r_a0ffb08ee5362c7fdf5fc8efa3583382d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ffb08ee5362c7fdf5fc8efa3583382d">density_grid</a></td></tr>
+<tr class="memitem:a0ffb08ee5362c7fdf5fc8efa3583382d" id="r_a0ffb08ee5362c7fdf5fc8efa3583382d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ffb08ee5362c7fdf5fc8efa3583382d">density_grid</a></td></tr>
 <tr class="memdesc:a0ffb08ee5362c7fdf5fc8efa3583382d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Density field grid.  <br /></td></tr>
-<tr class="memitem:aa76f81c2fd8eb13da2f25c17cd6424f4" id="r_aa76f81c2fd8eb13da2f25c17cd6424f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a747e02ce3e6018d99246fb75ee02dccf">grid_wiring_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa76f81c2fd8eb13da2f25c17cd6424f4">grid_wiring</a></td></tr>
+<tr class="memitem:aa76f81c2fd8eb13da2f25c17cd6424f4" id="r_aa76f81c2fd8eb13da2f25c17cd6424f4"><td class="memItemLeft" align="right" valign="top">grid_wiring_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa76f81c2fd8eb13da2f25c17cd6424f4">grid_wiring</a></td></tr>
 <tr class="memdesc:aa76f81c2fd8eb13da2f25c17cd6424f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Neighorhood topology for all grid cells.  <br /></td></tr>
 <tr class="memitem:a7307bed54a012d55cf847fb89853b8db" id="r_a7307bed54a012d55cf847fb89853b8db"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7307bed54a012d55cf847fb89853b8db">mean_density</a></td></tr>
 <tr class="memdesc:a7307bed54a012d55cf847fb89853b8db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grid-average of density field.  <br /></td></tr>
@@ -178,15 +178,15 @@ Protected Attributes</h2></td></tr>
 <tr class="memdesc:ac3ac2219c2797170b4188ad98130643c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method coefficient.  <br /></td></tr>
 <tr class="memitem:a84ceb321941f0cff25c8629a62f762e2" id="r_a84ceb321941f0cff25c8629a62f762e2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84ceb321941f0cff25c8629a62f762e2">noise_coeff</a></td></tr>
 <tr class="memdesc:a84ceb321941f0cff25c8629a62f762e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method coefficient.  <br /></td></tr>
-<tr class="memitem:ac7e29d9da1474a95cc33b172711d8075" id="r_ac7e29d9da1474a95cc33b172711d8075"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a></td></tr>
+<tr class="memitem:ac7e29d9da1474a95cc33b172711d8075" id="r_ac7e29d9da1474a95cc33b172711d8075"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a></td></tr>
 <tr class="memdesc:ac7e29d9da1474a95cc33b172711d8075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta variable grid #1.  <br /></td></tr>
-<tr class="memitem:ae90291c345f2e38d7cf9a2ade6ccd7cd" id="r_ae90291c345f2e38d7cf9a2ade6ccd7cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae90291c345f2e38d7cf9a2ade6ccd7cd">k2_grid</a></td></tr>
+<tr class="memitem:ae90291c345f2e38d7cf9a2ade6ccd7cd" id="r_ae90291c345f2e38d7cf9a2ade6ccd7cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae90291c345f2e38d7cf9a2ade6ccd7cd">k2_grid</a></td></tr>
 <tr class="memdesc:ae90291c345f2e38d7cf9a2ade6ccd7cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta variable grid #2.  <br /></td></tr>
-<tr class="memitem:af1e69fe1571999dc28977505b86f3fce" id="r_af1e69fe1571999dc28977505b86f3fce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1e69fe1571999dc28977505b86f3fce">k3_grid</a></td></tr>
+<tr class="memitem:af1e69fe1571999dc28977505b86f3fce" id="r_af1e69fe1571999dc28977505b86f3fce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1e69fe1571999dc28977505b86f3fce">k3_grid</a></td></tr>
 <tr class="memdesc:af1e69fe1571999dc28977505b86f3fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta variable grid #3.  <br /></td></tr>
-<tr class="memitem:a6c3a45b81c5b51329c0a506f99cb0b88" id="r_a6c3a45b81c5b51329c0a506f99cb0b88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c3a45b81c5b51329c0a506f99cb0b88">density_grid_aux_old</a></td></tr>
+<tr class="memitem:a6c3a45b81c5b51329c0a506f99cb0b88" id="r_a6c3a45b81c5b51329c0a506f99cb0b88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c3a45b81c5b51329c0a506f99cb0b88">density_grid_aux_old</a></td></tr>
 <tr class="memdesc:a6c3a45b81c5b51329c0a506f99cb0b88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary density grid used to perform an integration step.  <br /></td></tr>
-<tr class="memitem:a051859f9192880c631ea8ddb6fdf51ef" id="r_a051859f9192880c631ea8ddb6fdf51ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a051859f9192880c631ea8ddb6fdf51ef">density_grid_aux_new</a></td></tr>
+<tr class="memitem:a051859f9192880c631ea8ddb6fdf51ef" id="r_a051859f9192880c631ea8ddb6fdf51ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a051859f9192880c631ea8ddb6fdf51ef">density_grid_aux_new</a></td></tr>
 <tr class="memdesc:a051859f9192880c631ea8ddb6fdf51ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary density grid used to perform an integration step.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
@@ -254,7 +254,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void BaseLangevin::euler_and_stochastic </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux</em></span>, </td>
+          <td class="paramtype"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -477,7 +477,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>field</em></span>&#160;) const</td>
+          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>field</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -491,7 +491,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="class_d_p_langevin.html#a94f89b991ae3fc7601a775525d4ea646">DPLangevin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00118">118</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00119">119</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
 
 </div>
 </div>
@@ -504,12 +504,12 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void BaseLangevin::rk_f1 </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux</em></span>, </td>
+          <td class="paramtype"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k1_grid</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k1_grid</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -530,17 +530,17 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void BaseLangevin::rk_f2f3 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux_old</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux_old</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux_new</em></span>, </td>
+          <td class="paramtype"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux_new</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k_out</em></span>, </td>
+          <td class="paramtype"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k_out</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -566,22 +566,22 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void BaseLangevin::rk_f4_and_stochastic </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux_old</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux_old</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k1_grid</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k1_grid</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k2_grid</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k2_grid</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k3_grid</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k3_grid</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -691,7 +691,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="class_d_p_langevin.html#a0008b416d0460cdcb34646733dae8156">DPLangevin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00116">116</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00117">117</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
 
 </div>
 </div>
@@ -706,7 +706,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> BaseLangevin::density_grid</td>
+          <td class="memname"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> BaseLangevin::density_grid</td>
         </tr>
       </table>
   </td>
@@ -732,7 +732,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> BaseLangevin::density_grid_aux_new</td>
+          <td class="memname"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> BaseLangevin::density_grid_aux_new</td>
         </tr>
       </table>
   </td>
@@ -758,7 +758,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> BaseLangevin::density_grid_aux_old</td>
+          <td class="memname"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> BaseLangevin::density_grid_aux_old</td>
         </tr>
       </table>
   </td>
@@ -862,7 +862,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="general__core_8hpp.html#a747e02ce3e6018d99246fb75ee02dccf">grid_wiring_t</a> BaseLangevin::grid_wiring</td>
+          <td class="memname">grid_wiring_t BaseLangevin::grid_wiring</td>
         </tr>
       </table>
   </td>
@@ -888,7 +888,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> BaseLangevin::k1_grid</td>
+          <td class="memname"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> BaseLangevin::k1_grid</td>
         </tr>
       </table>
   </td>
@@ -914,7 +914,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> BaseLangevin::k2_grid</td>
+          <td class="memname"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> BaseLangevin::k2_grid</td>
         </tr>
       </table>
   </td>
@@ -940,7 +940,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="general__core_8hpp.html#ac637b9c326a2ae586616cdf711381ef7">grid_t</a> BaseLangevin::k3_grid</td>
+          <td class="memname"><a class="el" href="general__core_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> BaseLangevin::k3_grid</td>
         </tr>
       </table>
   </td>

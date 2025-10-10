@@ -23,9 +23,14 @@ typedef std::valarray<double> dbl_valarray_t;
 typedef std::vector<int> int_vec_t;
 
 //! Type for density grid
-typedef dbl_vec_t grid_t;
-//! Type for density grid neighborhoods (local connectivities)
-typedef std::vector< int_vec_t > grid_wiring_t;
+typedef std::vector<double> grid_t;
+// typedef std::valarray<double> grid_t;  // doesn't work
+
+//! Types for density grid neighborhoods (local connectivities)
+typedef std::vector<int> grid_connection_t;
+typedef std::vector< grid_connection_t > grid_wiring_t;
+// typedef std::valarray<int> grid_connection_t;  // doesn't work
+// typedef std::valarray< grid_connection_t > grid_wiring_t;  // doesn't work
 
 //! Type for function generating Poisson variates
 typedef std::poisson_distribution<int> poisson_dist_t;
