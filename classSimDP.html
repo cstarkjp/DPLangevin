@@ -92,7 +92,7 @@ $(function(){initNavTree('classSimDP.html','','classSimDP-members'); });
 </div><!--header-->
 <div class="contents">
 
-<p>Class to manage &amp; execute model simulation using the <a class="el" href="classDPLangevin.html" title="DPLangevin model application of BaseLangevin class integrator.">DPLangevin</a> integrator.  
+<p>Class that manages simulation of <a class="el" href="classDPLangevin.html" title="DPLangevin model application of BaseLangevin class integrator.">DPLangevin</a> equation.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>&gt;</code></p>
@@ -129,7 +129,7 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a587ef106d6540a3f23a24cd86f2861b7" id="r_a587ef106d6540a3f23a24cd86f2861b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a587ef106d6540a3f23a24cd86f2861b7">count_epochs</a> () const</td></tr>
 <tr class="memdesc:a587ef106d6540a3f23a24cd86f2861b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count upcoming number of epochs by running a dummy time-stepping loop.  <br /></td></tr>
 <tr class="memitem:a70af5f5c5f9f04cd2783f1e14cfba223" id="r_a70af5f5c5f9f04cd2783f1e14cfba223"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70af5f5c5f9f04cd2783f1e14cfba223">choose_integrator</a> ()</td></tr>
-<tr class="memdesc:a70af5f5c5f9f04cd2783f1e14cfba223"><td class="mdescLeft">&#160;</td><td class="mdescRight">Choose integrator function implementing RK or Euler.  <br /></td></tr>
+<tr class="memdesc:a70af5f5c5f9f04cd2783f1e14cfba223"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chooses function implementing either Runge-Kutta or Euler integration methods.  <br /></td></tr>
 <tr class="memitem:aeb4ea3f905a18a1cefb79af59bb9194e" id="r_aeb4ea3f905a18a1cefb79af59bb9194e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb4ea3f905a18a1cefb79af59bb9194e">integrate</a> (const int n_next_epochs)</td></tr>
 <tr class="memdesc:aeb4ea3f905a18a1cefb79af59bb9194e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform Dornic-type integration of the DP Langevin equation for <span class="tt">n_next_epochs</span>  <br /></td></tr>
 <tr class="memitem:aaa03ecfa40b15f1b3ed6246b013d8d1e" id="r_aaa03ecfa40b15f1b3ed6246b013d8d1e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa03ecfa40b15f1b3ed6246b013d8d1e">pyprep_t_epochs</a> ()</td></tr>
@@ -177,10 +177,10 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a90ad057adf7ad95ba23d034ad9cd49c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag whether simulation has been initialized or not.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class to manage &amp; execute model simulation using the <a class="el" href="classDPLangevin.html" title="DPLangevin model application of BaseLangevin class integrator.">DPLangevin</a> integrator. </p>
+<div class="textblock"><p>Class that manages simulation of <a class="el" href="classDPLangevin.html" title="DPLangevin model application of BaseLangevin class integrator.">DPLangevin</a> equation. </p>
 <p>Class to manage &amp; execute model simulation using an instances of the <a class="el" href="classDPLangevin.html" title="DPLangevin model application of BaseLangevin class integrator.">DPLangevin</a> integrator class, the <a class="el" href="structCoefficients.html" title="Container for nonlinear Langevin equation coefficients.">Coefficients</a> struct, and the <a class="el" href="structParameters.html" title="Container for BaseLangevin integrator parameters.">Parameters</a> struct. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00018">18</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00017">17</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6f567ecf5366b0325f9789afbf7b0712" name="a6f567ecf5366b0325f9789afbf7b0712"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f567ecf5366b0325f9789afbf7b0712">&#9670;&#160;</a></span>SimDP()</h2>
@@ -272,8 +272,9 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructor. </p>
+<p>Constructor for class that manages simulation of DP Langevin equations. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00012">12</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00014">14</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
 
 </div>
 </div>
@@ -301,7 +302,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Choose integrator function implementing RK or Euler. </p>
+<p>Chooses function implementing either Runge-Kutta or Euler integration methods. </p>
 
 <p class="definition">Definition at line <a class="el" href="sim__dplangevin__private_8cpp_source.html#l00022">22</a> of file <a class="el" href="sim__dplangevin__private_8cpp_source.html">sim_dplangevin_private.cpp</a>.</p>
 
@@ -354,7 +355,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch the current Langevin density field grid as a Python array. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00115">115</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin__utilities_8cpp_source.html#l00019">19</a> of file <a class="el" href="sim__dplangevin__utilities_8cpp_source.html">sim_dplangevin_utilities.cpp</a>.</p>
 
 </div>
 </div>
@@ -375,7 +376,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch the index of the current epoch of the simulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00109">109</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin__utilities_8cpp_source.html#l00013">13</a> of file <a class="el" href="sim__dplangevin__utilities_8cpp_source.html">sim_dplangevin_utilities.cpp</a>.</p>
 
 </div>
 </div>
@@ -396,7 +397,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch the index of the next epoch of the simulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00110">110</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin__utilities_8cpp_source.html#l00014">14</a> of file <a class="el" href="sim__dplangevin__utilities_8cpp_source.html">sim_dplangevin_utilities.cpp</a>.</p>
 
 </div>
 </div>
@@ -417,7 +418,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch a times-series vector of the grid-averaged density field over time as a Python array. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00114">114</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin__utilities_8cpp_source.html#l00018">18</a> of file <a class="el" href="sim__dplangevin__utilities_8cpp_source.html">sim_dplangevin_utilities.cpp</a>.</p>
 
 </div>
 </div>
@@ -438,7 +439,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch the total number of simulation epochs. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00108">108</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin__utilities_8cpp_source.html#l00012">12</a> of file <a class="el" href="sim__dplangevin__utilities_8cpp_source.html">sim_dplangevin_utilities.cpp</a>.</p>
 
 </div>
 </div>
@@ -459,7 +460,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch the current epoch (time) of the simulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00111">111</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin__utilities_8cpp_source.html#l00015">15</a> of file <a class="el" href="sim__dplangevin__utilities_8cpp_source.html">sim_dplangevin_utilities.cpp</a>.</p>
 
 </div>
 </div>
@@ -480,7 +481,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch a times-series vector of the simulation epochs as a Python array. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00113">113</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin__utilities_8cpp_source.html#l00017">17</a> of file <a class="el" href="sim__dplangevin__utilities_8cpp_source.html">sim_dplangevin_utilities.cpp</a>.</p>
 
 </div>
 </div>
@@ -501,7 +502,7 @@ Private Attributes</h2></td></tr>
 
 <p>Fetch the next epoch (time) of the simulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00112">112</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin__utilities_8cpp_source.html#l00016">16</a> of file <a class="el" href="sim__dplangevin__utilities_8cpp_source.html">sim_dplangevin_utilities.cpp</a>.</p>
 
 </div>
 </div>
@@ -521,8 +522,9 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialize the model simulation. </p>
+<p>Method to be called first to set up simulation: a grid is constructed; initial conditions are applied; the Langevin equation is prepared; the zeroth-epoch solution state is recorded (after applying boundary conditions). </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00048">48</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00054">54</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
 
 </div>
 </div>
@@ -571,8 +573,9 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Process the model results data if available. </p>
+<p>Method to be called only once the simulation is complete: for a segmented simulation, this method should only be called after the final segment is run. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00095">95</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00108">108</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
 
 </div>
 </div>
@@ -679,8 +682,9 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Execute the model simulation for <span class="tt">n_next_epochs</span> </p>
+<p>Method to carry out a set of integration steps; can be rerun repeatedly to allow segmentation of the overall simulation and to allow return of the density grid state to Python as a series of time slices. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00084">84</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8cpp_source.html#l00094">94</a> of file <a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a>.</p>
 
 </div>
 </div>
@@ -707,7 +711,7 @@ Private Attributes</h2></td></tr>
 
 <p>Langevin equation coefficients. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00022">22</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00021">21</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -733,7 +737,7 @@ Private Attributes</h2></td></tr>
 
 <p>Flag whether integration step was successful or not. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00053">53</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00052">52</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -759,7 +763,7 @@ Private Attributes</h2></td></tr>
 
 <p>Instance of DP Langevin integrator class (pointer to instance) </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00028">28</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00027">27</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -785,7 +789,7 @@ Private Attributes</h2></td></tr>
 
 <p>Index of current epoch aka time step. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00035">35</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00034">34</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -811,7 +815,7 @@ Private Attributes</h2></td></tr>
 
 <p>Index of next epoch aka time step. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00037">37</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00036">36</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -837,7 +841,7 @@ Private Attributes</h2></td></tr>
 
 <p>Integrator: either a Runge-Kutta or an Euler method. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00030">30</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00029">29</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -863,7 +867,7 @@ Private Attributes</h2></td></tr>
 
 <p>Flag whether simulation has been initialized or not. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00055">55</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00054">54</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -889,7 +893,7 @@ Private Attributes</h2></td></tr>
 
 <p>Vector time-series of grid-averaged field density values. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00045">45</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00044">44</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -915,7 +919,7 @@ Private Attributes</h2></td></tr>
 
 <p>Total number of simulation time steps aka "epochs". </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00033">33</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00032">32</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -941,7 +945,7 @@ Private Attributes</h2></td></tr>
 
 <p>Model simulation parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00024">24</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00023">23</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -967,7 +971,7 @@ Private Attributes</h2></td></tr>
 
 <p>Python-compatible array of current density grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00051">51</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00050">50</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -993,7 +997,7 @@ Private Attributes</h2></td></tr>
 
 <p>Python-compatible array of mean density time-series. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00049">49</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00048">48</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -1019,7 +1023,7 @@ Private Attributes</h2></td></tr>
 
 <p>Python-compatible array of epochs time-series. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00047">47</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00046">46</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -1045,7 +1049,7 @@ Private Attributes</h2></td></tr>
 
 <p>Random number generation function (Mersenne prime) (pointer to RNG) </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00026">26</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00025">25</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -1071,7 +1075,7 @@ Private Attributes</h2></td></tr>
 
 <p>Time of current epoch. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00039">39</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00038">38</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -1097,7 +1101,7 @@ Private Attributes</h2></td></tr>
 
 <p>Vector time-series of epochs. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00043">43</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00042">42</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -1123,7 +1127,7 @@ Private Attributes</h2></td></tr>
 
 <p>Time of next epoch. </p>
 
-<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00041">41</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sim__dplangevin_8hpp_source.html#l00040">40</a> of file <a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -1131,6 +1135,7 @@ Private Attributes</h2></td></tr>
 <li>src/<a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a></li>
 <li>src/<a class="el" href="sim__dplangevin_8cpp_source.html">sim_dplangevin.cpp</a></li>
 <li>src/<a class="el" href="sim__dplangevin__private_8cpp_source.html">sim_dplangevin_private.cpp</a></li>
+<li>src/<a class="el" href="sim__dplangevin__utilities_8cpp_source.html">sim_dplangevin_utilities.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

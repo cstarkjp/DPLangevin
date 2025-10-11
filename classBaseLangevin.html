@@ -125,8 +125,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a34c7b9e9916ed4e68ea4f0b6cbfa5988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial condition for density field: uniformly constant.  <br /></td></tr>
 <tr class="memitem:ae0ed05d4489ac382def4bea3589e3405" id="r_ae0ed05d4489ac382def4bea3589e3405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0ed05d4489ac382def4bea3589e3405">ic_single_seed</a> (const int i, const double value=1.0)</td></tr>
 <tr class="memdesc:ae0ed05d4489ac382def4bea3589e3405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial condition for density field: single non-zero value.  <br /></td></tr>
-<tr class="memitem:a7404d2313ab0a225c89bd64833a278ea" id="r_a7404d2313ab0a225c89bd64833a278ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7404d2313ab0a225c89bd64833a278ea">set_coefficients</a> (const <a class="el" href="structCoefficients.html">Coefficients</a> &amp;coefficients)</td></tr>
-<tr class="memdesc:a7404d2313ab0a225c89bd64833a278ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set Langevin equation coefficients and "lambda" constants.  <br /></td></tr>
+<tr class="memitem:ae3dd30948355470e39e71f077f5acb36" id="r_ae3dd30948355470e39e71f077f5acb36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3dd30948355470e39e71f077f5acb36">prepare</a> (const <a class="el" href="structCoefficients.html">Coefficients</a> &amp;coefficients)</td></tr>
+<tr class="memdesc:ae3dd30948355470e39e71f077f5acb36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set Langevin equation coefficients and "lambda" constants.  <br /></td></tr>
 <tr class="memitem:af2ba5ff83a1d5221e4dd3f91782eb7ac" id="r_af2ba5ff83a1d5221e4dd3f91782eb7ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2ba5ff83a1d5221e4dd3f91782eb7ac">set_essential_coefficients</a> (const <a class="el" href="structCoefficients.html">Coefficients</a> &amp;coefficients)</td></tr>
 <tr class="memdesc:af2ba5ff83a1d5221e4dd3f91782eb7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set Langevin equation coefficients.  <br /></td></tr>
 <tr class="memitem:a2df86bdadff3051b6e3d0b36a232cff6" id="r_a2df86bdadff3051b6e3d0b36a232cff6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2df86bdadff3051b6e3d0b36a232cff6">set_lambdas</a> ()</td></tr>
@@ -593,6 +593,28 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ae3dd30948355470e39e71f077f5acb36" name="ae3dd30948355470e39e71f077f5acb36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3dd30948355470e39e71f077f5acb36">&#9670;&#160;</a></span>prepare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BaseLangevin::prepare </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structCoefficients.html">Coefficients</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>coefficients</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Method to set Langevin equation coefficients and "lambda" constants. </p>
+<p>Set the Langevin equation coefficients and "lambda" coefficients. </p>
+
+<p class="definition">Definition at line <a class="el" href="langevin__prepare_8cpp_source.html#l00012">12</a> of file <a class="el" href="langevin__prepare_8cpp_source.html">langevin_prepare.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a62818fe4718c652811079b9d662786aa" name="a62818fe4718c652811079b9d662786aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a62818fe4718c652811079b9d662786aa">&#9670;&#160;</a></span>rk_f1()</h2>
 
@@ -706,28 +728,6 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a7404d2313ab0a225c89bd64833a278ea" name="a7404d2313ab0a225c89bd64833a278ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7404d2313ab0a225c89bd64833a278ea">&#9670;&#160;</a></span>set_coefficients()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BaseLangevin::set_coefficients </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structCoefficients.html">Coefficients</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>coefficients</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Method to set Langevin equation coefficients and "lambda" constants. </p>
-<p>Set the Langevin equation coefficients and "lambda" coefficients. </p>
-
-<p class="definition">Definition at line <a class="el" href="langevin__set__coefficients_8cpp_source.html#l00012">12</a> of file <a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a>.</p>
-
-</div>
-</div>
 <a id="af2ba5ff83a1d5221e4dd3f91782eb7ac" name="af2ba5ff83a1d5221e4dd3f91782eb7ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af2ba5ff83a1d5221e4dd3f91782eb7ac">&#9670;&#160;</a></span>set_essential_coefficients()</h2>
 
@@ -746,7 +746,7 @@ Protected Attributes</h2></td></tr>
 <p>Method to set Langevin equation coefficients. </p>
 <p>Set the Langevin equation coefficients. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__set__coefficients_8cpp_source.html#l00020">20</a> of file <a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__prepare_8cpp_source.html#l00020">20</a> of file <a class="el" href="langevin__prepare_8cpp_source.html">langevin_prepare.cpp</a>.</p>
 
 </div>
 </div>
@@ -768,7 +768,7 @@ Protected Attributes</h2></td></tr>
 <p>Method to set "lambda" constants. </p>
 <p>Set "lambda" coefficients used in Poisson and gamma sampling. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__set__coefficients_8cpp_source.html#l00027">27</a> of file <a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__prepare_8cpp_source.html#l00027">27</a> of file <a class="el" href="langevin__prepare_8cpp_source.html">langevin_prepare.cpp</a>.</p>
 
 </div>
 </div>
@@ -1281,7 +1281,7 @@ Protected Attributes</h2></td></tr>
 <li>src/<a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a></li>
 <li>src/<a class="el" href="langevin__integrate__euler_8cpp_source.html">langevin_integrate_euler.cpp</a></li>
 <li>src/<a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a></li>
-<li>src/<a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a></li>
+<li>src/<a class="el" href="langevin__prepare_8cpp_source.html">langevin_prepare.cpp</a></li>
 <li>src/<a class="el" href="langevin__utilities_8cpp_source.html">langevin_utilities.cpp</a></li>
 </ul>
 </div><!-- contents -->

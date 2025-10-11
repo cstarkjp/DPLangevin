@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DP Langevin: src/wrapper_pybind.cpp File Reference</title>
+<title>DP Langevin: src/sim_dplangevin_utilities.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,7 +62,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('wrapper__pybind_8cpp.html','',''); });
+$(function(){initNavTree('sim__dplangevin__utilities_8cpp.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -88,66 +88,24 @@ $(function(){initNavTree('wrapper__pybind_8cpp.html','',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">wrapper_pybind.cpp File Reference</div></div>
+  <div class="headertitle"><div class="title">sim_dplangevin_utilities.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Pybind11 wrapper between C++ and Python for <a class="el" href="classSimDP.html" title="Class that manages simulation of DPLangevin equation.">SimDP</a> application class.  
+<p>Utility interface functions provided to the Python module.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;pybind11/numpy.h&gt;</code><br />
-<code>#include &lt;pybind11/stl.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="langevin__types_8hpp_source.html">langevin_types.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="langevin__types_8hpp_source.html">langevin_types.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="langevin__coefficients_8hpp_source.html">langevin_coefficients.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="langevin__parameters_8hpp_source.html">langevin_parameters.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>&quot;</code><br />
-<code>#include &quot;dplangevin.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>&quot;</code><br />
 </div>
-<p><a href="wrapper__pybind_8cpp_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a260583c98d3e428eb1fc79bf477e2528" id="r_a260583c98d3e428eb1fc79bf477e2528"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a260583c98d3e428eb1fc79bf477e2528">PYBIND11_MODULE</a> (dplvn, module)</td></tr>
-</table>
+<p><a href="sim__dplangevin__utilities_8cpp_source.html">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Pybind11 wrapper between C++ and Python for <a class="el" href="classSimDP.html" title="Class that manages simulation of DPLangevin equation.">SimDP</a> application class. </p>
+<div class="textblock"><p>Utility interface functions provided to the Python module. </p>
 
-<p class="definition">Definition in file <a class="el" href="wrapper__pybind_8cpp_source.html">wrapper_pybind.cpp</a>.</p>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a260583c98d3e428eb1fc79bf477e2528" name="a260583c98d3e428eb1fc79bf477e2528"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a260583c98d3e428eb1fc79bf477e2528">&#9670;&#160;</a></span>PYBIND11_MODULE()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">PYBIND11_MODULE </td>
-          <td>(</td>
-          <td class="paramtype">dplvn</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">module</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Pybind11 wrapper between C++ and Python for <a class="el" href="classSimDP.html" title="Class that manages simulation of DPLangevin equation.">SimDP</a> application.</p>
-<p>Binder exposing the <span class="tt">dplvn</span> module to Python, enabling instantiation of the <a class="el" href="classSimDP.html" title="Class that manages simulation of DPLangevin equation.">SimDP</a> class, and exchange of model parameters and simulation data results. This class exploits the <a class="el" href="classDPLangevin.html" title="DPLangevin model application of BaseLangevin class integrator.">DPLangevin</a> integrator, which itself is a subclass of the more general <a class="el" href="classBaseLangevin.html" title="Base class for Langevin equation integrator.">BaseLangevin</a> integration scheme.</p>
-<p>This macro expands the parameter <span class="tt">"dplvn"</span> into <span class="tt">pybind11_exec_dplvn</span> and generates the function <span class="tt">pybind11_init_dplvn</span> among others.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dplvn</td><td>Name of to-be-created Python module. </td></tr>
-    <tr><td class="paramname">module</td><td>A pybind11::module_ object. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="wrapper__pybind_8cpp_source.html#l00031">31</a> of file <a class="el" href="wrapper__pybind_8cpp_source.html">wrapper_pybind.cpp</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="sim__dplangevin__utilities_8cpp_source.html">sim_dplangevin_utilities.cpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>
@@ -160,7 +118,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="wrapper__pybind_8cpp.html">wrapper_pybind.cpp</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="sim__dplangevin__utilities_8cpp.html">sim_dplangevin_utilities.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>
