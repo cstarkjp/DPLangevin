@@ -1,5 +1,5 @@
 /**
- * @file langevin_grid_1d.cpp
+ * @file langevin_construct_grid1d.cpp
  * @brief Method for setting up a 1D grid for the model Langevin field.
  */
 

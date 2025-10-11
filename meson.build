@@ -12,8 +12,8 @@ add_project_arguments('-Ofast', '-g3', language : 'cpp')
 
 cpp_sources = files(
     'src/langevin_construct_grid.cpp', 
-    'src/langevin_grid_1d.cpp', 
-    'src/langevin_grid_2d.cpp', 
+    'src/langevin_construct_grid1d.cpp', 
+    'src/langevin_construct_grid2d.cpp', 
     'src/langevin_ic.cpp', 
     'src/langevin_bc.cpp', 
     'src/langevin_set_coefficients.cpp', 
