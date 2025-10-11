@@ -52,9 +52,9 @@ protected:
     //! Runge-Kutta variable grid #3
     grid_t k3_grid;
     //! Temporary density grid used to perform an integration step
-    grid_t density_grid_aux_old;
+    grid_t density_grid_aux1;
     //! Temporary density grid used to perform an integration step
-    grid_t density_grid_aux_new;
+    grid_t density_grid_aux2;
 
 public:
     //! Default constructor
@@ -92,21 +92,26 @@ public:
     //! Explicit Euler + stochastic integration + grid update
     void integrate_euler(rng_t& rng);
     //! Part #1 of Runge-Kutta integration step
-    void rk_f1(grid_t& density_grid_aux, grid_t& k1_grid);
+    void rk_f1(
+        grid_t& density_grid_aux, 
+        grid_t& k1_grid, 
+        const double dtm
+    );
     //! Parts #2 and #3 of Runge-Kutta integration step
     void rk_f2f3(
-        const grid_t& density_grid_aux_old, 
-        grid_t& density_grid_aux_new, 
+        const grid_t& density_grid_aux_in, 
+        grid_t& density_grid_aux_out, 
         grid_t& k_out, 
-        const double dt_in
+        const double dtm
     );
     //! Part #4 of Runge-Kutta integration step + stochastic step
     void rk_f4_and_stochastic(
-        const grid_t &density_grid_aux_old, 
-        const grid_t &k1_grid, 
-        const grid_t &k2_grid, 
-        const grid_t &k3_grid, 
-        rng_t &rng
+        const grid_t& density_grid_aux, 
+        const grid_t& k1_grid, 
+        const grid_t& k2_grid, 
+        const grid_t& k3_grid, 
+        rng_t& rng, 
+        const double dtm
     );
     //! Explicit Euler + stochastic integration
     void euler_and_stochastic(grid_t &density_grid_aux, rng_t &rng);

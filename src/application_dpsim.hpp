@@ -28,6 +28,7 @@ private:
     DPLangevin *dpLangevin;
     //! Integrator: either a Runge-Kutta or an Euler method
     void (DPLangevin::*integrator)(rng_t&);
+    
     //! Total number of simulation time steps aka "epochs"
     int n_epochs;
     //! Index of current epoch aka time step
@@ -59,6 +60,7 @@ private:
     bool choose_integrator();
     //! Perform Dornic-type integration of the DP Langevin equation for `n_next_epochs`
     bool integrate(const int n_next_epochs);
+
     //! Generate a Python-compatible version of the epochs time-series vector
     bool pyprep_t_epochs();
     //! Generate a Python-compatible version of the mean densities time-series vector
@@ -89,6 +91,9 @@ public:
     bool run(const int n_next_epochs);
     //! Process the model results data if available
     bool postprocess();
+
+    // Utilities provided to Python via the wrapper
+
     //! Fetch the total number of simulation epochs
     int get_n_epochs() const;
     //! Fetch the index of the current epoch of the simulation

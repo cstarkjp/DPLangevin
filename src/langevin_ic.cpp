@@ -28,7 +28,14 @@ bool BaseLangevin::initialize_grid(const Parameters p, rng_t& rng)
                         + static_cast<int>(p.ic_values.at(2))*p.n_x);
                 if (i_cell<0 or i_cell>=p.n_x*p.n_y) { return false; }
             } 
-            else { return false; }
+            else if (p.grid_dimension==GridDimension::D3)
+            {
+                return false;
+            } 
+            else 
+            { 
+                return false; 
+            }
             ic_single_seed(i_cell, p.ic_values.at(0));
             return true;
         case (InitialCondition::RANDOM_UNIFORM):

@@ -2,8 +2,8 @@ var searchData=
 [
   ['d_0',['D',['../class_d_p_langevin.html#af8a9e4224322e673273c97f047a13416',1,'DPLangevin']]],
   ['density_5fgrid_1',['density_grid',['../class_base_langevin.html#a0ffb08ee5362c7fdf5fc8efa3583382d',1,'BaseLangevin']]],
-  ['density_5fgrid_5faux_5fnew_2',['density_grid_aux_new',['../class_base_langevin.html#a051859f9192880c631ea8ddb6fdf51ef',1,'BaseLangevin']]],
-  ['density_5fgrid_5faux_5fold_3',['density_grid_aux_old',['../class_base_langevin.html#a6c3a45b81c5b51329c0a506f99cb0b88',1,'BaseLangevin']]],
+  ['density_5fgrid_5faux1_2',['density_grid_aux1',['../class_base_langevin.html#a36dfad7de36166d6af541259927fb33c',1,'BaseLangevin']]],
+  ['density_5fgrid_5faux2_3',['density_grid_aux2',['../class_base_langevin.html#a7268e3d7d279312299018138c7f3299e',1,'BaseLangevin']]],
   ['design_4',['Program design',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'']]],
   ['did_5fintegrate_5',['did_integrate',['../class_sim_d_p.html#ad4860babc24eb75b7c85dc06e28d1071',1,'SimDP']]],
   ['directed_20percolation_20dp_20type_6',['Operator-splitting method for integrating Langevin equations of directed percolation (DP) type',['../md__r_e_a_d_m_e.html#autotoc_md1',1,'']]],
