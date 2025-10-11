@@ -3,7 +3,10 @@
  * @brief Method for setting up a 1D grid for the model Langevin field.
  */
 
-#include "general_types.hpp"
+#include "langevin_types.hpp"
+#include "langevin_coefficients.hpp"
+#include "langevin_parameters.hpp"
+#include "langevin_base.hpp"
 
 //! Construct 1D density field ρ(x,t) grid and corresponding cell-cell topologies
 bool BaseLangevin::construct_1D_grid(const Parameters p)

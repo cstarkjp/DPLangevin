@@ -3,7 +3,10 @@
  * @brief Methods to carry out 4th-order Runge-Kutta integration.
  */
 
-#include "general_types.hpp"
+#include "langevin_types.hpp"
+#include "langevin_coefficients.hpp"
+#include "langevin_parameters.hpp"
+#include "langevin_base.hpp"
 
 //! Runge-Kutta integration of the nonlinear and diffusion terms 
 //! in the Langevin equation.

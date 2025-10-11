@@ -3,7 +3,10 @@
  * @brief Method for setting up a 2D grid for the model Langevin field.
  */
 
-#include "general_types.hpp"
+#include "langevin_types.hpp"
+#include "langevin_coefficients.hpp"
+#include "langevin_parameters.hpp"
+#include "langevin_base.hpp"
 
 /**
 * @details 

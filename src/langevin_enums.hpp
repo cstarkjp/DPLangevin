@@ -1,5 +1,5 @@
 /**
- * @file general_enums.hpp
+ * @file langevin_enums.hpp
  * @brief Enumerated parameter options for BaseLangevin integrator.
  * 
  * Parameter options as enums, used in both C++ and Python, used to choose 

@@ -1,5 +1,5 @@
 /**
- * @file general_coefficients.hpp
+ * @file langevin_coefficients.hpp
  * @brief Container for nonlinear Langevin equation coefficients.
  */
 

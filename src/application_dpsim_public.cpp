@@ -3,7 +3,10 @@
  * @brief Class to manage & run DPLangevin model simulation: public methods.
  */ 
 
-#include "general_types.hpp"
+#include "langevin_types.hpp"
+#include "langevin_coefficients.hpp"
+#include "langevin_parameters.hpp"
+#include "langevin_base.hpp"
 #include "application_dpsim.hpp"
 
 SimDP::SimDP(

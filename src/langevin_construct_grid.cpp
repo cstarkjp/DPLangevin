@@ -3,7 +3,10 @@
  * @brief Wrapper around 1D or 2D grid construction methods.
  */
 
-#include "general_types.hpp"
+#include "langevin_types.hpp"
+#include "langevin_coefficients.hpp"
+#include "langevin_parameters.hpp"
+#include "langevin_base.hpp"
 
 bool BaseLangevin::construct_grid(const Parameters p)
 {

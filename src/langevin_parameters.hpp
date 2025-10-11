@@ -1,5 +1,5 @@
 /**
- * @file general_parameters.hpp
+ * @file langevin_parameters.hpp
  * @brief Container for BaseLangevin integrator parameters.
  * 
  * Container for BaseLangevin integrator parameters.

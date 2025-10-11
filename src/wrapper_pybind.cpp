@@ -7,7 +7,10 @@
 #include <pybind11/numpy.h>
 // Essential for STL container conversions
 #include <pybind11/stl.h> 
-#include "general_types.hpp"
+#include "langevin_types.hpp"
+#include "langevin_coefficients.hpp"
+#include "langevin_parameters.hpp"
+#include "langevin_base.hpp"
 #include "application_dplangevin.hpp"
 #include "application_dpsim.hpp"
 

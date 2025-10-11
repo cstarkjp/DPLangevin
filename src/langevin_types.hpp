@@ -1,5 +1,5 @@
 /**
- * @file general_types.hpp
+ * @file langevin_types.hpp
  * @brief Type definitions for BaseLangevin integrator.
  */
 
@@ -40,13 +40,10 @@ typedef std::normal_distribution<double> normal_dist_t;
 //! Type for function generating uniformly distributed variates
 typedef std::uniform_real_distribution<double> uniform_dist_t;
 
-#include "general_enums.hpp"
+#include "langevin_enums.hpp"
 //! Type for specifying grid topology in each direction x, y, z...
 typedef std::vector<GridTopology> gt_vec_t;
 typedef std::vector<BoundaryCondition> bc_vec_t;
-#include "general_coefficients.hpp"
-#include "general_parameters.hpp"
-#include "langevin_base.hpp"
 
 namespace py = pybind11;
 //! Type for Python arrays of doubles
