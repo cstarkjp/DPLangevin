@@ -1,27 +1,36 @@
 # Testing
 
-A very basic test is provided in the Python script:
+A simple demo of `dplvn` integration of a directed-percolation Langevin equation
+ is provided in the Python script:
 
-     python test_dp.py
+    python demo_periodic.py
 
-which performs an integration of the DP-Langevin equation 
-on a small rectangular 2D grid. The grid-averaged mean density 
+This script runs a short simulation on a small rectangular 2D grid with periodic edge topology (aka a toroidal grid) and
+floating boundary conditions. The grid-averaged mean density 
 is written out as a time series into a text file named "solution.txt" for 
 all simulation time steps ("epochs"). 
 Time slices of the density grid are printed for selected epochs.
 
-A similar test is provided in the Jupyter notebook 
+A second demo shows how to simulate a 2d grid with both periodic and bounded
+grid edge topologies (aka a cylindrical grid) and mixed boundary conditions 
+(constant flux b.c.s along the bounded edges):
 
-    TestDP.ipynb
+    python demo_mixed.py
 
-but the final density grid is also plotted as an image, and the mean-density time series is graphed. Both plots are exported to PNG files.
+The following Jupyter notebook has cells that do both of the above and more
+(just uncomment/comment out as needed):
 
-If you build from source, you will need to point Python to your local build of `dplvn`. 
-Uncomment the lines:
+    ipython Demo.ipynb  
+
+In this notebook, the final density grid is rendered as an image, and the mean-density time series is graphed. Both plots are exported to PNG files. 
+
+
+If you build from source, and don't install `dplvn` in the Python environment's standard package path, you will need to point Python to this local build. 
+Uncomment the following lines in the demo scripts/notebook:
 
     import sys, os
     sys.path.insert(0, os.path.join(os.path.pardir, "build"))
 
-and check that Python is using your local build:
+and check that Python can find your local copy of the `dplvn` package:
 
     print(dplvn.__file__)

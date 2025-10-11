@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DP Langevin: test Directory Reference</title>
+<title>DP Langevin: test/demo_mixed.py File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,7 +62,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('dir_13e138d54eb8818da29c3992edef070a.html','',''); });
+$(function(){initNavTree('demo__mixed_8py.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -88,30 +88,44 @@ $(function(){initNavTree('dir_13e138d54eb8818da29c3992edef070a.html','',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">test Directory Reference</div></div>
+  <div class="headertitle"><div class="title">demo_mixed.py File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Demo 2d Langevin simulation with mixed grid topology and boundary conditions.  
+<a href="#details">More...</a></p>
+
+<p><a href="demo__mixed_8py_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-files" class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:demo_5Fmixed_2Epy" id="r_demo_5Fmixed_2Epy"><td class="memItemLeft" align="right" valign="top"><a href="demo__mixed_8py_source.html"><span class="icondoc"><div class="doc-icon"></div></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="demo__mixed_8py.html">demo_mixed.py</a></td></tr>
-<tr class="memdesc:demo__mixed_8py"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demo 2d Langevin simulation with mixed grid topology and boundary conditions. <br /></td></tr>
-<tr class="memitem:demo_5Fperiodic_2Epy" id="r_demo_5Fperiodic_2Epy"><td class="memItemLeft" align="right" valign="top"><a href="demo__periodic_8py_source.html"><span class="icondoc"><div class="doc-icon"></div></span></a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="demo__periodic_8py.html">demo_periodic.py</a></td></tr>
-<tr class="memdesc:demo__periodic_8py"><td class="mdescLeft">&#160;</td><td class="mdescRight">Demo 2d Langevin simulation with periodic grid topology. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a5524f24ef01d8c3c0278648ed4d457cc" id="r_a5524f24ef01d8c3c0278648ed4d457cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5524f24ef01d8c3c0278648ed4d457cc">demo_mixed.main</a> ()</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
-Testing</h1>
-<p>A simple demo of <span class="tt">dplvn</span> integration of a directed-percolation Langevin equation is provided in the Python script:</p>
-<p>python <a class="el" href="demo__periodic_8py.html" title="Demo 2d Langevin simulation with periodic grid topology.">demo_periodic.py</a></p>
-<p>This script runs a short simulation on a small rectangular 2D grid with periodic edge topology (aka a toroidal grid) and floating boundary conditions. The grid-averaged mean density is written out as a time series into a text file named "solution.txt" for all simulation time steps ("epochs"). Time slices of the density grid are printed for selected epochs.</p>
-<p>A second demo shows how to simulate a 2d grid with both periodic and bounded grid edge topologies (aka a cylindrical grid) and mixed boundary conditions (constant flux b.c.s along the bounded edges): </p><pre class="fragment">python demo_mixed.py
-</pre><p>The following Jupyter notebook has cells that do both of the above and more (just uncomment/comment out as needed): </p><pre class="fragment">ipython Demo.ipynb  
-</pre><p>In this notebook, the final density grid is rendered as an image, and the mean-density time series is graphed. Both plots are exported to PNG files.</p>
-<p>If you build from source, and don't install <span class="tt">dplvn</span> in the Python environment's standard package path, you will need to point Python to this local build. Uncomment the following lines in the demo scripts/notebook: </p><pre class="fragment">import sys, os
-sys.path.insert(0, os.path.join(os.path.pardir, "build"))
-</pre><p>and check that Python can find your local copy of the <span class="tt">dplvn</span> package: </p><pre class="fragment">print(dplvn.__file__)
-</pre> </div><!-- contents -->
+<div class="textblock"><p>Demo 2d Langevin simulation with mixed grid topology and boundary conditions. </p>
+
+<p class="definition">Definition in file <a class="el" href="demo__mixed_8py_source.html">demo_mixed.py</a>.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a5524f24ef01d8c3c0278648ed4d457cc" name="a5524f24ef01d8c3c0278648ed4d457cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5524f24ef01d8c3c0278648ed4d457cc">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">demo_mixed.main </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="demo__mixed_8py_source.html#l00014">14</a> of file <a class="el" href="demo__mixed_8py_source.html">demo_mixed.py</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>
@@ -124,7 +138,7 @@ sys.path.insert(0, os.path.join(os.path.pardir, "build"))
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li>
+    <li class="navelem"><a href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a href="demo__mixed_8py.html">demo_mixed.py</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

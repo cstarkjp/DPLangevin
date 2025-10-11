@@ -139,12 +139,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a81fc0d0db8d82829483b1ae3bc4baf9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta + stochastic integration + grid update.  <br /></td></tr>
 <tr class="memitem:a8fef75bdcc3f916511d559b779e29a2b" id="r_a8fef75bdcc3f916511d559b779e29a2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fef75bdcc3f916511d559b779e29a2b">integrate_euler</a> (<a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
 <tr class="memdesc:a8fef75bdcc3f916511d559b779e29a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit Euler + stochastic integration + grid update.  <br /></td></tr>
-<tr class="memitem:a62818fe4718c652811079b9d662786aa" id="r_a62818fe4718c652811079b9d662786aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62818fe4718c652811079b9d662786aa">rk_f1</a> (<a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux, <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a>, const double dtm)</td></tr>
-<tr class="memdesc:a62818fe4718c652811079b9d662786aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step #1 of Runge-Kutta integration.  <br /></td></tr>
-<tr class="memitem:a3db9361d9b3b37d94674e4d64ed04728" id="r_a3db9361d9b3b37d94674e4d64ed04728"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3db9361d9b3b37d94674e4d64ed04728">rk_f2f3</a> (const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux_in, <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux_out, <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;k_out, const double dtm)</td></tr>
-<tr class="memdesc:a3db9361d9b3b37d94674e4d64ed04728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steps #2 and #3 of Runge-Kutta integration.  <br /></td></tr>
-<tr class="memitem:a92fd3d74e435b8f52305255670550a1b" id="r_a92fd3d74e435b8f52305255670550a1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92fd3d74e435b8f52305255670550a1b">rk_f4_and_stochastic</a> (const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux, const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a>, const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#ae90291c345f2e38d7cf9a2ade6ccd7cd">k2_grid</a>, const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#af1e69fe1571999dc28977505b86f3fce">k3_grid</a>, <a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng, const double dtm)</td></tr>
-<tr class="memdesc:a92fd3d74e435b8f52305255670550a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step #4 of Runge-Kutta integration + stochastic step.  <br /></td></tr>
+<tr class="memitem:a3052a10b72187db29a55ef82baa596d6" id="r_a3052a10b72187db29a55ef82baa596d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3052a10b72187db29a55ef82baa596d6">rk_f1</a> (<a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux, <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a>, const double dtm_fraction)</td></tr>
+<tr class="memdesc:a3052a10b72187db29a55ef82baa596d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step #1 of Runge-Kutta integration.  <br /></td></tr>
+<tr class="memitem:a637a5b441401068274c235d22575b521" id="r_a637a5b441401068274c235d22575b521"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a637a5b441401068274c235d22575b521">rk_f2f3</a> (const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux_in, <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux_out, <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;k_out, const double dtm_fraction)</td></tr>
+<tr class="memdesc:a637a5b441401068274c235d22575b521"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steps #2 and #3 of Runge-Kutta integration.  <br /></td></tr>
+<tr class="memitem:abbe9c4462d44ec36edf7d13afbfd9a9a" id="r_abbe9c4462d44ec36edf7d13afbfd9a9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbe9c4462d44ec36edf7d13afbfd9a9a">rk_f4_stochastic</a> (const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux, const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a>, const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#ae90291c345f2e38d7cf9a2ade6ccd7cd">k2_grid</a>, const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#af1e69fe1571999dc28977505b86f3fce">k3_grid</a>, <a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng, const double dtm_fraction)</td></tr>
+<tr class="memdesc:abbe9c4462d44ec36edf7d13afbfd9a9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step #4 of Runge-Kutta integration + stochastic step.  <br /></td></tr>
 <tr class="memitem:af9c67421866ccb50aa3aecfa78a48f05" id="r_af9c67421866ccb50aa3aecfa78a48f05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9c67421866ccb50aa3aecfa78a48f05">euler_and_stochastic</a> (<a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux, <a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
 <tr class="memdesc:af9c67421866ccb50aa3aecfa78a48f05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit Euler + stochastic integration.  <br /></td></tr>
 <tr class="memitem:a8e997a82e0660b7795005f4771350e17" id="r_a8e997a82e0660b7795005f4771350e17"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e997a82e0660b7795005f4771350e17">get_density_grid_value</a> (const int) const</td></tr>
@@ -619,8 +619,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a62818fe4718c652811079b9d662786aa" name="a62818fe4718c652811079b9d662786aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62818fe4718c652811079b9d662786aa">&#9670;&#160;</a></span>rk_f1()</h2>
+<a id="a3052a10b72187db29a55ef82baa596d6" name="a3052a10b72187db29a55ef82baa596d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3052a10b72187db29a55ef82baa596d6">&#9670;&#160;</a></span>rk_f1()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -638,7 +638,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>dtm</em></span>&#160;)</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>dtm_fraction</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -646,12 +646,12 @@ Protected Attributes</h2></td></tr>
 <p>Step #1 of Runge-Kutta integration. </p>
 <p>Runge-Kutta first step. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00034">34</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00022">22</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a3db9361d9b3b37d94674e4d64ed04728" name="a3db9361d9b3b37d94674e4d64ed04728"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3db9361d9b3b37d94674e4d64ed04728">&#9670;&#160;</a></span>rk_f2f3()</h2>
+<a id="a637a5b441401068274c235d22575b521" name="a637a5b441401068274c235d22575b521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a637a5b441401068274c235d22575b521">&#9670;&#160;</a></span>rk_f2f3()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -674,7 +674,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>dtm</em></span>&#160;)</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>dtm_fraction</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -682,18 +682,18 @@ Protected Attributes</h2></td></tr>
 <p>Steps #2 and #3 of Runge-Kutta integration. </p>
 <p>Runge-Kutta second and third steps. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00048">48</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00036">36</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a92fd3d74e435b8f52305255670550a1b" name="a92fd3d74e435b8f52305255670550a1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92fd3d74e435b8f52305255670550a1b">&#9670;&#160;</a></span>rk_f4_and_stochastic()</h2>
+<a id="abbe9c4462d44ec36edf7d13afbfd9a9a" name="abbe9c4462d44ec36edf7d13afbfd9a9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbe9c4462d44ec36edf7d13afbfd9a9a">&#9670;&#160;</a></span>rk_f4_stochastic()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void BaseLangevin::rk_f4_and_stochastic </td>
+          <td class="memname">void BaseLangevin::rk_f4_stochastic </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux</em></span>, </td>
         </tr>
@@ -720,7 +720,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>dtm</em></span>&#160;)</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>dtm_fraction</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -728,7 +728,7 @@ Protected Attributes</h2></td></tr>
 <p>Step #4 of Runge-Kutta integration + stochastic step. </p>
 <p>Runge-Kutta fourth step and stochastic step, all at once. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00063">63</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00051">51</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
 
 </div>
 </div>
