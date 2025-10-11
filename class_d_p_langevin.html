@@ -143,8 +143,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2df86bdadff3051b6e3d0b36a232cff6 inherit pub_methods_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set "lambda" constants.  <br /></td></tr>
 <tr class="memitem:a2595d62332a3f90dcc815773ab500261 inherit pub_methods_class_base_langevin" id="r_a2595d62332a3f90dcc815773ab500261"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#a2595d62332a3f90dcc815773ab500261">check_boundary_conditions</a> (const <a class="el" href="struct_parameters.html">Parameters</a> parameters)</td></tr>
 <tr class="memdesc:a2595d62332a3f90dcc815773ab500261 inherit pub_methods_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check we have 2N boundary conditions for an N-dimensional grid.  <br /></td></tr>
-<tr class="memitem:a829b9e5e2519d8d5052d5757136b3e18 inherit pub_methods_class_base_langevin" id="r_a829b9e5e2519d8d5052d5757136b3e18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#a829b9e5e2519d8d5052d5757136b3e18">apply_boundary_conditions</a> (const <a class="el" href="struct_parameters.html">Parameters</a> parameters)</td></tr>
-<tr class="memdesc:a829b9e5e2519d8d5052d5757136b3e18 inherit pub_methods_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set density field values only the grid edges per bc specs.  <br /></td></tr>
+<tr class="memitem:ab949b3e4fd8fbcf7e0a67fdc0af8193c inherit pub_methods_class_base_langevin" id="r_ab949b3e4fd8fbcf7e0a67fdc0af8193c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#ab949b3e4fd8fbcf7e0a67fdc0af8193c">apply_boundary_conditions</a> (const <a class="el" href="struct_parameters.html">Parameters</a> parameters, int i_epoch)</td></tr>
+<tr class="memdesc:ab949b3e4fd8fbcf7e0a67fdc0af8193c inherit pub_methods_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set density field values only the grid edges per bc specs.  <br /></td></tr>
 <tr class="memitem:a81fc0d0db8d82829483b1ae3bc4baf9f inherit pub_methods_class_base_langevin" id="r_a81fc0d0db8d82829483b1ae3bc4baf9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#a81fc0d0db8d82829483b1ae3bc4baf9f">integrate_rungekutta</a> (<a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
 <tr class="memdesc:a81fc0d0db8d82829483b1ae3bc4baf9f inherit pub_methods_class_base_langevin"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta + stochastic integration + grid update.  <br /></td></tr>
 <tr class="memitem:a8fef75bdcc3f916511d559b779e29a2b inherit pub_methods_class_base_langevin" id="r_a8fef75bdcc3f916511d559b779e29a2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_langevin.html#a8fef75bdcc3f916511d559b779e29a2b">integrate_euler</a> (<a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
@@ -214,7 +214,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of BaseLangevin class integrator.">DPLangevin</a> model application of <a class="el" href="class_base_langevin.html" title="Base class for Langevin equation integrator.">BaseLangevin</a> class integrator. </p>
 
-<p class="definition">Definition at line <a class="el" href="dplangevin_8hpp_source.html#l00012">12</a> of file <a class="el" href="dplangevin_8hpp_source.html">dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dplangevin_8hpp_source.html#l00015">15</a> of file <a class="el" href="dplangevin_8hpp_source.html">dplangevin.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7c96523be07813456dc2803557b00daf" name="a7c96523be07813456dc2803557b00daf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7c96523be07813456dc2803557b00daf">&#9670;&#160;</a></span>DPLangevin()</h2>
@@ -234,7 +234,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Constructor when model parameters are passed by the user. </p>
 <p>Redefinition of <a class="el" href="class_base_langevin.html" title="Base class for Langevin equation integrator.">BaseLangevin</a> class constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="dplangevin_8cpp_source.html#l00018">18</a> of file <a class="el" href="dplangevin_8cpp_source.html">dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dplangevin_8cpp_source.html#l00013">13</a> of file <a class="el" href="dplangevin_8cpp_source.html">dplangevin.cpp</a>.</p>
 
 </div>
 </div>
@@ -271,7 +271,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_base_langevin.html#a2de82e54eb1098353615261ff681d4e6">BaseLangevin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="dplangevin_8cpp_source.html#l00041">41</a> of file <a class="el" href="dplangevin_8cpp_source.html">dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dplangevin_8cpp_source.html#l00036">36</a> of file <a class="el" href="dplangevin_8cpp_source.html">dplangevin.cpp</a>.</p>
 
 </div>
 </div>
@@ -303,7 +303,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_base_langevin.html#adfcbb53015503e909b0b2c2b5549ae5b">BaseLangevin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="dplangevin_8cpp_source.html#l00033">33</a> of file <a class="el" href="dplangevin_8cpp_source.html">dplangevin.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dplangevin_8cpp_source.html#l00028">28</a> of file <a class="el" href="dplangevin_8cpp_source.html">dplangevin.cpp</a>.</p>
 
 </div>
 </div>
@@ -322,7 +322,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Diffusion coefficient D in DP-Langevin equation. </p>
 
-<p class="definition">Definition at line <a class="el" href="dplangevin_8hpp_source.html#l00018">18</a> of file <a class="el" href="dplangevin_8hpp_source.html">dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dplangevin_8hpp_source.html#l00021">21</a> of file <a class="el" href="dplangevin_8hpp_source.html">dplangevin.hpp</a>.</p>
 
 </div>
 </div>
@@ -340,7 +340,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Coefficient in nonlinear term -bρ² in DP-Langevin equation. </p>
 
-<p class="definition">Definition at line <a class="el" href="dplangevin_8hpp_source.html#l00016">16</a> of file <a class="el" href="dplangevin_8hpp_source.html">dplangevin.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dplangevin_8hpp_source.html#l00019">19</a> of file <a class="el" href="dplangevin_8hpp_source.html">dplangevin.hpp</a>.</p>
 
 </div>
 </div>

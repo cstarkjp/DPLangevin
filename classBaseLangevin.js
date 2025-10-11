@@ -1,7 +1,7 @@
 var classBaseLangevin =
 [
     [ "BaseLangevin", "classBaseLangevin.html#aac3ba1395e4671aa3da561b07245c41e", null ],
-    [ "apply_boundary_conditions", "classBaseLangevin.html#a829b9e5e2519d8d5052d5757136b3e18", null ],
+    [ "apply_boundary_conditions", "classBaseLangevin.html#ab949b3e4fd8fbcf7e0a67fdc0af8193c", null ],
     [ "check_boundary_conditions", "classBaseLangevin.html#a2595d62332a3f90dcc815773ab500261", null ],
     [ "construct_1D_grid", "classBaseLangevin.html#af23cd5ed5aaa9202f8b294793bb8ae3e", null ],
     [ "construct_2D_grid", "classBaseLangevin.html#a1c785de7a81b904d3e50719e2278b17e", null ],
@@ -18,9 +18,9 @@ var classBaseLangevin =
     [ "integrate_rungekutta", "classBaseLangevin.html#a81fc0d0db8d82829483b1ae3bc4baf9f", null ],
     [ "nonlinear_rhs", "classBaseLangevin.html#a2de82e54eb1098353615261ff681d4e6", null ],
     [ "prepare", "classBaseLangevin.html#ae3dd30948355470e39e71f077f5acb36", null ],
-    [ "rk_f1", "classBaseLangevin.html#a62818fe4718c652811079b9d662786aa", null ],
-    [ "rk_f2f3", "classBaseLangevin.html#a3db9361d9b3b37d94674e4d64ed04728", null ],
-    [ "rk_f4_and_stochastic", "classBaseLangevin.html#a92fd3d74e435b8f52305255670550a1b", null ],
+    [ "rk_f1", "classBaseLangevin.html#a3052a10b72187db29a55ef82baa596d6", null ],
+    [ "rk_f2f3", "classBaseLangevin.html#a637a5b441401068274c235d22575b521", null ],
+    [ "rk_f4_stochastic", "classBaseLangevin.html#abbe9c4462d44ec36edf7d13afbfd9a9a", null ],
     [ "set_essential_coefficients", "classBaseLangevin.html#af2ba5ff83a1d5221e4dd3f91782eb7ac", null ],
     [ "set_lambdas", "classBaseLangevin.html#a2df86bdadff3051b6e3d0b36a232cff6", null ],
     [ "set_nonlinear_coefficients", "classBaseLangevin.html#adfcbb53015503e909b0b2c2b5549ae5b", null ],
