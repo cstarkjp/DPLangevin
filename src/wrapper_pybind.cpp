@@ -30,7 +30,7 @@
  */
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__version__") = "2025.10.11a3";
+    module.attr("__version__") = "2025.10.11a4";
     module.doc() = 
         "Operator-splitting method of integrating DP-type Langevin equations"; 
   

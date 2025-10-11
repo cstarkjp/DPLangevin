@@ -92,6 +92,7 @@ var NAVTREEINDEX0 =
 "dir_68267d1309a1af8e8297ef4c3efbcdba.html":[3,0,0],
 "dplangevin_8cpp.html":[3,0,0,0],
 "dplangevin_8cpp_source.html":[3,0,0,0],
+"dplangevin_8hpp.html":[3,0,0,1],
 "dplangevin_8hpp_source.html":[3,0,0,1],
 "files.html":[3,0],
 "functions.html":[2,3,0],

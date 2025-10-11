@@ -1,5 +1,6 @@
 /**
  * @file sim_dplangevin.cpp
+ * @brief Constructor for class that manages simulation of DP Langevin equations.
  */ 
 
 #include "langevin_types.hpp"
@@ -102,9 +103,10 @@ bool SimDP::run(const int n_next_epochs)
     return did_integrate;
 }
 
-//! Method to be called only once the simulation is complete: 
-//! for a segmented simulation, this method should only be called
-//! after the final segment is run.
+//! Method to be called after each `run`: the density grid and grid-average time 
+//! series are then packed and made available to Python through the wrapper.
+//! This method should be called every time a "snapshot" of the simulation
+//! state is desired.
 bool SimDP::postprocess()
 {
     if (not is_initialized) 

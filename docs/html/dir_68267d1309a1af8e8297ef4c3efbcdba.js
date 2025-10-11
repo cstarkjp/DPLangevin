@@ -1,7 +1,7 @@
 var dir_68267d1309a1af8e8297ef4c3efbcdba =
 [
     [ "dplangevin.cpp", "dplangevin_8cpp.html", null ],
-    [ "dplangevin.hpp", "dplangevin_8hpp_source.html", null ],
+    [ "dplangevin.hpp", "dplangevin_8hpp.html", "dplangevin_8hpp" ],
     [ "langevin_base.hpp", "langevin__base_8hpp.html", "langevin__base_8hpp" ],
     [ "langevin_bc.cpp", "langevin__bc_8cpp.html", null ],
     [ "langevin_coefficients.hpp", "langevin__coefficients_8hpp.html", "langevin__coefficients_8hpp" ],
