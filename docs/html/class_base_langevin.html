@@ -114,9 +114,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af23cd5ed5aaa9202f8b294793bb8ae3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build 1d Langevin density field grid &amp; topology.  <br /></td></tr>
 <tr class="memitem:a1c785de7a81b904d3e50719e2278b17e" id="r_a1c785de7a81b904d3e50719e2278b17e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c785de7a81b904d3e50719e2278b17e">construct_2D_grid</a> (const <a class="el" href="struct_parameters.html">Parameters</a> parameters)</td></tr>
 <tr class="memdesc:a1c785de7a81b904d3e50719e2278b17e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build 2d Langevin density field grid &amp; mixed topology.  <br /></td></tr>
-<tr class="memitem:aaafe3c4389a40fb6824c266c1c4a98a7" id="r_aaafe3c4389a40fb6824c266c1c4a98a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaafe3c4389a40fb6824c266c1c4a98a7">ic_random_uniform</a> (rng_t &amp;rng, const double min_value=0.0, const double max_value=1.0)</td></tr>
+<tr class="memitem:aaafe3c4389a40fb6824c266c1c4a98a7" id="r_aaafe3c4389a40fb6824c266c1c4a98a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaafe3c4389a40fb6824c266c1c4a98a7">ic_random_uniform</a> (<a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng, const double min_value=0.0, const double max_value=1.0)</td></tr>
 <tr class="memdesc:aaafe3c4389a40fb6824c266c1c4a98a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial condition for density field: uniformly random.  <br /></td></tr>
-<tr class="memitem:a20f150a492262fdaaff104ace83ef745" id="r_a20f150a492262fdaaff104ace83ef745"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20f150a492262fdaaff104ace83ef745">initialize_grid</a> (const <a class="el" href="struct_parameters.html">Parameters</a> parameters, rng_t &amp;rng)</td></tr>
+<tr class="memitem:a20f150a492262fdaaff104ace83ef745" id="r_a20f150a492262fdaaff104ace83ef745"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20f150a492262fdaaff104ace83ef745">initialize_grid</a> (const <a class="el" href="struct_parameters.html">Parameters</a> parameters, <a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
 <tr class="memdesc:a20f150a492262fdaaff104ace83ef745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set initial condition of Langevin density field grid.  <br /></td></tr>
 <tr class="memitem:a34c7b9e9916ed4e68ea4f0b6cbfa5988" id="r_a34c7b9e9916ed4e68ea4f0b6cbfa5988"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34c7b9e9916ed4e68ea4f0b6cbfa5988">ic_constant_value</a> (const double density_value=1.0)</td></tr>
 <tr class="memdesc:a34c7b9e9916ed4e68ea4f0b6cbfa5988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial condition for density field: uniformly constant.  <br /></td></tr>
@@ -132,17 +132,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2595d62332a3f90dcc815773ab500261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check we have 2N boundary conditions for an N-dimensional grid.  <br /></td></tr>
 <tr class="memitem:a829b9e5e2519d8d5052d5757136b3e18" id="r_a829b9e5e2519d8d5052d5757136b3e18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a829b9e5e2519d8d5052d5757136b3e18">apply_boundary_conditions</a> (const <a class="el" href="struct_parameters.html">Parameters</a> parameters)</td></tr>
 <tr class="memdesc:a829b9e5e2519d8d5052d5757136b3e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set density field values only the grid edges per bc specs.  <br /></td></tr>
-<tr class="memitem:a81fc0d0db8d82829483b1ae3bc4baf9f" id="r_a81fc0d0db8d82829483b1ae3bc4baf9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81fc0d0db8d82829483b1ae3bc4baf9f">integrate_rungekutta</a> (rng_t &amp;rng)</td></tr>
+<tr class="memitem:a81fc0d0db8d82829483b1ae3bc4baf9f" id="r_a81fc0d0db8d82829483b1ae3bc4baf9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81fc0d0db8d82829483b1ae3bc4baf9f">integrate_rungekutta</a> (<a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
 <tr class="memdesc:a81fc0d0db8d82829483b1ae3bc4baf9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta + stochastic integration + grid update.  <br /></td></tr>
-<tr class="memitem:a8fef75bdcc3f916511d559b779e29a2b" id="r_a8fef75bdcc3f916511d559b779e29a2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fef75bdcc3f916511d559b779e29a2b">integrate_euler</a> (rng_t &amp;rng)</td></tr>
+<tr class="memitem:a8fef75bdcc3f916511d559b779e29a2b" id="r_a8fef75bdcc3f916511d559b779e29a2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fef75bdcc3f916511d559b779e29a2b">integrate_euler</a> (<a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
 <tr class="memdesc:a8fef75bdcc3f916511d559b779e29a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit Euler + stochastic integration + grid update.  <br /></td></tr>
-<tr class="memitem:a62818fe4718c652811079b9d662786aa" id="r_a62818fe4718c652811079b9d662786aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62818fe4718c652811079b9d662786aa">rk_f1</a> (grid_t &amp;density_grid_aux, grid_t &amp;<a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a>, const double dtm)</td></tr>
+<tr class="memitem:a62818fe4718c652811079b9d662786aa" id="r_a62818fe4718c652811079b9d662786aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62818fe4718c652811079b9d662786aa">rk_f1</a> (<a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux, <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a>, const double dtm)</td></tr>
 <tr class="memdesc:a62818fe4718c652811079b9d662786aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step #1 of Runge-Kutta integration.  <br /></td></tr>
-<tr class="memitem:a3db9361d9b3b37d94674e4d64ed04728" id="r_a3db9361d9b3b37d94674e4d64ed04728"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3db9361d9b3b37d94674e4d64ed04728">rk_f2f3</a> (const grid_t &amp;density_grid_aux_in, grid_t &amp;density_grid_aux_out, grid_t &amp;k_out, const double dtm)</td></tr>
+<tr class="memitem:a3db9361d9b3b37d94674e4d64ed04728" id="r_a3db9361d9b3b37d94674e4d64ed04728"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3db9361d9b3b37d94674e4d64ed04728">rk_f2f3</a> (const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux_in, <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux_out, <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;k_out, const double dtm)</td></tr>
 <tr class="memdesc:a3db9361d9b3b37d94674e4d64ed04728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steps #2 and #3 of Runge-Kutta integration.  <br /></td></tr>
-<tr class="memitem:a92fd3d74e435b8f52305255670550a1b" id="r_a92fd3d74e435b8f52305255670550a1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92fd3d74e435b8f52305255670550a1b">rk_f4_and_stochastic</a> (const grid_t &amp;density_grid_aux, const grid_t &amp;<a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a>, const grid_t &amp;<a class="el" href="#ae90291c345f2e38d7cf9a2ade6ccd7cd">k2_grid</a>, const grid_t &amp;<a class="el" href="#af1e69fe1571999dc28977505b86f3fce">k3_grid</a>, rng_t &amp;rng, const double dtm)</td></tr>
+<tr class="memitem:a92fd3d74e435b8f52305255670550a1b" id="r_a92fd3d74e435b8f52305255670550a1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92fd3d74e435b8f52305255670550a1b">rk_f4_and_stochastic</a> (const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux, const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a>, const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#ae90291c345f2e38d7cf9a2ade6ccd7cd">k2_grid</a>, const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;<a class="el" href="#af1e69fe1571999dc28977505b86f3fce">k3_grid</a>, <a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng, const double dtm)</td></tr>
 <tr class="memdesc:a92fd3d74e435b8f52305255670550a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step #4 of Runge-Kutta integration + stochastic step.  <br /></td></tr>
-<tr class="memitem:af9c67421866ccb50aa3aecfa78a48f05" id="r_af9c67421866ccb50aa3aecfa78a48f05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9c67421866ccb50aa3aecfa78a48f05">euler_and_stochastic</a> (grid_t &amp;density_grid_aux, rng_t &amp;rng)</td></tr>
+<tr class="memitem:af9c67421866ccb50aa3aecfa78a48f05" id="r_af9c67421866ccb50aa3aecfa78a48f05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9c67421866ccb50aa3aecfa78a48f05">euler_and_stochastic</a> (<a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;density_grid_aux, <a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
 <tr class="memdesc:af9c67421866ccb50aa3aecfa78a48f05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit Euler + stochastic integration.  <br /></td></tr>
 <tr class="memitem:a8e997a82e0660b7795005f4771350e17" id="r_a8e997a82e0660b7795005f4771350e17"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e997a82e0660b7795005f4771350e17">get_density_grid_value</a> (const int) const</td></tr>
 <tr class="memdesc:a8e997a82e0660b7795005f4771350e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expose density grid at a given "index" (1d-flattened position of grid element)  <br /></td></tr>
@@ -152,16 +152,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a40a0bfdb181d47b532fb03f545449e0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute Poisson RNG mean.  <br /></td></tr>
 <tr class="memitem:adfcbb53015503e909b0b2c2b5549ae5b" id="r_adfcbb53015503e909b0b2c2b5549ae5b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfcbb53015503e909b0b2c2b5549ae5b">set_nonlinear_coefficients</a> (const <a class="el" href="struct_coefficients.html">Coefficients</a> &amp;coefficients)</td></tr>
 <tr class="memdesc:adfcbb53015503e909b0b2c2b5549ae5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set nonlinear coefficients for deterministic integration step: to be defined by application.  <br /></td></tr>
-<tr class="memitem:a2de82e54eb1098353615261ff681d4e6" id="r_a2de82e54eb1098353615261ff681d4e6"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2de82e54eb1098353615261ff681d4e6">nonlinear_rhs</a> (const int i_cell, const grid_t &amp;field) const</td></tr>
+<tr class="memitem:a2de82e54eb1098353615261ff681d4e6" id="r_a2de82e54eb1098353615261ff681d4e6"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2de82e54eb1098353615261ff681d4e6">nonlinear_rhs</a> (const int i_cell, const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;field) const</td></tr>
 <tr class="memdesc:a2de82e54eb1098353615261ff681d4e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set nonlinear RHS of Langevin equation for deterministic integration step: to be defined by application.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a22830e75995d3d0bf5405dd18912fa46" id="r_a22830e75995d3d0bf5405dd18912fa46"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22830e75995d3d0bf5405dd18912fa46">n_cells</a></td></tr>
 <tr class="memdesc:a22830e75995d3d0bf5405dd18912fa46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of cells in n-D grid.  <br /></td></tr>
-<tr class="memitem:a0ffb08ee5362c7fdf5fc8efa3583382d" id="r_a0ffb08ee5362c7fdf5fc8efa3583382d"><td class="memItemLeft" align="right" valign="top">grid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ffb08ee5362c7fdf5fc8efa3583382d">density_grid</a></td></tr>
+<tr class="memitem:a0ffb08ee5362c7fdf5fc8efa3583382d" id="r_a0ffb08ee5362c7fdf5fc8efa3583382d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ffb08ee5362c7fdf5fc8efa3583382d">density_grid</a></td></tr>
 <tr class="memdesc:a0ffb08ee5362c7fdf5fc8efa3583382d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Density field grid.  <br /></td></tr>
-<tr class="memitem:aa76f81c2fd8eb13da2f25c17cd6424f4" id="r_aa76f81c2fd8eb13da2f25c17cd6424f4"><td class="memItemLeft" align="right" valign="top">grid_wiring_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa76f81c2fd8eb13da2f25c17cd6424f4">grid_wiring</a></td></tr>
+<tr class="memitem:aa76f81c2fd8eb13da2f25c17cd6424f4" id="r_aa76f81c2fd8eb13da2f25c17cd6424f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="langevin__types_8hpp.html#a91e50f8a8197c0ff83c0f5d2eb78e105">grid_wiring_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa76f81c2fd8eb13da2f25c17cd6424f4">grid_wiring</a></td></tr>
 <tr class="memdesc:aa76f81c2fd8eb13da2f25c17cd6424f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Neighorhood topology for all grid cells.  <br /></td></tr>
 <tr class="memitem:a1b8bdbfd68c3b74071b766df64691719" id="r_a1b8bdbfd68c3b74071b766df64691719"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b8bdbfd68c3b74071b766df64691719">dt</a></td></tr>
 <tr class="memdesc:a1b8bdbfd68c3b74071b766df64691719"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time step, i.e, epoch-to-epoch Δt.  <br /></td></tr>
@@ -169,11 +169,11 @@ Protected Attributes</h2></td></tr>
 <tr class="memdesc:af6e164344c350fdfee62c9a49d6ed1fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grid spacing, i.e., spacing Δx between cell centers in all directions.  <br /></td></tr>
 <tr class="memitem:a7307bed54a012d55cf847fb89853b8db" id="r_a7307bed54a012d55cf847fb89853b8db"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7307bed54a012d55cf847fb89853b8db">mean_density</a></td></tr>
 <tr class="memdesc:a7307bed54a012d55cf847fb89853b8db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grid-average of density field.  <br /></td></tr>
-<tr class="memitem:a4b880cb149b15522ab9ae90316017250" id="r_a4b880cb149b15522ab9ae90316017250"><td class="memItemLeft" align="right" valign="top">poisson_dist_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b880cb149b15522ab9ae90316017250">poisson_rng</a></td></tr>
+<tr class="memitem:a4b880cb149b15522ab9ae90316017250" id="r_a4b880cb149b15522ab9ae90316017250"><td class="memItemLeft" align="right" valign="top"><a class="el" href="langevin__types_8hpp.html#a601371a69dbc51f3fc6994eba56c47af">poisson_dist_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b880cb149b15522ab9ae90316017250">poisson_rng</a></td></tr>
 <tr class="memdesc:a4b880cb149b15522ab9ae90316017250"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function generating Poisson variates.  <br /></td></tr>
-<tr class="memitem:a8bdb26b944654c9abe78ffde7cfcc714" id="r_a8bdb26b944654c9abe78ffde7cfcc714"><td class="memItemLeft" align="right" valign="top">gamma_dist_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bdb26b944654c9abe78ffde7cfcc714">gamma_rng</a></td></tr>
+<tr class="memitem:a8bdb26b944654c9abe78ffde7cfcc714" id="r_a8bdb26b944654c9abe78ffde7cfcc714"><td class="memItemLeft" align="right" valign="top"><a class="el" href="langevin__types_8hpp.html#a01980fd92bc6cbecff409f2347b6943f">gamma_dist_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bdb26b944654c9abe78ffde7cfcc714">gamma_rng</a></td></tr>
 <tr class="memdesc:a8bdb26b944654c9abe78ffde7cfcc714"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function generating gamma variates.  <br /></td></tr>
-<tr class="memitem:a263afd2a8c4f17d84181c96b376b5576" id="r_a263afd2a8c4f17d84181c96b376b5576"><td class="memItemLeft" align="right" valign="top">normal_dist_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a263afd2a8c4f17d84181c96b376b5576">normal</a></td></tr>
+<tr class="memitem:a263afd2a8c4f17d84181c96b376b5576" id="r_a263afd2a8c4f17d84181c96b376b5576"><td class="memItemLeft" align="right" valign="top"><a class="el" href="langevin__types_8hpp.html#a45d7982ecc4c518b8588b3d85e17905f">normal_dist_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a263afd2a8c4f17d84181c96b376b5576">normal</a></td></tr>
 <tr class="memdesc:a263afd2a8c4f17d84181c96b376b5576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function generating normal variates.  <br /></td></tr>
 <tr class="memitem:ac3ac2219c2797170b4188ad98130643c" id="r_ac3ac2219c2797170b4188ad98130643c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3ac2219c2797170b4188ad98130643c">linear_coeff</a></td></tr>
 <tr class="memdesc:ac3ac2219c2797170b4188ad98130643c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method coefficient.  <br /></td></tr>
@@ -183,15 +183,15 @@ Protected Attributes</h2></td></tr>
 <tr class="memdesc:a188d74016c9ad9cd915fc385476720a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method stochastic-step variable.  <br /></td></tr>
 <tr class="memitem:a5453eabca9ac6920c002f5c488b387c4" id="r_a5453eabca9ac6920c002f5c488b387c4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5453eabca9ac6920c002f5c488b387c4">lambda_product</a></td></tr>
 <tr class="memdesc:a5453eabca9ac6920c002f5c488b387c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dornic method stochastic-step variable.  <br /></td></tr>
-<tr class="memitem:ac7e29d9da1474a95cc33b172711d8075" id="r_ac7e29d9da1474a95cc33b172711d8075"><td class="memItemLeft" align="right" valign="top">grid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a></td></tr>
+<tr class="memitem:ac7e29d9da1474a95cc33b172711d8075" id="r_ac7e29d9da1474a95cc33b172711d8075"><td class="memItemLeft" align="right" valign="top"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a></td></tr>
 <tr class="memdesc:ac7e29d9da1474a95cc33b172711d8075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta variable grid #1.  <br /></td></tr>
-<tr class="memitem:ae90291c345f2e38d7cf9a2ade6ccd7cd" id="r_ae90291c345f2e38d7cf9a2ade6ccd7cd"><td class="memItemLeft" align="right" valign="top">grid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae90291c345f2e38d7cf9a2ade6ccd7cd">k2_grid</a></td></tr>
+<tr class="memitem:ae90291c345f2e38d7cf9a2ade6ccd7cd" id="r_ae90291c345f2e38d7cf9a2ade6ccd7cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae90291c345f2e38d7cf9a2ade6ccd7cd">k2_grid</a></td></tr>
 <tr class="memdesc:ae90291c345f2e38d7cf9a2ade6ccd7cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta variable grid #2.  <br /></td></tr>
-<tr class="memitem:af1e69fe1571999dc28977505b86f3fce" id="r_af1e69fe1571999dc28977505b86f3fce"><td class="memItemLeft" align="right" valign="top">grid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1e69fe1571999dc28977505b86f3fce">k3_grid</a></td></tr>
+<tr class="memitem:af1e69fe1571999dc28977505b86f3fce" id="r_af1e69fe1571999dc28977505b86f3fce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1e69fe1571999dc28977505b86f3fce">k3_grid</a></td></tr>
 <tr class="memdesc:af1e69fe1571999dc28977505b86f3fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runge-Kutta variable grid #3.  <br /></td></tr>
-<tr class="memitem:a36dfad7de36166d6af541259927fb33c" id="r_a36dfad7de36166d6af541259927fb33c"><td class="memItemLeft" align="right" valign="top">grid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36dfad7de36166d6af541259927fb33c">density_grid_aux1</a></td></tr>
+<tr class="memitem:a36dfad7de36166d6af541259927fb33c" id="r_a36dfad7de36166d6af541259927fb33c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36dfad7de36166d6af541259927fb33c">density_grid_aux1</a></td></tr>
 <tr class="memdesc:a36dfad7de36166d6af541259927fb33c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary density grid used to perform an integration step.  <br /></td></tr>
-<tr class="memitem:a7268e3d7d279312299018138c7f3299e" id="r_a7268e3d7d279312299018138c7f3299e"><td class="memItemLeft" align="right" valign="top">grid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7268e3d7d279312299018138c7f3299e">density_grid_aux2</a></td></tr>
+<tr class="memitem:a7268e3d7d279312299018138c7f3299e" id="r_a7268e3d7d279312299018138c7f3299e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7268e3d7d279312299018138c7f3299e">density_grid_aux2</a></td></tr>
 <tr class="memdesc:a7268e3d7d279312299018138c7f3299e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary density grid used to perform an integration step.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
@@ -217,7 +217,7 @@ Protected Attributes</h2></td></tr>
 <p>Set density field values only the grid edges per bc specs. </p>
 <p>Apply boundary conditions along each edge in turn. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__bc_8cpp_source.html#l00025">25</a> of file <a class="el" href="langevin__bc_8cpp_source.html">langevin_bc.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__bc_8cpp_source.html#l00028">28</a> of file <a class="el" href="langevin__bc_8cpp_source.html">langevin_bc.cpp</a>.</p>
 
 </div>
 </div>
@@ -239,7 +239,7 @@ Protected Attributes</h2></td></tr>
 <p>Check we have 2N boundary conditions for an N-dimensional grid. </p>
 <p>Check that 2x bcs are specified for each grid dimension, one for each edge. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__bc_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__bc_8cpp_source.html">langevin_bc.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__bc_8cpp_source.html#l00012">12</a> of file <a class="el" href="langevin__bc_8cpp_source.html">langevin_bc.cpp</a>.</p>
 
 </div>
 </div>
@@ -261,7 +261,7 @@ Protected Attributes</h2></td></tr>
 <p>Build 1d Langevin density field grid &amp; topology. </p>
 <p>Construct 1D density field ρ(x,t) grid and corresponding cell-cell topologies. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__grid__1d_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__grid__1d_8cpp_source.html">langevin_grid_1d.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__construct__grid1d_8cpp_source.html#l00012">12</a> of file <a class="el" href="langevin__construct__grid1d_8cpp_source.html">langevin_construct_grid1d.cpp</a>.</p>
 
 </div>
 </div>
@@ -290,7 +290,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="langevin__grid__2d_8cpp_source.html#l00025">25</a> of file <a class="el" href="langevin__grid__2d_8cpp_source.html">langevin_grid_2d.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__construct__grid2d_8cpp_source.html#l00028">28</a> of file <a class="el" href="langevin__construct__grid2d_8cpp_source.html">langevin_construct_grid2d.cpp</a>.</p>
 
 </div>
 </div>
@@ -311,7 +311,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Construct Langevin density field grid of appropriate n-D dimension. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__construct__grid_8cpp_source.html#l00008">8</a> of file <a class="el" href="langevin__construct__grid_8cpp_source.html">langevin_construct_grid.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__construct__grid_8cpp_source.html#l00011">11</a> of file <a class="el" href="langevin__construct__grid_8cpp_source.html">langevin_construct_grid.cpp</a>.</p>
 
 </div>
 </div>
@@ -324,12 +324,12 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void BaseLangevin::euler_and_stochastic </td>
           <td>(</td>
-          <td class="paramtype">grid_t &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux</em></span>, </td>
+          <td class="paramtype"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">rng_t &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -337,7 +337,7 @@ Protected Attributes</h2></td></tr>
 <p>Explicit Euler + stochastic integration. </p>
 <p>Perform an explicit-Euler integration step then a stochastic integration step for all cells across the grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integrate__euler_8cpp_source.html#l00018">18</a> of file <a class="el" href="langevin__integrate__euler_8cpp_source.html">langevin_integrate_euler.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__euler_8cpp_source.html#l00021">21</a> of file <a class="el" href="langevin__integrate__euler_8cpp_source.html">langevin_integrate_euler.cpp</a>.</p>
 
 </div>
 </div>
@@ -359,7 +359,7 @@ Protected Attributes</h2></td></tr>
 <p>Expose density grid at a given "index" (1d-flattened position of grid element) </p>
 <p>Return the Langevin density field grid value at a given "node". </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__utilities_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__utilities_8cpp_source.html">langevin_utilities.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__utilities_8cpp_source.html#l00012">12</a> of file <a class="el" href="langevin__utilities_8cpp_source.html">langevin_utilities.cpp</a>.</p>
 
 </div>
 </div>
@@ -381,7 +381,7 @@ Protected Attributes</h2></td></tr>
 <p>Expose mean density. </p>
 <p>Return the grid-averaged Langevin field mean value. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__utilities_8cpp_source.html#l00015">15</a> of file <a class="el" href="langevin__utilities_8cpp_source.html">langevin_utilities.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__utilities_8cpp_source.html#l00018">18</a> of file <a class="el" href="langevin__utilities_8cpp_source.html">langevin_utilities.cpp</a>.</p>
 
 </div>
 </div>
@@ -403,7 +403,7 @@ Protected Attributes</h2></td></tr>
 <p>Compute Poisson RNG mean. </p>
 <p>Compute the mean field density times "lamba_product", which should be equal to the Poisson distribution mean </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__utilities_8cpp_source.html#l00022">22</a> of file <a class="el" href="langevin__utilities_8cpp_source.html">langevin_utilities.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__utilities_8cpp_source.html#l00025">25</a> of file <a class="el" href="langevin__utilities_8cpp_source.html">langevin_utilities.cpp</a>.</p>
 
 </div>
 </div>
@@ -425,7 +425,7 @@ Protected Attributes</h2></td></tr>
 <p>Initial condition for density field: uniformly constant. </p>
 <p>Set all the grid cells to have same value. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00067">67</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00070">70</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
 
 </div>
 </div>
@@ -438,7 +438,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void BaseLangevin::ic_random_uniform </td>
           <td>(</td>
-          <td class="paramtype">rng_t &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>, </td>
+          <td class="paramtype"><a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -456,7 +456,7 @@ Protected Attributes</h2></td></tr>
 <p>Initial condition for density field: uniformly random. </p>
 <p>Set grid cells to have uniformly random values between min_value and max_value. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00050">50</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00053">53</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
 
 </div>
 </div>
@@ -482,7 +482,7 @@ Protected Attributes</h2></td></tr>
 <p>Initial condition for density field: single non-zero value. </p>
 <p>Set all the grid cells to zero except a single specified cell. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00074">74</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00077">77</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
 
 </div>
 </div>
@@ -500,14 +500,14 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">rng_t &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Set initial condition of Langevin density field grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00008">8</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00011">11</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
 
 </div>
 </div>
@@ -520,7 +520,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void BaseLangevin::integrate_euler </td>
           <td>(</td>
-          <td class="paramtype">rng_t &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -529,7 +529,7 @@ Protected Attributes</h2></td></tr>
 <p>Explicit Euler + stochastic integration + grid update. </p>
 <p>Perform explicit-Euler then stochastic integration steps, and update grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integrate__euler_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__integrate__euler_8cpp_source.html">langevin_integrate_euler.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__euler_8cpp_source.html#l00012">12</a> of file <a class="el" href="langevin__integrate__euler_8cpp_source.html">langevin_integrate_euler.cpp</a>.</p>
 
 </div>
 </div>
@@ -542,7 +542,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void BaseLangevin::integrate_rungekutta </td>
           <td>(</td>
-          <td class="paramtype">rng_t &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -551,7 +551,7 @@ Protected Attributes</h2></td></tr>
 <p>Runge-Kutta + stochastic integration + grid update. </p>
 <p>Runge-Kutta integration of the nonlinear and diffusion terms in the Langevin equation. Update of cells is done in the same loop as last Runge-Kutta step for efficiency. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00012">12</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00015">15</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
 
 </div>
 </div>
@@ -572,7 +572,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const grid_t &amp;</td>          <td class="paramname"><span class="paramname"><em>field</em></span>&#160;) const</td>
+          <td class="paramtype">const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>field</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -599,12 +599,12 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void BaseLangevin::rk_f1 </td>
           <td>(</td>
-          <td class="paramtype">grid_t &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux</em></span>, </td>
+          <td class="paramtype"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">grid_t &amp;</td>          <td class="paramname"><span class="paramname"><em>k1_grid</em></span>, </td>
+          <td class="paramtype"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k1_grid</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -617,7 +617,7 @@ Protected Attributes</h2></td></tr>
 <p>Step #1 of Runge-Kutta integration. </p>
 <p>Runge-Kutta first step. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00033">33</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00036">36</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
 
 </div>
 </div>
@@ -630,17 +630,17 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void BaseLangevin::rk_f2f3 </td>
           <td>(</td>
-          <td class="paramtype">const grid_t &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux_in</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux_in</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">grid_t &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux_out</em></span>, </td>
+          <td class="paramtype"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux_out</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">grid_t &amp;</td>          <td class="paramname"><span class="paramname"><em>k_out</em></span>, </td>
+          <td class="paramtype"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k_out</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -653,7 +653,7 @@ Protected Attributes</h2></td></tr>
 <p>Steps #2 and #3 of Runge-Kutta integration. </p>
 <p>Runge-Kutta second and third steps. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00047">47</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00050">50</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
 
 </div>
 </div>
@@ -666,27 +666,27 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void BaseLangevin::rk_f4_and_stochastic </td>
           <td>(</td>
-          <td class="paramtype">const grid_t &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>density_grid_aux</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const grid_t &amp;</td>          <td class="paramname"><span class="paramname"><em>k1_grid</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k1_grid</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const grid_t &amp;</td>          <td class="paramname"><span class="paramname"><em>k2_grid</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k2_grid</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const grid_t &amp;</td>          <td class="paramname"><span class="paramname"><em>k3_grid</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>k3_grid</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">rng_t &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>, </td>
+          <td class="paramtype"><a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -699,7 +699,7 @@ Protected Attributes</h2></td></tr>
 <p>Step #4 of Runge-Kutta integration + stochastic step. </p>
 <p>Runge-Kutta fourth step and stochastic step, all at once. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00062">62</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00065">65</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
 
 </div>
 </div>
@@ -721,7 +721,7 @@ Protected Attributes</h2></td></tr>
 <p>Method to set Langevin equation coefficients and "lambda" constants. </p>
 <p>Set the Langevin equation coefficients and "lambda" coefficients. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__set__coefficients_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__set__coefficients_8cpp_source.html#l00012">12</a> of file <a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a>.</p>
 
 </div>
 </div>
@@ -743,7 +743,7 @@ Protected Attributes</h2></td></tr>
 <p>Method to set Langevin equation coefficients. </p>
 <p>Set the Langevin equation coefficients. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__set__coefficients_8cpp_source.html#l00017">17</a> of file <a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__set__coefficients_8cpp_source.html#l00020">20</a> of file <a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a>.</p>
 
 </div>
 </div>
@@ -765,7 +765,7 @@ Protected Attributes</h2></td></tr>
 <p>Method to set "lambda" constants. </p>
 <p>Set "lambda" coefficients used in Poisson and gamma sampling. </p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__set__coefficients_8cpp_source.html#l00024">24</a> of file <a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__set__coefficients_8cpp_source.html#l00027">27</a> of file <a class="el" href="langevin__set__coefficients_8cpp_source.html">langevin_set_coefficients.cpp</a>.</p>
 
 </div>
 </div>
@@ -811,7 +811,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">grid_t BaseLangevin::density_grid</td>
+          <td class="memname"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> BaseLangevin::density_grid</td>
         </tr>
       </table>
   </td>
@@ -837,7 +837,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">grid_t BaseLangevin::density_grid_aux1</td>
+          <td class="memname"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> BaseLangevin::density_grid_aux1</td>
         </tr>
       </table>
   </td>
@@ -863,7 +863,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">grid_t BaseLangevin::density_grid_aux2</td>
+          <td class="memname"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> BaseLangevin::density_grid_aux2</td>
         </tr>
       </table>
   </td>
@@ -941,7 +941,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">gamma_dist_t BaseLangevin::gamma_rng</td>
+          <td class="memname"><a class="el" href="langevin__types_8hpp.html#a01980fd92bc6cbecff409f2347b6943f">gamma_dist_t</a> BaseLangevin::gamma_rng</td>
         </tr>
       </table>
   </td>
@@ -967,7 +967,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">grid_wiring_t BaseLangevin::grid_wiring</td>
+          <td class="memname"><a class="el" href="langevin__types_8hpp.html#a91e50f8a8197c0ff83c0f5d2eb78e105">grid_wiring_t</a> BaseLangevin::grid_wiring</td>
         </tr>
       </table>
   </td>
@@ -993,7 +993,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">grid_t BaseLangevin::k1_grid</td>
+          <td class="memname"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> BaseLangevin::k1_grid</td>
         </tr>
       </table>
   </td>
@@ -1019,7 +1019,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">grid_t BaseLangevin::k2_grid</td>
+          <td class="memname"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> BaseLangevin::k2_grid</td>
         </tr>
       </table>
   </td>
@@ -1045,7 +1045,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">grid_t BaseLangevin::k3_grid</td>
+          <td class="memname"><a class="el" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a> BaseLangevin::k3_grid</td>
         </tr>
       </table>
   </td>
@@ -1227,7 +1227,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">normal_dist_t BaseLangevin::normal</td>
+          <td class="memname"><a class="el" href="langevin__types_8hpp.html#a45d7982ecc4c518b8588b3d85e17905f">normal_dist_t</a> BaseLangevin::normal</td>
         </tr>
       </table>
   </td>
@@ -1253,7 +1253,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">poisson_dist_t BaseLangevin::poisson_rng</td>
+          <td class="memname"><a class="el" href="langevin__types_8hpp.html#a601371a69dbc51f3fc6994eba56c47af">poisson_dist_t</a> BaseLangevin::poisson_rng</td>
         </tr>
       </table>
   </td>
@@ -1273,8 +1273,8 @@ Protected Attributes</h2></td></tr>
 <li>src/<a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a></li>
 <li>src/<a class="el" href="langevin__bc_8cpp_source.html">langevin_bc.cpp</a></li>
 <li>src/<a class="el" href="langevin__construct__grid_8cpp_source.html">langevin_construct_grid.cpp</a></li>
-<li>src/<a class="el" href="langevin__grid__1d_8cpp_source.html">langevin_grid_1d.cpp</a></li>
-<li>src/<a class="el" href="langevin__grid__2d_8cpp_source.html">langevin_grid_2d.cpp</a></li>
+<li>src/<a class="el" href="langevin__construct__grid1d_8cpp_source.html">langevin_construct_grid1d.cpp</a></li>
+<li>src/<a class="el" href="langevin__construct__grid2d_8cpp_source.html">langevin_construct_grid2d.cpp</a></li>
 <li>src/<a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a></li>
 <li>src/<a class="el" href="langevin__integrate__euler_8cpp_source.html">langevin_integrate_euler.cpp</a></li>
 <li>src/<a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a></li>

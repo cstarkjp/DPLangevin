@@ -3,7 +3,10 @@
  * @brief Utility methods to process the Langevin field grid.
  */
 
-#include "general_types.hpp"
+#include "langevin_types.hpp"
+#include "langevin_coefficients.hpp"
+#include "langevin_parameters.hpp"
+#include "langevin_base.hpp"
 
 //! Return the Langevin density field grid value at a given "node"
 double BaseLangevin::get_density_grid_value(const int i) const 

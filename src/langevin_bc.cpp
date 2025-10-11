@@ -3,7 +3,10 @@
  * @brief Methods for setting boundary conditions for Langevin model.
  */
 
-#include "general_types.hpp"
+#include "langevin_types.hpp"
+#include "langevin_coefficients.hpp"
+#include "langevin_parameters.hpp"
+#include "langevin_base.hpp"
 
 //! Check that 2x bcs are specified for each grid dimension, one for each edge
 bool BaseLangevin::check_boundary_conditions(const Parameters p)

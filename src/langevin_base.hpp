@@ -6,8 +6,8 @@
 #ifndef BASE_HPP
 #define BASE_HPP
 
-#include "general_coefficients.hpp"
-#include "general_parameters.hpp"
+#include "langevin_coefficients.hpp"
+#include "langevin_parameters.hpp"
 
 /**
  * @details Base class for Langevin equation integrator.
