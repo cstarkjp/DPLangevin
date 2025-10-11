@@ -95,23 +95,23 @@ public:
     void rk_f1(
         grid_t& density_grid_aux, 
         grid_t& k1_grid, 
-        const double dtm
+        const double dtm_fraction
     );
     //! Steps #2 and #3 of Runge-Kutta integration
     void rk_f2f3(
         const grid_t& density_grid_aux_in, 
         grid_t& density_grid_aux_out, 
         grid_t& k_out, 
-        const double dtm
+        const double dtm_fraction
     );
     //! Step #4 of Runge-Kutta integration + stochastic step
-    void rk_f4_and_stochastic(
+    void rk_f4_stochastic(
         const grid_t& density_grid_aux, 
         const grid_t& k1_grid, 
         const grid_t& k2_grid, 
         const grid_t& k3_grid, 
         rng_t& rng, 
-        const double dtm
+        const double dtm_fraction
     );
     //! Explicit Euler + stochastic integration
     void euler_and_stochastic(grid_t &density_grid_aux, rng_t &rng);
