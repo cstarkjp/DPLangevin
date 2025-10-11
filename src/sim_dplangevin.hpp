@@ -1,6 +1,5 @@
 /**
  * @file sim_dplangevin.hpp
- * @brief Class to manage & execute model simulation using the DPLangevin integrator.
  */ 
 
 #ifndef SIMDP_HPP
@@ -9,7 +8,7 @@
 #include "dplangevin.hpp"
 
 /**
- * @brief Class to manage & execute model simulation using the DPLangevin integrator.
+ * @brief Class that manages simulation of DPLangevin equation.
  *
  * Class to manage & execute model simulation using an instances of 
  * the DPLangevin integrator class, the Coefficients struct, and the 
@@ -56,7 +55,7 @@ private:
 
     //! Count upcoming number of epochs by running a dummy time-stepping loop
     int count_epochs() const;
-    //! Choose integrator function implementing RK or Euler
+    //! Chooses function implementing either Runge-Kutta or Euler integration methods
     bool choose_integrator();
     //! Perform Dornic-type integration of the DP Langevin equation for `n_next_epochs`
     bool integrate(const int n_next_epochs);

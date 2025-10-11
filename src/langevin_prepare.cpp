@@ -1,5 +1,5 @@
 /**
- * @file langevin_set_coefficients.cpp
+ * @file langevin_prepare.cpp
  * @brief Methods for setting the main Langevin model equation coefficients.
  */
 
@@ -9,7 +9,7 @@
 #include "langevin_base.hpp"
 
 //! Set the Langevin equation coefficients and "lambda" coefficients
-void BaseLangevin::set_coefficients(const Coefficients &coefficients)
+void BaseLangevin::prepare(const Coefficients &coefficients)
 {
     set_essential_coefficients(coefficients);
     set_nonlinear_coefficients(coefficients);
