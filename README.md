@@ -84,8 +84,8 @@ If your platform is not explicitly supported with a pre-built binary, the follow
 
 Be aware that this takes a **long** time, because it recompiles pretty much everything needed.
     
-The package can also be compiled "by hand."
-Build info is provided in [`src/`](https://github.com/cstarkjp/DPLangevin/tree/main/src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), using [pybind11](https://pybind11.readthedocs.io/en/stable/) as the C++ wrapper. 
+The package can also be built "by hand."
+Some build info is provided in [`src/`](https://github.com/cstarkjp/DPLangevin/tree/main/src/README.md) directory. The build system is [meson-python](https://mesonbuild.com/meson-python/), using [pybind11](https://pybind11.readthedocs.io/en/stable/) as the C++ wrapper. 
 
 
 ## Usage
