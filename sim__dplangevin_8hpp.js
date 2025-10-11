@@ -1,4 +1,4 @@
-var application__dpsim_8hpp =
+var sim__dplangevin_8hpp =
 [
     [ "SimDP", "classSimDP.html", "classSimDP" ]
 ];
