@@ -137,11 +137,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8fef75bdcc3f916511d559b779e29a2b" id="r_a8fef75bdcc3f916511d559b779e29a2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fef75bdcc3f916511d559b779e29a2b">integrate_euler</a> (rng_t &amp;rng)</td></tr>
 <tr class="memdesc:a8fef75bdcc3f916511d559b779e29a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit Euler + stochastic integration + grid update.  <br /></td></tr>
 <tr class="memitem:a62818fe4718c652811079b9d662786aa" id="r_a62818fe4718c652811079b9d662786aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62818fe4718c652811079b9d662786aa">rk_f1</a> (grid_t &amp;density_grid_aux, grid_t &amp;<a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a>, const double dtm)</td></tr>
-<tr class="memdesc:a62818fe4718c652811079b9d662786aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Part #1 of Runge-Kutta integration step.  <br /></td></tr>
+<tr class="memdesc:a62818fe4718c652811079b9d662786aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step #1 of Runge-Kutta integration.  <br /></td></tr>
 <tr class="memitem:a3db9361d9b3b37d94674e4d64ed04728" id="r_a3db9361d9b3b37d94674e4d64ed04728"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3db9361d9b3b37d94674e4d64ed04728">rk_f2f3</a> (const grid_t &amp;density_grid_aux_in, grid_t &amp;density_grid_aux_out, grid_t &amp;k_out, const double dtm)</td></tr>
-<tr class="memdesc:a3db9361d9b3b37d94674e4d64ed04728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parts #2 and #3 of Runge-Kutta integration step.  <br /></td></tr>
+<tr class="memdesc:a3db9361d9b3b37d94674e4d64ed04728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steps #2 and #3 of Runge-Kutta integration.  <br /></td></tr>
 <tr class="memitem:a92fd3d74e435b8f52305255670550a1b" id="r_a92fd3d74e435b8f52305255670550a1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92fd3d74e435b8f52305255670550a1b">rk_f4_and_stochastic</a> (const grid_t &amp;density_grid_aux, const grid_t &amp;<a class="el" href="#ac7e29d9da1474a95cc33b172711d8075">k1_grid</a>, const grid_t &amp;<a class="el" href="#ae90291c345f2e38d7cf9a2ade6ccd7cd">k2_grid</a>, const grid_t &amp;<a class="el" href="#af1e69fe1571999dc28977505b86f3fce">k3_grid</a>, rng_t &amp;rng, const double dtm)</td></tr>
-<tr class="memdesc:a92fd3d74e435b8f52305255670550a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Part #4 of Runge-Kutta integration step + stochastic step.  <br /></td></tr>
+<tr class="memdesc:a92fd3d74e435b8f52305255670550a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step #4 of Runge-Kutta integration + stochastic step.  <br /></td></tr>
 <tr class="memitem:af9c67421866ccb50aa3aecfa78a48f05" id="r_af9c67421866ccb50aa3aecfa78a48f05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9c67421866ccb50aa3aecfa78a48f05">euler_and_stochastic</a> (grid_t &amp;density_grid_aux, rng_t &amp;rng)</td></tr>
 <tr class="memdesc:af9c67421866ccb50aa3aecfa78a48f05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit Euler + stochastic integration.  <br /></td></tr>
 <tr class="memitem:a8e997a82e0660b7795005f4771350e17" id="r_a8e997a82e0660b7795005f4771350e17"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e997a82e0660b7795005f4771350e17">get_density_grid_value</a> (const int) const</td></tr>
@@ -614,7 +614,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Part #1 of Runge-Kutta integration step. </p>
+<p>Step #1 of Runge-Kutta integration. </p>
 <p>Runge-Kutta first step. </p>
 
 <p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00033">33</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
@@ -650,7 +650,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Parts #2 and #3 of Runge-Kutta integration step. </p>
+<p>Steps #2 and #3 of Runge-Kutta integration. </p>
 <p>Runge-Kutta second and third steps. </p>
 
 <p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00047">47</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>
@@ -696,7 +696,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Part #4 of Runge-Kutta integration step + stochastic step. </p>
+<p>Step #4 of Runge-Kutta integration + stochastic step. </p>
 <p>Runge-Kutta fourth step and stochastic step, all at once. </p>
 
 <p class="definition">Definition at line <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html#l00062">62</a> of file <a class="el" href="langevin__integrate__rungekutta_8cpp_source.html">langevin_integrate_rungekutta.cpp</a>.</p>

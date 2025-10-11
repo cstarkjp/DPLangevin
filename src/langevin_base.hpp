@@ -91,20 +91,20 @@ public:
     void integrate_rungekutta(rng_t& rng);
     //! Explicit Euler + stochastic integration + grid update
     void integrate_euler(rng_t& rng);
-    //! Part #1 of Runge-Kutta integration step
+    //! Step #1 of Runge-Kutta integration
     void rk_f1(
         grid_t& density_grid_aux, 
         grid_t& k1_grid, 
         const double dtm
     );
-    //! Parts #2 and #3 of Runge-Kutta integration step
+    //! Steps #2 and #3 of Runge-Kutta integration
     void rk_f2f3(
         const grid_t& density_grid_aux_in, 
         grid_t& density_grid_aux_out, 
         grid_t& k_out, 
         const double dtm
     );
-    //! Part #4 of Runge-Kutta integration step + stochastic step
+    //! Step #4 of Runge-Kutta integration + stochastic step
     void rk_f4_and_stochastic(
         const grid_t& density_grid_aux, 
         const grid_t& k1_grid, 
