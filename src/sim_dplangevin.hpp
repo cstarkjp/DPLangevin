@@ -1,5 +1,6 @@
 /**
  * @file sim_dplangevin.hpp
+ * @brief Class that manages simulation of DPLangevin equation.
  */ 
 
 #ifndef SIMDP_HPP
