@@ -11,7 +11,7 @@
 /**
  * @brief Class that manages simulation of DPLangevin equation.
  *
- * Class to manage & execute model simulation using an instances of 
+ * Manages & executes model simulation using instances of 
  * the DPLangevin integrator class, the Coefficients struct, and the 
  * Parameters struct.
  */

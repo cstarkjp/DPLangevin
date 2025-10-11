@@ -7,11 +7,6 @@
 #include <pybind11/numpy.h>
 // Essential for STL container conversions
 #include <pybind11/stl.h> 
-#include "langevin_types.hpp"
-#include "langevin_coefficients.hpp"
-#include "langevin_parameters.hpp"
-#include "langevin_base.hpp"
-#include "dplangevin.hpp"
 #include "sim_dplangevin.hpp"
 
 /**
@@ -30,7 +25,7 @@
  */
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__version__") = "2025.10.11a4";
+    module.attr("__version__") = "2025.10.11a5";
     module.doc() = 
         "Operator-splitting method of integrating DP-type Langevin equations"; 
   
