@@ -1,6 +1,6 @@
 /**
- * @file general_core.hpp
- * @brief Core definitions for BaseLangevin integrator.
+ * @file general_types.hpp
+ * @brief Type definitions for BaseLangevin integrator.
  */
 
 #ifndef CORE_HPP
