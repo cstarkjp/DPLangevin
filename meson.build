@@ -20,9 +20,9 @@ cpp_sources = files(
     'src/langevin_integrate_rungekutta.cpp', 
     'src/langevin_integrate_euler.cpp', 
     'src/langevin_utilities.cpp', 
-    'src/application_dplangevin.cpp', 
-    'src/application_dpsim_public.cpp', 
-    'src/application_dpsim_private.cpp', 
+    'src/dplangevin.cpp', 
+    'src/sim_dplangevin.cpp', 
+    'src/sim_dplangevin_private.cpp', 
     'src/wrapper_pybind.cpp'
 )
 

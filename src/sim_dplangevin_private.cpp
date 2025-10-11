@@ -1,5 +1,5 @@
 /**
- * @file application_dpsim_private.cpp
+ * @file sim_dplangevin_private.cpp
  * @brief Class to manage & run DPLangevin model simulation: private methods.
  */ 
 
@@ -7,7 +7,7 @@
 #include "langevin_coefficients.hpp"
 #include "langevin_parameters.hpp"
 #include "langevin_base.hpp"
-#include "application_dpsim.hpp"
+#include "sim_dplangevin.hpp"
 
 
 //! Count total number of time steps, just in case rounding causes problems

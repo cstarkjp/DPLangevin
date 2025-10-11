@@ -1,5 +1,5 @@
 /**
- * @file application_dplangevin.cpp
+ * @file dplangevin.cpp
  * @brief Redefinition of BaseLangevin constructor; implementation of stub methods.
  */
 
@@ -10,7 +10,7 @@
 #include "langevin_parameters.hpp"
 #include "langevin_base.hpp"
 
-#include "application_dplangevin.hpp"
+#include "dplangevin.hpp"
 
 /**
  * @brief Redefinition of BaseLangevin class constructor

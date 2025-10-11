@@ -11,8 +11,8 @@
 #include "langevin_coefficients.hpp"
 #include "langevin_parameters.hpp"
 #include "langevin_base.hpp"
-#include "application_dplangevin.hpp"
-#include "application_dpsim.hpp"
+#include "dplangevin.hpp"
+#include "sim_dplangevin.hpp"
 
 /**
  * @details Pybind11 wrapper between C++ and Python for SimDP application.

@@ -1,10 +1,7 @@
 var dir_68267d1309a1af8e8297ef4c3efbcdba =
 [
-    [ "application_dplangevin.cpp", "application__dplangevin_8cpp.html", null ],
-    [ "application_dplangevin.hpp", "application__dplangevin_8hpp.html", "application__dplangevin_8hpp" ],
-    [ "application_dpsim.hpp", "application__dpsim_8hpp.html", "application__dpsim_8hpp" ],
-    [ "application_dpsim_private.cpp", "application__dpsim__private_8cpp.html", null ],
-    [ "application_dpsim_public.cpp", "application__dpsim__public_8cpp.html", null ],
+    [ "dplangevin.cpp", "dplangevin_8cpp.html", null ],
+    [ "dplangevin.hpp", "dplangevin_8hpp.html", "dplangevin_8hpp" ],
     [ "langevin_base.hpp", "langevin__base_8hpp.html", "langevin__base_8hpp" ],
     [ "langevin_bc.cpp", "langevin__bc_8cpp.html", null ],
     [ "langevin_coefficients.hpp", "langevin__coefficients_8hpp.html", "langevin__coefficients_8hpp" ],
@@ -19,5 +16,8 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "langevin_set_coefficients.cpp", "langevin__set__coefficients_8cpp.html", null ],
     [ "langevin_types.hpp", "langevin__types_8hpp.html", "langevin__types_8hpp" ],
     [ "langevin_utilities.cpp", "langevin__utilities_8cpp.html", null ],
+    [ "sim_dplangevin.cpp", "sim__dplangevin_8cpp.html", null ],
+    [ "sim_dplangevin.hpp", "sim__dplangevin_8hpp.html", "sim__dplangevin_8hpp" ],
+    [ "sim_dplangevin_private.cpp", "sim__dplangevin__private_8cpp.html", null ],
     [ "wrapper_pybind.cpp", "wrapper__pybind_8cpp.html", "wrapper__pybind_8cpp" ]
 ];

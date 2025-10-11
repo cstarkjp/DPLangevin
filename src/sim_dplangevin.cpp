@@ -1,5 +1,5 @@
 /**
- * @file application_dpsim_public.cpp
+ * @file sim_dplangevin.cpp
  * @brief Class to manage & run DPLangevin model simulation: public methods.
  */ 
 
@@ -7,7 +7,7 @@
 #include "langevin_coefficients.hpp"
 #include "langevin_parameters.hpp"
 #include "langevin_base.hpp"
-#include "application_dpsim.hpp"
+#include "sim_dplangevin.hpp"
 
 SimDP::SimDP(
     const double linear, const double quadratic,

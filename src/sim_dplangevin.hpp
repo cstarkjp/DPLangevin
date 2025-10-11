@@ -1,12 +1,12 @@
 /**
- * @file application_dpsim.hpp
+ * @file sim_dplangevin.hpp
  * @brief Class to manage & execute model simulation using the DPLangevin integrator.
  */ 
 
 #ifndef SIMDP_HPP
 #define SIMDP_HPP
 
-#include "application_dplangevin.hpp"
+#include "dplangevin.hpp"
 
 /**
  * @brief Class to manage & execute model simulation using the DPLangevin integrator.

@@ -1,5 +1,5 @@
 /**
- * @file application_dplangevin.hpp
+ * @file dplangevin.hpp
  * @brief DPLangevin model application of BaseLangevin class integrator.
  */
 
