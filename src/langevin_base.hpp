@@ -78,7 +78,7 @@ public:
     //! Initial condition for density field: single non-zero value
     void ic_single_seed(const int i, const double value=1.0);
     //! Method to set Langevin equation coefficients and "lambda" constants
-    void set_coefficients(const Coefficients& coefficients);
+    void prepare(const Coefficients& coefficients);
     //! Method to set Langevin equation coefficients
     void set_essential_coefficients(const Coefficients& coefficients);
     //! Method to set "lambda" constants

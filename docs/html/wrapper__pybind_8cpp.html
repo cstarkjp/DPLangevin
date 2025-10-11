@@ -92,7 +92,7 @@ $(function(){initNavTree('wrapper__pybind_8cpp.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Pybind11 wrapper between C++ and Python for <a class="el" href="class_sim_d_p.html" title="Class to manage &amp; execute model simulation using the DPLangevin integrator.">SimDP</a> application class.  
+<p>Pybind11 wrapper between C++ and Python for <a class="el" href="class_sim_d_p.html" title="Class that manages simulation of DPLangevin equation.">SimDP</a> application class.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;pybind11/numpy.h&gt;</code><br />
 <code>#include &lt;pybind11/stl.h&gt;</code><br />
@@ -100,7 +100,7 @@ $(function(){initNavTree('wrapper__pybind_8cpp.html','',''); });
 <code>#include &quot;<a class="el" href="langevin__coefficients_8hpp_source.html">langevin_coefficients.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="langevin__parameters_8hpp_source.html">langevin_parameters.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="dplangevin_8hpp_source.html">dplangevin.hpp</a>&quot;</code><br />
+<code>#include &quot;dplangevin.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="sim__dplangevin_8hpp_source.html">sim_dplangevin.hpp</a>&quot;</code><br />
 </div>
 <p><a href="wrapper__pybind_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -110,7 +110,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a260583c98d3e428eb1fc79bf477e2528" id="r_a260583c98d3e428eb1fc79bf477e2528"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a260583c98d3e428eb1fc79bf477e2528">PYBIND11_MODULE</a> (dplvn, module)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Pybind11 wrapper between C++ and Python for <a class="el" href="class_sim_d_p.html" title="Class to manage &amp; execute model simulation using the DPLangevin integrator.">SimDP</a> application class. </p>
+<div class="textblock"><p>Pybind11 wrapper between C++ and Python for <a class="el" href="class_sim_d_p.html" title="Class that manages simulation of DPLangevin equation.">SimDP</a> application class. </p>
 
 <p class="definition">Definition in file <a class="el" href="wrapper__pybind_8cpp_source.html">wrapper_pybind.cpp</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
@@ -132,8 +132,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Pybind11 wrapper between C++ and Python for <a class="el" href="class_sim_d_p.html" title="Class to manage &amp; execute model simulation using the DPLangevin integrator.">SimDP</a> application.</p>
-<p>Binder exposing the <span class="tt">dplvn</span> module to Python, enabling instantiation of the <a class="el" href="class_sim_d_p.html" title="Class to manage &amp; execute model simulation using the DPLangevin integrator.">SimDP</a> class, and exchange of model parameters and simulation data results. This class exploits the <a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of BaseLangevin class integrator.">DPLangevin</a> integrator, which itself is a subclass of the more general <a class="el" href="class_base_langevin.html" title="Base class for Langevin equation integrator.">BaseLangevin</a> integration scheme.</p>
+<p>Pybind11 wrapper between C++ and Python for <a class="el" href="class_sim_d_p.html" title="Class that manages simulation of DPLangevin equation.">SimDP</a> application.</p>
+<p>Binder exposing the <span class="tt">dplvn</span> module to Python, enabling instantiation of the <a class="el" href="class_sim_d_p.html" title="Class that manages simulation of DPLangevin equation.">SimDP</a> class, and exchange of model parameters and simulation data results. This class exploits the <a class="el" href="class_d_p_langevin.html" title="DPLangevin model application of BaseLangevin class integrator.">DPLangevin</a> integrator, which itself is a subclass of the more general <a class="el" href="class_base_langevin.html" title="Base class for Langevin equation integrator.">BaseLangevin</a> integration scheme.</p>
 <p>This macro expands the parameter <span class="tt">"dplvn"</span> into <span class="tt">pybind11_exec_dplvn</span> and generates the function <span class="tt">pybind11_init_dplvn</span> among others.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

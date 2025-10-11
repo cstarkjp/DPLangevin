@@ -11,7 +11,7 @@ var searchData=
   ['langevin_5fintegrate_5feuler_2ecpp_8',['langevin_integrate_euler.cpp',['../langevin__integrate__euler_8cpp.html',1,'']]],
   ['langevin_5fintegrate_5frungekutta_2ecpp_9',['langevin_integrate_rungekutta.cpp',['../langevin__integrate__rungekutta_8cpp.html',1,'']]],
   ['langevin_5fparameters_2ehpp_10',['langevin_parameters.hpp',['../langevin__parameters_8hpp.html',1,'']]],
-  ['langevin_5fset_5fcoefficients_2ecpp_11',['langevin_set_coefficients.cpp',['../langevin__set__coefficients_8cpp.html',1,'']]],
+  ['langevin_5fprepare_2ecpp_11',['langevin_prepare.cpp',['../langevin__prepare_8cpp.html',1,'']]],
   ['langevin_5ftypes_2ehpp_12',['langevin_types.hpp',['../langevin__types_8hpp.html',1,'']]],
   ['langevin_5futilities_2ecpp_13',['langevin_utilities.cpp',['../langevin__utilities_8cpp.html',1,'']]]
 ];

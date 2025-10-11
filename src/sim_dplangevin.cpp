@@ -1,6 +1,5 @@
 /**
  * @file sim_dplangevin.cpp
- * @brief Class to manage & run DPLangevin model simulation: public methods.
  */ 
 
 #include "langevin_types.hpp"
@@ -9,7 +8,10 @@
 #include "langevin_base.hpp"
 #include "sim_dplangevin.hpp"
 
-SimDP::SimDP(
+/**
+ * @details Constructor for class that manages simulation of DP Langevin equations.
+ */
+ SimDP::SimDP(
     const double linear, const double quadratic,
     const double diffusion, const double noise, 
     const double t_final, 
@@ -45,6 +47,10 @@ SimDP::SimDP(
     p.print();
 }
 
+//! Method to be called first to set up simulation: 
+//! a grid is constructed; initial conditions are applied; 
+//! the Langevin equation is prepared; the zeroth-epoch 
+//! solution state is recorded (after applying boundary conditions).
 bool SimDP::initialize()
 {
     if (not dpLangevin->construct_grid(p)) { 
@@ -59,7 +65,7 @@ bool SimDP::initialize()
             << std::endl;
         return false; 
     }
-    dpLangevin->set_coefficients(coefficients);
+    dpLangevin->prepare(coefficients);
     n_epochs = count_epochs();
     t_epochs = dbl_vec_t(n_epochs, 0.0);
     mean_densities = dbl_vec_t(n_epochs, 0.0);
@@ -67,20 +73,24 @@ bool SimDP::initialize()
     // So after initialization, we are nominally at epoch#1
     i_next_epoch = 1;
     t_next_epoch = p.dt;
-    if (not dpLangevin->check_boundary_conditions(p))
-    {
-        std::cout << "Failure: wrong number of boundary conditions" << std::endl;
-        return false;
-    }
     if (not choose_integrator())
     { 
         std::cout << "Failure: unable to choose integrator" << std::endl;
         return false; 
     }        
+    if (not dpLangevin->check_boundary_conditions(p))
+    {
+        std::cout << "Failure: wrong number of boundary conditions" << std::endl;
+        return false;
+    }
     is_initialized = true;
     return is_initialized;
 }
 
+//! Method to carry out a set of integration steps; can be rerun repeatedly
+//! to allow segmentation of the overall simulation and 
+//! to allow return of the density grid state to Python 
+//! as a series of time slices.
 bool SimDP::run(const int n_next_epochs)
 {
     if (not is_initialized) 
@@ -92,6 +102,9 @@ bool SimDP::run(const int n_next_epochs)
     return did_integrate;
 }
 
+//! Method to be called only once the simulation is complete: 
+//! for a segmented simulation, this method should only be called
+//! after the final segment is run.
 bool SimDP::postprocess()
 {
     if (not is_initialized) 
@@ -104,13 +117,3 @@ bool SimDP::postprocess()
     ); 
     return did_process;
 }
-
-int SimDP::get_n_epochs() const { return n_epochs; }
-int SimDP::get_i_current_epoch() const { return i_current_epoch; }
-int SimDP::get_i_next_epoch() const { return i_next_epoch; }
-double SimDP::get_t_current_epoch() const { return t_current_epoch; }
-double SimDP::get_t_next_epoch() const { return t_next_epoch; }
-py_array_t SimDP::get_t_epochs() const { return pyarray_t_epochs; }
-py_array_t SimDP::get_mean_densities() const { return pyarray_mean_densities; }
-py_array_t SimDP::get_density() const { return pyarray_density; }
-

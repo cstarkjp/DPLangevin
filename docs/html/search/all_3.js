@@ -13,7 +13,6 @@ var searchData=
   ['dplangevin_10',['DPLangevin',['../class_d_p_langevin.html',1,'DPLangevin'],['../class_d_p_langevin.html#ab247d7d45790cb3424be312401357140',1,'DPLangevin::DPLangevin()=default'],['../class_d_p_langevin.html#a7c96523be07813456dc2803557b00daf',1,'DPLangevin::DPLangevin(Parameters p)']]],
   ['dplangevin_11',['dpLangevin',['../class_sim_d_p.html#acac8c8a804fd120accc46154c9812add',1,'SimDP']]],
   ['dplangevin_2ecpp_12',['dplangevin.cpp',['../dplangevin_8cpp.html',1,'']]],
-  ['dplangevin_2ehpp_13',['dplangevin.hpp',['../dplangevin_8hpp.html',1,'']]],
-  ['dt_14',['dt',['../class_base_langevin.html#a1b8bdbfd68c3b74071b766df64691719',1,'BaseLangevin']]],
-  ['dx_15',['dx',['../class_base_langevin.html#af6e164344c350fdfee62c9a49d6ed1fc',1,'BaseLangevin']]]
+  ['dt_13',['dt',['../class_base_langevin.html#a1b8bdbfd68c3b74071b766df64691719',1,'BaseLangevin']]],
+  ['dx_14',['dx',['../class_base_langevin.html#af6e164344c350fdfee62c9a49d6ed1fc',1,'BaseLangevin']]]
 ];
