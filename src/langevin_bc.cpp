@@ -3,7 +3,7 @@
  * @brief Methods for setting boundary conditions for Langevin model.
  */
 
-#include "general_core.hpp"
+#include "general_types.hpp"
 
 //! Check that 2x bcs are specified for each grid dimension, one for each edge
 bool BaseLangevin::check_boundary_conditions(const Parameters p)
@@ -21,7 +21,7 @@ bool BaseLangevin::check_boundary_conditions(const Parameters p)
     }
 }
 
-//! Set grid cells to have uniformly random values between min_value and max_value
+//! Apply boundary conditions along each edge in turn 
 void BaseLangevin::apply_boundary_conditions(const Parameters p)
 {
     auto i_from_xy = [&](int x, int y) -> int { return x + y*p.n_x; };

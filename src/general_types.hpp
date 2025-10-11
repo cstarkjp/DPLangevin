@@ -52,13 +52,4 @@ namespace py = pybind11;
 //! Type for Python arrays of doubles
 typedef py::array_t<double, py::array::c_style> py_array_t;
 
-//! Option to approximate Poisson distribution using Gaussian for large means
-#ifndef APPROXIMATE_POISSON_DISTBN
-#define APPROXIMATE_POISSON_DISTBN false
-//! Threshold mean value above which Gaussian approximation should be used
-#ifndef MU_THRESHOLD
-#define MU_THRESHOLD 100.0
-#endif
-#endif
-
 #endif

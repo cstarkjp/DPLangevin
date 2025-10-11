@@ -3,7 +3,7 @@
  * @brief Class to manage & run DPLangevin model simulation: public methods.
  */ 
 
-#include "general_core.hpp"
+#include "general_types.hpp"
 #include "application_dpsim.hpp"
 
 SimDP::SimDP(
@@ -44,13 +44,13 @@ SimDP::SimDP(
 
 bool SimDP::initialize()
 {
-    if (not construct_grid()) { 
+    if (not dpLangevin->construct_grid(p)) { 
         std::cout 
             << "SimDP::initialize failure: couldn't construct grid" 
             << std::endl;
         return false; 
     }
-    if (not initialize_grid()) { 
+    if (not dpLangevin->initialize_grid(p, *rng)) { 
         std::cout 
             << "SimDP::initialize failure: couldn't initialize grid" 
             << std::endl;
@@ -97,7 +97,7 @@ bool SimDP::postprocess()
         return false; 
     }
     bool did_process = (
-        prep_density_grid() and prep_t_epochs() and prep_mean_densities() 
+        pyprep_density_grid() and pyprep_t_epochs() and pyprep_mean_densities() 
     ); 
     return did_process;
 }

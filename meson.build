@@ -5,17 +5,18 @@
 project(
     'DPLangevin',
     'cpp',
-    version: '2025.10.10a3',
+    version: '2025.10.11a0',
     default_options: ['cpp_std=c++11'],
 )
 add_project_arguments('-Ofast', '-g3', language : 'cpp')
 
 cpp_sources = files(
+    'src/langevin_construct_grid.cpp', 
     'src/langevin_grid_1d.cpp', 
     'src/langevin_grid_2d.cpp', 
-    'src/langevin_set_coefficients.cpp', 
     'src/langevin_ic.cpp', 
     'src/langevin_bc.cpp', 
+    'src/langevin_set_coefficients.cpp', 
     'src/langevin_integrate_rungekutta.cpp', 
     'src/langevin_integrate_euler.cpp', 
     'src/langevin_utilities.cpp', 

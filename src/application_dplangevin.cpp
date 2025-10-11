@@ -5,7 +5,7 @@
 
 #include <pybind11/numpy.h>
 #include <string>
-#include "general_core.hpp"
+#include "general_types.hpp"
 #include "application_dplangevin.hpp"
 
 /**
@@ -15,8 +15,8 @@ DPLangevin::DPLangevin(Parameters p)
 {
     n_cells = p.n_cells;
     density_grid = grid_t(n_cells, 0.0); 
-    density_grid_aux_new = grid_t(n_cells);
-    density_grid_aux_old = grid_t(n_cells);
+    density_grid_aux2 = grid_t(n_cells);
+    density_grid_aux1 = grid_t(n_cells);
     k1_grid = grid_t(n_cells, 0.0);
     k2_grid = grid_t(n_cells, 0.0);
     k3_grid = grid_t(n_cells, 0.0);

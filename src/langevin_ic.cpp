@@ -3,7 +3,48 @@
  * @brief Methods for setting up the initial condition of the Langevin model.
  */
 
-#include "general_core.hpp"
+#include "general_types.hpp"
+
+bool BaseLangevin::initialize_grid(const Parameters p, rng_t& rng)
+{
+    int i_cell;
+    switch (p.initial_condition)
+    {
+        case (InitialCondition::RANDOM_GAUSSIAN):
+            ic_random_uniform(rng);
+            return true;
+        case (InitialCondition::CONSTANT_VALUE):
+            ic_constant_value(p.ic_values.at(0));
+            return true;
+        case (InitialCondition::SINGLE_SEED):
+            if (p.grid_dimension==GridDimension::D1)
+            {
+                i_cell = ( static_cast<int>(p.ic_values.at(1)) );
+                if (i_cell<0 or i_cell>=p.n_x) { return false; }
+            } 
+            else if (p.grid_dimension==GridDimension::D2)
+            {
+                i_cell = (static_cast<int>(p.ic_values.at(1))
+                        + static_cast<int>(p.ic_values.at(2))*p.n_x);
+                if (i_cell<0 or i_cell>=p.n_x*p.n_y) { return false; }
+            } 
+            else if (p.grid_dimension==GridDimension::D3)
+            {
+                return false;
+            } 
+            else 
+            { 
+                return false; 
+            }
+            ic_single_seed(i_cell, p.ic_values.at(0));
+            return true;
+        case (InitialCondition::RANDOM_UNIFORM):
+            ic_random_uniform(rng);
+            return true;
+        default:
+            return false;
+    }  
+}
 
 //! Set grid cells to have uniformly random values between min_value and max_value
 void BaseLangevin::ic_random_uniform(

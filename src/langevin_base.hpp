@@ -52,31 +52,35 @@ protected:
     //! Runge-Kutta variable grid #3
     grid_t k3_grid;
     //! Temporary density grid used to perform an integration step
-    grid_t density_grid_aux_old;
+    grid_t density_grid_aux1;
     //! Temporary density grid used to perform an integration step
-    grid_t density_grid_aux_new;
+    grid_t density_grid_aux2;
 
 public:
     //! Default constructor
     BaseLangevin() = default;
+    //! Construct Langevin density field grid of appropriate n-D dimension
+    bool construct_grid(const Parameters parameters);
     //! Build 1d Langevin density field grid & topology
     bool construct_1D_grid(const Parameters parameters);
     //! Build 2d Langevin density field grid & mixed topology
     bool construct_2D_grid(const Parameters parameters);
     //! Initial condition for density field: uniformly random
     void ic_random_uniform(
-        rng_t &rng, 
+        rng_t& rng, 
         const double min_value=0.0, 
         const double max_value=1.0
     );
+    //! Set initial condition of Langevin density field grid
+    bool initialize_grid(const Parameters parameters, rng_t& rng);
     //! Initial condition for density field: uniformly constant
     void ic_constant_value(const double density_value=1.0);
     //! Initial condition for density field: single non-zero value
     void ic_single_seed(const int i, const double value=1.0);
     //! Method to set Langevin equation coefficients and "lambda" constants
-    void set_coefficients(const Coefficients &coefficients);
+    void set_coefficients(const Coefficients& coefficients);
     //! Method to set Langevin equation coefficients
-    void set_essential_coefficients(const Coefficients &coefficients);
+    void set_essential_coefficients(const Coefficients& coefficients);
     //! Method to set "lambda" constants
     void set_lambdas();
     //! Check we have 2N boundary conditions for an N-dimensional grid
@@ -84,25 +88,30 @@ public:
     //! Set density field values only the grid edges per bc specs
     void apply_boundary_conditions(const Parameters parameters);
     //! Runge-Kutta + stochastic integration + grid update
-    void integrate_rungekutta(rng_t &rng);
+    void integrate_rungekutta(rng_t& rng);
     //! Explicit Euler + stochastic integration + grid update
-    void integrate_euler(rng_t &rng);
-    //! Part #1 of Runge-Kutta integration step
-    void rk_f1(grid_t &density_grid_aux, grid_t &k1_grid);
-    //! Parts #2 and #3 of Runge-Kutta integration step
-    void rk_f2f3(
-        const grid_t &density_grid_aux_old, 
-        grid_t &density_grid_aux_new, 
-        grid_t &k_out, 
-        const double dt_in
+    void integrate_euler(rng_t& rng);
+    //! Step #1 of Runge-Kutta integration
+    void rk_f1(
+        grid_t& density_grid_aux, 
+        grid_t& k1_grid, 
+        const double dtm
     );
-    //! Part #4 of Runge-Kutta integration step + stochastic step
+    //! Steps #2 and #3 of Runge-Kutta integration
+    void rk_f2f3(
+        const grid_t& density_grid_aux_in, 
+        grid_t& density_grid_aux_out, 
+        grid_t& k_out, 
+        const double dtm
+    );
+    //! Step #4 of Runge-Kutta integration + stochastic step
     void rk_f4_and_stochastic(
-        const grid_t &density_grid_aux_old, 
-        const grid_t &k1_grid, 
-        const grid_t &k2_grid, 
-        const grid_t &k3_grid, 
-        rng_t &rng
+        const grid_t& density_grid_aux, 
+        const grid_t& k1_grid, 
+        const grid_t& k2_grid, 
+        const grid_t& k3_grid, 
+        rng_t& rng, 
+        const double dtm
     );
     //! Explicit Euler + stochastic integration
     void euler_and_stochastic(grid_t &density_grid_aux, rng_t &rng);
