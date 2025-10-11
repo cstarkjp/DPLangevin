@@ -3,7 +3,7 @@
  * @brief Methods to carry out integration by explicit-Euler time-stepping.
  */ 
 
-#include "general_core.hpp"
+#include "general_types.hpp"
 
 //! Perform explicit-Euler then stochastic integration steps, and update grid
 void BaseLangevin::integrate_euler(rng_t &rng)

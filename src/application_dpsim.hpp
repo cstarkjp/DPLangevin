@@ -53,10 +53,6 @@ private:
     //! Flag whether simulation has been initialized or not
     bool is_initialized = false;
 
-    //! Construct Langevin density field grid of appropriate n-D dimension
-    bool construct_grid();
-    //! Set initial condition of Langevin density field grid
-    bool initialize_grid();
     //! Count upcoming number of epochs by running a dummy time-stepping loop
     int count_epochs() const;
     //! Choose integrator function implementing RK or Euler
@@ -64,11 +60,11 @@ private:
     //! Perform Dornic-type integration of the DP Langevin equation for `n_next_epochs`
     bool integrate(const int n_next_epochs);
     //! Generate a Python-compatible version of the epochs time-series vector
-    bool prep_t_epochs();
+    bool pyprep_t_epochs();
     //! Generate a Python-compatible version of the mean densities time-series vector
-    bool prep_mean_densities();
+    bool pyprep_mean_densities();
     //! Generate a Python-compatible version of the current density grid
-    bool prep_density_grid();
+    bool pyprep_density_grid();
 
 public:
     //! Constructor

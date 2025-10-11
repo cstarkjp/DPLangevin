@@ -3,12 +3,12 @@
  * @brief Method for setting up a 1D grid for the model Langevin field.
  */
 
-#include "general_core.hpp"
+#include "general_types.hpp"
 
 //! Construct 1D density field ρ(x,t) grid and corresponding cell-cell topologies
-bool BaseLangevin::construct_1D_grid(const Parameters parameters)
+bool BaseLangevin::construct_1D_grid(const Parameters p)
 {
-    const auto n_x = parameters.n_x;
+    const auto n_x = p.n_x;
     grid_wiring = grid_wiring_t(n_x, neighborhood_t(2));
 
     // Everywhere except the grid ends
@@ -20,7 +20,7 @@ bool BaseLangevin::construct_1D_grid(const Parameters parameters)
     }
 
     // Grid ends
-    switch (parameters.grid_topologies.at(0))
+    switch (p.grid_topologies.at(0))
     {
         case GridTopology::PERIODIC:
             // Each end cell neighbor is the other end cell, so wrap the indexes

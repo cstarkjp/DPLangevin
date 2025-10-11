@@ -5,7 +5,7 @@
 
 #include <pybind11/numpy.h>
 #include <string>
-#include "general_core.hpp"
+#include "general_types.hpp"
 #include "application_dplangevin.hpp"
 
 /**

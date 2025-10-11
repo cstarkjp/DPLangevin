@@ -3,7 +3,7 @@
  * @brief Methods for setting the main Langevin model equation coefficients.
  */
 
-#include "general_core.hpp"
+#include "general_types.hpp"
 
 //! Set the Langevin equation coefficients and "lambda" coefficients
 void BaseLangevin::set_coefficients(const Coefficients &coefficients)

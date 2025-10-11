@@ -3,59 +3,13 @@
  * @brief Class to manage & run DPLangevin model simulation: private methods.
  */ 
 
-#include "general_core.hpp"
+#include "general_types.hpp"
 #include "application_dpsim.hpp"
 
-bool SimDP::construct_grid()
-{
-    switch (p.grid_dimension)
-    {
-        case (GridDimension::D1):
-            return dpLangevin->construct_1D_grid(p);
-        case (GridDimension::D2):
-            return dpLangevin->construct_2D_grid(p);
-        default:
-            return false;
-    }    
-}
 
-bool SimDP::initialize_grid()
-{
-    int i_cell;
-    switch (p.initial_condition)
-    {
-        case (InitialCondition::RANDOM_GAUSSIAN):
-            dpLangevin->ic_random_uniform(*rng);
-            return true;
-        case (InitialCondition::CONSTANT_VALUE):
-            dpLangevin->ic_constant_value(p.ic_values.at(0));
-            return true;
-        case (InitialCondition::SINGLE_SEED):
-            if (p.grid_dimension==GridDimension::D1)
-            {
-                i_cell = ( static_cast<int>(p.ic_values.at(1)) );
-                if (i_cell<0 or i_cell>=p.n_x) { return false; }
-            } 
-            else if (p.grid_dimension==GridDimension::D2)
-            {
-                i_cell = (static_cast<int>(p.ic_values.at(1))
-                        + static_cast<int>(p.ic_values.at(2))*p.n_x);
-                if (i_cell<0 or i_cell>=p.n_x*p.n_y) { return false; }
-            } 
-            else { return false; }
-            dpLangevin->ic_single_seed(i_cell, p.ic_values.at(0));
-            return true;
-        case (InitialCondition::RANDOM_UNIFORM):
-            dpLangevin->ic_random_uniform(*rng);
-            return true;
-        default:
-            return false;
-    }  
-}
-
+//! Count total number of time steps, just in case rounding causes problems
 int SimDP::count_epochs() const
 {
-    // Count total number of time steps, just in case rounding causes problems
     int n_epochs;
     double t; 
     for (n_epochs=0, t=0; t<=p.t_final+p.dt; t+=p.dt, n_epochs++) {}
@@ -122,7 +76,7 @@ bool SimDP::integrate(const int n_next_epochs)
     return true;
 }
 
-bool SimDP::prep_t_epochs()
+bool SimDP::pyprep_t_epochs()
 {
     py_array_t epochs_array(n_epochs);
     auto epochs_proxy = epochs_array.mutable_unchecked();
@@ -134,7 +88,7 @@ bool SimDP::prep_t_epochs()
     return true;
 }
 
-bool SimDP::prep_mean_densities()
+bool SimDP::pyprep_mean_densities()
 {
     py_array_t mean_densities_array(n_epochs);
     auto mean_densities_proxy = mean_densities_array.mutable_unchecked();
@@ -146,7 +100,7 @@ bool SimDP::prep_mean_densities()
     return true;
 }
 
-bool SimDP::prep_density_grid()
+bool SimDP::pyprep_density_grid()
 {
     if (not (p.n_cells == p.n_x * p.n_y * p.n_z)) { 
         std::cout << "prep_density: grid size problem" << std::endl;

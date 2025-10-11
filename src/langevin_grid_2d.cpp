@@ -3,7 +3,7 @@
  * @brief Method for setting up a 2D grid for the model Langevin field.
  */
 
-#include "general_core.hpp"
+#include "general_types.hpp"
 
 /**
 * @details 
