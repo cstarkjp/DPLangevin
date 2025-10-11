@@ -10,7 +10,7 @@
 #include "langevin_parameters.hpp"
 
 /**
- * @details Base class for Langevin equation integrator.
+ * @brief Base class for Langevin equation integrator.
  */
 class BaseLangevin
 {
