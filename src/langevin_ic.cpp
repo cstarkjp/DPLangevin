@@ -4,8 +4,6 @@
  */
 
 #include "langevin_types.hpp"
-#include "langevin_coefficients.hpp"
-#include "langevin_parameters.hpp"
 #include "langevin_base.hpp"
 
 bool BaseLangevin::initialize_grid(const Parameters p, rng_t& rng)

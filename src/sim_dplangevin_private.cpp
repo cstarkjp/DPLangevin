@@ -3,12 +3,7 @@
  * @brief Class to manage & run DPLangevin model simulation: private methods.
  */ 
 
-#include "langevin_types.hpp"
-#include "langevin_coefficients.hpp"
-#include "langevin_parameters.hpp"
-#include "langevin_base.hpp"
 #include "sim_dplangevin.hpp"
-
 
 //! Count total number of time steps, just in case rounding causes problems
 int SimDP::count_epochs() const

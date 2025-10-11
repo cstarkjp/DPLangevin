@@ -4,8 +4,6 @@
  */
 
 #include "langevin_types.hpp"
-#include "langevin_coefficients.hpp"
-#include "langevin_parameters.hpp"
 #include "langevin_base.hpp"
 
 //! Check that 2x bcs are specified for each grid dimension, one for each edge
