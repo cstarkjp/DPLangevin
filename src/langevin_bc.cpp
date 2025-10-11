@@ -103,10 +103,18 @@ void BaseLangevin::apply_boundary_conditions(const Parameters p, int i_epoch)
     };
     auto apply_boundary_conditions_2d = [&]()
     {
-        apply_bc_to_edge_2d(GridEdge::lx, p.boundary_conditions.at(0), p.bc_values.at(0));
-        apply_bc_to_edge_2d(GridEdge::ux, p.boundary_conditions.at(1), p.bc_values.at(1));
-        apply_bc_to_edge_2d(GridEdge::ly, p.boundary_conditions.at(2), p.bc_values.at(2));
-        apply_bc_to_edge_2d(GridEdge::uy, p.boundary_conditions.at(3), p.bc_values.at(3));
+        apply_bc_to_edge_2d(
+            GridEdge::lx, p.boundary_conditions.at(0), p.bc_values.at(0)
+        );
+        apply_bc_to_edge_2d(
+            GridEdge::ux, p.boundary_conditions.at(1), p.bc_values.at(1)
+        );
+        apply_bc_to_edge_2d(
+            GridEdge::ly, p.boundary_conditions.at(2), p.bc_values.at(2)
+        );
+        apply_bc_to_edge_2d(
+            GridEdge::uy, p.boundary_conditions.at(3), p.bc_values.at(3)
+        );
     };
     auto apply_boundary_conditions_3d = [&]()
     {
