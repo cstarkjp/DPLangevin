@@ -44,14 +44,15 @@ double DPLangevin::nonlinear_rhs(const int i_cell, const grid_t& density) const
 
     // Integration of diffusion
     double diffusion_sum = 0.0;
-    auto n_neighbor_cells = grid_wiring[i_cell].size();
-    for (auto i=0; i<n_neighbor_cells; i++)
+    auto cell_wiring = grid_wiring[i_cell];
+    auto n_neighbors = cell_wiring.size();
+    for (auto j_wire=0; j_wire<n_neighbors; j_wire++)
     {
-        auto i_neighbor = grid_wiring[i_cell][i];
-        diffusion_sum += density[i_neighbor];
+        auto j_neighbor_cell = cell_wiring[j_wire];
+        diffusion_sum += density[j_neighbor_cell];
     }
-    diffusion_sum = (
-        diffusion_coefficient*(diffusion_sum - n_neighbor_cells*density[i_cell])
+    auto diffusion_term = (
+        diffusion_coefficient*(diffusion_sum - n_neighbors*density[i_cell])
     );
-    return diffusion_sum + quadratic_term;
+    return diffusion_term + quadratic_term;
 }
