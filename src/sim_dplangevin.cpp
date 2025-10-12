@@ -72,12 +72,12 @@ bool SimDP::initialize()
     t_next_epoch = p.dt;
     if (not choose_integrator())
     { 
-        std::cout << "Failure: unable to choose integrator" << std::endl;
+        std::cout << "SimDP::initialize failure: unable to choose integrator" << std::endl;
         return false; 
     }        
     if (not dpLangevin->check_boundary_conditions(p))
     {
-        std::cout << "Failure: wrong number of boundary conditions" << std::endl;
+        std::cout << "SimDP::initialize failure: wrong number of boundary conditions" << std::endl;
         return false;
     }
     is_initialized = true;
@@ -92,7 +92,7 @@ bool SimDP::run(const int n_next_epochs)
 {
     if (not is_initialized) 
     { 
-        std::cout << "Failure: must initialize first" << std::endl;
+        std::cout << "SimDP::run failure: must initialize first" << std::endl;
         return false; 
     }
     did_integrate = integrate(n_next_epochs);
@@ -107,7 +107,7 @@ bool SimDP::postprocess()
 {
     if (not is_initialized) 
     { 
-        std::cout << "Failure: no data to process yet" << std::endl;
+        std::cout << "SimDP::postprocess failure: no data to process yet" << std::endl;
         return false; 
     }
     bool did_process = (
