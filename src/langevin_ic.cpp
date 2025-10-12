@@ -91,7 +91,7 @@ bool BaseLangevin::initialize_grid(const Parameters p, rng_t& rng)
             return true;
         case (InitialCondition::RANDOM_GAUSSIAN):
             ic_random_gaussian(rng, p.ic_values.at(0), p.ic_values.at(1));
-            return false;
+            return true;
         default:
             return false;
     }  
