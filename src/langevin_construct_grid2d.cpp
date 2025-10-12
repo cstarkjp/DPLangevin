@@ -229,7 +229,7 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
     };
     
     // Whole grid
-    auto wire_grid = [&](gt_vec_t grid_topologies)
+    auto wire_edge_cells = [&](gt_vec_t grid_topologies)
     {
         auto is_periodic_x_edge = (grid_topologies[0]==GridTopology::PERIODIC);
         auto is_periodic_y_edge = (grid_topologies[1]==GridTopology::PERIODIC);
@@ -244,7 +244,9 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
     wire_central_cells();
 
     // Step 2: Wire grid edge cells according to topology specs
-    wire_grid(p.grid_topologies);
+    wire_edge_cells(p.grid_topologies);
+
+    /////////////////////////////////////////////
 
     return true;
 }
