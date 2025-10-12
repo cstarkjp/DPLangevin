@@ -65,7 +65,6 @@ bool SimDP::integrate(const int n_next_epochs)
         // Reapply boundary conditions prior to integrating
         dpLangevin->apply_boundary_conditions(p, i);
         // Perform a single integration over Δt
-        // dpLangevin->integrate_rungekutta(*rng);
         (dpLangevin->*integrator)(*rng);
         // Record this epoch
         t_epochs[i] = t;

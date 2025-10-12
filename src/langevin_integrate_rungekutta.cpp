@@ -12,9 +12,7 @@
 //! for efficiency.
 void BaseLangevin::integrate_rungekutta(rng_t& rng)
 {
-    auto step1 = [&](
-        grid_t& aux_grid, grid_t& k1_grid, const double dtf
-    )
+    auto step1 = [&](grid_t& aux_grid, grid_t& k1_grid, const double dtf)
     {
         for (auto i=0; i<n_cells; i++)
         {
@@ -24,8 +22,7 @@ void BaseLangevin::integrate_rungekutta(rng_t& rng)
     };
     auto step2or3 = [&](
         const grid_t& aux_grid_in, grid_t& aux_grid_out, grid_t& k23_grid, 
-        const double dtf
-    )
+        const double dtf)
     {
         for (auto i=0; i<n_cells; i++)
         {
@@ -35,8 +32,7 @@ void BaseLangevin::integrate_rungekutta(rng_t& rng)
     };
     auto step4 = [&](
         const grid_t& aux_grid, const grid_t& k1_grid, const grid_t& k2_grid, 
-        const grid_t& k3_grid, rng_t& rng, const double dtf
-    )
+        const grid_t& k3_grid, rng_t& rng, const double dtf)
     {
         mean_density = 0.0;
         for (auto i=0; i<n_cells; i++)
