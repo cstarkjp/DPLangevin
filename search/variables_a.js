@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rng_0',['rng',['../classSimDP.html#ae45f23d880b71cf41ba5a6f1f489b236',1,'SimDP']]]
+  ['quadratic_5fcoeff_0',['quadratic_coeff',['../classDPLangevin.html#ad4b3b951467ea5b2997ec31d1eeee1cd',1,'DPLangevin']]]
 ];

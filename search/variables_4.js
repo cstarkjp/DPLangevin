@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['k1_5fgrid_0',['k1_grid',['../classBaseLangevin.html#ac7e29d9da1474a95cc33b172711d8075',1,'BaseLangevin']]],
-  ['k2_5fgrid_1',['k2_grid',['../classBaseLangevin.html#ae90291c345f2e38d7cf9a2ade6ccd7cd',1,'BaseLangevin']]],
-  ['k3_5fgrid_2',['k3_grid',['../classBaseLangevin.html#af1e69fe1571999dc28977505b86f3fce',1,'BaseLangevin']]]
+  ['i_5fcurrent_5fepoch_0',['i_current_epoch',['../classSimDP.html#a0f579637e5437deafa5a997995f67dce',1,'SimDP']]],
+  ['i_5fnext_5fepoch_1',['i_next_epoch',['../classSimDP.html#a326dfd7d46fc1c78c1d5a1250a8af880',1,'SimDP']]],
+  ['integrator_2',['integrator',['../classSimDP.html#a92adfe3bb63d10c00500ebc0bf7e0778',1,'SimDP']]],
+  ['is_5finitialized_3',['is_initialized',['../classSimDP.html#a90ad057adf7ad95ba23d034ad9cd49c4',1,'SimDP']]]
 ];
