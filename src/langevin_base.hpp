@@ -66,23 +66,9 @@ public:
     //! Build 2d Langevin density field grid & mixed topology
     bool construct_2D_grid(const Parameters parameters);
     //! Initial condition for density field: uniformly random
-    void ic_random_uniform(
-        rng_t& rng, 
-        const double min_value=0.0, 
-        const double max_value=1.0
-    );
-    //! Set initial condition of Langevin density field grid
     bool initialize_grid(const Parameters parameters, rng_t& rng);
-    //! Initial condition for density field: uniformly constant
-    void ic_constant_value(const double density_value=1.0);
-    //! Initial condition for density field: single non-zero value
-    void ic_single_seed(const int i, const double value=1.0);
-    //! Method to set Langevin equation coefficients and "lambda" constants
+    //! Set initial condition of Langevin density field grid
     void prepare(const Coefficients& coefficients);
-    //! Method to set Langevin equation coefficients
-    void set_essential_coefficients(const Coefficients& coefficients);
-    //! Method to set "lambda" constants
-    void set_lambdas();
     //! Check we have 2N boundary conditions for an N-dimensional grid
     bool check_boundary_conditions(const Parameters parameters);
     //! Set density field values only the grid edges per bc specs
