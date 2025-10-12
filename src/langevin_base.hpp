@@ -52,9 +52,9 @@ protected:
     //! Runge-Kutta variable grid #3
     grid_t k3_grid;
     //! Temporary density grid used to perform an integration step
-    grid_t density_grid_aux1;
+    grid_t aux_grid1;
     //! Temporary density grid used to perform an integration step
-    grid_t density_grid_aux2;
+    grid_t aux_grid2;
 
 public:
     //! Default constructor
@@ -91,30 +91,31 @@ public:
     void integrate_rungekutta(rng_t& rng);
     //! Explicit Euler + stochastic integration + grid update
     void integrate_euler(rng_t& rng);
-    //! Step #1 of Runge-Kutta integration
-    void rk_f1(
-        grid_t& density_grid_aux, 
-        grid_t& k1_grid, 
-        const double dtm_fraction
-    );
-    //! Steps #2 and #3 of Runge-Kutta integration
-    void rk_f2f3(
-        const grid_t& density_grid_aux_in, 
-        grid_t& density_grid_aux_out, 
-        grid_t& k_out, 
-        const double dtm_fraction
-    );
-    //! Step #4 of Runge-Kutta integration + stochastic step
-    void rk_f4_stochastic(
-        const grid_t& density_grid_aux, 
-        const grid_t& k1_grid, 
-        const grid_t& k2_grid, 
-        const grid_t& k3_grid, 
-        rng_t& rng, 
-        const double dtm_fraction
-    );
-    //! Explicit Euler + stochastic integration
-    void euler_and_stochastic(grid_t &density_grid_aux, rng_t &rng);
+    // These need not be class-level scope
+    // //! Step #1 of Runge-Kutta integration
+    // void rk_f1(
+    //     grid_t& density_grid_aux, 
+    //     grid_t& k1_grid, 
+    //     const double dtm_fraction
+    // );
+    // //! Steps #2 and #3 of Runge-Kutta integration
+    // void rk_f2f3(
+    //     const grid_t& density_grid_aux_in, 
+    //     grid_t& density_grid_aux_out, 
+    //     grid_t& k_out, 
+    //     const double dtm_fraction
+    // );
+    // //! Step #4 of Runge-Kutta integration + stochastic step
+    // void rk_f4_stochastic(
+    //     const grid_t& density_grid_aux, 
+    //     const grid_t& k1_grid, 
+    //     const grid_t& k2_grid, 
+    //     const grid_t& k3_grid, 
+    //     rng_t& rng, 
+    //     const double dtm_fraction
+    // );
+    // //! Explicit Euler + stochastic integration
+    // void euler_and_stochastic(grid_t &density_grid_aux, rng_t &rng);
     //! Expose density grid at a given "index" (1d-flattened position of grid element)
     double get_density_grid_value(const int) const;
     //! Expose mean density
