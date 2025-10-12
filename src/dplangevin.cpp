@@ -12,15 +12,18 @@
  */
 DPLangevin::DPLangevin(Parameters p)
 {
+    // "Local" copies
     n_cells = p.n_cells;
+    dt = p.dt;
+    dx = p.dx;
+    // The Langevin density field grid as a 1d vector
     density_grid = grid_t(n_cells, 0.0); 
-    aux_grid2 = grid_t(n_cells);
-    aux_grid1 = grid_t(n_cells);
+    // Supplementary grids (as 1d vectors of same length)
+    aux_grid1 = grid_t(n_cells, 0.0);
+    aux_grid2 = grid_t(n_cells, 0.0);
     k1_grid = grid_t(n_cells, 0.0);
     k2_grid = grid_t(n_cells, 0.0);
     k3_grid = grid_t(n_cells, 0.0);
-    dt = p.dt;
-    dx = p.dx;
 }
 
 //! Method to set nonlinear coefficients in DP Langevin equation 
@@ -41,14 +44,15 @@ double DPLangevin::nonlinear_rhs(const int i_cell, const grid_t& density) const
 
     // Integration of diffusion
     double diffusion_sum = 0.0;
-    auto n_neighbor_cells = grid_wiring[i_cell].size();
-    for (auto i=0; i<n_neighbor_cells; i++)
+    auto cell_wiring = grid_wiring[i_cell];
+    auto n_neighbors = cell_wiring.size();
+    for (auto j_wire=0; j_wire<n_neighbors; j_wire++)
     {
-        auto i_neighbor = grid_wiring[i_cell][i];
-        diffusion_sum += density[i_neighbor];
+        auto j_neighbor_cell = cell_wiring[j_wire];
+        diffusion_sum += density[j_neighbor_cell];
     }
-    diffusion_sum = (
-        diffusion_coefficient*(diffusion_sum - n_neighbor_cells*density[i_cell])
+    auto diffusion_term = (
+        diffusion_coefficient*(diffusion_sum - n_neighbors*density[i_cell])
     );
-    return diffusion_sum + quadratic_term;
+    return diffusion_term + quadratic_term;
 }
