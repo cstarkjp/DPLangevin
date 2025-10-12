@@ -84,9 +84,9 @@ public:
     double get_poisson_mean() const;
 
     //! Method to set nonlinear coefficients for deterministic integration step: to be defined by application
-    virtual void set_nonlinear_coefficients(const Coefficients &coefficients) {};
+    virtual void set_nonlinear_coefficients(const Coefficients&  coefficients) {};
     //! Method to set nonlinear RHS of Langevin equation for deterministic integration step: to be defined by application
-    virtual double nonlinear_rhs(const int i_cell, const grid_t &field) const 
+    virtual double nonlinear_rhs(const int i_cell, const grid_t&  field) const 
         { return 0; };
 };
 

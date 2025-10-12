@@ -7,7 +7,7 @@
 #include "langevin_base.hpp"
 
 //! Perform explicit-Euler then stochastic integration steps, then update grid
-void BaseLangevin::integrate_euler(rng_t &rng)
+void BaseLangevin::integrate_euler(rng_t& rng)
 {
     mean_density = 0.0;
     for (auto i=0; i<n_cells; i++)

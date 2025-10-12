@@ -8,7 +8,7 @@
 #include "langevin_base.hpp"
 
 //! Set the Langevin equation coefficients and "lambda" coefficients
-void BaseLangevin::prepare(const Coefficients &coefficients)
+void BaseLangevin::prepare(const Coefficients&  coefficients)
 {
     linear_coeff = coefficients.linear;
     noise_coeff = coefficients.noise;

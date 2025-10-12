@@ -35,7 +35,7 @@ void BaseLangevin::integrate_rungekutta(rng_t& rng)
     };
     auto step4 = [&](
         const grid_t& aux_grid, const grid_t& k1_grid, const grid_t& k2_grid, 
-        const grid_t& k3_grid, rng_t &rng, const double dtf
+        const grid_t& k3_grid, rng_t& rng, const double dtf
     )
     {
         mean_density = 0.0;

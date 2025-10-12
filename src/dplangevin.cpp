@@ -25,7 +25,7 @@ DPLangevin::DPLangevin(Parameters p)
 
 //! Method to set nonlinear coefficients in DP Langevin equation 
 //! for deterministic integration step
-void DPLangevin::set_nonlinear_coefficients(const Coefficients &coefficients)
+void DPLangevin::set_nonlinear_coefficients(const Coefficients&  coefficients)
 {
     quadratic_coeff = coefficients.quadratic;
     D = coefficients.diffusion / (dx*dx);
@@ -33,7 +33,7 @@ void DPLangevin::set_nonlinear_coefficients(const Coefficients &coefficients)
 
 //! Method to set nonlinear RHS of DP Langevin equation 
 //! for deterministic integration step
-double DPLangevin::nonlinear_rhs(const int i_cell, const grid_t &field) const
+double DPLangevin::nonlinear_rhs(const int i_cell, const grid_t&  field) const
 {
     // Non-linear term, which is quadratic in the DP Langevin
     const double quadratic_term 

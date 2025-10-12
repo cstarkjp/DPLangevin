@@ -11,7 +11,7 @@ bool BaseLangevin::initialize_grid(const Parameters p, rng_t& rng)
     // Set grid cells to have uniformly random values 
     // between min_value and max_value
     auto ic_random_uniform = [&](
-        rng_t &rng, 
+        rng_t& rng, 
         const double min_value, 
         const double max_value
     )
@@ -29,7 +29,7 @@ bool BaseLangevin::initialize_grid(const Parameters p, rng_t& rng)
     // Set grid cells to have Gaussian-distributed random values 
     // with given mean and standard deviation
     auto ic_random_gaussian = [&](
-        rng_t &rng, 
+        rng_t& rng, 
         const double mean, 
         const double stddev
     )
