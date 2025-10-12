@@ -13,8 +13,7 @@
 void BaseLangevin::integrate_rungekutta(rng_t& rng)
 {
     auto step1 = [&](
-        grid_t& aux_grid, grid_t& k1_grid, 
-        const double dtf
+        grid_t& aux_grid, grid_t& k1_grid, const double dtf
     )
     {
         for (auto i=0; i<n_cells; i++)
