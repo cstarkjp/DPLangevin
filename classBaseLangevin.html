@@ -117,20 +117,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af23cd5ed5aaa9202f8b294793bb8ae3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build 1d Langevin density field grid &amp; topology.  <br /></td></tr>
 <tr class="memitem:a1c785de7a81b904d3e50719e2278b17e" id="r_a1c785de7a81b904d3e50719e2278b17e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c785de7a81b904d3e50719e2278b17e">construct_2D_grid</a> (const <a class="el" href="structParameters.html">Parameters</a> parameters)</td></tr>
 <tr class="memdesc:a1c785de7a81b904d3e50719e2278b17e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build 2d Langevin density field grid &amp; mixed topology.  <br /></td></tr>
-<tr class="memitem:aaafe3c4389a40fb6824c266c1c4a98a7" id="r_aaafe3c4389a40fb6824c266c1c4a98a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaafe3c4389a40fb6824c266c1c4a98a7">ic_random_uniform</a> (<a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng, const double min_value=0.0, const double max_value=1.0)</td></tr>
-<tr class="memdesc:aaafe3c4389a40fb6824c266c1c4a98a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial condition for density field: uniformly random.  <br /></td></tr>
 <tr class="memitem:a20f150a492262fdaaff104ace83ef745" id="r_a20f150a492262fdaaff104ace83ef745"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20f150a492262fdaaff104ace83ef745">initialize_grid</a> (const <a class="el" href="structParameters.html">Parameters</a> parameters, <a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;rng)</td></tr>
-<tr class="memdesc:a20f150a492262fdaaff104ace83ef745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set initial condition of Langevin density field grid.  <br /></td></tr>
-<tr class="memitem:a34c7b9e9916ed4e68ea4f0b6cbfa5988" id="r_a34c7b9e9916ed4e68ea4f0b6cbfa5988"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34c7b9e9916ed4e68ea4f0b6cbfa5988">ic_constant_value</a> (const double density_value=1.0)</td></tr>
-<tr class="memdesc:a34c7b9e9916ed4e68ea4f0b6cbfa5988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial condition for density field: uniformly constant.  <br /></td></tr>
-<tr class="memitem:ae0ed05d4489ac382def4bea3589e3405" id="r_ae0ed05d4489ac382def4bea3589e3405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0ed05d4489ac382def4bea3589e3405">ic_single_seed</a> (const int i, const double value=1.0)</td></tr>
-<tr class="memdesc:ae0ed05d4489ac382def4bea3589e3405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial condition for density field: single non-zero value.  <br /></td></tr>
+<tr class="memdesc:a20f150a492262fdaaff104ace83ef745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial condition for density field: uniformly random.  <br /></td></tr>
 <tr class="memitem:ae3dd30948355470e39e71f077f5acb36" id="r_ae3dd30948355470e39e71f077f5acb36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3dd30948355470e39e71f077f5acb36">prepare</a> (const <a class="el" href="structCoefficients.html">Coefficients</a> &amp;coefficients)</td></tr>
-<tr class="memdesc:ae3dd30948355470e39e71f077f5acb36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set Langevin equation coefficients and "lambda" constants.  <br /></td></tr>
-<tr class="memitem:af2ba5ff83a1d5221e4dd3f91782eb7ac" id="r_af2ba5ff83a1d5221e4dd3f91782eb7ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2ba5ff83a1d5221e4dd3f91782eb7ac">set_essential_coefficients</a> (const <a class="el" href="structCoefficients.html">Coefficients</a> &amp;coefficients)</td></tr>
-<tr class="memdesc:af2ba5ff83a1d5221e4dd3f91782eb7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set Langevin equation coefficients.  <br /></td></tr>
-<tr class="memitem:a2df86bdadff3051b6e3d0b36a232cff6" id="r_a2df86bdadff3051b6e3d0b36a232cff6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2df86bdadff3051b6e3d0b36a232cff6">set_lambdas</a> ()</td></tr>
-<tr class="memdesc:a2df86bdadff3051b6e3d0b36a232cff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to set "lambda" constants.  <br /></td></tr>
+<tr class="memdesc:ae3dd30948355470e39e71f077f5acb36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set initial condition of Langevin density field grid.  <br /></td></tr>
 <tr class="memitem:a2595d62332a3f90dcc815773ab500261" id="r_a2595d62332a3f90dcc815773ab500261"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2595d62332a3f90dcc815773ab500261">check_boundary_conditions</a> (const <a class="el" href="structParameters.html">Parameters</a> parameters)</td></tr>
 <tr class="memdesc:a2595d62332a3f90dcc815773ab500261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check we have 2N boundary conditions for an N-dimensional grid.  <br /></td></tr>
 <tr class="memitem:ab949b3e4fd8fbcf7e0a67fdc0af8193c" id="r_ab949b3e4fd8fbcf7e0a67fdc0af8193c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab949b3e4fd8fbcf7e0a67fdc0af8193c">apply_boundary_conditions</a> (const <a class="el" href="structParameters.html">Parameters</a> parameters, int i_epoch)</td></tr>
@@ -379,85 +369,6 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a34c7b9e9916ed4e68ea4f0b6cbfa5988" name="a34c7b9e9916ed4e68ea4f0b6cbfa5988"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34c7b9e9916ed4e68ea4f0b6cbfa5988">&#9670;&#160;</a></span>ic_constant_value()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BaseLangevin::ic_constant_value </td>
-          <td>(</td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>density_value</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0</span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initial condition for density field: uniformly constant. </p>
-<p>Set all the grid cells to have same value. </p>
-
-<p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00068">68</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
-
-</div>
-</div>
-<a id="aaafe3c4389a40fb6824c266c1c4a98a7" name="aaafe3c4389a40fb6824c266c1c4a98a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaafe3c4389a40fb6824c266c1c4a98a7">&#9670;&#160;</a></span>ic_random_uniform()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BaseLangevin::ic_random_uniform </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="langevin__types_8hpp.html#af7b9c0d9aeb308a994c8870974bf6d56">rng_t</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>min_value</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.0</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>max_value</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initial condition for density field: uniformly random. </p>
-<p>Set grid cells to have uniformly random values between min_value and max_value. </p>
-
-<p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00051">51</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ae0ed05d4489ac382def4bea3589e3405" name="ae0ed05d4489ac382def4bea3589e3405"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0ed05d4489ac382def4bea3589e3405">&#9670;&#160;</a></span>ic_single_seed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BaseLangevin::ic_single_seed </td>
-          <td>(</td>
-          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>value</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initial condition for density field: single non-zero value. </p>
-<p>Set all the grid cells to zero except a single specified cell. </p>
-
-<p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00075">75</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
-
-</div>
-</div>
 <a id="a20f150a492262fdaaff104ace83ef745" name="a20f150a492262fdaaff104ace83ef745"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a20f150a492262fdaaff104ace83ef745">&#9670;&#160;</a></span>initialize_grid()</h2>
 
@@ -477,7 +388,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set initial condition of Langevin density field grid. </p>
+<p>Initial condition for density field: uniformly random. </p>
 
 <p class="definition">Definition at line <a class="el" href="langevin__ic_8cpp_source.html#l00009">9</a> of file <a class="el" href="langevin__ic_8cpp_source.html">langevin_ic.cpp</a>.</p>
 
@@ -558,7 +469,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDPLangevin.html#a94f89b991ae3fc7601a775525d4ea646">DPLangevin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00103">103</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00089">89</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
 
 </div>
 </div>
@@ -577,54 +488,10 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Method to set Langevin equation coefficients and "lambda" constants. </p>
+<p>Set initial condition of Langevin density field grid. </p>
 <p>Set the Langevin equation coefficients and "lambda" coefficients. </p>
 
 <p class="definition">Definition at line <a class="el" href="langevin__prepare_8cpp_source.html#l00011">11</a> of file <a class="el" href="langevin__prepare_8cpp_source.html">langevin_prepare.cpp</a>.</p>
-
-</div>
-</div>
-<a id="af2ba5ff83a1d5221e4dd3f91782eb7ac" name="af2ba5ff83a1d5221e4dd3f91782eb7ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2ba5ff83a1d5221e4dd3f91782eb7ac">&#9670;&#160;</a></span>set_essential_coefficients()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BaseLangevin::set_essential_coefficients </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structCoefficients.html">Coefficients</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>coefficients</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Method to set Langevin equation coefficients. </p>
-<p>Set the Langevin equation coefficients. </p>
-
-<p class="definition">Definition at line <a class="el" href="langevin__prepare_8cpp_source.html#l00019">19</a> of file <a class="el" href="langevin__prepare_8cpp_source.html">langevin_prepare.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a2df86bdadff3051b6e3d0b36a232cff6" name="a2df86bdadff3051b6e3d0b36a232cff6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2df86bdadff3051b6e3d0b36a232cff6">&#9670;&#160;</a></span>set_lambdas()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BaseLangevin::set_lambdas </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Method to set "lambda" constants. </p>
-<p>Set "lambda" coefficients used in Poisson and gamma sampling. </p>
-
-<p class="definition">Definition at line <a class="el" href="langevin__prepare_8cpp_source.html#l00026">26</a> of file <a class="el" href="langevin__prepare_8cpp_source.html">langevin_prepare.cpp</a>.</p>
 
 </div>
 </div>
@@ -655,7 +522,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classDPLangevin.html#a0008b416d0460cdcb34646733dae8156">DPLangevin</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00101">101</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="langevin__base_8hpp_source.html#l00087">87</a> of file <a class="el" href="langevin__base_8hpp_source.html">langevin_base.hpp</a>.</p>
 
 </div>
 </div>
