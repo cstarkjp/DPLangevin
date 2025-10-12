@@ -1,7 +1,7 @@
 var searchData=
 [
   ['lambda_0',['lambda',['../classBaseLangevin.html#a188d74016c9ad9cd915fc385476720a0',1,'BaseLangevin']]],
-  ['lambda_5fproduct_1',['lambda_product',['../classBaseLangevin.html#a5453eabca9ac6920c002f5c488b387c4',1,'BaseLangevin']]],
+  ['lambda_5fon_5fexplcdt_1',['lambda_on_explcdt',['../classBaseLangevin.html#a2b04a9ba2f607d81d061c3039ab5e65c',1,'BaseLangevin']]],
   ['langevin_2',['DP Langevin',['../md_README.html',1,'']]],
   ['langevin_20equations_20of_20directed_20percolation_20dp_20type_3',['Operator-splitting method for integrating Langevin equations of directed percolation (DP) type',['../md_README.html#autotoc_md1',1,'']]],
   ['langevin_5fbase_2ehpp_4',['langevin_base.hpp',['../langevin__base_8hpp.html',1,'']]],
@@ -18,5 +18,5 @@ var searchData=
   ['langevin_5fprepare_2ecpp_15',['langevin_prepare.cpp',['../langevin__prepare_8cpp.html',1,'']]],
   ['langevin_5ftypes_2ehpp_16',['langevin_types.hpp',['../langevin__types_8hpp.html',1,'']]],
   ['langevin_5futilities_2ecpp_17',['langevin_utilities.cpp',['../langevin__utilities_8cpp.html',1,'']]],
-  ['linear_5fcoeff_18',['linear_coeff',['../classBaseLangevin.html#ac3ac2219c2797170b4188ad98130643c',1,'BaseLangevin']]]
+  ['linear_5fcoefficient_18',['linear_coefficient',['../classBaseLangevin.html#a4c159e8f3feba3731a2c9ed752320156',1,'BaseLangevin']]]
 ];
