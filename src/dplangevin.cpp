@@ -12,15 +12,18 @@
  */
 DPLangevin::DPLangevin(Parameters p)
 {
+    // "Local" copies
     n_cells = p.n_cells;
+    dt = p.dt;
+    dx = p.dx;
+    // The Langevin density field grid as a 1d vector
     density_grid = grid_t(n_cells, 0.0); 
-    aux_grid2 = grid_t(n_cells);
-    aux_grid1 = grid_t(n_cells);
+    // Supplementary grids (as 1d vectors of same length)
+    aux_grid1 = grid_t(n_cells, 0.0);
+    aux_grid2 = grid_t(n_cells, 0.0);
     k1_grid = grid_t(n_cells, 0.0);
     k2_grid = grid_t(n_cells, 0.0);
     k3_grid = grid_t(n_cells, 0.0);
-    dt = p.dt;
-    dx = p.dx;
 }
 
 //! Method to set nonlinear coefficients in DP Langevin equation 
