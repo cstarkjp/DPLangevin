@@ -20,17 +20,17 @@ var class_base_langevin =
     [ "density_grid", "class_base_langevin.html#a0ffb08ee5362c7fdf5fc8efa3583382d", null ],
     [ "dt", "class_base_langevin.html#a1b8bdbfd68c3b74071b766df64691719", null ],
     [ "dx", "class_base_langevin.html#af6e164344c350fdfee62c9a49d6ed1fc", null ],
-    [ "gamma_rng", "class_base_langevin.html#a8bdb26b944654c9abe78ffde7cfcc714", null ],
+    [ "gamma_sampler", "class_base_langevin.html#aef82bd8912e1899aee057fd07064a722", null ],
+    [ "gaussian_sampler", "class_base_langevin.html#ac3bdb408f6ce4de3156274e18bff9a8d", null ],
     [ "grid_wiring", "class_base_langevin.html#aa76f81c2fd8eb13da2f25c17cd6424f4", null ],
     [ "k1_grid", "class_base_langevin.html#ac7e29d9da1474a95cc33b172711d8075", null ],
     [ "k2_grid", "class_base_langevin.html#ae90291c345f2e38d7cf9a2ade6ccd7cd", null ],
     [ "k3_grid", "class_base_langevin.html#af1e69fe1571999dc28977505b86f3fce", null ],
     [ "lambda", "class_base_langevin.html#a188d74016c9ad9cd915fc385476720a0", null ],
-    [ "lambda_product", "class_base_langevin.html#a5453eabca9ac6920c002f5c488b387c4", null ],
-    [ "linear_coeff", "class_base_langevin.html#ac3ac2219c2797170b4188ad98130643c", null ],
+    [ "lambda_on_explcdt", "class_base_langevin.html#a2b04a9ba2f607d81d061c3039ab5e65c", null ],
+    [ "linear_coefficient", "class_base_langevin.html#a4c159e8f3feba3731a2c9ed752320156", null ],
     [ "mean_density", "class_base_langevin.html#a7307bed54a012d55cf847fb89853b8db", null ],
     [ "n_cells", "class_base_langevin.html#a22830e75995d3d0bf5405dd18912fa46", null ],
-    [ "noise_coeff", "class_base_langevin.html#a84ceb321941f0cff25c8629a62f762e2", null ],
-    [ "normal", "class_base_langevin.html#a263afd2a8c4f17d84181c96b376b5576", null ],
-    [ "poisson_rng", "class_base_langevin.html#a4b880cb149b15522ab9ae90316017250", null ]
+    [ "noise_coefficient", "class_base_langevin.html#a31e32de62ececd446824b3a413254f28", null ],
+    [ "poisson_sampler", "class_base_langevin.html#a0cc3c4062308af2e1bd3a5b12a39c1ab", null ]
 ];

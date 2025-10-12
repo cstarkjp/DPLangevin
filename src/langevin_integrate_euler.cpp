@@ -14,9 +14,9 @@ void BaseLangevin::integrate_euler(rng_t& rng)
     {
         double f = nonlinear_rhs(i, density_grid);
         aux_grid1[i] = density_grid[i] + f*dt;
-        poisson_rng = poisson_dist_t(lambda_product * aux_grid1[i]);
-        gamma_rng = gamma_dist_t(poisson_rng(rng), 1.0);
-        aux_grid1[i]= gamma_rng(rng)/lambda;
+        poisson_sampler = poisson_dist_t(lambda_on_explcdt * aux_grid1[i]);
+        gamma_sampler = gamma_dist_t(poisson_sampler(rng), 1/lambda);
+        aux_grid1[i]= gamma_sampler(rng);
         mean_density += aux_grid1[i];
     }    
     mean_density /= static_cast<double>(n_cells);   

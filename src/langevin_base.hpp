@@ -30,20 +30,20 @@ protected:
     double mean_density;
 
     //! Function generating Poisson variates
-    poisson_dist_t poisson_rng;
+    poisson_dist_t poisson_sampler;
     //! Function generating gamma variates
-    gamma_dist_t gamma_rng;
+    gamma_dist_t gamma_sampler;
     //! Function generating normal variates
-    normal_dist_t normal;
+    gaussian_dist_t gaussian_sampler;
 
     //! Dornic method coefficient
-    double linear_coeff;
+    double linear_coefficient;
     //! Dornic method coefficient
-    double noise_coeff;
+    double noise_coefficient;
     //! Dornic method stochastic-step variable
     double lambda;
     //! Dornic method stochastic-step variable
-    double lambda_product;
+    double lambda_on_explcdt;
 
     //! Runge-Kutta variable grid #1
     grid_t k1_grid;
@@ -84,9 +84,9 @@ public:
     double get_poisson_mean() const;
 
     //! Method to set nonlinear coefficients for deterministic integration step: to be defined by application
-    virtual void set_nonlinear_coefficients(const Coefficients&  coefficients) {};
+    virtual void set_nonlinear_coefficients(const Coefficients& coefficients) {};
     //! Method to set nonlinear RHS of Langevin equation for deterministic integration step: to be defined by application
-    virtual double nonlinear_rhs(const int i_cell, const grid_t&  field) const 
+    virtual double nonlinear_rhs(const int i_cell, const grid_t& field) const 
         { return 0; };
 };
 

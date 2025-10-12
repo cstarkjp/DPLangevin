@@ -25,19 +25,19 @@ DPLangevin::DPLangevin(Parameters p)
 
 //! Method to set nonlinear coefficients in DP Langevin equation 
 //! for deterministic integration step
-void DPLangevin::set_nonlinear_coefficients(const Coefficients&  coefficients)
+void DPLangevin::set_nonlinear_coefficients(const Coefficients& coefficients)
 {
-    quadratic_coeff = coefficients.quadratic;
-    D = coefficients.diffusion / (dx*dx);
+    quadratic_coefficient = coefficients.quadratic;
+    diffusion_coefficient = coefficients.diffusion / (dx*dx);
 }
 
 //! Method to set nonlinear RHS of DP Langevin equation 
 //! for deterministic integration step
-double DPLangevin::nonlinear_rhs(const int i_cell, const grid_t&  field) const
+double DPLangevin::nonlinear_rhs(const int i_cell, const grid_t& density) const
 {
     // Non-linear term, which is quadratic in the DP Langevin
     const double quadratic_term 
-        = -quadratic_coeff*field[i_cell]*field[i_cell];
+        = -quadratic_coefficient*density[i_cell]*density[i_cell];
 
     // Integration of diffusion
     double diffusion_sum = 0.0;
@@ -45,8 +45,10 @@ double DPLangevin::nonlinear_rhs(const int i_cell, const grid_t&  field) const
     for (auto i=0; i<n_neighbor_cells; i++)
     {
         auto i_neighbor = grid_wiring[i_cell][i];
-        diffusion_sum += field[i_neighbor];
+        diffusion_sum += density[i_neighbor];
     }
-    diffusion_sum = D*(diffusion_sum - n_neighbor_cells*field[i_cell]);
+    diffusion_sum = (
+        diffusion_coefficient*(diffusion_sum - n_neighbor_cells*density[i_cell])
+    );
     return diffusion_sum + quadratic_term;
 }

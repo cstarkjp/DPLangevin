@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quadratic_5fcoeff_0',['quadratic_coeff',['../class_d_p_langevin.html#ad4b3b951467ea5b2997ec31d1eeee1cd',1,'DPLangevin']]]
+  ['quadratic_5fcoefficient_0',['quadratic_coefficient',['../class_d_p_langevin.html#a8723c4f8234d74fc47b8dbf237bd1687',1,'DPLangevin']]]
 ];

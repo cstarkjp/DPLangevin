@@ -35,7 +35,10 @@ bool SimDP::integrate(const int n_next_epochs)
     if (t_epochs.size() < i_next_epoch+n_next_epochs)
     {
         std::cout << "Too many epochs: " 
-            << t_epochs.size() << " < " << i_next_epoch+n_next_epochs << std::endl;
+            << t_epochs.size() 
+            << " < " 
+            << i_next_epoch+n_next_epochs 
+            << std::endl;
         return false;
     }
     
@@ -56,11 +59,13 @@ bool SimDP::integrate(const int n_next_epochs)
     for (
         i=i_next_epoch, t=t_next_epoch; 
         i<i_next_epoch+n_next_epochs; 
-        t+=p.dt, i++)
+        t+=p.dt, i++
+    )
     {
         // Reapply boundary conditions prior to integrating
         dpLangevin->apply_boundary_conditions(p, i);
         // Perform a single integration over Δt
+        // dpLangevin->integrate_rungekutta(*rng);
         (dpLangevin->*integrator)(*rng);
         // Record this epoch
         t_epochs[i] = t;
@@ -100,19 +105,19 @@ bool SimDP::pyprep_mean_densities()
 
 bool SimDP::pyprep_density_grid()
 {
-    if (not (p.n_cells == p.n_x * p.n_y * p.n_z)) { 
+    if (not (p.n_cells == p.n_x * p.n_y * p.n_z)) 
+    { 
         std::cout << "prep_density: grid size problem" << std::endl;
         return false; 
     }
-    // Assume we're working with a 2d grid for now
+    // Assume we're working with a <=2d grid for now
     py_array_t density_array({p.n_x, p.n_y});
     auto density_proxy = density_array.mutable_unchecked();
-    int i_x, i_y;
     for (auto i=0; i<p.n_cells; i++)
     {
-        i_x = i % p.n_x;
-        i_y = i / p.n_x;
-        density_proxy(i_x, i_y) = dpLangevin->get_density_grid_value(i);
+        int x = i % p.n_x;
+        int y = i / p.n_x;
+        density_proxy(x, y) = dpLangevin->get_density_grid_value(i);
     };
     pyarray_density = density_array;
     return true;

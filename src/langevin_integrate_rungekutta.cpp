@@ -45,9 +45,9 @@ void BaseLangevin::integrate_rungekutta(rng_t& rng)
             auto k4 = nonlinear_rhs(i, aux_grid);
             density_grid[i] += (k1_grid[i] + 2*(k2_grid[i]+k3_grid[i]) +k4)*dtf;
             // Stochastic step
-            poisson_rng = poisson_dist_t(lambda_product*density_grid[i]);
-            gamma_rng = gamma_dist_t(poisson_rng(rng), 1/lambda);
-            density_grid[i] = gamma_rng(rng);
+            poisson_sampler = poisson_dist_t(lambda_on_explcdt*density_grid[i]);
+            gamma_sampler = gamma_dist_t(poisson_sampler(rng), 1/lambda);
+            density_grid[i] = gamma_sampler(rng);
             // Incrementally compute mean density
             mean_density += density_grid[i];
         }    
