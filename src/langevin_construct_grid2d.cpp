@@ -55,7 +55,6 @@ bool BaseLangevin::construct_2D_grid(const Parameters p)
         connect_cells(i_cell, i_cell-1);    // Left
 
     };
-    
     auto wire_central_cells = [&]()
     {
         for (auto y=1; y<n_y-1; y++)

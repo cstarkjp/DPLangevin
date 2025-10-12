@@ -1,14 +1,11 @@
 var searchData=
 [
-  ['get_5fdensity_0',['get_density',['../class_sim_d_p.html#a373628fc3abfe97695a822987305abd8',1,'SimDP']]],
-  ['get_5fdensity_5fgrid_5fvalue_1',['get_density_grid_value',['../class_base_langevin.html#a8e997a82e0660b7795005f4771350e17',1,'BaseLangevin']]],
-  ['get_5fi_5fcurrent_5fepoch_2',['get_i_current_epoch',['../class_sim_d_p.html#a0b0f84a1423caae94ccfe6749e478034',1,'SimDP']]],
-  ['get_5fi_5fnext_5fepoch_3',['get_i_next_epoch',['../class_sim_d_p.html#adb5f16cc75ca46f6591243b8b33b6f2e',1,'SimDP']]],
-  ['get_5fmean_5fdensities_4',['get_mean_densities',['../class_sim_d_p.html#ad3f59c2ff9d7abbc4ee296e54f10ead4',1,'SimDP']]],
-  ['get_5fmean_5fdensity_5',['get_mean_density',['../class_base_langevin.html#a662fc98edabb628c914c955690aa5651',1,'BaseLangevin']]],
-  ['get_5fn_5fepochs_6',['get_n_epochs',['../class_sim_d_p.html#ad6f805bbe90241bcfb9b8234a9e7ae1e',1,'SimDP']]],
-  ['get_5fpoisson_5fmean_7',['get_poisson_mean',['../class_base_langevin.html#a40a0bfdb181d47b532fb03f545449e0d',1,'BaseLangevin']]],
-  ['get_5ft_5fcurrent_5fepoch_8',['get_t_current_epoch',['../class_sim_d_p.html#aca82f1cbea272e5f270f2c753cb7e804',1,'SimDP']]],
-  ['get_5ft_5fepochs_9',['get_t_epochs',['../class_sim_d_p.html#a8cef17c1366d1c72f409c2bba68b990f',1,'SimDP']]],
-  ['get_5ft_5fnext_5fepoch_10',['get_t_next_epoch',['../class_sim_d_p.html#a966900f7d2285150849cf9b00fbd587d',1,'SimDP']]]
+  ['ic_5fconstant_5fvalue_0',['ic_constant_value',['../class_base_langevin.html#a34c7b9e9916ed4e68ea4f0b6cbfa5988',1,'BaseLangevin']]],
+  ['ic_5frandom_5funiform_1',['ic_random_uniform',['../class_base_langevin.html#aaafe3c4389a40fb6824c266c1c4a98a7',1,'BaseLangevin']]],
+  ['ic_5fsingle_5fseed_2',['ic_single_seed',['../class_base_langevin.html#ae0ed05d4489ac382def4bea3589e3405',1,'BaseLangevin']]],
+  ['initialize_3',['initialize',['../class_sim_d_p.html#ab65df84b0d1a792f5b4d31376e34fca0',1,'SimDP']]],
+  ['initialize_5fgrid_4',['initialize_grid',['../class_base_langevin.html#a20f150a492262fdaaff104ace83ef745',1,'BaseLangevin']]],
+  ['integrate_5',['integrate',['../class_sim_d_p.html#aeb4ea3f905a18a1cefb79af59bb9194e',1,'SimDP']]],
+  ['integrate_5feuler_6',['integrate_euler',['../class_base_langevin.html#a8fef75bdcc3f916511d559b779e29a2b',1,'BaseLangevin']]],
+  ['integrate_5frungekutta_7',['integrate_rungekutta',['../class_base_langevin.html#a81fc0d0db8d82829483b1ae3bc4baf9f',1,'BaseLangevin']]]
 ];

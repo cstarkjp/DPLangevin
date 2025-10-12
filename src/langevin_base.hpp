@@ -79,10 +79,6 @@ public:
     void ic_single_seed(const int i, const double value=1.0);
     //! Method to set Langevin equation coefficients and "lambda" constants
     void prepare(const Coefficients& coefficients);
-    //! Method to set Langevin equation coefficients
-    void set_essential_coefficients(const Coefficients& coefficients);
-    //! Method to set "lambda" constants
-    void set_lambdas();
     //! Check we have 2N boundary conditions for an N-dimensional grid
     bool check_boundary_conditions(const Parameters parameters);
     //! Set density field values only the grid edges per bc specs

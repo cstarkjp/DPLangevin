@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['mean_5fdensities_0',['mean_densities',['../class_sim_d_p.html#a508ad77c44188e5d3ced514949459758',1,'SimDP']]],
-  ['mean_5fdensity_1',['mean_density',['../class_base_langevin.html#a7307bed54a012d55cf847fb89853b8db',1,'BaseLangevin']]]
+  ['lambda_0',['lambda',['../class_base_langevin.html#a188d74016c9ad9cd915fc385476720a0',1,'BaseLangevin']]],
+  ['lambda_5fproduct_1',['lambda_product',['../class_base_langevin.html#a5453eabca9ac6920c002f5c488b387c4',1,'BaseLangevin']]],
+  ['linear_5fcoeff_2',['linear_coeff',['../class_base_langevin.html#ac3ac2219c2797170b4188ad98130643c',1,'BaseLangevin']]]
 ];
