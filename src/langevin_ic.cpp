@@ -11,16 +11,16 @@ bool BaseLangevin::initialize_grid(const Parameters p, rng_t& rng)
     // Set grid cells to have uniformly random values 
     // between min_value and max_value
     auto ic_random_uniform = [&](
-        rng_t &rng, 
+        rng_t& rng, 
         const double min_value, 
         const double max_value
     )
     {
-        uniform_dist_t uniform(min_value, max_value);
+        uniform_dist_t uniform_sampler(min_value, max_value);
         mean_density = 0.0;
         for (auto i=0; i<density_grid.size(); i++)
         {
-            density_grid[i] = uniform(rng);
+            density_grid[i] = uniform_sampler(rng);
             mean_density += density_grid[i];
         }
         mean_density /= static_cast<double>(n_cells);
@@ -29,16 +29,16 @@ bool BaseLangevin::initialize_grid(const Parameters p, rng_t& rng)
     // Set grid cells to have Gaussian-distributed random values 
     // with given mean and standard deviation
     auto ic_random_gaussian = [&](
-        rng_t &rng, 
+        rng_t& rng, 
         const double mean, 
         const double stddev
     )
     {
-        normal_dist_t normal(mean, stddev);
+        gaussian_dist_t gaussian_sampler(mean, stddev);
         mean_density = 0.0;
         for (auto i=0; i<density_grid.size(); i++)
         {
-            density_grid[i] = normal(rng);
+            density_grid[i] = gaussian_sampler(rng);
             mean_density += density_grid[i];
         }
         mean_density /= static_cast<double>(n_cells);
@@ -91,7 +91,7 @@ bool BaseLangevin::initialize_grid(const Parameters p, rng_t& rng)
             return true;
         case (InitialCondition::RANDOM_GAUSSIAN):
             ic_random_gaussian(rng, p.ic_values.at(0), p.ic_values.at(1));
-            return false;
+            return true;
         default:
             return false;
     }  

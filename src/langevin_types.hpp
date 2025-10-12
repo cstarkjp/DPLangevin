@@ -36,7 +36,7 @@ typedef std::poisson_distribution<int> poisson_dist_t;
 //! Type for function generating gamma variates
 typedef std::gamma_distribution<double> gamma_dist_t;
 //! Type for function generating Gaussian variates
-typedef std::normal_distribution<double> normal_dist_t;
+typedef std::normal_distribution<double> gaussian_dist_t;
 //! Type for function generating uniformly distributed variates
 typedef std::uniform_real_distribution<double> uniform_dist_t;
 

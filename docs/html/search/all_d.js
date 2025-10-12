@@ -4,7 +4,7 @@ var searchData=
   ['parameters_1',['Parameters',['../struct_parameters.html',1,'']]],
   ['percolation_20dp_20type_2',['Operator-splitting method for integrating Langevin equations of directed percolation (DP) type',['../md__r_e_a_d_m_e.html#autotoc_md1',1,'']]],
   ['poisson_5fdist_5ft_3',['poisson_dist_t',['../langevin__types_8hpp.html#a601371a69dbc51f3fc6994eba56c47af',1,'langevin_types.hpp']]],
-  ['poisson_5frng_4',['poisson_rng',['../class_base_langevin.html#a4b880cb149b15522ab9ae90316017250',1,'BaseLangevin']]],
+  ['poisson_5fsampler_4',['poisson_sampler',['../class_base_langevin.html#a0cc3c4062308af2e1bd3a5b12a39c1ab',1,'BaseLangevin']]],
   ['postprocess_5',['postprocess',['../class_sim_d_p.html#a1564793a08950a3804440b2e89051634',1,'SimDP']]],
   ['prepare_6',['prepare',['../class_base_langevin.html#ae3dd30948355470e39e71f077f5acb36',1,'BaseLangevin']]],
   ['program_20design_7',['Program design',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'']]],
