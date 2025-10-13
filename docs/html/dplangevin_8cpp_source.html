@@ -126,24 +126,25 @@ $(function(){initNavTree('dplangevin_8cpp_source.html','',''); });
 <div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_d_p_langevin.html#a2739bf17103f22840b99cee9b1d9092b">   39</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="class_d_p_langevin.html#a2739bf17103f22840b99cee9b1d9092b">DPLangevin::nonlinear_rhs</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> i_cell, <span class="keyword">const</span> <a class="code hl_typedef" href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a>&amp; density)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// Non-linear term, which is quadratic in the DP Langevin</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// Non-linear term, which is quadratic in the DP Langevin equation</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">const</span> <span class="keywordtype">double</span> quadratic_term </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        = -<a class="code hl_variable" href="class_d_p_langevin.html#a8723c4f8234d74fc47b8dbf237bd1687">quadratic_coefficient</a>*density[i_cell]*density[i_cell];</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">// Integration of diffusion</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">// For integration of diffusion</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">double</span> diffusion_sum = 0.0;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">auto</span> cell_wiring = <a class="code hl_variable" href="class_base_langevin.html#aa76f81c2fd8eb13da2f25c17cd6424f4">grid_wiring</a>[i_cell];</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">auto</span> n_neighbors = cell_wiring.size();</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> j_wire=0; j_wire&lt;n_neighbors; j_wire++)</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">auto</span> j_neighbor_cell = cell_wiring[j_wire];</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        diffusion_sum += density[j_neighbor_cell];</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">auto</span> diffusion_term = (</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <a class="code hl_variable" href="class_d_p_langevin.html#a4bae00884d913c50b7858812fc2ca59c">diffusion_coefficient</a>*(diffusion_sum - n_neighbors*density[i_cell])</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="langevin__types_8hpp.html#a62fa2c6d66d1424f015cf138943986b0">neighborhood_t</a>&amp; cell_wiring = <a class="code hl_variable" href="class_base_langevin.html#aa76f81c2fd8eb13da2f25c17cd6424f4">grid_wiring</a>[i_cell];</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> j_wire=0; j_wire&lt;cell_wiring.size(); j_wire++)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keyword">const</span> <span class="keyword">auto</span> j_neighbor_cell = cell_wiring[j_wire];</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        diffusion_sum += density[j_neighbor_cell];</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">const</span> <span class="keyword">auto</span> diffusion_term = (</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <a class="code hl_variable" href="class_d_p_langevin.html#a4bae00884d913c50b7858812fc2ca59c">diffusion_coefficient</a>*(diffusion_sum </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            - cell_wiring.size()*density[i_cell])</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    );</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">return</span> diffusion_term + quadratic_term;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">// Combine terms</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">return</span> diffusion_term + quadratic_term;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
 </div>
 <div class="ttc" id="aclass_base_langevin_html_a0ffb08ee5362c7fdf5fc8efa3583382d"><div class="ttname"><a href="class_base_langevin.html#a0ffb08ee5362c7fdf5fc8efa3583382d">BaseLangevin::density_grid</a></div><div class="ttdeci">grid_t density_grid</div><div class="ttdoc">Density field grid.</div><div class="ttdef"><b>Definition</b> <a href="langevin__base_8hpp_source.html#l00021">langevin_base.hpp:21</a></div></div>
 <div class="ttc" id="aclass_base_langevin_html_a1b8bdbfd68c3b74071b766df64691719"><div class="ttname"><a href="class_base_langevin.html#a1b8bdbfd68c3b74071b766df64691719">BaseLangevin::dt</a></div><div class="ttdeci">double dt</div><div class="ttdoc">Time step, i.e, epoch-to-epoch Δt.</div><div class="ttdef"><b>Definition</b> <a href="langevin__base_8hpp_source.html#l00026">langevin_base.hpp:26</a></div></div>
@@ -162,6 +163,7 @@ $(function(){initNavTree('dplangevin_8cpp_source.html','',''); });
 <div class="ttc" id="aclass_d_p_langevin_html_ab247d7d45790cb3424be312401357140"><div class="ttname"><a href="class_d_p_langevin.html#ab247d7d45790cb3424be312401357140">DPLangevin::DPLangevin</a></div><div class="ttdeci">DPLangevin()=default</div><div class="ttdoc">Constructor assuming default model parameters.</div></div>
 <div class="ttc" id="adplangevin_8hpp_html"><div class="ttname"><a href="dplangevin_8hpp.html">dplangevin.hpp</a></div><div class="ttdoc">DPLangevin model application of BaseLangevin class integrator.</div></div>
 <div class="ttc" id="alangevin__types_8hpp_html_a43f927a93dcaa1b18ffaae9c50f6c717"><div class="ttname"><a href="langevin__types_8hpp.html#a43f927a93dcaa1b18ffaae9c50f6c717">grid_t</a></div><div class="ttdeci">std::vector&lt; double &gt; grid_t</div><div class="ttdoc">Type for density grid.</div><div class="ttdef"><b>Definition</b> <a href="langevin__types_8hpp_source.html#l00024">langevin_types.hpp:24</a></div></div>
+<div class="ttc" id="alangevin__types_8hpp_html_a62fa2c6d66d1424f015cf138943986b0"><div class="ttname"><a href="langevin__types_8hpp.html#a62fa2c6d66d1424f015cf138943986b0">neighborhood_t</a></div><div class="ttdeci">std::vector&lt; int &gt; neighborhood_t</div><div class="ttdoc">Type for density grid wiring.</div><div class="ttdef"><b>Definition</b> <a href="langevin__types_8hpp_source.html#l00028">langevin_types.hpp:28</a></div></div>
 <div class="ttc" id="astruct_coefficients_html"><div class="ttname"><a href="struct_coefficients.html">Coefficients</a></div><div class="ttdoc">Container for nonlinear Langevin equation coefficients.</div><div class="ttdef"><b>Definition</b> <a href="langevin__coefficients_8hpp_source.html#l00023">langevin_coefficients.hpp:24</a></div></div>
 <div class="ttc" id="astruct_parameters_html"><div class="ttname"><a href="struct_parameters.html">Parameters</a></div><div class="ttdoc">Container for BaseLangevin integrator parameters.</div><div class="ttdef"><b>Definition</b> <a href="langevin__parameters_8hpp_source.html#l00020">langevin_parameters.hpp:21</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
