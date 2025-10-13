@@ -89,16 +89,16 @@ public:
     }
     std::string report(GridDimension gd, gt_vec_t gts) 
     {
-        std::string combo = "x:";
+        std::string combo = "x edge:";
         combo.append(report(gts.at(0)));
         if (gd==GridDimension::D2 or gd==GridDimension::D3)
         {
-            combo.append("; y:");
+            combo.append("; y edge:");
             combo.append(report(gts.at(1)));
         }
         if (gd==GridDimension::D3)
         {
-            combo.append("; z:");
+            combo.append("; z edge:");
             combo.append(report(gts.at(2)));
         }
         return combo;
@@ -114,22 +114,22 @@ public:
     }
     std::string report(GridDimension gd, bc_vec_t bcs) 
     {
-        std::string combo = "x0:";
+        std::string combo = "x0 edge:";
         combo.append(report(bcs.at(0)));
-        combo.append(", x1:");
+        combo.append(", x1 edge:");
         combo.append(report(bcs.at(1)));
         if (gd==GridDimension::D2 or gd==GridDimension::D3)
         {
-            combo.append("; y0:");
+            combo.append("; y0 edge:");
             combo.append(report(bcs.at(2)));
-            combo.append(", y1:");
+            combo.append(", y1 edge:");
             combo.append(report(bcs.at(3)));
         }
         if (gd==GridDimension::D3)
         {
-            combo.append("; z0:");
+            combo.append("; z0 edge:");
             combo.append(report(bcs.at(2)));
-            combo.append(", z1:");
+            combo.append(", z1 edge:");
             combo.append(report(bcs.at(2)));
         }
         return combo;
@@ -155,6 +155,7 @@ public:
 
     void print() 
     {
+            std::cout << std::endl;        
         std::cout << "t_final: " << t_final << std::endl;
         std::cout << "dx: " << dx << std::endl;
         std::cout << "dt: " << dt << std::endl;
