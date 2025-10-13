@@ -38,21 +38,22 @@ void DPLangevin::set_nonlinear_coefficients(const Coefficients& coefficients)
 //! for deterministic integration step
 double DPLangevin::nonlinear_rhs(const int i_cell, const grid_t& density) const
 {
-    // Non-linear term, which is quadratic in the DP Langevin
+    // Non-linear term, which is quadratic in the DP Langevin equation
     const double quadratic_term 
         = -quadratic_coefficient*density[i_cell]*density[i_cell];
 
-    // Integration of diffusion
+    // For integration of diffusion
     double diffusion_sum = 0.0;
-    auto cell_wiring = grid_wiring[i_cell];
-    auto n_neighbors = cell_wiring.size();
-    for (auto j_wire=0; j_wire<n_neighbors; j_wire++)
+    const neighborhood_t& cell_wiring = grid_wiring[i_cell];
+    for (auto j_wire=0; j_wire<cell_wiring.size(); j_wire++)
     {
-        auto j_neighbor_cell = cell_wiring[j_wire];
+        const auto j_neighbor_cell = cell_wiring[j_wire];
         diffusion_sum += density[j_neighbor_cell];
     }
-    auto diffusion_term = (
-        diffusion_coefficient*(diffusion_sum - n_neighbors*density[i_cell])
+    const auto diffusion_term = (
+        diffusion_coefficient*(diffusion_sum 
+            - cell_wiring.size()*density[i_cell])
     );
+    // Combine terms
     return diffusion_term + quadratic_term;
 }
