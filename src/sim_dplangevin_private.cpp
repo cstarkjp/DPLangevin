@@ -5,12 +5,22 @@
 
 #include "sim_dplangevin.hpp"
 
+double round(const double value, const int n_decimals) {
+    const double multiplier = std::pow(10, n_decimals);
+    return std::round(value * multiplier) / multiplier;
+}
+
+
 //! Count total number of time steps, just in case rounding causes problems
 int SimDP::count_epochs() const
 {
     int n_epochs;
     double t; 
-    for (n_epochs=0, t=0; t<=p.t_final+p.dt; t+=p.dt, n_epochs++) {}
+    for (
+        n_epochs=0, t=0; 
+        t<=p.t_final+p.dt; 
+        t=round(t+p.dt, n_decimals), n_epochs++
+    ) {}
     return n_epochs;
 }
 
@@ -59,7 +69,7 @@ bool SimDP::integrate(const int n_next_epochs)
     for (
         i=i_next_epoch, t=t_next_epoch; 
         i<i_next_epoch+n_next_epochs; 
-        t+=p.dt, i++
+        t=round(t+p.dt, n_decimals), i++
     )
     {
         // Reapply boundary conditions prior to integrating
