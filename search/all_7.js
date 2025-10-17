@@ -3,7 +3,7 @@ var searchData=
   ['i_5fcurrent_5fepoch_0',['i_current_epoch',['../classSimDP.html#a0f579637e5437deafa5a997995f67dce',1,'SimDP']]],
   ['i_5fnext_5fepoch_1',['i_next_epoch',['../classSimDP.html#a326dfd7d46fc1c78c1d5a1250a8af880',1,'SimDP']]],
   ['initialcondition_2',['InitialCondition',['../langevin__enums_8hpp.html#ae752395ed9ab021eab6a3f2ffacd763f',1,'langevin_enums.hpp']]],
-  ['initialize_3',['initialize',['../classSimDP.html#ab65df84b0d1a792f5b4d31376e34fca0',1,'SimDP']]],
+  ['initialize_3',['initialize',['../classSimDP.html#a04e3356058bdc9707c413cc1bd99d389',1,'SimDP']]],
   ['initialize_5fgrid_4',['initialize_grid',['../classBaseLangevin.html#a20f150a492262fdaaff104ace83ef745',1,'BaseLangevin']]],
   ['installation_5',['Installation',['../md_README.html#autotoc_md3',1,'']]],
   ['int_5fvec_5ft_6',['int_vec_t',['../langevin__types_8hpp.html#abbfd825d9228dfbd560eada2571e757f',1,'langevin_types.hpp']]],
