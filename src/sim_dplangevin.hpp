@@ -41,6 +41,8 @@ private:
     double t_next_epoch;
     //! Vector time-series of epochs
     dbl_vec_t t_epochs;
+    //! Truncation number of decimal places when summing Δt
+    int n_decimals;
     //! Vector time-series of grid-averaged field density values
     dbl_vec_t mean_densities;
     //! Python-compatible array of epochs time-series
@@ -86,7 +88,7 @@ public:
         const IntegrationMethod integration_method
     );
     //! Initialize the model simulation
-    bool initialize();
+    bool initialize(int n_decimals);
     //! Execute the model simulation for `n_next_epochs`
     bool run(const int n_next_epochs);
     //! Process the model results data if available

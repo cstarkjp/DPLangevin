@@ -48,7 +48,7 @@
 //! a grid is constructed; initial conditions are applied; 
 //! the Langevin equation is prepared; the zeroth-epoch 
 //! solution state is recorded (after applying boundary conditions).
-bool SimDP::initialize()
+bool SimDP::initialize(int n_decimals)
 {
     if (not dpLangevin->construct_grid(p)) { 
         std::cout 
@@ -63,6 +63,7 @@ bool SimDP::initialize()
         return false; 
     }
     dpLangevin->prepare(coefficients);
+    this->n_decimals = n_decimals;
     n_epochs = count_epochs();
     t_epochs = dbl_vec_t(n_epochs, 0.0);
     mean_densities = dbl_vec_t(n_epochs, 0.0);

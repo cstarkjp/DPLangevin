@@ -5,12 +5,12 @@
 project(
     'DPLangevin',
     'cpp',
-    version: '2025.10.13a1',
+    version: '2025.10.17a1',
     default_options: ['cpp_std=c++11'],
 )
 add_project_arguments(
-    '-Ofast', '-Doptimization=3', '-Db_lto=true',
-    '-g3', 
+    '-Ofast', '-g3', 
+    # '-Doptimization=3', '-Db_lto=true',
     language : 'cpp',
 )
 

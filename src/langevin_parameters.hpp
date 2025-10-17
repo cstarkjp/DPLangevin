@@ -137,8 +137,8 @@ public:
     std::string report(InitialCondition ic) 
     {
         switch (ic) {
-            case InitialCondition::RANDOM_UNIFORM: return "random uniform values";
-            case InitialCondition::RANDOM_GAUSSIAN: return "random Gaussian values";
+            case InitialCondition::RANDOM_UNIFORM: return "uniform random values";
+            case InitialCondition::RANDOM_GAUSSIAN: return "Gaussian random values";
             case InitialCondition::CONSTANT_VALUE: return "constant value";
             case InitialCondition::SINGLE_SEED: return "single seed";
             default: return "Unknown";
