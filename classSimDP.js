@@ -1,6 +1,6 @@
 var classSimDP =
 [
-    [ "SimDP", "classSimDP.html#a6f567ecf5366b0325f9789afbf7b0712", null ],
+    [ "SimDP", "classSimDP.html#a3817c992778197d2244112b1882a9ea8", null ],
     [ "choose_integrator", "classSimDP.html#a70af5f5c5f9f04cd2783f1e14cfba223", null ],
     [ "count_epochs", "classSimDP.html#a587ef106d6540a3f23a24cd86f2861b7", null ],
     [ "get_density", "classSimDP.html#a373628fc3abfe97695a822987305abd8", null ],
@@ -20,6 +20,7 @@ var classSimDP =
     [ "run", "classSimDP.html#a1373e7e03fbe12b058fa9011839ffc19", null ],
     [ "coefficients", "classSimDP.html#a5f60bbc57176c81430f2872dcc25d058", null ],
     [ "did_integrate", "classSimDP.html#ad4860babc24eb75b7c85dc06e28d1071", null ],
+    [ "do_verbose", "classSimDP.html#a1eafe92458aa02525e409de850f6d91f", null ],
     [ "dpLangevin", "classSimDP.html#acac8c8a804fd120accc46154c9812add", null ],
     [ "i_current_epoch", "classSimDP.html#a0f579637e5437deafa5a997995f67dce", null ],
     [ "i_next_epoch", "classSimDP.html#a326dfd7d46fc1c78c1d5a1250a8af880", null ],

@@ -104,7 +104,7 @@ $(function(){initNavTree('demo__periodic_8py_source.html','',''); });
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">from</span> numpy.typing <span class="keyword">import</span> NDArray</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">import</span> dplvn <span class="comment"># type: ignore</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">def </span>main():</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">def </span>main() -&gt; None:</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    bold = <span class="keyword">lambda</span> str: (<span class="stringliteral">&quot;\033[1m&quot;</span> + str + <span class="stringliteral">&quot;\033[0m&quot;</span>)</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    print()</div>
@@ -128,48 +128,50 @@ $(function(){initNavTree('demo__periodic_8py_source.html','',''); });
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        ),</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        bc_values=(0, 0, 0, 0,),</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        initial_condition=dplvn.RANDOM_UNIFORM,</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        integration_method=dplvn.RUNGE_KUTTA</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    )</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> sim.initialize():</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Failed to initialize sim&quot;</span>)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    n_epochs: int = sim.get_n_epochs()</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    print()</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    print(f<span class="stringliteral">&quot;Number of sim epochs = {n_epochs}&quot;</span>)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        ic_values=(0, 1,),</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        integration_method=dplvn.RUNGE_KUTTA,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        do_verbose=<span class="keyword">True</span>,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    )</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> sim.initialize(5):</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Failed to initialize sim&quot;</span>)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    n_epochs: int = sim.get_n_epochs()</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    print()</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    n_segments: int = 5</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    n_segment_epochs: int = (n_epochs-1) // n_segments</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordflow">if</span> (n_segment_epochs*n_segments+1)!=n_epochs:</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordflow">raise</span> Exception(</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            f<span class="stringliteral">&quot;Failed to segment sim with {n_epochs} epochs &quot;</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            + <span class="stringliteral">&quot;into {n_segments} segment(s)&quot;</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        )</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    print(bold(f<span class="stringliteral">&quot;Integrating:  {n_epochs} epochs in {n_segments} segment(s)&quot;</span>))</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    print()</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    density_dict: dict[float, NDArray] = {}</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">for</span> i_segment <span class="keywordflow">in</span> range(0, n_segments+1, 1):</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordflow">if</span> i_segment&gt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> sim.run(n_segment_epochs):</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Failed to run sim&quot;</span>)</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> sim.postprocess():</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Failed to process sim results&quot;</span>)</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        i_epoch = sim.get_i_current_epoch()</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        t_epoch = np.round(sim.get_t_current_epoch())</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        density_dict[t_epoch] = sim.get_density()</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        print(bold(</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            f<span class="stringliteral">&quot;segment={i_segment}/{n_segments}  &quot;</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            + f<span class="stringliteral">&quot;i={i_epoch} t={t_epoch}&quot;</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        ))</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="comment"># print(f&quot;t epochs:  {sim.get_t_epochs()}&quot;)</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="comment"># print(f&quot;mean densities:  {sim.get_mean_densities()}&quot;)</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        print(<span class="stringliteral">&quot;cell density grid:&quot;</span>)</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        print(np.round(density_dict[t_epoch].T, 2))</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        print(flush=<span class="keyword">True</span>)</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    main()</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    print(f<span class="stringliteral">&quot;Number of sim epochs = {n_epochs}&quot;</span>)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    print()</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    n_segments: int = 5</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    n_segment_epochs: int = (n_epochs-1) // n_segments</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">if</span> (n_segment_epochs*n_segments+1)!=n_epochs:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">raise</span> Exception(</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            f<span class="stringliteral">&quot;Failed to segment sim with {n_epochs} epochs &quot;</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            + <span class="stringliteral">&quot;into {n_segments} segment(s)&quot;</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        )</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    print(bold(f<span class="stringliteral">&quot;Integrating:  {n_epochs} epochs in {n_segments} segment(s)&quot;</span>))</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    print()</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    density_dict: dict[float, NDArray] = {}</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">for</span> i_segment <span class="keywordflow">in</span> range(0, n_segments+1, 1):</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">if</span> i_segment&gt;0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> sim.run(n_segment_epochs):</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Failed to run sim&quot;</span>)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> sim.postprocess():</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Failed to process sim results&quot;</span>)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        i_epoch = sim.get_i_current_epoch()</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        t_epoch = np.round(sim.get_t_current_epoch())</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        density_dict[t_epoch] = sim.get_density()</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        print(bold(</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            f<span class="stringliteral">&quot;segment={i_segment}/{n_segments}  &quot;</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            + f<span class="stringliteral">&quot;i={i_epoch} t={t_epoch}&quot;</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        ))</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="comment"># print(f&quot;t epochs:  {sim.get_t_epochs()}&quot;)</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="comment"># print(f&quot;mean densities:  {sim.get_mean_densities()}&quot;)</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        print(<span class="stringliteral">&quot;cell density grid:&quot;</span>)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        print(np.round(density_dict[t_epoch].T, 2))</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        print(flush=<span class="keyword">True</span>)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    main()</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
