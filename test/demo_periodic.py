@@ -11,7 +11,7 @@ import numpy as np
 from numpy.typing import NDArray
 import dplvn # type: ignore
 
-def main():
+def main() -> None:
     bold = lambda str: ("\033[1m" + str + "\033[0m")
 
     print()
@@ -35,10 +35,12 @@ def main():
         ),
         bc_values=(0, 0, 0, 0,),
         initial_condition=dplvn.RANDOM_UNIFORM,
-        integration_method=dplvn.RUNGE_KUTTA
+        ic_values=(0, 1,),
+        integration_method=dplvn.RUNGE_KUTTA,
+        do_verbose=True,
     )
 
-    if not sim.initialize():
+    if not sim.initialize(5):
         raise Exception("Failed to initialize sim")
     n_epochs: int = sim.get_n_epochs()
     print()

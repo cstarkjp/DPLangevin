@@ -55,6 +55,8 @@ private:
     bool did_integrate = false;
     //! Flag whether simulation has been initialized or not
     bool is_initialized = false;
+    //! Flag whether to report sim state at all
+    bool do_verbose = false;
 
     //! Count upcoming number of epochs by running a dummy time-stepping loop
     int count_epochs() const;
@@ -85,7 +87,8 @@ public:
         const dbl_vec_t bc_values,
         const InitialCondition initial_condition,
         const dbl_vec_t ic_values,
-        const IntegrationMethod integration_method
+        const IntegrationMethod integration_method,
+        const bool do_verbose
     );
     //! Initialize the model simulation
     bool initialize(int n_decimals);
