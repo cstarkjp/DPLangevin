@@ -25,7 +25,7 @@
  */
 PYBIND11_MODULE(dplvn, module)
 {
-    module.attr("__version__") = "2025.10.17a2";
+    module.attr("__version__") = "2025.10.20a1";
     module.doc() = 
         "Operator-splitting method of integrating DP-type Langevin equations"; 
   
@@ -73,7 +73,8 @@ PYBIND11_MODULE(dplvn, module)
                 dbl_vec_t,
                 InitialCondition,
                 dbl_vec_t,
-                IntegrationMethod
+                IntegrationMethod,
+                bool
             >(),
             "Simulation of DP Langevin equation",
             py::arg("linear") = 1.0, 
@@ -91,7 +92,8 @@ PYBIND11_MODULE(dplvn, module)
             py::arg("bc_values") = dbl_vec_t(4),
             py::arg("initial_condition") = InitialCondition::RANDOM_UNIFORM,
             py::arg("ic_values") = dbl_vec_t(3),
-            py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA
+            py::arg("integration_method") = IntegrationMethod::RUNGE_KUTTA,
+            py::arg("do_verbose") = false
         )
         .def("initialize", &SimDP::initialize)
         .def("run", &SimDP::run)

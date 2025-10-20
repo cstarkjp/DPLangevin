@@ -11,7 +11,7 @@ import numpy as np
 from numpy.typing import NDArray
 import dplvn # type: ignore
 
-def main():
+def main() -> None:
     bold = lambda str: ("\033[1m" + str + "\033[0m")
 
     print()
@@ -25,7 +25,7 @@ def main():
         dx=0.5, dt=0.01,
         random_seed=2,
         grid_dimension=dplvn.D2,
-        grid_size=(40,25,),
+        grid_size=(12,8,),
         # grid_size=(100,60,),
         grid_topologies=(dplvn.BOUNDED, dplvn.PERIODIC,),
         # boundary_condition=dplvn.FLOATING,
@@ -37,10 +37,12 @@ def main():
         # bc_values=(-0, +2, 0, 0,),
         bc_values=(-1e+1, +1e+1, 0, 0,),
         initial_condition=dplvn.RANDOM_UNIFORM,
-        integration_method=dplvn.RUNGE_KUTTA
+        ic_values=(0, 1,),
+        integration_method=dplvn.RUNGE_KUTTA,
+        do_verbose=True,
     )
 
-    if not sim.initialize():
+    if not sim.initialize(5):
         raise Exception("Failed to initialize sim")
     n_epochs: int = sim.get_n_epochs()
     print()

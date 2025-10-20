@@ -21,7 +21,8 @@
     const dbl_vec_t bc_values,
     const InitialCondition initial_condition,
     const dbl_vec_t ic_values,
-    const IntegrationMethod integration_method
+    const IntegrationMethod integration_method,
+    const bool do_verbose
 ) : coefficients(linear, quadratic, diffusion, noise),
     p(
         t_final, 
@@ -36,12 +37,16 @@
         initial_condition, 
         ic_values, 
         integration_method
-    )
+    ),
+    do_verbose(do_verbose)
 {
     rng = new rng_t(p.random_seed); 
     dpLangevin = new DPLangevin(p);
-    coefficients.print();
-    p.print();
+    if (do_verbose) 
+    {
+        coefficients.print();
+        p.print();
+    }
 }
 
 //! Method to be called first to set up simulation: 
